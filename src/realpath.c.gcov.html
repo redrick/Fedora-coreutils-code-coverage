@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>LCOV - coreutils - src/realpath.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - realpath.c<span style="font-size: 80%;"> (source / <a href="realpath.c.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coreutils</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">131</td>
+            <td class="headerCovTableEntry">142</td>
+            <td class="headerCovTableEntryHi">92.3 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-03-13</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">87</td>
+            <td class="headerCovTableEntry">106</td>
+            <td class="headerCovTableEntryMed">82.1 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : /* realpath - print the resolved path</a>
+<span class="lineNum">       2 </span>                :            :    Copyright (C) 2011-2012 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>                :            : 
+<span class="lineNum">       4 </span>                :            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>                :            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>                :            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>                :            :    (at your option) any later version.
+<span class="lineNum">       8 </span>                :            : 
+<span class="lineNum">       9 </span>                :            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>                :            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>                :            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>                :            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>                :            : 
+<span class="lineNum">      14 </span>                :            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>                :            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>                :            : 
+<span class="lineNum">      17 </span>                :            : /* Written by Pádraig Brady.  */
+<span class="lineNum">      18 </span>                :            : 
+<span class="lineNum">      19 </span>                :            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>                :            : #include &lt;getopt.h&gt;
+<span class="lineNum">      21 </span>                :            : #include &lt;stdio.h&gt;
+<span class="lineNum">      22 </span>                :            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      23 </span>                :            : 
+<span class="lineNum">      24 </span>                :            : #include &quot;system.h&quot;
+<span class="lineNum">      25 </span>                :            : #include &quot;canonicalize.h&quot;
+<span class="lineNum">      26 </span>                :            : #include &quot;error.h&quot;
+<span class="lineNum">      27 </span>                :            : #include &quot;quote.h&quot;
+<span class="lineNum">      28 </span>                :            : 
+<span class="lineNum">      29 </span>                :            : /* The official name of this program (e.g., no `g' prefix).  */
+<span class="lineNum">      30 </span>                :            : #define PROGRAM_NAME &quot;realpath&quot;
+<span class="lineNum">      31 </span>                :            : 
+<span class="lineNum">      32 </span>                :            : #define AUTHORS proper_name_utf8 (&quot;Padraig Brady&quot;, &quot;P\303\241draig Brady&quot;)
+<span class="lineNum">      33 </span>                :            : 
+<span class="lineNum">      34 </span>                :            : enum
+<span class="lineNum">      35 </span>                :            : {
+<span class="lineNum">      36 </span>                :            :   RELATIVE_TO_OPTION = CHAR_MAX + 1,
+<span class="lineNum">      37 </span>                :            :   RELATIVE_BASE_OPTION
+<span class="lineNum">      38 </span>                :            : };
+<span class="lineNum">      39 </span>                :            : 
+<span class="lineNum">      40 </span>                :            : static bool verbose = true;
+<span class="lineNum">      41 </span>                :            : static bool logical;
+<span class="lineNum">      42 </span>                :            : static bool use_nuls;
+<span class="lineNum">      43 </span>                :            : static const char *can_relative_to;
+<span class="lineNum">      44 </span>                :            : static const char *can_relative_base;
+<span class="lineNum">      45 </span>                :            : 
+<span class="lineNum">      46 </span>                :            : static struct option const longopts[] =
+<span class="lineNum">      47 </span>                :            : {
+<span class="lineNum">      48 </span>                :            :   {&quot;canonicalize-existing&quot;, no_argument, NULL, 'e'},
+<span class="lineNum">      49 </span>                :            :   {&quot;canonicalize-missing&quot;, no_argument, NULL, 'm'},
+<span class="lineNum">      50 </span>                :            :   {&quot;relative-to&quot;, required_argument, NULL, RELATIVE_TO_OPTION},
+<span class="lineNum">      51 </span>                :            :   {&quot;relative-base&quot;, required_argument, NULL, RELATIVE_BASE_OPTION},
+<span class="lineNum">      52 </span>                :            :   {&quot;quiet&quot;, no_argument, NULL, 'q'},
+<span class="lineNum">      53 </span>                :            :   {&quot;strip&quot;, no_argument, NULL, 's' /* FIXME: deprecate in 2013 or so */},
+<span class="lineNum">      54 </span>                :            :   {&quot;no-symlinks&quot;, no_argument, NULL, 's'},
+<span class="lineNum">      55 </span>                :            :   {&quot;zero&quot;, no_argument, NULL, 'z'},
+<span class="lineNum">      56 </span>                :            :   {&quot;logical&quot;, no_argument, NULL, 'L'},
+<span class="lineNum">      57 </span>                :            :   {&quot;physical&quot;, no_argument, NULL, 'P'},
+<span class="lineNum">      58 </span>                :            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      59 </span>                :            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      60 </span>                :            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      61 </span>                :            : };
+<a name="62"><span class="lineNum">      62 </span>                :            : </a>
+<span class="lineNum">      63 </span>                :            : void
+<span class="lineNum">      64 </span>                :<span class="lineCov">         18 : usage (int status)</span>
+<span class="lineNum">      65 </span>                :            : {
+<span class="lineNum">      66 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         18 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      67 </span>                :<span class="lineCov">          9 :     fprintf (stderr, _(&quot;Try `%s --help' for more information.\n&quot;),</span>
+<span class="lineNum">      68 </span>                :            :              program_name);
+<span class="lineNum">      69 </span>                :            :   else
+<span class="lineNum">      70 </span>                :            :     {
+<span class="lineNum">      71 </span>                :<span class="lineCov">          9 :       printf (_(&quot;Usage: %s [OPTION]... FILE...\n&quot;), program_name);</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">          9 :       fputs (_(&quot;\</span>
+<span class="lineNum">      73 </span>                :            : Print the resolved absolute file name;\n\
+<span class="lineNum">      74 </span>                :            : all but the last component must exist\n\
+<span class="lineNum">      75 </span>                :            : \n\
+<span class="lineNum">      76 </span>                :            : &quot;), stdout);
+<span class="lineNum">      77 </span>                :<span class="lineCov">          9 :       fputs (_(&quot;\</span>
+<span class="lineNum">      78 </span>                :            :   -e, --canonicalize-existing  all components of the path must exist\n\
+<span class="lineNum">      79 </span>                :            :   -m, --canonicalize-missing   no components of the path need exist\n\
+<span class="lineNum">      80 </span>                :            :   -L, --logical                resolve `..' components before symlinks\n\
+<span class="lineNum">      81 </span>                :            :   -P, --physical               resolve symlinks as encountered (default)\n\
+<span class="lineNum">      82 </span>                :            :   -q, --quiet                  suppress most error messages\n\
+<span class="lineNum">      83 </span>                :            :       --relative-to=FILE       print the resolved path relative to FILE\n\
+<span class="lineNum">      84 </span>                :            :       --relative-base=FILE     print absolute paths unless paths below FILE\n\
+<span class="lineNum">      85 </span>                :            :   -s, --strip, --no-symlinks   don't expand symlinks\n\
+<span class="lineNum">      86 </span>                :            :   -z, --zero                   separate output with NUL rather than newline\n\
+<span class="lineNum">      87 </span>                :            : \n\
+<span class="lineNum">      88 </span>                :            : &quot;), stdout);
+<span class="lineNum">      89 </span>                :<span class="lineCov">          9 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      90 </span>                :<span class="lineCov">          9 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      91 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">      92 </span>                :            :     }
+<span class="lineNum">      93 </span>                :<span class="lineCov">         18 :   exit (status);</span>
+<span class="lineNum">      94 </span>                :            : }
+<span class="lineNum">      95 </span>                :            : 
+<span class="lineNum">      96 </span>                :            : /* A wrapper around canonicalize_filename_mode(),
+<a name="97"><span class="lineNum">      97 </span>                :            :    to call it twice when in LOGICAL mode.  */</a>
+<span class="lineNum">      98 </span>                :            : static char *
+<span class="lineNum">      99 </span>                :<span class="lineCov">         51 : realpath_canon (const char *fname, int can_mode)</span>
+<span class="lineNum">     100 </span>                :            : {
+<span class="lineNum">     101 </span>                :<span class="lineCov">         51 :   char *can_fname = canonicalize_filename_mode (fname, can_mode);</span>
+<span class="lineNum">     102 </span>[<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 48 times"> + </span>]:<span class="lineCov">         51 :   if (logical &amp;&amp; can_fname)  /* canonicalize again to resolve symlinks.  */</span>
+<span class="lineNum">     103 </span>                :            :     {
+<span class="lineNum">     104 </span>                :<span class="lineCov">          3 :       can_mode &amp;= ~CAN_NOLINKS;</span>
+<span class="lineNum">     105 </span>                :<span class="lineCov">          3 :       char *can_fname2 = canonicalize_filename_mode (can_fname, can_mode);</span>
+<span class="lineNum">     106 </span>                :<span class="lineCov">          3 :       free (can_fname);</span>
+<span class="lineNum">     107 </span>                :<span class="lineCov">          3 :       return can_fname2;</span>
+<span class="lineNum">     108 </span>                :            :     }
+<span class="lineNum">     109 </span>                :<span class="lineCov">         51 :   return can_fname;</span>
+<span class="lineNum">     110 </span>                :            : }
+<span class="lineNum">     111 </span>                :            : 
+<a name="112"><span class="lineNum">     112 </span>                :            : /* Test whether prefix is parent or match of path.  */</a>
+<span class="lineNum">     113 </span>                :            : static bool _GL_ATTRIBUTE_PURE
+<span class="lineNum">     114 </span>                :<span class="lineCov">          6 : path_prefix (const char *prefix, const char *path)</span>
+<span class="lineNum">     115 </span>                :            : {
+<span class="lineNum">     116 </span>[<span class="branchCov" title="Branch 0 was taken 456 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 456 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        462 :   while (*prefix &amp;&amp; *path)</span>
+<span class="lineNum">     117 </span>                :            :     {
+<span class="lineNum">     118 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 456 times"> + </span>]:<span class="lineCov">        456 :       if (*prefix != *path)</span>
+<span class="lineNum">     119 </span>                :<span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     120 </span>                :<span class="lineCov">        456 :       prefix++;</span>
+<span class="lineNum">     121 </span>                :<span class="lineCov">        456 :       path++;</span>
+<span class="lineNum">     122 </span>                :            :     }
+<span class="lineNum">     123 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">          6 :   return (!*prefix &amp;&amp; (*path == '/' || !*path));</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
+<span class="lineNum">     124 </span>                :            : }
+<span class="lineNum">     125 </span>                :            : 
+<span class="lineNum">     126 </span>                :            : /* Return the length of the longest common prefix
+<span class="lineNum">     127 </span>                :            :    of PATH1 and PATH2, ensuring only full path components
+<a name="128"><span class="lineNum">     128 </span>                :            :    are matched.  Return 0 on no match.  */</a>
+<span class="lineNum">     129 </span>                :            : static int _GL_ATTRIBUTE_PURE
+<span class="lineNum">     130 </span>                :<span class="lineCov">         12 : path_common_prefix (const char *path1, const char *path2)</span>
+<span class="lineNum">     131 </span>                :            : {
+<span class="lineNum">     132 </span>                :<span class="lineCov">         12 :   int i = 0;</span>
+<span class="lineNum">     133 </span>                :<span class="lineCov">         12 :   int ret = 0;</span>
+<span class="lineNum">     134 </span>                :            : 
+<span class="lineNum">     135 </span>[<span class="branchCov" title="Branch 0 was taken 987 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 984 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">        993 :   while (*path1 &amp;&amp; *path2)</span>
+<span class="lineNum">     136 </span>                :            :     {
+<span class="lineNum">     137 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 981 times"> + </span>]:<span class="lineCov">        984 :       if (*path1 != *path2)</span>
+<span class="lineNum">     138 </span>                :<span class="lineCov">          3 :         break;</span>
+<span class="lineNum">     139 </span>        [<span class="branchCov" title="Branch 0 was taken 93 times"> + </span><span class="branchCov" title="Branch 1 was taken 888 times"> + </span>]:<span class="lineCov">        981 :       if (*path1 == '/')</span>
+<span class="lineNum">     140 </span>                :<span class="lineCov">         93 :         ret = i;</span>
+<span class="lineNum">     141 </span>                :<span class="lineCov">        981 :       path1++;</span>
+<span class="lineNum">     142 </span>                :<span class="lineCov">        981 :       path2++;</span>
+<span class="lineNum">     143 </span>                :<span class="lineCov">        981 :       i++;</span>
+<span class="lineNum">     144 </span>                :            :     }
+<span class="lineNum">     145 </span>                :            : 
+<span class="lineNum">     146 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         12 :   if (!*path1 &amp;&amp; !*path2)</span>
+<span class="lineNum">     147 </span>                :<span class="lineNoCov">          0 :     ret = i;</span>
+<span class="lineNum">     148 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">         12 :   if (!*path1 &amp;&amp; *path2 == '/')</span>
+<span class="lineNum">     149 </span>                :<span class="lineCov">          3 :     ret = i;</span>
+<span class="lineNum">     150 </span>[<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         12 :   if (!*path2 &amp;&amp; *path1 == '/')</span>
+<span class="lineNum">     151 </span>                :<span class="lineCov">          3 :     ret = i;</span>
+<span class="lineNum">     152 </span>                :            : 
+<span class="lineNum">     153 </span>                :<span class="lineCov">         12 :   return ret;</span>
+<span class="lineNum">     154 </span>                :            : }
+<span class="lineNum">     155 </span>                :            : 
+<a name="156"><span class="lineNum">     156 </span>                :            : /* Output the relative representation if requested.  */</a>
+<span class="lineNum">     157 </span>                :            : static bool
+<span class="lineNum">     158 </span>                :<span class="lineCov">         30 : relpath (const char *can_fname)</span>
+<span class="lineNum">     159 </span>                :            : {
+<span class="lineNum">     160 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         30 :   if (can_relative_to)</span>
+<span class="lineNum">     161 </span>                :            :     {
+<span class="lineNum">     162 </span>                :            :       /* Enforce --relative-base.  */
+<span class="lineNum">     163 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         12 :       if (can_relative_base)</span>
+<span class="lineNum">     164 </span>                :            :         {
+<span class="lineNum">     165 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          3 :           if (!path_prefix (can_relative_base, can_fname)</span>
+<span class="lineNum">     166 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">          3 :               || !path_prefix (can_relative_base, can_relative_to))</span>
+<span class="lineNum">     167 </span>                :<span class="lineNoCov">          0 :             return false;</span>
+<span class="lineNum">     168 </span>                :            :         }
+<span class="lineNum">     169 </span>                :            : 
+<span class="lineNum">     170 </span>                :            :       /* Skip the prefix common to --relative-to and path.  */
+<span class="lineNum">     171 </span>                :<span class="lineCov">         12 :       int common_index = path_common_prefix (can_relative_to, can_fname);</span>
+<span class="lineNum">     172 </span>                :<span class="lineCov">         12 :       const char *relto_suffix = can_relative_to + common_index;</span>
+<span class="lineNum">     173 </span>                :<span class="lineCov">         12 :       const char *fname_suffix = can_fname + common_index;</span>
+<span class="lineNum">     174 </span>                :            : 
+<span class="lineNum">     175 </span>                :            :       /* Replace remaining components of --relative-to with '..', to get
+<span class="lineNum">     176 </span>                :            :          to a common directory.  Then output the remainder of fname.  */
+<span class="lineNum">     177 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         12 :       if (*relto_suffix)</span>
+<span class="lineNum">     178 </span>                :            :         {
+<span class="lineNum">     179 </span>                :<span class="lineCov">          9 :           ++relto_suffix;</span>
+<span class="lineNum">     180 </span>                :<span class="lineCov">          9 :           printf (&quot;%s&quot;, &quot;..&quot;);</span>
+<span class="lineNum">     181 </span>        [<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         63 :           for (; *relto_suffix; ++relto_suffix)</span>
+<span class="lineNum">     182 </span>                :            :             {
+<span class="lineNum">     183 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 54 times"> + </span>]:<span class="lineCov">         54 :               if (*relto_suffix == '/')</span>
+<span class="lineNum">     184 </span>                :<span class="lineNoCov">          0 :                 printf (&quot;%s&quot;, &quot;/..&quot;);</span>
+<span class="lineNum">     185 </span>                :            :             }
+<span class="lineNum">     186 </span>                :            : 
+<span class="lineNum">     187 </span>                :<span class="lineCov">          9 :           printf (&quot;%s&quot;, fname_suffix);</span>
+<span class="lineNum">     188 </span>                :            :         }
+<span class="lineNum">     189 </span>                :            :       else
+<span class="lineNum">     190 </span>                :            :         {
+<span class="lineNum">     191 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :           if (*fname_suffix)</span>
+<span class="lineNum">     192 </span>                :<span class="lineCov">          3 :             printf (&quot;%s&quot;, ++fname_suffix);</span>
+<span class="lineNum">     193 </span>                :            :           else
+<span class="lineNum">     194 </span>                :<span class="lineNoCov">          0 :             printf (&quot;%c&quot;, '.');</span>
+<span class="lineNum">     195 </span>                :            :         }
+<span class="lineNum">     196 </span>                :            : 
+<span class="lineNum">     197 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span>]:<span class="lineCov">         12 :       putchar (use_nuls ? '\0' : '\n');</span>
+<span class="lineNum">     198 </span>                :            : 
+<span class="lineNum">     199 </span>                :<span class="lineCov">         12 :       return true;</span>
+<span class="lineNum">     200 </span>                :            :     }
+<span class="lineNum">     201 </span>                :            : 
+<span class="lineNum">     202 </span>                :<span class="lineCov">         30 :   return false;</span>
+<span class="lineNum">     203 </span>                :            : }
+<a name="204"><span class="lineNum">     204 </span>                :            : </a>
+<span class="lineNum">     205 </span>                :            : static bool
+<span class="lineNum">     206 </span>                :<span class="lineCov">          9 : isdir (const char *path)</span>
+<span class="lineNum">     207 </span>                :            : {
+<span class="lineNum">     208 </span>                :            :   struct stat sb;
+<span class="lineNum">     209 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 9 times"> + </span>]:<span class="lineCov">          9 :   if (stat (path, &amp;sb) != 0)</span>
+<span class="lineNum">     210 </span>                :<span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;cannot stat %s&quot;), quote (path));</span>
+<span class="lineNum">     211 </span>                :<span class="lineCov">          9 :   return S_ISDIR (sb.st_mode);</span>
+<span class="lineNum">     212 </span>                :            : }
+<a name="213"><span class="lineNum">     213 </span>                :            : </a>
+<span class="lineNum">     214 </span>                :            : static bool
+<span class="lineNum">     215 </span>                :<span class="lineCov">         33 : process_path (const char *fname, int can_mode)</span>
+<span class="lineNum">     216 </span>                :            : {
+<span class="lineNum">     217 </span>                :<span class="lineCov">         33 :   char *can_fname = realpath_canon (fname, can_mode);</span>
+<span class="lineNum">     218 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>]:<span class="lineCov">         33 :   if (!can_fname)</span>
+<span class="lineNum">     219 </span>                :            :     {
+<span class="lineNum">     220 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :       if (verbose)</span>
+<span class="lineNum">     221 </span>                :<span class="lineCov">          3 :         error (0, errno, &quot;%s&quot;, quote (fname));</span>
+<span class="lineNum">     222 </span>                :<span class="lineCov">          3 :       return false;</span>
+<span class="lineNum">     223 </span>                :            :     }
+<span class="lineNum">     224 </span>                :            : 
+<span class="lineNum">     225 </span>        [<span class="branchCov" title="Branch 1 was taken 18 times"> + </span><span class="branchCov" title="Branch 2 was taken 12 times"> + </span>]:<span class="lineCov">         30 :   if (!relpath (can_fname))</span>
+<span class="lineNum">     226 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         18 :     printf (&quot;%s%c&quot;, can_fname, (use_nuls ? '\0' : '\n'));</span>
+<span class="lineNum">     227 </span>                :            : 
+<span class="lineNum">     228 </span>                :<span class="lineCov">         30 :   free (can_fname);</span>
+<span class="lineNum">     229 </span>                :            : 
+<span class="lineNum">     230 </span>                :<span class="lineCov">         33 :   return true;</span>
+<span class="lineNum">     231 </span>                :            : }
+<a name="232"><span class="lineNum">     232 </span>                :            : </a>
+<span class="lineNum">     233 </span>                :            : int
+<span class="lineNum">     234 </span>                :<span class="lineCov">         69 : main (int argc, char **argv)</span>
+<span class="lineNum">     235 </span>                :            : {
+<span class="lineNum">     236 </span>                :<span class="lineCov">         69 :   bool ok = true;</span>
+<span class="lineNum">     237 </span>                :<span class="lineCov">         69 :   int can_mode = CAN_ALL_BUT_LAST;</span>
+<span class="lineNum">     238 </span>                :<span class="lineCov">         69 :   const char *relative_to = NULL;</span>
+<span class="lineNum">     239 </span>                :<span class="lineCov">         69 :   const char *relative_base = NULL;</span>
+<span class="lineNum">     240 </span>                :            : 
+<span class="lineNum">     241 </span>                :            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     242 </span>                :<span class="lineCov">         69 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     243 </span>                :<span class="lineCov">         69 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     244 </span>                :<span class="lineCov">         69 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     245 </span>                :<span class="lineCov">         69 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     246 </span>                :            : 
+<span class="lineNum">     247 </span>                :<span class="lineCov">         69 :   atexit (close_stdout);</span>
+<span class="lineNum">     248 </span>                :            : 
+<span class="lineNum">     249 </span>                :            :   while (1)
+<span class="lineNum">     250 </span>                :            :     {
+<span class="lineNum">     251 </span>                :<span class="lineCov">        129 :       int c = getopt_long (argc, argv, &quot;eLmPqsz&quot;, longopts, NULL);</span>
+<span class="lineNum">     252 </span>        [<span class="branchCov" title="Branch 0 was taken 42 times"> + </span><span class="branchCov" title="Branch 1 was taken 87 times"> + </span>]:<span class="lineCov">        129 :       if (c == -1)</span>
+<span class="lineNum">     253 </span>                :<span class="lineCov">         42 :         break;</span>
+<span class="lineNum">     254 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span> :<span class="lineCov">         87 :       switch (c)</span>
+<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 3 times"> + </span><span class="branchCov" title="Branch 5 was taken 3 times"> + </span><span class="branchCov" title="Branch 6 was taken 3 times"> + </span><span class="branchCov" title="Branch 7 was taken 15 times"> + </span><span class="branchCov" title="Branch 8 was taken 12 times"> + </span> 
+<span class="lineNum">         </span>      <span class="branchCov" title="Branch 9 was taken 9 times"> + </span><span class="branchCov" title="Branch 10 was taken 15 times"> + </span><span class="branchCov" title="Branch 11 was taken 3 times"> + </span>]
+<span class="lineNum">     255 </span>                :            :         {
+<span class="lineNum">     256 </span>                :            :         case 'e':
+<span class="lineNum">     257 </span>                :<span class="lineCov">          6 :           can_mode &amp;= ~CAN_MODE_MASK;</span>
+<span class="lineNum">     258 </span>                :<span class="lineCov">          6 :           can_mode |= CAN_EXISTING;</span>
+<span class="lineNum">     259 </span>                :<span class="lineCov">          6 :           break;</span>
+<span class="lineNum">     260 </span>                :            :         case 'm':
+<span class="lineNum">     261 </span>                :<span class="lineCov">         12 :           can_mode &amp;= ~CAN_MODE_MASK;</span>
+<span class="lineNum">     262 </span>                :<span class="lineCov">         12 :           can_mode |= CAN_MISSING;</span>
+<span class="lineNum">     263 </span>                :<span class="lineCov">         12 :           break;</span>
+<span class="lineNum">     264 </span>                :            :         case 'L':
+<span class="lineNum">     265 </span>                :<span class="lineCov">          3 :           can_mode |= CAN_NOLINKS;</span>
+<span class="lineNum">     266 </span>                :<span class="lineCov">          3 :           logical = true;</span>
+<span class="lineNum">     267 </span>                :<span class="lineCov">          3 :           break;</span>
+<span class="lineNum">     268 </span>                :            :         case 's':
+<span class="lineNum">     269 </span>                :<span class="lineCov">          3 :           can_mode |= CAN_NOLINKS;</span>
+<span class="lineNum">     270 </span>                :<span class="lineCov">          3 :           logical = false;</span>
+<span class="lineNum">     271 </span>                :<span class="lineCov">          3 :           break;</span>
+<span class="lineNum">     272 </span>                :            :         case 'P':
+<span class="lineNum">     273 </span>                :<span class="lineCov">          3 :           can_mode &amp;= ~CAN_NOLINKS;</span>
+<span class="lineNum">     274 </span>                :<span class="lineCov">          3 :           logical = false;</span>
+<span class="lineNum">     275 </span>                :<span class="lineCov">          3 :           break;</span>
+<span class="lineNum">     276 </span>                :            :         case 'q':
+<span class="lineNum">     277 </span>                :<span class="lineCov">          3 :           verbose = false;</span>
+<span class="lineNum">     278 </span>                :<span class="lineCov">          3 :           break;</span>
+<span class="lineNum">     279 </span>                :            :         case 'z':
+<span class="lineNum">     280 </span>                :<span class="lineCov">          3 :           use_nuls = true;</span>
+<span class="lineNum">     281 </span>                :<span class="lineCov">          3 :           break;</span>
+<span class="lineNum">     282 </span>                :            :         case RELATIVE_TO_OPTION:
+<span class="lineNum">     283 </span>                :<span class="lineCov">         15 :           relative_to = optarg;</span>
+<span class="lineNum">     284 </span>                :<span class="lineCov">         15 :           break;</span>
+<span class="lineNum">     285 </span>                :            :         case RELATIVE_BASE_OPTION:
+<span class="lineNum">     286 </span>                :<span class="lineCov">         12 :           relative_base = optarg;</span>
+<span class="lineNum">     287 </span>                :<span class="lineCov">         12 :           break;</span>
+<span class="lineNum">     288 </span>                :<span class="lineCov">          9 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     289 </span>                :<span class="lineCov">         15 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     290 </span>                :            :         default:
+<span class="lineNum">     291 </span>                :<span class="lineCov">          3 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     292 </span>                :            :         }
+<span class="lineNum">     293 </span>                :<span class="lineCov">         60 :     }</span>
+<span class="lineNum">     294 </span>                :            : 
+<span class="lineNum">     295 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 42 times"> + </span>]:<span class="lineCov">         42 :   if (optind &gt;= argc)</span>
+<span class="lineNum">     296 </span>                :            :     {
+<span class="lineNum">     297 </span>                :<span class="lineNoCov">          0 :       error (0, 0, _(&quot;missing operand&quot;));</span>
+<span class="lineNum">     298 </span>                :<span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     299 </span>                :            :     }
+<span class="lineNum">     300 </span>                :            : 
+<span class="lineNum">     301 </span>[<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         42 :   if (relative_base &amp;&amp; !relative_to)</span>
+<span class="lineNum">     302 </span>                :            :     {
+<span class="lineNum">     303 </span>                :<span class="lineCov">          6 :       error (0, 0, _(&quot;--relative-base requires --relative-to&quot;));</span>
+<span class="lineNum">     304 </span>                :<span class="lineCov">          6 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     305 </span>                :            :     }
+<span class="lineNum">     306 </span>                :            : 
+<span class="lineNum">     307 </span>                :<span class="lineCov">         36 :   bool need_dir = (can_mode &amp; CAN_MODE_MASK) == CAN_EXISTING;</span>
+<span class="lineNum">     308 </span>        [<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         36 :   if (relative_to)</span>
+<span class="lineNum">     309 </span>                :            :     {
+<span class="lineNum">     310 </span>                :<span class="lineCov">         15 :       can_relative_to = realpath_canon (relative_to, can_mode);</span>
+<span class="lineNum">     311 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         15 :       if (!can_relative_to)</span>
+<span class="lineNum">     312 </span>                :<span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, &quot;%s&quot;, quote (relative_to));</span>
+<span class="lineNum">     313 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 3 times"> + </span><span class="branchCov" title="Branch 4 was taken 3 times"> + </span>]:<span class="lineCov">         15 :       if (need_dir &amp;&amp; !isdir (can_relative_to))</span>
+<span class="lineNum">     314 </span>                :<span class="lineCov">          3 :         error (EXIT_FAILURE, ENOTDIR, &quot;%s&quot;, quote (relative_to));</span>
+<span class="lineNum">     315 </span>                :            :     }
+<span class="lineNum">     316 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>]:<span class="lineCov">         33 :   if (relative_base)</span>
+<span class="lineNum">     317 </span>                :            :     {
+<span class="lineNum">     318 </span>                :<span class="lineCov">          3 :       can_relative_base = realpath_canon (relative_base, can_mode);</span>
+<span class="lineNum">     319 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :       if (!can_relative_base)</span>
+<span class="lineNum">     320 </span>                :<span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, &quot;%s&quot;, quote (relative_base));</span>
+<span class="lineNum">     321 </span>[<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 3 times"> + </span>]:<span class="lineCov">          3 :       if (need_dir &amp;&amp; !isdir (can_relative_base))</span>
+<span class="lineNum">     322 </span>                :<span class="lineNoCov">          0 :         error (EXIT_FAILURE, ENOTDIR, &quot;%s&quot;, quote (relative_base));</span>
+<span class="lineNum">     323 </span>                :            :     }
+<span class="lineNum">     324 </span>                :            : 
+<span class="lineNum">     325 </span>        [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span>]:<span class="lineCov">         66 :   for (; optind &lt; argc; ++optind)</span>
+<span class="lineNum">     326 </span>                :<span class="lineCov">         33 :     ok &amp;= process_path (argv[optind], can_mode);</span>
+<span class="lineNum">     327 </span>                :            : 
+<span class="lineNum">     328 </span>        [<span class="branchCov" title="Branch 0 was taken 30 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         33 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
+<span class="lineNum">     329 </span>                :            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
