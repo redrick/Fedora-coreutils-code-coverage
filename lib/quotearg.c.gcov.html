@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">22</td>
@@ -278,7 +278,7 @@
 <span class="lineNum">     207 </span>                :            :    not careful about errno.  */
 <a name="208"><span class="lineNum">     208 </span>                :            : </a>
 <span class="lineNum">     209 </span>                :            : static size_t
-<span class="lineNum">     210 </span>                :<span class="lineCov">      21994 : quotearg_buffer_restyled (char *buffer, size_t buffersize,</span>
+<span class="lineNum">     210 </span>                :<span class="lineCov">      22034 : quotearg_buffer_restyled (char *buffer, size_t buffersize,</span>
 <span class="lineNum">     211 </span>                :            :                           char const *arg, size_t argsize,
 <span class="lineNum">     212 </span>                :            :                           enum quoting_style quoting_style, int flags,
 <span class="lineNum">     213 </span>                :            :                           unsigned int const *quote_these_too,
@@ -286,12 +286,12 @@
 <span class="lineNum">     215 </span>                :            :                           char const *right_quote)
 <span class="lineNum">     216 </span>                :            : {
 <span class="lineNum">     217 </span>                :            :   size_t i;
-<span class="lineNum">     218 </span>                :<span class="lineCov">      21994 :   size_t len = 0;</span>
-<span class="lineNum">     219 </span>                :<span class="lineCov">      21994 :   char const *quote_string = 0;</span>
-<span class="lineNum">     220 </span>                :<span class="lineCov">      21994 :   size_t quote_string_len = 0;</span>
-<span class="lineNum">     221 </span>                :<span class="lineCov">      21994 :   bool backslash_escapes = false;</span>
-<span class="lineNum">     222 </span>                :<span class="lineCov">      21994 :   bool unibyte_locale = MB_CUR_MAX == 1;</span>
-<span class="lineNum">     223 </span>                :<span class="lineCov">      21994 :   bool elide_outer_quotes = (flags &amp; QA_ELIDE_OUTER_QUOTES) != 0;</span>
+<span class="lineNum">     218 </span>                :<span class="lineCov">      22034 :   size_t len = 0;</span>
+<span class="lineNum">     219 </span>                :<span class="lineCov">      22034 :   char const *quote_string = 0;</span>
+<span class="lineNum">     220 </span>                :<span class="lineCov">      22034 :   size_t quote_string_len = 0;</span>
+<span class="lineNum">     221 </span>                :<span class="lineCov">      22034 :   bool backslash_escapes = false;</span>
+<span class="lineNum">     222 </span>                :<span class="lineCov">      22034 :   bool unibyte_locale = MB_CUR_MAX == 1;</span>
+<span class="lineNum">     223 </span>                :<span class="lineCov">      22034 :   bool elide_outer_quotes = (flags &amp; QA_ELIDE_OUTER_QUOTES) != 0;</span>
 <span class="lineNum">     224 </span>                :            : 
 <span class="lineNum">     225 </span>                :            : #define STORE(c) \
 <span class="lineNum">     226 </span>                :            :     do \
@@ -302,8 +302,8 @@
 <span class="lineNum">     231 </span>                :            :       } \
 <span class="lineNum">     232 </span>                :            :     while (0)
 <span class="lineNum">     233 </span>                :            : 
-<span class="lineNum">     234 </span>  [<span class="branchCov" title="Branch 0 was taken 63 times"> + </span><span class="branchCov" title="Branch 1 was taken 339 times"> + </span><span class="branchCov" title="Branch 2 was taken 201 times"> + </span><span class="branchCov" title="Branch 3 was taken 2817 times"> + </span> :<span class="lineCov">      21994 :   switch (quoting_style)</span>
-<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 69 times"> + </span><span class="branchCov" title="Branch 5 was taken 99 times"> + </span><span class="branchCov" title="Branch 6 was taken 18406 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">     234 </span>  [<span class="branchCov" title="Branch 0 was taken 63 times"> + </span><span class="branchCov" title="Branch 1 was taken 339 times"> + </span><span class="branchCov" title="Branch 2 was taken 201 times"> + </span><span class="branchCov" title="Branch 3 was taken 2817 times"> + </span> :<span class="lineCov">      22034 :   switch (quoting_style)</span>
+<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 69 times"> + </span><span class="branchCov" title="Branch 5 was taken 99 times"> + </span><span class="branchCov" title="Branch 6 was taken 18446 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
 <span class="lineNum">     235 </span>                :            :     {
 <span class="lineNum">     236 </span>                :            :     case c_maybe_quoting_style:
 <span class="lineNum">     237 </span>                :<span class="lineCov">         63 :       quoting_style = c_quoting_style;</span>
@@ -371,20 +371,20 @@
 <span class="lineNum">     299 </span>                :<span class="lineCov">        168 :       break;</span>
 <span class="lineNum">     300 </span>                :            : 
 <span class="lineNum">     301 </span>                :            :     case literal_quoting_style:
-<span class="lineNum">     302 </span>                :<span class="lineCov">      18406 :       elide_outer_quotes = false;</span>
-<span class="lineNum">     303 </span>                :<span class="lineCov">      18406 :       break;</span>
+<span class="lineNum">     302 </span>                :<span class="lineCov">      18446 :       elide_outer_quotes = false;</span>
+<span class="lineNum">     303 </span>                :<span class="lineCov">      18446 :       break;</span>
 <span class="lineNum">     304 </span>                :            : 
 <span class="lineNum">     305 </span>                :            :     default:
 <span class="lineNum">     306 </span>                :<span class="lineNoCov">          0 :       abort ();</span>
 <span class="lineNum">     307 </span>                :            :     }
 <span class="lineNum">     308 </span>                :            : 
-<span class="lineNum">     309 </span>[<span class="branchCov" title="Branch 0 was taken 394600 times"> + </span><span class="branchCov" title="Branch 1 was taken 4395 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 377091 times"> + </span><span class="branchCov" title="Branch 3 was taken 21904 times"> + </span>]:<span class="lineCov">     398995 :   for (i = 0;  ! (argsize == SIZE_MAX ? arg[i] == '\0' : i == argsize);  i++)</span>
+<span class="lineNum">     309 </span>[<span class="branchCov" title="Branch 0 was taken 395171 times"> + </span><span class="branchCov" title="Branch 1 was taken 4395 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 377622 times"> + </span><span class="branchCov" title="Branch 3 was taken 21944 times"> + </span>]:<span class="lineCov">     399566 :   for (i = 0;  ! (argsize == SIZE_MAX ? arg[i] == '\0' : i == argsize);  i++)</span>
 <span class="lineNum">     310 </span>                :            :     {
 <span class="lineNum">     311 </span>                :            :       unsigned char c;
 <span class="lineNum">     312 </span>                :            :       unsigned char esc;
-<span class="lineNum">     313 </span>                :<span class="lineCov">     377091 :       bool is_right_quote = false;</span>
+<span class="lineNum">     313 </span>                :<span class="lineCov">     377622 :       bool is_right_quote = false;</span>
 <span class="lineNum">     314 </span>                :            : 
-<span class="lineNum">     315 </span>        [<span class="branchCov" title="Branch 0 was taken 20111 times"> + </span><span class="branchCov" title="Branch 1 was taken 356980 times"> + </span>]:<span class="lineCov">     377091 :       if (backslash_escapes</span>
+<span class="lineNum">     315 </span>        [<span class="branchCov" title="Branch 0 was taken 20111 times"> + </span><span class="branchCov" title="Branch 1 was taken 357511 times"> + </span>]:<span class="lineCov">     377622 :       if (backslash_escapes</span>
 <span class="lineNum">     316 </span>        [<span class="branchCov" title="Branch 0 was taken 18687 times"> + </span><span class="branchCov" title="Branch 1 was taken 1424 times"> + </span>]:<span class="lineCov">      20111 :           &amp;&amp; quote_string_len</span>
 <span class="lineNum">     317 </span>        [<span class="branchCov" title="Branch 0 was taken 18651 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span>]:<span class="lineCov">      18687 :           &amp;&amp; i + quote_string_len &lt;= argsize</span>
 <span class="lineNum">     318 </span>        [<span class="branchCov" title="Branch 0 was taken 108 times"> + </span><span class="branchCov" title="Branch 1 was taken 18543 times"> + </span>]:<span class="lineCov">      18651 :           &amp;&amp; memcmp (arg + i, quote_string, quote_string_len) == 0)</span>
@@ -394,11 +394,11 @@
 <span class="lineNum">     322 </span>                :<span class="lineCov">        108 :           is_right_quote = true;</span>
 <span class="lineNum">     323 </span>                :            :         }
 <span class="lineNum">     324 </span>                :            : 
-<span class="lineNum">     325 </span>                :<span class="lineCov">     377091 :       c = arg[i];</span>
-<span class="lineNum">     326 </span>  [<span class="branchCov" title="Branch 0 was taken 363 times"> + </span><span class="branchCov" title="Branch 1 was taken 354 times"> + </span><span class="branchCov" title="Branch 2 was taken 60 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">     377091 :       switch (c)</span>
+<span class="lineNum">     325 </span>                :<span class="lineCov">     377622 :       c = arg[i];</span>
+<span class="lineNum">     326 </span>  [<span class="branchCov" title="Branch 0 was taken 363 times"> + </span><span class="branchCov" title="Branch 1 was taken 354 times"> + </span><span class="branchCov" title="Branch 2 was taken 60 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">     377622 :       switch (c)</span>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 171 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 192 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span><span class="branchCov" title="Branch 9 was taken 357 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchCov" title="Branch 11 was taken 705 times"> + </span><span class="branchCov" title="Branch 12 was taken 530 times"> + </span><span class="branchCov" title="Branch 13 was taken 171 times"> + </span> 
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 14 was taken 373306 times"> + </span><span class="branchCov" title="Branch 15 was taken 882 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 14 was taken 373837 times"> + </span><span class="branchCov" title="Branch 15 was taken 882 times"> + </span>]
 <span class="lineNum">     327 </span>                :            :         {
 <span class="lineNum">     328 </span>                :            :         case '\0':
 <span class="lineNum">     329 </span>        [<span class="branchCov" title="Branch 0 was taken 291 times"> + </span><span class="branchCov" title="Branch 1 was taken 72 times"> + </span>]:<span class="lineCov">        363 :           if (backslash_escapes)</span>
@@ -551,7 +551,7 @@
 <span class="lineNum">     474 </span>                :            :              them.  Also, a digit or a special letter would cause
 <span class="lineNum">     475 </span>                :            :              trouble if it appeared in quote_these_too, but that's also
 <span class="lineNum">     476 </span>                :            :              documented as not accepting them.  */
-<span class="lineNum">     477 </span>                :<span class="lineCov">     373306 :           break;</span>
+<span class="lineNum">     477 </span>                :<span class="lineCov">     373837 :           break;</span>
 <span class="lineNum">     478 </span>                :            : 
 <span class="lineNum">     479 </span>                :            :         default:
 <span class="lineNum">     480 </span>                :            :           /* If we have a multibyte sequence, copy it until we reach
@@ -663,12 +663,12 @@
 <span class="lineNum">     585 </span>                :            :           }
 <span class="lineNum">     586 </span>                :            :         }
 <span class="lineNum">     587 </span>                :            : 
-<span class="lineNum">     588 </span>[<span class="branchCov" title="Branch 0 was taken 356908 times"> + </span><span class="branchCov" title="Branch 1 was taken 18803 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 150 times"> + </span><span class="branchCov" title="Branch 3 was taken 356758 times"> + </span>]:<span class="lineCov">     394457 :       if (! ((backslash_escapes || elide_outer_quotes)</span>
+<span class="lineNum">     588 </span>[<span class="branchCov" title="Branch 0 was taken 357439 times"> + </span><span class="branchCov" title="Branch 1 was taken 18803 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 150 times"> + </span><span class="branchCov" title="Branch 3 was taken 357289 times"> + </span>]:<span class="lineCov">     394988 :       if (! ((backslash_escapes || elide_outer_quotes)</span>
 <span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 18695 times"> + </span><span class="branchCov" title="Branch 5 was taken 51 times"> + </span>]
 <span class="lineNum">     589 </span>        [<span class="branchCov" title="Branch 0 was taken 18746 times"> + </span><span class="branchCov" title="Branch 1 was taken 207 times"> + </span>]:<span class="lineCov">      18953 :              &amp;&amp; quote_these_too</span>
 <span class="lineNum">     590 </span>                :<span class="lineCov">      18746 :              &amp;&amp; quote_these_too[c / INT_BITS] &amp; (1 &lt;&lt; (c % INT_BITS)))</span>
-<span class="lineNum">     591 </span>        [<span class="branchCov" title="Branch 0 was taken 375570 times"> + </span><span class="branchCov" title="Branch 1 was taken 90 times"> + </span>]:<span class="lineCov">     375660 :           &amp;&amp; !is_right_quote)</span>
-<span class="lineNum">     592 </span>                :<span class="lineCov">     375570 :         goto store_c;</span>
+<span class="lineNum">     591 </span>        [<span class="branchCov" title="Branch 0 was taken 376101 times"> + </span><span class="branchCov" title="Branch 1 was taken 90 times"> + </span>]:<span class="lineCov">     376191 :           &amp;&amp; !is_right_quote)</span>
+<span class="lineNum">     592 </span>                :<span class="lineCov">     376101 :         goto store_c;</span>
 <span class="lineNum">     593 </span>                :            : 
 <span class="lineNum">     594 </span>                :            :     store_escape:
 <span class="lineNum">     595 </span>        [<span class="branchCov" title="Branch 0 was taken 30 times"> + </span><span class="branchCov" title="Branch 1 was taken 675 times"> + </span>]:<span class="lineCov">        705 :       if (elide_outer_quotes)</span>
@@ -676,25 +676,25 @@
 <span class="lineNum">     597 </span>        [<span class="branchCov" title="Branch 0 was taken 675 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        675 :       STORE ('\\');</span>
 <span class="lineNum">     598 </span>                :            : 
 <span class="lineNum">     599 </span>                :            :     store_c:
-<span class="lineNum">     600 </span>        [<span class="branchCov" title="Branch 0 was taken 374617 times"> + </span><span class="branchCov" title="Branch 1 was taken 2330 times"> + </span>]:<span class="lineCov">     376947 :       STORE (c);</span>
+<span class="lineNum">     600 </span>        [<span class="branchCov" title="Branch 0 was taken 375148 times"> + </span><span class="branchCov" title="Branch 1 was taken 2330 times"> + </span>]:<span class="lineCov">     377478 :       STORE (c);</span>
 <span class="lineNum">     601 </span>                :            :     }
 <span class="lineNum">     602 </span>                :            : 
-<span class="lineNum">     603 </span>[<span class="branchCov" title="Branch 0 was taken 66 times"> + </span><span class="branchCov" title="Branch 1 was taken 21838 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchCov" title="Branch 3 was taken 57 times"> + </span>]:<span class="lineCov">      21904 :   if (len == 0 &amp;&amp; quoting_style == shell_always_quoting_style</span>
+<span class="lineNum">     603 </span>[<span class="branchCov" title="Branch 0 was taken 66 times"> + </span><span class="branchCov" title="Branch 1 was taken 21878 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchCov" title="Branch 3 was taken 57 times"> + </span>]:<span class="lineCov">      21944 :   if (len == 0 &amp;&amp; quoting_style == shell_always_quoting_style</span>
 <span class="lineNum">     604 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          9 :       &amp;&amp; elide_outer_quotes)</span>
 <span class="lineNum">     605 </span>                :<span class="lineCov">          9 :     goto force_outer_quoting_style;</span>
 <span class="lineNum">     606 </span>                :            : 
-<span class="lineNum">     607 </span>[<span class="branchCov" title="Branch 0 was taken 3288 times"> + </span><span class="branchCov" title="Branch 1 was taken 18607 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3171 times"> + </span><span class="branchCov" title="Branch 3 was taken 117 times"> + </span>]:<span class="lineCov">      21895 :   if (quote_string &amp;&amp; !elide_outer_quotes)</span>
+<span class="lineNum">     607 </span>[<span class="branchCov" title="Branch 0 was taken 3288 times"> + </span><span class="branchCov" title="Branch 1 was taken 18647 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3171 times"> + </span><span class="branchCov" title="Branch 3 was taken 117 times"> + </span>]:<span class="lineCov">      21935 :   if (quote_string &amp;&amp; !elide_outer_quotes)</span>
 <span class="lineNum">     608 </span>        [<span class="branchCov" title="Branch 0 was taken 3171 times"> + </span><span class="branchCov" title="Branch 1 was taken 3171 times"> + </span>]:<span class="lineCov">       6342 :     for (; *quote_string; quote_string++)</span>
 <span class="lineNum">     609 </span>        [<span class="branchCov" title="Branch 0 was taken 2832 times"> + </span><span class="branchCov" title="Branch 1 was taken 339 times"> + </span>]:<span class="lineCov">       3171 :       STORE (*quote_string);</span>
 <span class="lineNum">     610 </span>                :            : 
-<span class="lineNum">     611 </span>        [<span class="branchCov" title="Branch 0 was taken 21553 times"> + </span><span class="branchCov" title="Branch 1 was taken 342 times"> + </span>]:<span class="lineCov">      21895 :   if (len &lt; buffersize)</span>
-<span class="lineNum">     612 </span>                :<span class="lineCov">      21553 :     buffer[len] = '\0';</span>
-<span class="lineNum">     613 </span>                :<span class="lineCov">      21895 :   return len;</span>
+<span class="lineNum">     611 </span>        [<span class="branchCov" title="Branch 0 was taken 21593 times"> + </span><span class="branchCov" title="Branch 1 was taken 342 times"> + </span>]:<span class="lineCov">      21935 :   if (len &lt; buffersize)</span>
+<span class="lineNum">     612 </span>                :<span class="lineCov">      21593 :     buffer[len] = '\0';</span>
+<span class="lineNum">     613 </span>                :<span class="lineCov">      21935 :   return len;</span>
 <span class="lineNum">     614 </span>                :            : 
 <span class="lineNum">     615 </span>                :            :  force_outer_quoting_style:
 <span class="lineNum">     616 </span>                :            :   /* Don't reuse quote_these_too, since the addition of outer quotes
 <span class="lineNum">     617 </span>                :            :      sufficiently quotes the specified characters.  */
-<span class="lineNum">     618 </span>                :<span class="lineCov">      21994 :   return quotearg_buffer_restyled (buffer, buffersize, arg, argsize,</span>
+<span class="lineNum">     618 </span>                :<span class="lineCov">      22034 :   return quotearg_buffer_restyled (buffer, buffersize, arg, argsize,</span>
 <span class="lineNum">     619 </span>                :            :                                    quoting_style,
 <span class="lineNum">     620 </span>                :            :                                    flags &amp; ~QA_ELIDE_OUTER_QUOTES, NULL,
 <span class="lineNum">     621 </span>                :            :                                    left_quote, right_quote);
@@ -710,17 +710,17 @@
 <span class="lineNum">     631 </span>                :            :    If ARGSIZE is SIZE_MAX, use the string length of the argument for
 <a name="632"><span class="lineNum">     632 </span>                :            :    ARGSIZE.  */</a>
 <span class="lineNum">     633 </span>                :            : size_t
-<span class="lineNum">     634 </span>                :<span class="lineCov">      15403 : quotearg_buffer (char *buffer, size_t buffersize,</span>
+<span class="lineNum">     634 </span>                :<span class="lineCov">      15443 : quotearg_buffer (char *buffer, size_t buffersize,</span>
 <span class="lineNum">     635 </span>                :            :                  char const *arg, size_t argsize,
 <span class="lineNum">     636 </span>                :            :                  struct quoting_options const *o)
 <span class="lineNum">     637 </span>                :            : {
-<span class="lineNum">     638 </span>        [<span class="branchCov" title="Branch 0 was taken 15025 times"> + </span><span class="branchCov" title="Branch 1 was taken 378 times"> + </span>]:<span class="lineCov">      15403 :   struct quoting_options const *p = o ? o : &amp;default_quoting_options;</span>
-<span class="lineNum">     639 </span>                :<span class="lineCov">      15403 :   int e = errno;</span>
-<span class="lineNum">     640 </span>                :<span class="lineCov">      15403 :   size_t r = quotearg_buffer_restyled (buffer, buffersize, arg, argsize,</span>
-<span class="lineNum">     641 </span>                :<span class="lineCov">      15403 :                                        p-&gt;style, p-&gt;flags, p-&gt;quote_these_too,</span>
+<span class="lineNum">     638 </span>        [<span class="branchCov" title="Branch 0 was taken 15065 times"> + </span><span class="branchCov" title="Branch 1 was taken 378 times"> + </span>]:<span class="lineCov">      15443 :   struct quoting_options const *p = o ? o : &amp;default_quoting_options;</span>
+<span class="lineNum">     639 </span>                :<span class="lineCov">      15443 :   int e = errno;</span>
+<span class="lineNum">     640 </span>                :<span class="lineCov">      15443 :   size_t r = quotearg_buffer_restyled (buffer, buffersize, arg, argsize,</span>
+<span class="lineNum">     641 </span>                :<span class="lineCov">      15443 :                                        p-&gt;style, p-&gt;flags, p-&gt;quote_these_too,</span>
 <span class="lineNum">     642 </span>                :            :                                        p-&gt;left_quote, p-&gt;right_quote);
-<span class="lineNum">     643 </span>                :<span class="lineCov">      15403 :   errno = e;</span>
-<span class="lineNum">     644 </span>                :<span class="lineCov">      15403 :   return r;</span>
+<span class="lineNum">     643 </span>                :<span class="lineCov">      15443 :   errno = e;</span>
+<span class="lineNum">     644 </span>                :<span class="lineCov">      15443 :   return r;</span>
 <span class="lineNum">     645 </span>                :            : }
 <span class="lineNum">     646 </span>                :            : 
 <a name="647"><span class="lineNum">     647 </span>                :            : /* Equivalent to quotearg_alloc (ARG, ARGSIZE, NULL, O).  */</a>

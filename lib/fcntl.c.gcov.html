@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -240,9 +240,9 @@
 <span class="lineNum">     169 </span>                :            : rpl_fcntl (int fd, int action, /* arg */...)
 <span class="lineNum">     170 </span>                :            : {
 <span class="lineNum">     171 </span>                :            :   va_list arg;
-<span class="lineNum">     172 </span>                :<span class="lineCov">    1179353 :   int result = -1;</span>
-<span class="lineNum">     173 </span>                :<span class="lineCov">    1179353 :   va_start (arg, action);</span>
-<span class="lineNum">     174 </span>        [<span class="branchCov" title="Branch 0 was taken 72 times"> + </span><span class="branchCov" title="Branch 1 was taken 1179281 times"> + </span>]:<span class="lineCov">    1179353 :   switch (action)</span>
+<span class="lineNum">     172 </span>                :<span class="lineCov">    1179365 :   int result = -1;</span>
+<span class="lineNum">     173 </span>                :<span class="lineCov">    1179365 :   va_start (arg, action);</span>
+<span class="lineNum">     174 </span>        [<span class="branchCov" title="Branch 0 was taken 72 times"> + </span><span class="branchCov" title="Branch 1 was taken 1179293 times"> + </span>]:<span class="lineCov">    1179365 :   switch (action)</span>
 <span class="lineNum">     175 </span>                :            :     {
 <span class="lineNum">     176 </span>                :            : 
 <span class="lineNum">     177 </span>                :            : #if !HAVE_FCNTL
@@ -369,16 +369,16 @@
 <span class="lineNum">     298 </span>                :            :     default:
 <span class="lineNum">     299 </span>                :            :       {
 <span class="lineNum">     300 </span>                :            : #if HAVE_FCNTL
-<span class="lineNum">     301 </span>        [<span class="branchCov" title="Branch 0 was taken 1179281 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">    1179281 :         void *p = va_arg (arg, void *);</span>
-<span class="lineNum">     302 </span>                :<span class="lineCov">    1179281 :         result = fcntl (fd, action, p);</span>
+<span class="lineNum">     301 </span>        [<span class="branchCov" title="Branch 0 was taken 1179293 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">    1179293 :         void *p = va_arg (arg, void *);</span>
+<span class="lineNum">     302 </span>                :<span class="lineCov">    1179293 :         result = fcntl (fd, action, p);</span>
 <span class="lineNum">     303 </span>                :            : #else
 <span class="lineNum">     304 </span>                :            :         errno = EINVAL;
 <span class="lineNum">     305 </span>                :            : #endif
-<span class="lineNum">     306 </span>                :<span class="lineCov">    1179281 :         break;</span>
+<span class="lineNum">     306 </span>                :<span class="lineCov">    1179293 :         break;</span>
 <span class="lineNum">     307 </span>                :            :       }
 <span class="lineNum">     308 </span>                :            :     }
-<span class="lineNum">     309 </span>                :<span class="lineCov">    1179353 :   va_end (arg);</span>
-<span class="lineNum">     310 </span>                :<span class="lineCov">    1179353 :   return result;</span>
+<span class="lineNum">     309 </span>                :<span class="lineCov">    1179365 :   va_end (arg);</span>
+<span class="lineNum">     310 </span>                :<span class="lineCov">    1179365 :   return result;</span>
 <span class="lineNum">     311 </span>                :            : }
 </pre>
       </td>

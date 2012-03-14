@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -837,19 +837,19 @@
 <span class="lineNum">     765 </span>                :            : {
 <span class="lineNum">     766 </span>                :            :   char buffer[BUFSIZ];
 <span class="lineNum">     767 </span>                :            : 
-<span class="lineNum">     768 </span>        [<span class="branchCov" title="Branch 0 was taken 3597 times"> + </span><span class="branchCov" title="Branch 1 was taken 1395 times"> + </span>]:<span class="lineCov">       4992 :   while (lines_to_write)</span>
+<span class="lineNum">     768 </span>        [<span class="branchCov" title="Branch 0 was taken 3614 times"> + </span><span class="branchCov" title="Branch 1 was taken 1395 times"> + </span>]:<span class="lineCov">       5009 :   while (lines_to_write)</span>
 <span class="lineNum">     769 </span>                :            :     {
-<span class="lineNum">     770 </span>                :<span class="lineCov">       3597 :       size_t bytes_read = safe_read (fd, buffer, BUFSIZ);</span>
-<span class="lineNum">     771 </span>                :<span class="lineCov">       3597 :       size_t bytes_to_write = 0;</span>
+<span class="lineNum">     770 </span>                :<span class="lineCov">       3614 :       size_t bytes_read = safe_read (fd, buffer, BUFSIZ);</span>
+<span class="lineNum">     771 </span>                :<span class="lineCov">       3614 :       size_t bytes_to_write = 0;</span>
 <span class="lineNum">     772 </span>                :            : 
-<span class="lineNum">     773 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3597 times"> + </span>]:<span class="lineCov">       3597 :       if (bytes_read == SAFE_READ_ERROR)</span>
+<span class="lineNum">     773 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3614 times"> + </span>]:<span class="lineCov">       3614 :       if (bytes_read == SAFE_READ_ERROR)</span>
 <span class="lineNum">     774 </span>                :            :         {
 <span class="lineNum">     775 </span>                :<span class="lineNoCov">          0 :           error (0, errno, _(&quot;error reading %s&quot;), quote (filename));</span>
 <span class="lineNum">     776 </span>                :<span class="lineNoCov">          0 :           return false;</span>
 <span class="lineNum">     777 </span>                :            :         }
-<span class="lineNum">     778 </span>        [<span class="branchCov" title="Branch 0 was taken 69 times"> + </span><span class="branchCov" title="Branch 1 was taken 3528 times"> + </span>]:<span class="lineCov">       3597 :       if (bytes_read == 0)</span>
+<span class="lineNum">     778 </span>        [<span class="branchCov" title="Branch 0 was taken 69 times"> + </span><span class="branchCov" title="Branch 1 was taken 3545 times"> + </span>]:<span class="lineCov">       3614 :       if (bytes_read == 0)</span>
 <span class="lineNum">     779 </span>                :<span class="lineCov">         69 :         break;</span>
-<span class="lineNum">     780 </span>        [<span class="branchCov" title="Branch 0 was taken 16334646 times"> + </span><span class="branchCov" title="Branch 1 was taken 2133 times"> + </span>]:<span class="lineCov">   16336779 :       while (bytes_to_write &lt; bytes_read)</span>
+<span class="lineNum">     780 </span>        [<span class="branchCov" title="Branch 0 was taken 16334646 times"> + </span><span class="branchCov" title="Branch 1 was taken 2150 times"> + </span>]:<span class="lineCov">   16336796 :       while (bytes_to_write &lt; bytes_read)</span>
 <span class="lineNum">     781 </span>[<span class="branchCov" title="Branch 0 was taken 8116548 times"> + </span><span class="branchCov" title="Branch 1 was taken 8218098 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 1395 times"> + </span><span class="branchCov" title="Branch 3 was taken 8115153 times"> + </span>]:<span class="lineCov">   16334646 :         if (buffer[bytes_to_write++] == '\n' &amp;&amp; --lines_to_write == 0)</span>
 <span class="lineNum">     782 </span>                :            :           {
 <span class="lineNum">     783 </span>                :<span class="lineCov">       1395 :             off_t n_bytes_past_EOL = bytes_read - bytes_to_write;</span>
@@ -866,7 +866,7 @@
 <span class="lineNum">     794 </span>                :            :               }
 <span class="lineNum">     795 </span>                :<span class="lineCov">       1395 :             break;</span>
 <span class="lineNum">     796 </span>                :            :           }
-<span class="lineNum">     797 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3528 times"> + </span>]:<span class="lineCov">       3528 :       if (fwrite (buffer, 1, bytes_to_write, stdout) &lt; bytes_to_write)</span>
+<span class="lineNum">     797 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3545 times"> + </span>]:<span class="lineCov">       3545 :       if (fwrite (buffer, 1, bytes_to_write, stdout) &lt; bytes_to_write)</span>
 <span class="lineNum">     798 </span>                :<span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
 <span class="lineNum">     799 </span>                :            :     }
 <span class="lineNum">     800 </span>                :<span class="lineCov">       1464 :   return true;</span>

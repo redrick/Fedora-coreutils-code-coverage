@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -214,9 +214,9 @@
 <span class="lineNum">     143 </span>                :            : 
 <a name="144"><span class="lineNum">     144 </span>                :            : /* Hash an encoded inode number I.  */</a>
 <span class="lineNum">     145 </span>                :            : static size_t
-<span class="lineNum">     146 </span>                :<span class="lineCov">      49014 : di_ino_hash (void const *i, size_t table_size)</span>
+<span class="lineNum">     146 </span>                :<span class="lineCov">      46968 : di_ino_hash (void const *i, size_t table_size)</span>
 <span class="lineNum">     147 </span>                :            : {
-<span class="lineNum">     148 </span>                :<span class="lineCov">      49014 :   return (hashint) i % table_size;</span>
+<span class="lineNum">     148 </span>                :<span class="lineCov">      46968 :   return (hashint) i % table_size;</span>
 <span class="lineNum">     149 </span>                :            : }
 <span class="lineNum">     150 </span>                :            : 
 <span class="lineNum">     151 </span>                :            : /* Using the DIS table, map a device to a hash table that represents

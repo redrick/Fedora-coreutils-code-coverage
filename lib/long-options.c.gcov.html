@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -112,7 +112,7 @@
 <span class="lineNum">      41 </span>                :            :    Be careful not to gobble up &quot;--&quot;.  */
 <a name="42"><span class="lineNum">      42 </span>                :            : </a>
 <span class="lineNum">      43 </span>                :            : void
-<span class="lineNum">      44 </span>                :<span class="lineCov">      12386 : parse_long_options (int argc,</span>
+<span class="lineNum">      44 </span>                :<span class="lineCov">      12365 : parse_long_options (int argc,</span>
 <span class="lineNum">      45 </span>                :            :                     char **argv,
 <span class="lineNum">      46 </span>                :            :                     const char *command_name,
 <span class="lineNum">      47 </span>                :            :                     const char *package,
@@ -123,13 +123,13 @@
 <span class="lineNum">      52 </span>                :            :   int c;
 <span class="lineNum">      53 </span>                :            :   int saved_opterr;
 <span class="lineNum">      54 </span>                :            : 
-<span class="lineNum">      55 </span>                :<span class="lineCov">      12386 :   saved_opterr = opterr;</span>
+<span class="lineNum">      55 </span>                :<span class="lineCov">      12365 :   saved_opterr = opterr;</span>
 <span class="lineNum">      56 </span>                :            : 
 <span class="lineNum">      57 </span>                :            :   /* Don't print an error message for unrecognized options.  */
-<span class="lineNum">      58 </span>                :<span class="lineCov">      12386 :   opterr = 0;</span>
+<span class="lineNum">      58 </span>                :<span class="lineCov">      12365 :   opterr = 0;</span>
 <span class="lineNum">      59 </span>                :            : 
-<span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 1121 times"> + </span><span class="branchCov" title="Branch 1 was taken 11265 times"> + </span>]:<span class="lineCov">      12386 :   if (argc == 2</span>
-<span class="lineNum">      61 </span>        [<span class="branchCov" title="Branch 1 was taken 480 times"> + </span><span class="branchCov" title="Branch 2 was taken 641 times"> + </span>]:<span class="lineCov">       1121 :       &amp;&amp; (c = getopt_long (argc, argv, &quot;+&quot;, long_options, NULL)) != -1)</span>
+<span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 1114 times"> + </span><span class="branchCov" title="Branch 1 was taken 11251 times"> + </span>]:<span class="lineCov">      12365 :   if (argc == 2</span>
+<span class="lineNum">      61 </span>        [<span class="branchCov" title="Branch 1 was taken 480 times"> + </span><span class="branchCov" title="Branch 2 was taken 634 times"> + </span>]:<span class="lineCov">       1114 :       &amp;&amp; (c = getopt_long (argc, argv, &quot;+&quot;, long_options, NULL)) != -1)</span>
 <span class="lineNum">      62 </span>                :            :     {
 <span class="lineNum">      63 </span>     [<span class="branchCov" title="Branch 0 was taken 156 times"> + </span><span class="branchCov" title="Branch 1 was taken 270 times"> + </span><span class="branchCov" title="Branch 2 was taken 54 times"> + </span>]:<span class="lineCov">        480 :       switch (c)</span>
 <span class="lineNum">      64 </span>                :            :         {
@@ -151,12 +151,12 @@
 <span class="lineNum">      80 </span>                :            :     }
 <span class="lineNum">      81 </span>                :            : 
 <span class="lineNum">      82 </span>                :            :   /* Restore previous value.  */
-<span class="lineNum">      83 </span>                :<span class="lineCov">      11960 :   opterr = saved_opterr;</span>
+<span class="lineNum">      83 </span>                :<span class="lineCov">      11939 :   opterr = saved_opterr;</span>
 <span class="lineNum">      84 </span>                :            : 
 <span class="lineNum">      85 </span>                :            :   /* Reset this to zero so that getopt internals get initialized from
 <span class="lineNum">      86 </span>                :            :      the probably-new parameters when/if getopt is called later.  */
-<span class="lineNum">      87 </span>                :<span class="lineCov">      11960 :   optind = 0;</span>
-<span class="lineNum">      88 </span>                :<span class="lineCov">      11960 : }</span>
+<span class="lineNum">      87 </span>                :<span class="lineCov">      11939 :   optind = 0;</span>
+<span class="lineNum">      88 </span>                :<span class="lineCov">      11939 : }</span>
 </pre>
       </td>
     </tr>

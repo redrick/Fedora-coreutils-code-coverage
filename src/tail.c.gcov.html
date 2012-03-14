@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">589</td>
+            <td class="headerCovTableEntry">588</td>
             <td class="headerCovTableEntry">827</td>
-            <td class="headerCovTableEntryLo">71.2 %</td>
+            <td class="headerCovTableEntryLo">71.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">31</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">367</td>
+            <td class="headerCovTableEntry">366</td>
             <td class="headerCovTableEntry">632</td>
-            <td class="headerCovTableEntryLo">58.1 %</td>
+            <td class="headerCovTableEntryLo">57.9 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -561,8 +561,8 @@
 <span class="lineNum">     489 </span>                :            :   /* Set `bytes_read' to the size of the last, probably partial, buffer;
 <span class="lineNum">     490 </span>                :            :      0 &lt; `bytes_read' &lt;= `BUFSIZ'.  */
 <span class="lineNum">     491 </span>                :<span class="lineCov">         76 :   bytes_read = (pos - start_pos) % BUFSIZ;</span>
-<span class="lineNum">     492 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 74 times"> + </span>]:<span class="lineCov">         76 :   if (bytes_read == 0)</span>
-<span class="lineNum">     493 </span>                :<span class="lineCov">          2 :     bytes_read = BUFSIZ;</span>
+<span class="lineNum">     492 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 76 times"> + </span>]:<span class="lineCov">         76 :   if (bytes_read == 0)</span>
+<span class="lineNum">     493 </span>                :<span class="lineNoCov">          0 :     bytes_read = BUFSIZ;</span>
 <span class="lineNum">     494 </span>                :            :   /* Make `pos' a multiple of `BUFSIZ' (0 if the file is short), so that all
 <span class="lineNum">     495 </span>                :            :      reads will be on block boundaries, which might increase efficiency.  */
 <span class="lineNum">     496 </span>                :<span class="lineCov">         76 :   pos -= bytes_read;</span>
@@ -1511,7 +1511,7 @@
 <span class="lineNum">    1436 </span>                :            : 
 <span class="lineNum">    1437 </span>                :            :       /* When following by name without --retry, and the last file has
 <span class="lineNum">    1438 </span>                :            :          been unlinked or renamed-away, diagnose it and return.  */
-<span class="lineNum">    1439 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 23 times"> + </span>]:<span class="lineCov">         26 :       if (follow_mode == Follow_name</span>
+<span class="lineNum">    1439 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">         27 :       if (follow_mode == Follow_name</span>
 <span class="lineNum">    1440 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :           &amp;&amp; ! reopen_inaccessible_files</span>
 <span class="lineNum">    1441 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          3 :           &amp;&amp; hash_get_n_entries (wd_to_name) == 0)</span>
 <span class="lineNum">    1442 </span>                :            :         {
@@ -1521,30 +1521,30 @@
 <span class="lineNum">    1446 </span>                :            : 
 <span class="lineNum">    1447 </span>                :            :       /* When watching a PID, ensure that a read from WD will not block
 <span class="lineNum">    1448 </span>                :            :          indefinitely.  */
-<span class="lineNum">    1449 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       if (pid)</span>
+<span class="lineNum">    1449 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         24 :       if (pid)</span>
 <span class="lineNum">    1450 </span>                :            :         {
-<span class="lineNum">    1451 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">         23 :           if (writer_is_dead)</span>
+<span class="lineNum">    1451 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         24 :           if (writer_is_dead)</span>
 <span class="lineNum">    1452 </span>                :<span class="lineCov">          9 :             exit (EXIT_SUCCESS);</span>
 <span class="lineNum">    1453 </span>                :            : 
-<span class="lineNum">    1454 </span>[<span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchCov" title="Branch 2 was taken 5 times"> + </span>][<span class="branchCov" title="Branch 4 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">         14 :           writer_is_dead = (kill (pid, 0) != 0 &amp;&amp; errno != EPERM);</span>
+<span class="lineNum">    1454 </span>[<span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchCov" title="Branch 2 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 4 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">         15 :           writer_is_dead = (kill (pid, 0) != 0 &amp;&amp; errno != EPERM);</span>
 <span class="lineNum">    1455 </span>                :            : 
 <span class="lineNum">    1456 </span>                :            :           struct timeval delay; /* how long to wait for file changes.  */
-<span class="lineNum">    1457 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         14 :           if (writer_is_dead)</span>
+<span class="lineNum">    1457 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         15 :           if (writer_is_dead)</span>
 <span class="lineNum">    1458 </span>                :<span class="lineCov">          9 :             delay.tv_sec = delay.tv_usec = 0;</span>
 <span class="lineNum">    1459 </span>                :            :           else
 <span class="lineNum">    1460 </span>                :            :             {
-<span class="lineNum">    1461 </span>                :<span class="lineCov">          5 :               delay.tv_sec = (time_t) sleep_interval;</span>
-<span class="lineNum">    1462 </span>                :<span class="lineCov">          5 :               delay.tv_usec = 1000000 * (sleep_interval - delay.tv_sec);</span>
+<span class="lineNum">    1461 </span>                :<span class="lineCov">          6 :               delay.tv_sec = (time_t) sleep_interval;</span>
+<span class="lineNum">    1462 </span>                :<span class="lineCov">          6 :               delay.tv_usec = 1000000 * (sleep_interval - delay.tv_sec);</span>
 <span class="lineNum">    1463 </span>                :            :             }
 <span class="lineNum">    1464 </span>                :            : 
 <span class="lineNum">    1465 </span>                :            :            fd_set rfd;
-<span class="lineNum">    1466 </span>                :<span class="lineCov">         14 :            FD_ZERO (&amp;rfd);</span>
-<span class="lineNum">    1467 </span>                :<span class="lineCov">         14 :            FD_SET (wd, &amp;rfd);</span>
+<span class="lineNum">    1466 </span>                :<span class="lineCov">         15 :            FD_ZERO (&amp;rfd);</span>
+<span class="lineNum">    1467 </span>                :<span class="lineCov">         15 :            FD_SET (wd, &amp;rfd);</span>
 <span class="lineNum">    1468 </span>                :            : 
-<span class="lineNum">    1469 </span>                :<span class="lineCov">         14 :            int file_change = select (wd + 1, &amp;rfd, NULL, NULL, &amp;delay);</span>
+<span class="lineNum">    1469 </span>                :<span class="lineCov">         15 :            int file_change = select (wd + 1, &amp;rfd, NULL, NULL, &amp;delay);</span>
 <span class="lineNum">    1470 </span>                :            : 
-<span class="lineNum">    1471 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">         14 :            if (file_change == 0)</span>
-<span class="lineNum">    1472 </span>                :<span class="lineCov">         12 :              continue;</span>
+<span class="lineNum">    1471 </span>        [<span class="branchCov" title="Branch 0 was taken 13 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">         15 :            if (file_change == 0)</span>
+<span class="lineNum">    1472 </span>                :<span class="lineCov">         13 :              continue;</span>
 <span class="lineNum">    1473 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :            else if (file_change == -1)</span>
 <span class="lineNum">    1474 </span>                :<span class="lineNoCov">          0 :              error (EXIT_FAILURE, errno, _(&quot;error monitoring inotify event&quot;));</span>
 <span class="lineNum">    1475 </span>                :            :         }
@@ -1651,7 +1651,7 @@
 <span class="lineNum">    1575 </span>                :<span class="lineNoCov">          0 :           continue;</span>
 <span class="lineNum">    1576 </span>                :            :         }
 <span class="lineNum">    1577 </span>                :<span class="lineCov">          2 :       check_fspec (fspec, ev-&gt;wd, &amp;prev_wd);</span>
-<span class="lineNum">    1578 </span>                :<span class="lineCov">         22 :     }</span>
+<span class="lineNum">    1578 </span>                :<span class="lineCov">         23 :     }</span>
 <span class="lineNum">    1579 </span>                :            : }
 <span class="lineNum">    1580 </span>                :            : #endif
 <span class="lineNum">    1581 </span>                :            : 

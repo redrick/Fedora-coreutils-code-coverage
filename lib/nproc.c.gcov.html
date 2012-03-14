@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -135,7 +135,7 @@
 <span class="lineNum">      64 </span>                :            :    process and each CPU.  Return 0 if unknown or if such a system call does
 <a name="65"><span class="lineNum">      65 </span>                :            :    not exist.  */</a>
 <span class="lineNum">      66 </span>                :            : static unsigned long
-<span class="lineNum">      67 </span>                :<span class="lineCov">       1449 : num_processors_via_affinity_mask (void)</span>
+<span class="lineNum">      67 </span>                :<span class="lineCov">       1447 : num_processors_via_affinity_mask (void)</span>
 <span class="lineNum">      68 </span>                :            : {
 <span class="lineNum">      69 </span>                :            :   /* glibc &gt;= 2.3.3 with NPTL and NetBSD 5 have pthread_getaffinity_np,
 <span class="lineNum">      70 </span>                :            :      but with different APIs.  Also it requires linking with -lpthread.
@@ -197,13 +197,13 @@
 <span class="lineNum">     126 </span>                :            :   {
 <span class="lineNum">     127 </span>                :            :     cpu_set_t set;
 <span class="lineNum">     128 </span>                :            : 
-<span class="lineNum">     129 </span>        [<span class="branchCov" title="Branch 1 was taken 1449 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">       1449 :     if (sched_getaffinity (0, sizeof (set), &amp;set) == 0)</span>
+<span class="lineNum">     129 </span>        [<span class="branchCov" title="Branch 1 was taken 1447 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">       1447 :     if (sched_getaffinity (0, sizeof (set), &amp;set) == 0)</span>
 <span class="lineNum">     130 </span>                :            :       {
 <span class="lineNum">     131 </span>                :            :         unsigned long count;
 <span class="lineNum">     132 </span>                :            : 
 <span class="lineNum">     133 </span>                :            : # ifdef CPU_COUNT
 <span class="lineNum">     134 </span>                :            :         /* glibc &gt;= 2.6 has the CPU_COUNT macro.  */
-<span class="lineNum">     135 </span>                :<span class="lineCov">       1449 :         count = CPU_COUNT (&amp;set);</span>
+<span class="lineNum">     135 </span>                :<span class="lineCov">       1447 :         count = CPU_COUNT (&amp;set);</span>
 <span class="lineNum">     136 </span>                :            : # else
 <span class="lineNum">     137 </span>                :            :         size_t i;
 <span class="lineNum">     138 </span>                :            : 
@@ -212,8 +212,8 @@
 <span class="lineNum">     141 </span>                :            :           if (CPU_ISSET (i, &amp;set))
 <span class="lineNum">     142 </span>                :            :             count++;
 <span class="lineNum">     143 </span>                :            : # endif
-<span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 1449 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1449 :         if (count &gt; 0)</span>
-<span class="lineNum">     145 </span>                :<span class="lineCov">       1449 :           return count;</span>
+<span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 1447 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1447 :         if (count &gt; 0)</span>
+<span class="lineNum">     145 </span>                :<span class="lineCov">       1447 :           return count;</span>
 <span class="lineNum">     146 </span>                :            :       }
 <span class="lineNum">     147 </span>                :            :   }
 <span class="lineNum">     148 </span>                :            : #elif HAVE_SCHED_GETAFFINITY_NP /* NetBSD &gt;= 5 */
@@ -265,21 +265,21 @@
 <span class="lineNum">     194 </span>                :            :   }
 <span class="lineNum">     195 </span>                :            : #endif
 <span class="lineNum">     196 </span>                :            : 
-<span class="lineNum">     197 </span>                :<span class="lineCov">       1449 :   return 0;</span>
+<span class="lineNum">     197 </span>                :<span class="lineCov">       1447 :   return 0;</span>
 <span class="lineNum">     198 </span>                :            : }
 <a name="199"><span class="lineNum">     199 </span>                :            : </a>
 <span class="lineNum">     200 </span>                :            : unsigned long int
-<span class="lineNum">     201 </span>                :<span class="lineCov">       1467 : num_processors (enum nproc_query query)</span>
+<span class="lineNum">     201 </span>                :<span class="lineCov">       1465 : num_processors (enum nproc_query query)</span>
 <span class="lineNum">     202 </span>                :            : {
-<span class="lineNum">     203 </span>        [<span class="branchCov" title="Branch 0 was taken 1461 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       1467 :   if (query == NPROC_CURRENT_OVERRIDABLE)</span>
+<span class="lineNum">     203 </span>        [<span class="branchCov" title="Branch 0 was taken 1459 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       1465 :   if (query == NPROC_CURRENT_OVERRIDABLE)</span>
 <span class="lineNum">     204 </span>                :            :     {
 <span class="lineNum">     205 </span>                :            :       /* Test the environment variable OMP_NUM_THREADS, recognized also by all
 <span class="lineNum">     206 </span>                :            :          programs that are based on OpenMP.  The OpenMP spec says that the
 <span class="lineNum">     207 </span>                :            :          value assigned to the environment variable &quot;may have leading and
 <span class="lineNum">     208 </span>                :            :          trailing white space&quot;. */
-<span class="lineNum">     209 </span>                :<span class="lineCov">       1461 :       const char *envvalue = getenv (&quot;OMP_NUM_THREADS&quot;);</span>
+<span class="lineNum">     209 </span>                :<span class="lineCov">       1459 :       const char *envvalue = getenv (&quot;OMP_NUM_THREADS&quot;);</span>
 <span class="lineNum">     210 </span>                :            : 
-<span class="lineNum">     211 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 1443 times"> + </span>]:<span class="lineCov">       1461 :       if (envvalue != NULL)</span>
+<span class="lineNum">     211 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 1441 times"> + </span>]:<span class="lineCov">       1459 :       if (envvalue != NULL)</span>
 <span class="lineNum">     212 </span>                :            :         {
 <span class="lineNum">     213 </span>[<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>][<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 15 times"> + </span>]:<span class="lineCov">         18 :           while (*envvalue != '\0' &amp;&amp; c_isspace (*envvalue))</span>
 <span class="lineNum">     214 </span>                :<span class="lineNoCov">          0 :             envvalue++;</span>
@@ -299,7 +299,7 @@
 <span class="lineNum">     228 </span>                :            :             }
 <span class="lineNum">     229 </span>                :            :         }
 <span class="lineNum">     230 </span>                :            : 
-<span class="lineNum">     231 </span>                :<span class="lineCov">       1449 :       query = NPROC_CURRENT;</span>
+<span class="lineNum">     231 </span>                :<span class="lineCov">       1447 :       query = NPROC_CURRENT;</span>
 <span class="lineNum">     232 </span>                :            :     }
 <span class="lineNum">     233 </span>                :            :   /* Here query is one of NPROC_ALL, NPROC_CURRENT.  */
 <span class="lineNum">     234 </span>                :            : 
@@ -317,14 +317,14 @@
 <span class="lineNum">     246 </span>                :            :      In some situations these file systems are not mounted, and the sysconf
 <span class="lineNum">     247 </span>                :            :      call returns 1, which does not reflect the reality.  */
 <span class="lineNum">     248 </span>                :            : 
-<span class="lineNum">     249 </span>        [<span class="branchCov" title="Branch 0 was taken 1449 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       1455 :   if (query == NPROC_CURRENT)</span>
+<span class="lineNum">     249 </span>        [<span class="branchCov" title="Branch 0 was taken 1447 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       1453 :   if (query == NPROC_CURRENT)</span>
 <span class="lineNum">     250 </span>                :            :     {
 <span class="lineNum">     251 </span>                :            :       /* Try the modern affinity mask system call.  */
 <span class="lineNum">     252 </span>                :            :       {
-<span class="lineNum">     253 </span>                :<span class="lineCov">       1449 :         unsigned long nprocs = num_processors_via_affinity_mask ();</span>
+<span class="lineNum">     253 </span>                :<span class="lineCov">       1447 :         unsigned long nprocs = num_processors_via_affinity_mask ();</span>
 <span class="lineNum">     254 </span>                :            : 
-<span class="lineNum">     255 </span>        [<span class="branchCov" title="Branch 0 was taken 1449 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1449 :         if (nprocs &gt; 0)</span>
-<span class="lineNum">     256 </span>                :<span class="lineCov">       1449 :           return nprocs;</span>
+<span class="lineNum">     255 </span>        [<span class="branchCov" title="Branch 0 was taken 1447 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1447 :         if (nprocs &gt; 0)</span>
+<span class="lineNum">     256 </span>                :<span class="lineCov">       1447 :           return nprocs;</span>
 <span class="lineNum">     257 </span>                :            :       }
 <span class="lineNum">     258 </span>                :            : 
 <span class="lineNum">     259 </span>                :            : #if defined _SC_NPROCESSORS_ONLN
@@ -425,7 +425,7 @@
 <span class="lineNum">     354 </span>                :            :   }
 <span class="lineNum">     355 </span>                :            : #endif
 <span class="lineNum">     356 </span>                :            : 
-<span class="lineNum">     357 </span>                :<span class="lineCov">       1467 :   return 1;</span>
+<span class="lineNum">     357 </span>                :<span class="lineCov">       1465 :   return 1;</span>
 <span class="lineNum">     358 </span>                :            : }
 </pre>
       </td>

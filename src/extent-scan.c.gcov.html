@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">55</td>
+            <td class="headerCovTableEntry">52</td>
             <td class="headerCovTableEntry">71</td>
-            <td class="headerCovTableEntryMed">77.5 %</td>
+            <td class="headerCovTableEntryLo">73.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntry">23</td>
             <td class="headerCovTableEntry">42</td>
-            <td class="headerCovTableEntryLo">64.3 %</td>
+            <td class="headerCovTableEntryLo">54.8 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -157,9 +157,9 @@
 <span class="lineNum">      86 </span>                :            : /* Call ioctl(2) with FS_IOC_FIEMAP (available in linux 2.6.27) to
 <a name="87"><span class="lineNum">      87 </span>                :            :    obtain a map of file extents excluding holes.  */</a>
 <span class="lineNum">      88 </span>                :            : extern bool
-<span class="lineNum">      89 </span>                :<span class="lineCov">        147 : extent_scan_read (struct extent_scan *scan)</span>
+<span class="lineNum">      89 </span>                :<span class="lineCov">        150 : extent_scan_read (struct extent_scan *scan)</span>
 <span class="lineNum">      90 </span>                :            : {
-<span class="lineNum">      91 </span>                :<span class="lineCov">        147 :   unsigned int si = 0;</span>
+<span class="lineNum">      91 </span>                :<span class="lineCov">        150 :   unsigned int si = 0;</span>
 <span class="lineNum">      92 </span>                :            :   struct extent_info *last_ei IF_LINT ( = scan-&gt;ext_info);
 <span class="lineNum">      93 </span>                :            : 
 <span class="lineNum">      94 </span>                :            :   while (true)
@@ -202,24 +202,24 @@
 <span class="lineNum">     131 </span>                :            :                                   sizeof (struct extent_info));
 <span class="lineNum">     132 </span>                :            : 
 <span class="lineNum">     133 </span>                :<span class="lineCov">        144 :       unsigned int i = 0;</span>
-<span class="lineNum">     134 </span>        [<span class="branchCov" title="Branch 0 was taken 3447 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>]:<span class="lineCov">       3591 :       for (i = 0; i &lt; fiemap-&gt;fm_mapped_extents; i++)</span>
+<span class="lineNum">     134 </span>        [<span class="branchCov" title="Branch 0 was taken 3438 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>]:<span class="lineCov">       3582 :       for (i = 0; i &lt; fiemap-&gt;fm_mapped_extents; i++)</span>
 <span class="lineNum">     135 </span>                :            :         {
-<span class="lineNum">     136 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3447 times"> + </span>]:<span class="lineCov">       3447 :           assert (fm_extents[i].fe_logical &lt;=</span>
+<span class="lineNum">     136 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3438 times"> + </span>]:<span class="lineCov">       3438 :           assert (fm_extents[i].fe_logical &lt;=</span>
 <span class="lineNum">     137 </span>                :            :                   OFF_T_MAX - fm_extents[i].fe_length);
 <span class="lineNum">     138 </span>                :            : 
-<span class="lineNum">     139 </span>[<span class="branchCov" title="Branch 0 was taken 3306 times"> + </span><span class="branchCov" title="Branch 1 was taken 141 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3306 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       3447 :           if (si &amp;&amp; last_ei-&gt;ext_flags ==</span>
-<span class="lineNum">     140 </span>                :<span class="lineCov">       3306 :               (fm_extents[i].fe_flags &amp; ~FIEMAP_EXTENT_LAST)</span>
-<span class="lineNum">     141 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 3297 times"> + </span>]:<span class="lineCov">       3306 :               &amp;&amp; (last_ei-&gt;ext_logical + last_ei-&gt;ext_length</span>
-<span class="lineNum">     142 </span>                :<span class="lineCov">       3306 :                   == fm_extents[i].fe_logical))</span>
+<span class="lineNum">     139 </span>[<span class="branchCov" title="Branch 0 was taken 3294 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3294 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       3438 :           if (si &amp;&amp; last_ei-&gt;ext_flags ==</span>
+<span class="lineNum">     140 </span>                :<span class="lineCov">       3294 :               (fm_extents[i].fe_flags &amp; ~FIEMAP_EXTENT_LAST)</span>
+<span class="lineNum">     141 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3294 times"> + </span>]:<span class="lineCov">       3294 :               &amp;&amp; (last_ei-&gt;ext_logical + last_ei-&gt;ext_length</span>
+<span class="lineNum">     142 </span>                :<span class="lineCov">       3294 :                   == fm_extents[i].fe_logical))</span>
 <span class="lineNum">     143 </span>                :            :             {
 <span class="lineNum">     144 </span>                :            :               /* Merge previous with last.  */
-<span class="lineNum">     145 </span>                :<span class="lineCov">          9 :               last_ei-&gt;ext_length += fm_extents[i].fe_length;</span>
+<span class="lineNum">     145 </span>                :<span class="lineNoCov">          0 :               last_ei-&gt;ext_length += fm_extents[i].fe_length;</span>
 <span class="lineNum">     146 </span>                :            :               /* Copy flags in case different.  */
-<span class="lineNum">     147 </span>                :<span class="lineCov">          9 :               last_ei-&gt;ext_flags = fm_extents[i].fe_flags;</span>
+<span class="lineNum">     147 </span>                :<span class="lineNoCov">          0 :               last_ei-&gt;ext_flags = fm_extents[i].fe_flags;</span>
 <span class="lineNum">     148 </span>                :            :             }
-<span class="lineNum">     149 </span>[<span class="branchCov" title="Branch 0 was taken 141 times"> + </span><span class="branchCov" title="Branch 1 was taken 3297 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 141 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       3438 :           else if ((si == 0 &amp;&amp; scan-&gt;scan_start &gt; fm_extents[i].fe_logical)</span>
-<span class="lineNum">     150 </span>[<span class="branchCov" title="Branch 0 was taken 3297 times"> + </span><span class="branchCov" title="Branch 1 was taken 141 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 3297 times"> + </span>]:<span class="lineCov">       3438 :                    || (si &amp;&amp; last_ei-&gt;ext_logical + last_ei-&gt;ext_length &gt;</span>
-<span class="lineNum">     151 </span>                :<span class="lineCov">       3297 :                        fm_extents[i].fe_logical))</span>
+<span class="lineNum">     149 </span>[<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchCov" title="Branch 1 was taken 3294 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       3438 :           else if ((si == 0 &amp;&amp; scan-&gt;scan_start &gt; fm_extents[i].fe_logical)</span>
+<span class="lineNum">     150 </span>[<span class="branchCov" title="Branch 0 was taken 3294 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 3294 times"> + </span>]:<span class="lineCov">       3438 :                    || (si &amp;&amp; last_ei-&gt;ext_logical + last_ei-&gt;ext_length &gt;</span>
+<span class="lineNum">     151 </span>                :<span class="lineCov">       3294 :                        fm_extents[i].fe_logical))</span>
 <span class="lineNum">     152 </span>                :            :             {
 <span class="lineNum">     153 </span>                :            :               /* BTRFS before 2.6.38 could return overlapping extents
 <span class="lineNum">     154 </span>                :            :                  for sparse files.  We adjust the returned extents
@@ -264,7 +264,7 @@
 <span class="lineNum">     193 </span>                :            : 
 <span class="lineNum">     194 </span>                :            :       /* If we have enough extents, discard the last as it might
 <span class="lineNum">     195 </span>                :            :          be merged with one from the next scan.  */
-<span class="lineNum">     196 </span>[<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 141 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">        144 :       if (si &gt; count &amp;&amp; !scan-&gt;hit_final_extent)</span>
+<span class="lineNum">     196 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">        144 :       if (si &gt; count &amp;&amp; !scan-&gt;hit_final_extent)</span>
 <span class="lineNum">     197 </span>                :<span class="lineNoCov">          0 :         last_ei = scan-&gt;ext_info + --si - 1;</span>
 <span class="lineNum">     198 </span>                :            : 
 <span class="lineNum">     199 </span>                :            :       /* We don't bother reallocating any trailing slots.  */
@@ -275,11 +275,11 @@
 <span class="lineNum">     204 </span>                :            :       else
 <span class="lineNum">     205 </span>                :<span class="lineCov">         24 :         scan-&gt;scan_start = last_ei-&gt;ext_logical + last_ei-&gt;ext_length;</span>
 <span class="lineNum">     206 </span>                :            : 
-<span class="lineNum">     207 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         24 :       if (si &gt;= count)</span>
-<span class="lineNum">     208 </span>                :<span class="lineCov">         21 :         break;</span>
-<span class="lineNum">     209 </span>                :<span class="lineCov">          3 :     }</span>
+<span class="lineNum">     207 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         24 :       if (si &gt;= count)</span>
+<span class="lineNum">     208 </span>                :<span class="lineCov">         24 :         break;</span>
+<span class="lineNum">     209 </span>                :<span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     210 </span>                :            : 
-<span class="lineNum">     211 </span>                :<span class="lineCov">        147 :   return true;</span>
+<span class="lineNum">     211 </span>                :<span class="lineCov">        150 :   return true;</span>
 <span class="lineNum">     212 </span>                :            : }
 <span class="lineNum">     213 </span>                :            : #else
 <span class="lineNum">     214 </span>                :            : extern bool

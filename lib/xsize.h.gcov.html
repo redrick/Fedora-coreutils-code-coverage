@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -124,10 +124,10 @@
 <span class="lineNum">      53 </span>                :            : #if __GNUC__ &gt;= 3
 <a name="54"><span class="lineNum">      54 </span>                :            : __attribute__ ((__pure__))</a>
 <span class="lineNum">      55 </span>                :            : #endif
-<span class="lineNum">      56 </span>                :<span class="lineCov">     349189 : xsum (size_t size1, size_t size2)</span>
+<span class="lineNum">      56 </span>                :<span class="lineCov">     349276 : xsum (size_t size1, size_t size2)</span>
 <span class="lineNum">      57 </span>                :            : {
-<span class="lineNum">      58 </span>                :<span class="lineCov">     349189 :   size_t sum = size1 + size2;</span>
-<span class="lineNum">      59 </span>        [<span class="branchCov" title="Branch 0 was taken 349189 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">     349189 :   return (sum &gt;= size1 ? sum : SIZE_MAX);</span>
+<span class="lineNum">      58 </span>                :<span class="lineCov">     349276 :   size_t sum = size1 + size2;</span>
+<span class="lineNum">      59 </span>        [<span class="branchCov" title="Branch 0 was taken 349276 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">     349276 :   return (sum &gt;= size1 ? sum : SIZE_MAX);</span>
 <span class="lineNum">      60 </span>                :            : }
 <span class="lineNum">      61 </span>                :            : 
 <span class="lineNum">      62 </span>                :            : /* Sum of three sizes, with overflow check.  */
@@ -145,9 +145,9 @@
 <span class="lineNum">      74 </span>                :            : #if __GNUC__ &gt;= 3
 <a name="75"><span class="lineNum">      75 </span>                :            : __attribute__ ((__pure__))</a>
 <span class="lineNum">      76 </span>                :            : #endif
-<span class="lineNum">      77 </span>                :<span class="lineCov">      66591 : xsum4 (size_t size1, size_t size2, size_t size3, size_t size4)</span>
+<span class="lineNum">      77 </span>                :<span class="lineCov">      66594 : xsum4 (size_t size1, size_t size2, size_t size3, size_t size4)</span>
 <span class="lineNum">      78 </span>                :            : {
-<span class="lineNum">      79 </span>                :<span class="lineCov">      66591 :   return xsum (xsum (xsum (size1, size2), size3), size4);</span>
+<span class="lineNum">      79 </span>                :<span class="lineCov">      66594 :   return xsum (xsum (xsum (size1, size2), size3), size4);</span>
 <span class="lineNum">      80 </span>                :            : }
 <span class="lineNum">      81 </span>                :            : 
 <span class="lineNum">      82 </span>                :            : /* Maximum of two sizes, with overflow check.  */
@@ -155,11 +155,11 @@
 <span class="lineNum">      84 </span>                :            : #if __GNUC__ &gt;= 3
 <a name="85"><span class="lineNum">      85 </span>                :            : __attribute__ ((__pure__))</a>
 <span class="lineNum">      86 </span>                :            : #endif
-<span class="lineNum">      87 </span>                :<span class="lineCov">       2787 : xmax (size_t size1, size_t size2)</span>
+<span class="lineNum">      87 </span>                :<span class="lineCov">       2799 : xmax (size_t size1, size_t size2)</span>
 <span class="lineNum">      88 </span>                :            : {
 <span class="lineNum">      89 </span>                :            :   /* No explicit check is needed here, because for any n:
 <span class="lineNum">      90 </span>                :            :      max (SIZE_MAX, n) == SIZE_MAX and max (n, SIZE_MAX) == SIZE_MAX.  */
-<span class="lineNum">      91 </span>                :<span class="lineCov">       2787 :   return (size1 &gt;= size2 ? size1 : size2);</span>
+<span class="lineNum">      91 </span>                :<span class="lineCov">       2799 :   return (size1 &gt;= size2 ? size1 : size2);</span>
 <span class="lineNum">      92 </span>                :            : }
 <span class="lineNum">      93 </span>                :            : 
 <span class="lineNum">      94 </span>                :            : /* Multiplication of a count with an element size, with overflow check.

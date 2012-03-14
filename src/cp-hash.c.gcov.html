@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -119,24 +119,24 @@
 <span class="lineNum">      48 </span>                :            : #define INITIAL_TABLE_SIZE 103
 <a name="49"><span class="lineNum">      49 </span>                :            : </a>
 <span class="lineNum">      50 </span>                :            : static size_t
-<span class="lineNum">      51 </span>                :<span class="lineCov">     130070 : src_to_dest_hash (void const *x, size_t table_size)</span>
+<span class="lineNum">      51 </span>                :<span class="lineCov">     132236 : src_to_dest_hash (void const *x, size_t table_size)</span>
 <span class="lineNum">      52 </span>                :            : {
-<span class="lineNum">      53 </span>                :<span class="lineCov">     130070 :   struct Src_to_dest const *p = x;</span>
+<span class="lineNum">      53 </span>                :<span class="lineCov">     132236 :   struct Src_to_dest const *p = x;</span>
 <span class="lineNum">      54 </span>                :            : 
 <span class="lineNum">      55 </span>                :            :   /* Ignoring the device number here should be fine.  */
 <span class="lineNum">      56 </span>                :            :   /* The cast to uintmax_t prevents negative remainders
 <span class="lineNum">      57 </span>                :            :      if st_ino is negative.  */
-<span class="lineNum">      58 </span>                :<span class="lineCov">     130070 :   return (uintmax_t) p-&gt;st_ino % table_size;</span>
+<span class="lineNum">      58 </span>                :<span class="lineCov">     132236 :   return (uintmax_t) p-&gt;st_ino % table_size;</span>
 <span class="lineNum">      59 </span>                :            : }
 <span class="lineNum">      60 </span>                :            : 
 <span class="lineNum">      61 </span>                :            : /* Compare two Src_to_dest entries.
 <a name="62"><span class="lineNum">      62 </span>                :            :    Return true if their keys are judged `equal'.  */</a>
 <span class="lineNum">      63 </span>                :            : static bool
-<span class="lineNum">      64 </span>                :<span class="lineCov">      33059 : src_to_dest_compare (void const *x, void const *y)</span>
+<span class="lineNum">      64 </span>                :<span class="lineCov">      32097 : src_to_dest_compare (void const *x, void const *y)</span>
 <span class="lineNum">      65 </span>                :            : {
-<span class="lineNum">      66 </span>                :<span class="lineCov">      33059 :   struct Src_to_dest const *a = x;</span>
-<span class="lineNum">      67 </span>                :<span class="lineCov">      33059 :   struct Src_to_dest const *b = y;</span>
-<span class="lineNum">      68 </span>[<span class="branchCov" title="Branch 0 was taken 85 times"> + </span><span class="branchCov" title="Branch 1 was taken 32974 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 85 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      33059 :   return SAME_INODE (*a, *b) ? true : false;</span>
+<span class="lineNum">      66 </span>                :<span class="lineCov">      32097 :   struct Src_to_dest const *a = x;</span>
+<span class="lineNum">      67 </span>                :<span class="lineCov">      32097 :   struct Src_to_dest const *b = y;</span>
+<span class="lineNum">      68 </span>[<span class="branchCov" title="Branch 0 was taken 85 times"> + </span><span class="branchCov" title="Branch 1 was taken 32012 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 85 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      32097 :   return SAME_INODE (*a, *b) ? true : false;</span>
 <span class="lineNum">      69 </span>                :            : }
 <a name="70"><span class="lineNum">      70 </span>                :            : </a>
 <span class="lineNum">      71 </span>                :            : static void

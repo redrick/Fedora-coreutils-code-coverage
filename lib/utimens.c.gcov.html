@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -235,26 +235,26 @@
 <span class="lineNum">     164 </span>                :            :    Return 0 on success, -1 (setting errno) on failure.  */
 <a name="165"><span class="lineNum">     165 </span>                :            : </a>
 <span class="lineNum">     166 </span>                :            : int
-<span class="lineNum">     167 </span>                :<span class="lineCov">    1413067 : fdutimens (int fd, char const *file, struct timespec const timespec[2])</span>
+<span class="lineNum">     167 </span>                :<span class="lineCov">    1413065 : fdutimens (int fd, char const *file, struct timespec const timespec[2])</span>
 <span class="lineNum">     168 </span>                :            : {
 <span class="lineNum">     169 </span>                :            :   struct timespec adjusted_timespec[2];
-<span class="lineNum">     170 </span>        [<span class="branchCov" title="Branch 0 was taken 76805 times"> + </span><span class="branchCov" title="Branch 1 was taken 1336262 times"> + </span>]:<span class="lineCov">    1413067 :   struct timespec *ts = timespec ? adjusted_timespec : NULL;</span>
-<span class="lineNum">     171 </span>                :<span class="lineCov">    1413067 :   int adjustment_needed = 0;</span>
+<span class="lineNum">     170 </span>        [<span class="branchCov" title="Branch 0 was taken 76805 times"> + </span><span class="branchCov" title="Branch 1 was taken 1336260 times"> + </span>]:<span class="lineCov">    1413065 :   struct timespec *ts = timespec ? adjusted_timespec : NULL;</span>
+<span class="lineNum">     171 </span>                :<span class="lineCov">    1413065 :   int adjustment_needed = 0;</span>
 <span class="lineNum">     172 </span>                :            :   struct stat st;
 <span class="lineNum">     173 </span>                :            : 
-<span class="lineNum">     174 </span>        [<span class="branchCov" title="Branch 0 was taken 76805 times"> + </span><span class="branchCov" title="Branch 1 was taken 1336262 times"> + </span>]:<span class="lineCov">    1413067 :   if (ts)</span>
+<span class="lineNum">     174 </span>        [<span class="branchCov" title="Branch 0 was taken 76805 times"> + </span><span class="branchCov" title="Branch 1 was taken 1336260 times"> + </span>]:<span class="lineCov">    1413065 :   if (ts)</span>
 <span class="lineNum">     175 </span>                :            :     {
 <span class="lineNum">     176 </span>                :<span class="lineCov">      76805 :       adjusted_timespec[0] = timespec[0];</span>
 <span class="lineNum">     177 </span>                :<span class="lineCov">      76805 :       adjusted_timespec[1] = timespec[1];</span>
 <span class="lineNum">     178 </span>                :<span class="lineCov">      76805 :       adjustment_needed = validate_timespec (ts);</span>
 <span class="lineNum">     179 </span>                :            :     }
-<span class="lineNum">     180 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 1412983 times"> + </span>]:<span class="lineCov">    1413067 :   if (adjustment_needed &lt; 0)</span>
+<span class="lineNum">     180 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 1412981 times"> + </span>]:<span class="lineCov">    1413065 :   if (adjustment_needed &lt; 0)</span>
 <span class="lineNum">     181 </span>                :<span class="lineCov">         84 :     return -1;</span>
 <span class="lineNum">     182 </span>                :            : 
 <span class="lineNum">     183 </span>                :            :   /* Require that at least one of FD or FILE are potentially valid, to avoid
 <span class="lineNum">     184 </span>                :            :      a Linux bug where futimens (AT_FDCWD, NULL) changes &quot;.&quot; rather
 <span class="lineNum">     185 </span>                :            :      than failing.  */
-<span class="lineNum">     186 </span>[<span class="branchCov" title="Branch 0 was taken 67991 times"> + </span><span class="branchCov" title="Branch 1 was taken 1344992 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 12 times"> + </span><span class="branchCov" title="Branch 3 was taken 67979 times"> + </span>]:<span class="lineCov">    1412983 :   if (fd &lt; 0 &amp;&amp; !file)</span>
+<span class="lineNum">     186 </span>[<span class="branchCov" title="Branch 0 was taken 67991 times"> + </span><span class="branchCov" title="Branch 1 was taken 1344990 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 12 times"> + </span><span class="branchCov" title="Branch 3 was taken 67979 times"> + </span>]:<span class="lineCov">    1412981 :   if (fd &lt; 0 &amp;&amp; !file)</span>
 <span class="lineNum">     187 </span>                :            :     {
 <span class="lineNum">     188 </span>                :<span class="lineCov">         12 :       errno = EBADF;</span>
 <span class="lineNum">     189 </span>                :<span class="lineCov">         12 :       return -1;</span>
@@ -283,7 +283,7 @@
 <span class="lineNum">     212 </span>                :            :      compiling against Linux 2.6.25 kernel headers and glibc 2.7, but
 <span class="lineNum">     213 </span>                :            :      running on Linux 2.6.18 kernel).  */
 <span class="lineNum">     214 </span>                :            : #if HAVE_UTIMENSAT || HAVE_FUTIMENS
-<span class="lineNum">     215 </span>        [<span class="branchCov" title="Branch 0 was taken 1412971 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">    1412971 :   if (0 &lt;= utimensat_works_really)</span>
+<span class="lineNum">     215 </span>        [<span class="branchCov" title="Branch 0 was taken 1412969 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">    1412969 :   if (0 &lt;= utimensat_works_really)</span>
 <span class="lineNum">     216 </span>                :            :     {
 <span class="lineNum">     217 </span>                :            :       int result;
 <span class="lineNum">     218 </span>                :            : # if __linux__
@@ -295,7 +295,7 @@
 <span class="lineNum">     224 </span>                :            :          timing impact due to the extra syscall even on file systems
 <span class="lineNum">     225 </span>                :            :          where UTIME_OMIT would have worked.  FIXME: Simplify this in
 <span class="lineNum">     226 </span>                :            :          2012, when file system bugs are no longer common.  */
-<span class="lineNum">     227 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 1412887 times"> + </span>]:<span class="lineCov">    1412971 :       if (adjustment_needed == 2)</span>
+<span class="lineNum">     227 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 1412885 times"> + </span>]:<span class="lineCov">    1412969 :       if (adjustment_needed == 2)</span>
 <span class="lineNum">     228 </span>                :            :         {
 <span class="lineNum">     229 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 78 times"> + </span>][<span class="branchCov" title="Branch 4 was taken 6 times"> + </span><span class="branchCov" title="Branch 5 was taken 78 times"> + </span>]:<span class="lineCov">         84 :           if (fd &lt; 0 ? stat (file, &amp;st) : fstat (fd, &amp;st))</span>
 <span class="lineNum">     230 </span>                :<span class="lineCov">          6 :             return -1;</span>
@@ -308,7 +308,7 @@
 <span class="lineNum">     237 </span>                :            :         }
 <span class="lineNum">     238 </span>                :            : # endif /* __linux__ */
 <span class="lineNum">     239 </span>                :            : # if HAVE_UTIMENSAT
-<span class="lineNum">     240 </span>        [<span class="branchCov" title="Branch 0 was taken 67979 times"> + </span><span class="branchCov" title="Branch 1 was taken 1344986 times"> + </span>]:<span class="lineCov">    1412965 :       if (fd &lt; 0)</span>
+<span class="lineNum">     240 </span>        [<span class="branchCov" title="Branch 0 was taken 67979 times"> + </span><span class="branchCov" title="Branch 1 was taken 1344984 times"> + </span>]:<span class="lineCov">    1412963 :       if (fd &lt; 0)</span>
 <span class="lineNum">     241 </span>                :            :         {
 <span class="lineNum">     242 </span>                :<span class="lineCov">      67979 :           result = utimensat (AT_FDCWD, file, ts, 0);</span>
 <span class="lineNum">     243 </span>                :            : #  ifdef __linux__
@@ -330,18 +330,18 @@
 <span class="lineNum">     259 </span>                :            :         }
 <span class="lineNum">     260 </span>                :            : # endif /* HAVE_UTIMENSAT */
 <span class="lineNum">     261 </span>                :            : # if HAVE_FUTIMENS
-<span class="lineNum">     262 </span>        [<span class="branchCov" title="Branch 0 was taken 1344986 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">    1344986 :       if (0 &lt;= fd)</span>
+<span class="lineNum">     262 </span>        [<span class="branchCov" title="Branch 0 was taken 1344984 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">    1344984 :       if (0 &lt;= fd)</span>
 <span class="lineNum">     263 </span>                :            :         {
-<span class="lineNum">     264 </span>                :<span class="lineCov">    1344986 :           result = futimens (fd, ts);</span>
+<span class="lineNum">     264 </span>                :<span class="lineCov">    1344984 :           result = futimens (fd, ts);</span>
 <span class="lineNum">     265 </span>                :            : #  ifdef __linux__
 <span class="lineNum">     266 </span>                :            :           /* Work around the same bug as above.  */
-<span class="lineNum">     267 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1344986 times"> + </span>]:<span class="lineCov">    1344986 :           if (0 &lt; result)</span>
+<span class="lineNum">     267 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1344984 times"> + </span>]:<span class="lineCov">    1344984 :           if (0 &lt; result)</span>
 <span class="lineNum">     268 </span>                :<span class="lineNoCov">          0 :             errno = ENOSYS;</span>
 <span class="lineNum">     269 </span>                :            : #  endif /* __linux__ */
-<span class="lineNum">     270 </span>[<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 1344953 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 33 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">    1344986 :           if (result == 0 || errno != ENOSYS)</span>
+<span class="lineNum">     270 </span>[<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 1344951 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 33 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">    1344984 :           if (result == 0 || errno != ENOSYS)</span>
 <span class="lineNum">     271 </span>                :            :             {
-<span class="lineNum">     272 </span>                :<span class="lineCov">    1344986 :               utimensat_works_really = 1;</span>
-<span class="lineNum">     273 </span>                :<span class="lineCov">    1344986 :               return result;</span>
+<span class="lineNum">     272 </span>                :<span class="lineCov">    1344984 :               utimensat_works_really = 1;</span>
+<span class="lineNum">     273 </span>                :<span class="lineCov">    1344984 :               return result;</span>
 <span class="lineNum">     274 </span>                :            :             }
 <span class="lineNum">     275 </span>                :            :         }
 <span class="lineNum">     276 </span>                :            : # endif /* HAVE_FUTIMENS */
@@ -459,7 +459,7 @@
 <span class="lineNum">     386 </span>                :            :       }
 <span class="lineNum">     387 </span>                :            : 
 <span class="lineNum">     388 </span>                :            : #if HAVE_WORKING_UTIMES
-<span class="lineNum">     389 </span>                :<span class="lineCov">    1413067 :     return utimes (file, t);</span>
+<span class="lineNum">     389 </span>                :<span class="lineCov">    1413065 :     return utimes (file, t);</span>
 <span class="lineNum">     390 </span>                :            : #else
 <span class="lineNum">     391 </span>                :            :     {
 <span class="lineNum">     392 </span>                :            :       struct utimbuf utimbuf;

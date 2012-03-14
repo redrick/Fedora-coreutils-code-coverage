@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -100,19 +100,19 @@
 <span class="lineNum">      29 </span>                :            : };
 <a name="30"><span class="lineNum">      30 </span>                :            : </a>
 <span class="lineNum">      31 </span>                :            : static bool
-<span class="lineNum">      32 </span>                :<span class="lineCov">       1268 : AD_compare (void const *x, void const *y)</span>
+<span class="lineNum">      32 </span>                :<span class="lineCov">       1019 : AD_compare (void const *x, void const *y)</span>
 <span class="lineNum">      33 </span>                :            : {
-<span class="lineNum">      34 </span>                :<span class="lineCov">       1268 :   struct Active_dir const *ax = x;</span>
-<span class="lineNum">      35 </span>                :<span class="lineCov">       1268 :   struct Active_dir const *ay = y;</span>
-<span class="lineNum">      36 </span>                :<span class="lineCov">       1268 :   return ax-&gt;ino == ay-&gt;ino</span>
-<span class="lineNum">      37 </span>[<span class="branchCov" title="Branch 0 was taken 936 times"> + </span><span class="branchCov" title="Branch 1 was taken 332 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 930 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">       1268 :       &amp;&amp; ax-&gt;dev == ay-&gt;dev;</span>
+<span class="lineNum">      34 </span>                :<span class="lineCov">       1019 :   struct Active_dir const *ax = x;</span>
+<span class="lineNum">      35 </span>                :<span class="lineCov">       1019 :   struct Active_dir const *ay = y;</span>
+<span class="lineNum">      36 </span>                :<span class="lineCov">       1019 :   return ax-&gt;ino == ay-&gt;ino</span>
+<span class="lineNum">      37 </span>[<span class="branchCov" title="Branch 0 was taken 936 times"> + </span><span class="branchCov" title="Branch 1 was taken 83 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 930 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">       1019 :       &amp;&amp; ax-&gt;dev == ay-&gt;dev;</span>
 <span class="lineNum">      38 </span>                :            : }
 <a name="39"><span class="lineNum">      39 </span>                :            : </a>
 <span class="lineNum">      40 </span>                :            : static size_t
-<span class="lineNum">      41 </span>                :<span class="lineCov">       1854 : AD_hash (void const *x, size_t table_size)</span>
+<span class="lineNum">      41 </span>                :<span class="lineCov">       2214 : AD_hash (void const *x, size_t table_size)</span>
 <span class="lineNum">      42 </span>                :            : {
-<span class="lineNum">      43 </span>                :<span class="lineCov">       1854 :   struct Active_dir const *ax = x;</span>
-<span class="lineNum">      44 </span>                :<span class="lineCov">       1854 :   return (uintmax_t) ax-&gt;ino % table_size;</span>
+<span class="lineNum">      43 </span>                :<span class="lineCov">       2214 :   struct Active_dir const *ax = x;</span>
+<span class="lineNum">      44 </span>                :<span class="lineCov">       2214 :   return (uintmax_t) ax-&gt;ino % table_size;</span>
 <span class="lineNum">      45 </span>                :            : }
 <span class="lineNum">      46 </span>                :            : 
 <span class="lineNum">      47 </span>                :            : /* Set up the cycle-detection machinery.  */

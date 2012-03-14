@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -107,11 +107,11 @@
 <span class="lineNum">      36 </span>        [<span class="branchCov" title="Branch 0 was taken 28091 times"> + </span><span class="branchCov" title="Branch 1 was taken 310123 times"> + </span>]:<span class="lineCov">     338214 :   while (ISSLASH (*base))</span>
 <span class="lineNum">      37 </span>                :<span class="lineCov">      28091 :     base++;</span>
 <span class="lineNum">      38 </span>                :            : 
-<span class="lineNum">      39 </span>        [<span class="branchCov" title="Branch 0 was taken 8529719 times"> + </span><span class="branchCov" title="Branch 1 was taken 310123 times"> + </span>]:<span class="lineCov">    8839842 :   for (p = base; *p; p++)</span>
+<span class="lineNum">      39 </span>        [<span class="branchCov" title="Branch 0 was taken 8529759 times"> + </span><span class="branchCov" title="Branch 1 was taken 310123 times"> + </span>]:<span class="lineCov">    8839882 :   for (p = base; *p; p++)</span>
 <span class="lineNum">      40 </span>                :            :     {
-<span class="lineNum">      41 </span>        [<span class="branchCov" title="Branch 0 was taken 224012 times"> + </span><span class="branchCov" title="Branch 1 was taken 8305707 times"> + </span>]:<span class="lineCov">    8529719 :       if (ISSLASH (*p))</span>
+<span class="lineNum">      41 </span>        [<span class="branchCov" title="Branch 0 was taken 224012 times"> + </span><span class="branchCov" title="Branch 1 was taken 8305747 times"> + </span>]:<span class="lineCov">    8529759 :       if (ISSLASH (*p))</span>
 <span class="lineNum">      42 </span>                :<span class="lineCov">     224012 :         saw_slash = true;</span>
-<span class="lineNum">      43 </span>        [<span class="branchCov" title="Branch 0 was taken 223563 times"> + </span><span class="branchCov" title="Branch 1 was taken 8082144 times"> + </span>]:<span class="lineCov">    8305707 :       else if (saw_slash)</span>
+<span class="lineNum">      43 </span>        [<span class="branchCov" title="Branch 0 was taken 223563 times"> + </span><span class="branchCov" title="Branch 1 was taken 8082184 times"> + </span>]:<span class="lineCov">    8305747 :       else if (saw_slash)</span>
 <span class="lineNum">      44 </span>                :            :         {
 <span class="lineNum">      45 </span>                :<span class="lineCov">     223563 :           base = p;</span>
 <span class="lineNum">      46 </span>                :<span class="lineCov">     223563 :           saw_slash = false;</span>

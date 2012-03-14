@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">23</td>
@@ -1266,10 +1266,10 @@
 <span class="lineNum">    1189 </span>                :            :    but sorting on increasing values is slightly better than sorting
 <a name="1190"><span class="lineNum">    1190 </span>                :            :    on decreasing values.  The difference is in the 5% range.  */</a>
 <span class="lineNum">    1191 </span>                :            : static int
-<span class="lineNum">    1192 </span>                :<span class="lineCov">   34469814 : fts_compare_ino (struct _ftsent const **a, struct _ftsent const **b)</span>
+<span class="lineNum">    1192 </span>                :<span class="lineCov">   34446098 : fts_compare_ino (struct _ftsent const **a, struct _ftsent const **b)</span>
 <span class="lineNum">    1193 </span>                :            : {
-<span class="lineNum">    1194 </span>                :<span class="lineCov">   34469814 :   return (a[0]-&gt;fts_statp-&gt;st_ino &lt; b[0]-&gt;fts_statp-&gt;st_ino ? -1</span>
-<span class="lineNum">    1195 </span>        [<span class="branchCov" title="Branch 0 was taken 17168716 times"> + </span><span class="branchCov" title="Branch 1 was taken 17301098 times"> + </span>]:<span class="lineCov">   34469814 :           : b[0]-&gt;fts_statp-&gt;st_ino &lt; a[0]-&gt;fts_statp-&gt;st_ino ? 1 : 0);</span>
+<span class="lineNum">    1194 </span>                :<span class="lineCov">   34446098 :   return (a[0]-&gt;fts_statp-&gt;st_ino &lt; b[0]-&gt;fts_statp-&gt;st_ino ? -1</span>
+<span class="lineNum">    1195 </span>        [<span class="branchCov" title="Branch 0 was taken 17150864 times"> + </span><span class="branchCov" title="Branch 1 was taken 17295234 times"> + </span>]:<span class="lineCov">   34446098 :           : b[0]-&gt;fts_statp-&gt;st_ino &lt; a[0]-&gt;fts_statp-&gt;st_ino ? 1 : 0);</span>
 <span class="lineNum">    1196 </span>                :            : }
 <span class="lineNum">    1197 </span>                :            : 
 <span class="lineNum">    1198 </span>                :            : /* Map the dirent.d_type value, DTYPE, to the corresponding stat.st_mode
@@ -1618,7 +1618,7 @@
 <span class="lineNum">    1535 </span>                :            :                 }
 <span class="lineNum">    1536 </span>                :            : 
 <span class="lineNum">    1537 </span>                :            :                 /* Decrement link count if applicable. */
-<span class="lineNum">    1538 </span>[<span class="branchCov" title="Branch 0 was taken 788702 times"> + </span><span class="branchCov" title="Branch 1 was taken 1636336 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 210307 times"> + </span><span class="branchCov" title="Branch 3 was taken 578395 times"> + </span>]:<span class="lineCov">    2425038 :                 if (nlinks &gt; 0 &amp;&amp; is_dir)</span>
+<span class="lineNum">    1538 </span>[<span class="branchCov" title="Branch 0 was taken 788718 times"> + </span><span class="branchCov" title="Branch 1 was taken 1636320 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 210307 times"> + </span><span class="branchCov" title="Branch 3 was taken 578411 times"> + </span>]:<span class="lineCov">    2425038 :                 if (nlinks &gt; 0 &amp;&amp; is_dir)</span>
 <span class="lineNum">    1539 </span>                :<span class="lineCov">     210307 :                         nlinks -= nostat;</span>
 <span class="lineNum">    1540 </span>                :            : 
 <span class="lineNum">    1541 </span>                :            :                 /* We walk in directory order so &quot;ls -f&quot; doesn't get upset. */

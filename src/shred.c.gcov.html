@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -388,18 +388,18 @@
 <span class="lineNum">     317 </span>                :            : /* Turn on or off direct I/O mode for file descriptor FD, if possible.
 <a name="318"><span class="lineNum">     318 </span>                :            :    Try to turn it on if ENABLE is true.  Otherwise, try to turn it off.  */</a>
 <span class="lineNum">     319 </span>                :            : static void
-<span class="lineNum">     320 </span>                :<span class="lineCov">         42 : direct_mode (int fd, bool enable)</span>
+<span class="lineNum">     320 </span>                :<span class="lineCov">         48 : direct_mode (int fd, bool enable)</span>
 <span class="lineNum">     321 </span>                :            : {
 <span class="lineNum">     322 </span>                :            :   if (O_DIRECT)
 <span class="lineNum">     323 </span>                :            :     {
-<span class="lineNum">     324 </span>                :<span class="lineCov">         42 :       int fd_flags = fcntl (fd, F_GETFL);</span>
-<span class="lineNum">     325 </span>        [<span class="branchCov" title="Branch 0 was taken 42 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         42 :       if (0 &lt; fd_flags)</span>
+<span class="lineNum">     324 </span>                :<span class="lineCov">         48 :       int fd_flags = fcntl (fd, F_GETFL);</span>
+<span class="lineNum">     325 </span>        [<span class="branchCov" title="Branch 0 was taken 48 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         48 :       if (0 &lt; fd_flags)</span>
 <span class="lineNum">     326 </span>                :            :         {
-<span class="lineNum">     327 </span>                :<span class="lineCov">         42 :           int new_flags = (enable</span>
+<span class="lineNum">     327 </span>                :<span class="lineCov">         48 :           int new_flags = (enable</span>
 <span class="lineNum">     328 </span>                :            :                            ? (fd_flags | O_DIRECT)
-<span class="lineNum">     329 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         42 :                            : (fd_flags &amp; ~O_DIRECT));</span>
-<span class="lineNum">     330 </span>        [<span class="branchCov" title="Branch 0 was taken 42 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         42 :           if (new_flags != fd_flags)</span>
-<span class="lineNum">     331 </span>                :<span class="lineCov">         42 :             fcntl (fd, F_SETFL, new_flags);</span>
+<span class="lineNum">     329 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">         48 :                            : (fd_flags &amp; ~O_DIRECT));</span>
+<span class="lineNum">     330 </span>        [<span class="branchCov" title="Branch 0 was taken 48 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         48 :           if (new_flags != fd_flags)</span>
+<span class="lineNum">     331 </span>                :<span class="lineCov">         48 :             fcntl (fd, F_SETFL, new_flags);</span>
 <span class="lineNum">     332 </span>                :            :         }
 <span class="lineNum">     333 </span>                :            :     }
 <span class="lineNum">     334 </span>                :            : 
@@ -408,7 +408,7 @@
 <span class="lineNum">     337 </span>                :            :      http://docs.sun.com/db/doc/816-0213/6m6ne37so?q=directio&amp;a=view  */
 <span class="lineNum">     338 </span>                :            :   directio (fd, enable ? DIRECTIO_ON : DIRECTIO_OFF);
 <span class="lineNum">     339 </span>                :            : #endif
-<span class="lineNum">     340 </span>                :<span class="lineCov">         42 : }</span>
+<span class="lineNum">     340 </span>                :<span class="lineCov">         48 : }</span>
 <span class="lineNum">     341 </span>                :            : 
 <span class="lineNum">     342 </span>                :            : /*
 <span class="lineNum">     343 </span>                :            :  * Do pass number k of n, writing &quot;size&quot; bytes of the given pattern &quot;type&quot;
@@ -493,12 +493,12 @@
 <span class="lineNum">     422 </span>        [<span class="branchCov" title="Branch 0 was taken 72 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         81 :       if (type &lt; 0)</span>
 <span class="lineNum">     423 </span>                :<span class="lineCov">         72 :         randread (s, &amp;r, lim);</span>
 <span class="lineNum">     424 </span>                :            :       /* Loop to retry partial writes. */
-<span class="lineNum">     425 </span>        [<span class="branchCov" title="Branch 0 was taken 99 times"> + </span><span class="branchCov" title="Branch 1 was taken 81 times"> + </span>]:<span class="lineCov">        180 :       for (soff = 0; soff &lt; lim; soff += ssize, first_write = false)</span>
+<span class="lineNum">     425 </span>        [<span class="branchCov" title="Branch 0 was taken 105 times"> + </span><span class="branchCov" title="Branch 1 was taken 81 times"> + </span>]:<span class="lineCov">        186 :       for (soff = 0; soff &lt; lim; soff += ssize, first_write = false)</span>
 <span class="lineNum">     426 </span>                :            :         {
-<span class="lineNum">     427 </span>                :<span class="lineCov">         99 :           ssize = write (fd, r.c + soff, lim - soff);</span>
-<span class="lineNum">     428 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 81 times"> + </span>]:<span class="lineCov">         99 :           if (ssize &lt;= 0)</span>
+<span class="lineNum">     427 </span>                :<span class="lineCov">        105 :           ssize = write (fd, r.c + soff, lim - soff);</span>
+<span class="lineNum">     428 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 81 times"> + </span>]:<span class="lineCov">        105 :           if (ssize &lt;= 0)</span>
 <span class="lineNum">     429 </span>                :            :             {
-<span class="lineNum">     430 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">         18 :               if (size &lt; 0 &amp;&amp; (ssize == 0 || errno == ENOSPC))</span>
+<span class="lineNum">     430 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">         24 :               if (size &lt; 0 &amp;&amp; (ssize == 0 || errno == ENOSPC))</span>
 <span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]
 <span class="lineNum">     431 </span>                :            :                 {
 <span class="lineNum">     432 </span>                :            :                   /* Ah, we have found the end of the file */
@@ -507,7 +507,7 @@
 <span class="lineNum">     435 </span>                :            :                 }
 <span class="lineNum">     436 </span>                :            :               else
 <span class="lineNum">     437 </span>                :            :                 {
-<span class="lineNum">     438 </span>                :<span class="lineCov">         18 :                   int errnum = errno;</span>
+<span class="lineNum">     438 </span>                :<span class="lineCov">         24 :                   int errnum = errno;</span>
 <span class="lineNum">     439 </span>                :            :                   char buf[INT_BUFSIZE_BOUND (uintmax_t)];
 <span class="lineNum">     440 </span>                :            : 
 <span class="lineNum">     441 </span>                :            :                   /* If the first write of the first pass for a given file
@@ -517,12 +517,12 @@
 <span class="lineNum">     445 </span>                :            :                      file system types (e.g., ext3), but any attempt to
 <span class="lineNum">     446 </span>                :            :                      access a file through the resulting descriptor would
 <span class="lineNum">     447 </span>                :            :                      fail with EINVAL.  */
-<span class="lineNum">     448 </span>[<span class="branchCov" title="Branch 2 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">         18 :                   if (k == 1 &amp;&amp; first_write &amp;&amp; errno == EINVAL)</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]
+<span class="lineNum">     448 </span>[<span class="branchCov" title="Branch 2 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">         24 :                   if (k == 1 &amp;&amp; first_write &amp;&amp; errno == EINVAL)</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]
 <span class="lineNum">     449 </span>                :            :                     {
-<span class="lineNum">     450 </span>                :<span class="lineCov">         18 :                       direct_mode (fd, false);</span>
-<span class="lineNum">     451 </span>                :<span class="lineCov">         18 :                       ssize = 0;</span>
-<span class="lineNum">     452 </span>                :<span class="lineCov">         18 :                       continue;</span>
+<span class="lineNum">     450 </span>                :<span class="lineCov">         24 :                       direct_mode (fd, false);</span>
+<span class="lineNum">     451 </span>                :<span class="lineCov">         24 :                       ssize = 0;</span>
+<span class="lineNum">     452 </span>                :<span class="lineCov">         24 :                       continue;</span>
 <span class="lineNum">     453 </span>                :            :                     }
 <span class="lineNum">     454 </span>                :<span class="lineNoCov">          0 :                   error (0, errnum, _(&quot;%s: error writing at offset %s&quot;),</span>
 <span class="lineNum">     455 </span>                :            :                          qname, umaxtostr (offset + soff, buf));

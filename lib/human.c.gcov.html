@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -122,19 +122,19 @@
 <span class="lineNum">      51 </span>                :            :    possible, adjust VALUE according to the style.  */
 <a name="52"><span class="lineNum">      52 </span>                :            : </a>
 <span class="lineNum">      53 </span>                :            : static long double
-<span class="lineNum">      54 </span>                :<span class="lineCov">        174 : adjust_value (int inexact_style, long double value)</span>
+<span class="lineNum">      54 </span>                :<span class="lineCov">        176 : adjust_value (int inexact_style, long double value)</span>
 <span class="lineNum">      55 </span>                :            : {
 <span class="lineNum">      56 </span>                :            :   /* Do not use the floorl or ceill functions, as that would mean
 <span class="lineNum">      57 </span>                :            :      checking for their presence and possibly linking with the
 <span class="lineNum">      58 </span>                :            :      standard math library, which is a porting pain.  So leave the
 <span class="lineNum">      59 </span>                :            :      value alone if it is too large to easily round.  */
-<span class="lineNum">      60 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 174 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">        174 :   if (inexact_style != human_round_to_nearest &amp;&amp; value &lt; UINTMAX_MAX)</span>
+<span class="lineNum">      60 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 176 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">        176 :   if (inexact_style != human_round_to_nearest &amp;&amp; value &lt; UINTMAX_MAX)</span>
 <span class="lineNum">      61 </span>                :            :     {
 <span class="lineNum">      62 </span>                :<span class="lineNoCov">          0 :       uintmax_t u = value;</span>
 <span class="lineNum">      63 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       value = u + (inexact_style == human_ceiling &amp;&amp; u != value);</span>
 <span class="lineNum">      64 </span>                :            :     }
 <span class="lineNum">      65 </span>                :            : 
-<span class="lineNum">      66 </span>                :<span class="lineCov">        174 :   return value;</span>
+<span class="lineNum">      66 </span>                :<span class="lineCov">        176 :   return value;</span>
 <span class="lineNum">      67 </span>                :            : }
 <span class="lineNum">      68 </span>                :            : 
 <span class="lineNum">      69 </span>                :            : /* Group the digits of NUMBER according to the grouping rules of the
@@ -310,10 +310,10 @@
 <span class="lineNum">     239 </span>                :            : 
 <span class="lineNum">     240 </span>                :            :         do
 <span class="lineNum">     241 </span>                :            :           {
-<span class="lineNum">     242 </span>                :<span class="lineCov">        180 :             e *= base;</span>
-<span class="lineNum">     243 </span>                :<span class="lineCov">        180 :             exponent++;</span>
+<span class="lineNum">     242 </span>                :<span class="lineCov">        181 :             e *= base;</span>
+<span class="lineNum">     243 </span>                :<span class="lineCov">        181 :             exponent++;</span>
 <span class="lineNum">     244 </span>                :            :           }
-<span class="lineNum">     245 </span>[<span class="branchCov" title="Branch 0 was taken 30 times"> + </span><span class="branchCov" title="Branch 1 was taken 150 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        180 :         while (e * base &lt;= damt &amp;&amp; exponent &lt; exponent_max);</span>
+<span class="lineNum">     245 </span>[<span class="branchCov" title="Branch 0 was taken 31 times"> + </span><span class="branchCov" title="Branch 1 was taken 150 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 31 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        181 :         while (e * base &lt;= damt &amp;&amp; exponent &lt; exponent_max);</span>
 <span class="lineNum">     246 </span>                :            : 
 <span class="lineNum">     247 </span>                :<span class="lineCov">        150 :         damt /= e;</span>
 <span class="lineNum">     248 </span>                :            : 
@@ -321,14 +321,14 @@
 <span class="lineNum">     250 </span>                :<span class="lineCov">        150 :         buflen = strlen (buf);</span>
 <span class="lineNum">     251 </span>                :<span class="lineCov">        150 :         nonintegerlen = decimal_pointlen + 1;</span>
 <span class="lineNum">     252 </span>                :            : 
-<span class="lineNum">     253 </span>        [<span class="branchCov" title="Branch 0 was taken 126 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">        150 :         if (1 + nonintegerlen + ! (opts &amp; human_base_1024) &lt; buflen</span>
-<span class="lineNum">     254 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 126 times"> + </span>]:<span class="lineCov">        126 :             || ((opts &amp; human_suppress_point_zero)</span>
+<span class="lineNum">     253 </span>        [<span class="branchCov" title="Branch 0 was taken 124 times"> + </span><span class="branchCov" title="Branch 1 was taken 26 times"> + </span>]:<span class="lineCov">        150 :         if (1 + nonintegerlen + ! (opts &amp; human_base_1024) &lt; buflen</span>
+<span class="lineNum">     254 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 124 times"> + </span>]:<span class="lineCov">        124 :             || ((opts &amp; human_suppress_point_zero)</span>
 <span class="lineNum">     255 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 &amp;&amp; buf[buflen - 1] == '0'))</span>
 <span class="lineNum">     256 </span>                :            :           {
-<span class="lineNum">     257 </span>                :<span class="lineCov">         24 :             sprintf (buf, &quot;%.0Lf&quot;,</span>
-<span class="lineNum">     258 </span>                :<span class="lineCov">         24 :                      adjust_value (inexact_style, damt * 10) / 10);</span>
-<span class="lineNum">     259 </span>                :<span class="lineCov">         24 :             buflen = strlen (buf);</span>
-<span class="lineNum">     260 </span>                :<span class="lineCov">         24 :             nonintegerlen = 0;</span>
+<span class="lineNum">     257 </span>                :<span class="lineCov">         26 :             sprintf (buf, &quot;%.0Lf&quot;,</span>
+<span class="lineNum">     258 </span>                :<span class="lineCov">         26 :                      adjust_value (inexact_style, damt * 10) / 10);</span>
+<span class="lineNum">     259 </span>                :<span class="lineCov">         26 :             buflen = strlen (buf);</span>
+<span class="lineNum">     260 </span>                :<span class="lineCov">         26 :             nonintegerlen = 0;</span>
 <span class="lineNum">     261 </span>                :            :           }
 <span class="lineNum">     262 </span>                :            :       }
 <span class="lineNum">     263 </span>                :            : 
@@ -418,10 +418,10 @@
 <span class="lineNum">     345 </span>                :            : 
 <span class="lineNum">     346 </span>                :            :     do
 <span class="lineNum">     347 </span>                :            :       {
-<span class="lineNum">     348 </span>                :<span class="lineCov">      37989 :         int digit = amt % 10;</span>
-<span class="lineNum">     349 </span>                :<span class="lineCov">      37989 :         *--p = digit + '0';</span>
+<span class="lineNum">     348 </span>                :<span class="lineCov">      37875 :         int digit = amt % 10;</span>
+<span class="lineNum">     349 </span>                :<span class="lineCov">      37875 :         *--p = digit + '0';</span>
 <span class="lineNum">     350 </span>                :            :       }
-<span class="lineNum">     351 </span>        [<span class="branchCov" title="Branch 0 was taken 17974 times"> + </span><span class="branchCov" title="Branch 1 was taken 20015 times"> + </span>]:<span class="lineCov">      37989 :     while ((amt /= 10) != 0);</span>
+<span class="lineNum">     351 </span>        [<span class="branchCov" title="Branch 0 was taken 17860 times"> + </span><span class="branchCov" title="Branch 1 was taken 20015 times"> + </span>]:<span class="lineCov">      37875 :     while ((amt /= 10) != 0);</span>
 <span class="lineNum">     352 </span>                :            :   }
 <span class="lineNum">     353 </span>                :            : 
 <span class="lineNum">     354 </span>                :            :  do_grouping:
@@ -445,7 +445,7 @@
 <span class="lineNum">     372 </span>        [<span class="branchCov" title="Branch 0 was taken 230 times"> + </span><span class="branchCov" title="Branch 1 was taken 113 times"> + </span>]:<span class="lineCov">        343 :       if (exponent)</span>
 <span class="lineNum">     373 </span>        [<span class="branchCov" title="Branch 0 was taken 187 times"> + </span><span class="branchCov" title="Branch 1 was taken 43 times"> + </span>]:<span class="lineCov">        417 :         *psuffix++ = (! (opts &amp; human_base_1024) &amp;&amp; exponent == 1</span>
 <span class="lineNum">     374 </span>                :            :                       ? 'k'
-<span class="lineNum">     375 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchCov" title="Branch 1 was taken 153 times"> + </span>]:<span class="lineCov">        187 :                       : power_letter[exponent]);</span>
+<span class="lineNum">     375 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchCov" title="Branch 1 was taken 152 times"> + </span>]:<span class="lineCov">        187 :                       : power_letter[exponent]);</span>
 <span class="lineNum">     376 </span>                :            : 
 <span class="lineNum">     377 </span>        [<span class="branchCov" title="Branch 0 was taken 300 times"> + </span><span class="branchCov" title="Branch 1 was taken 43 times"> + </span>]:<span class="lineCov">        343 :       if (opts &amp; human_B)</span>
 <span class="lineNum">     378 </span>                :            :         {

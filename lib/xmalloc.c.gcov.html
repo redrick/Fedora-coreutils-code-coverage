@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -109,21 +109,21 @@
 <span class="lineNum">      38 </span>                :            : /* Allocate N bytes of memory dynamically, with error checking.  */
 <a name="39"><span class="lineNum">      39 </span>                :            : </a>
 <span class="lineNum">      40 </span>                :            : void *
-<span class="lineNum">      41 </span>                :<span class="lineCov">    1412921 : xmalloc (size_t n)</span>
+<span class="lineNum">      41 </span>                :<span class="lineCov">    1412173 : xmalloc (size_t n)</span>
 <span class="lineNum">      42 </span>                :            : {
-<span class="lineNum">      43 </span>                :<span class="lineCov">    1412921 :   void *p = malloc (n);</span>
-<span class="lineNum">      44 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1412921 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">    1412921 :   if (!p &amp;&amp; n != 0)</span>
+<span class="lineNum">      43 </span>                :<span class="lineCov">    1412173 :   void *p = malloc (n);</span>
+<span class="lineNum">      44 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1412173 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">    1412173 :   if (!p &amp;&amp; n != 0)</span>
 <span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 :     xalloc_die ();</span>
-<span class="lineNum">      46 </span>                :<span class="lineCov">    1412921 :   return p;</span>
+<span class="lineNum">      46 </span>                :<span class="lineCov">    1412173 :   return p;</span>
 <span class="lineNum">      47 </span>                :            : }
 <span class="lineNum">      48 </span>                :            : 
 <span class="lineNum">      49 </span>                :            : /* Change the size of an allocated block of memory P to N bytes,
 <span class="lineNum">      50 </span>                :            :    with error checking.  */
 <a name="51"><span class="lineNum">      51 </span>                :            : </a>
 <span class="lineNum">      52 </span>                :            : void *
-<span class="lineNum">      53 </span>                :<span class="lineCov">      12354 : xrealloc (void *p, size_t n)</span>
+<span class="lineNum">      53 </span>                :<span class="lineCov">      11911 : xrealloc (void *p, size_t n)</span>
 <span class="lineNum">      54 </span>                :            : {
-<span class="lineNum">      55 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 12354 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">      12354 :   if (!n &amp;&amp; p)</span>
+<span class="lineNum">      55 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 11911 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">      11911 :   if (!n &amp;&amp; p)</span>
 <span class="lineNum">      56 </span>                :            :     {
 <span class="lineNum">      57 </span>                :            :       /* The GNU and C99 realloc behaviors disagree here.  Act like
 <span class="lineNum">      58 </span>                :            :          GNU, even if the underlying realloc is C99.  */
@@ -131,10 +131,10 @@
 <span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 :       return NULL;</span>
 <span class="lineNum">      61 </span>                :            :     }
 <span class="lineNum">      62 </span>                :            : 
-<span class="lineNum">      63 </span>                :<span class="lineCov">      12354 :   p = realloc (p, n);</span>
-<span class="lineNum">      64 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 12354 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">      12354 :   if (!p &amp;&amp; n)</span>
+<span class="lineNum">      63 </span>                :<span class="lineCov">      11911 :   p = realloc (p, n);</span>
+<span class="lineNum">      64 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 11911 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">      11911 :   if (!p &amp;&amp; n)</span>
 <span class="lineNum">      65 </span>                :<span class="lineNoCov">          0 :     xalloc_die ();</span>
-<span class="lineNum">      66 </span>                :<span class="lineCov">      12354 :   return p;</span>
+<span class="lineNum">      66 </span>                :<span class="lineCov">      11911 :   return p;</span>
 <span class="lineNum">      67 </span>                :            : }
 <span class="lineNum">      68 </span>                :            : 
 <span class="lineNum">      69 </span>                :            : /* If P is null, allocate a block of at least *PN bytes; otherwise,
@@ -154,9 +154,9 @@
 <span class="lineNum">      83 </span>                :            :    to xcalloc (N, S).  */
 <a name="84"><span class="lineNum">      84 </span>                :            : </a>
 <span class="lineNum">      85 </span>                :            : void *
-<span class="lineNum">      86 </span>                :<span class="lineCov">       1586 : xzalloc (size_t s)</span>
+<span class="lineNum">      86 </span>                :<span class="lineCov">       1079 : xzalloc (size_t s)</span>
 <span class="lineNum">      87 </span>                :            : {
-<span class="lineNum">      88 </span>                :<span class="lineCov">       1586 :   return memset (xmalloc (s), 0, s);</span>
+<span class="lineNum">      88 </span>                :<span class="lineCov">       1079 :   return memset (xmalloc (s), 0, s);</span>
 <span class="lineNum">      89 </span>                :            : }
 <span class="lineNum">      90 </span>                :            : 
 <span class="lineNum">      91 </span>                :            : /* Allocate zeroed memory for N elements of S bytes, with error
@@ -181,17 +181,17 @@
 <span class="lineNum">     110 </span>                :            :    need for an arithmetic overflow check.  */
 <a name="111"><span class="lineNum">     111 </span>                :            : </a>
 <span class="lineNum">     112 </span>                :            : void *
-<span class="lineNum">     113 </span>                :<span class="lineCov">     110496 : xmemdup (void const *p, size_t s)</span>
+<span class="lineNum">     113 </span>                :<span class="lineCov">     110387 : xmemdup (void const *p, size_t s)</span>
 <span class="lineNum">     114 </span>                :            : {
-<span class="lineNum">     115 </span>                :<span class="lineCov">     110496 :   return memcpy (xmalloc (s), p, s);</span>
+<span class="lineNum">     115 </span>                :<span class="lineCov">     110387 :   return memcpy (xmalloc (s), p, s);</span>
 <span class="lineNum">     116 </span>                :            : }
 <span class="lineNum">     117 </span>                :            : 
 <span class="lineNum">     118 </span>                :            : /* Clone STRING.  */
 <a name="119"><span class="lineNum">     119 </span>                :            : </a>
 <span class="lineNum">     120 </span>                :            : char *
-<span class="lineNum">     121 </span>                :<span class="lineCov">      77522 : xstrdup (char const *string)</span>
+<span class="lineNum">     121 </span>                :<span class="lineCov">      77415 : xstrdup (char const *string)</span>
 <span class="lineNum">     122 </span>                :            : {
-<span class="lineNum">     123 </span>                :<span class="lineCov">      77522 :   return xmemdup (string, strlen (string) + 1);</span>
+<span class="lineNum">     123 </span>                :<span class="lineCov">      77415 :   return xmemdup (string, strlen (string) + 1);</span>
 <span class="lineNum">     124 </span>                :            : }
 </pre>
       </td>

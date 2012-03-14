@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -131,10 +131,10 @@
 <span class="lineNum">      60 </span>                :            :  */
 <a name="61"><span class="lineNum">      61 </span>                :            : enum { IO_BUFSIZE = 32*1024 };</a>
 <span class="lineNum">      62 </span>                :            : static inline size_t
-<span class="lineNum">      63 </span>                :<span class="lineCov">      28643 : io_blksize (struct stat sb)</span>
+<span class="lineNum">      63 </span>                :<span class="lineCov">      28235 : io_blksize (struct stat sb)</span>
 <span class="lineNum">      64 </span>                :            : {
-<span class="lineNum">      65 </span>[<span class="branchCov" title="Branch 0 was taken 28643 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 28643 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      28643 :   return MAX (IO_BUFSIZE, ST_BLKSIZE (sb));</span>
-<span class="lineNum">         </span>[<span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 28643 times"> + </span>][<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">      65 </span>[<span class="branchCov" title="Branch 0 was taken 28235 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 28235 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      28235 :   return MAX (IO_BUFSIZE, ST_BLKSIZE (sb));</span>
+<span class="lineNum">         </span>[<span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 28235 times"> + </span>][<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
 <span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
 <span class="lineNum">      66 </span>                :            : }
 </pre>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-13</td>
+            <td class="headerValue">2012-03-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -141,64 +141,64 @@
 <span class="lineNum">      70 </span>                :            : /* Initialize structure containing state of computation.
 <a name="71"><span class="lineNum">      71 </span>                :            :    (RFC 1321, 3.3: Step 3)  */</a>
 <span class="lineNum">      72 </span>                :            : void
-<span class="lineNum">      73 </span>                :<span class="lineCov">       4667 : md5_init_ctx (struct md5_ctx *ctx)</span>
+<span class="lineNum">      73 </span>                :<span class="lineCov">       4665 : md5_init_ctx (struct md5_ctx *ctx)</span>
 <span class="lineNum">      74 </span>                :            : {
-<span class="lineNum">      75 </span>                :<span class="lineCov">       4667 :   ctx-&gt;A = 0x67452301;</span>
-<span class="lineNum">      76 </span>                :<span class="lineCov">       4667 :   ctx-&gt;B = 0xefcdab89;</span>
-<span class="lineNum">      77 </span>                :<span class="lineCov">       4667 :   ctx-&gt;C = 0x98badcfe;</span>
-<span class="lineNum">      78 </span>                :<span class="lineCov">       4667 :   ctx-&gt;D = 0x10325476;</span>
+<span class="lineNum">      75 </span>                :<span class="lineCov">       4665 :   ctx-&gt;A = 0x67452301;</span>
+<span class="lineNum">      76 </span>                :<span class="lineCov">       4665 :   ctx-&gt;B = 0xefcdab89;</span>
+<span class="lineNum">      77 </span>                :<span class="lineCov">       4665 :   ctx-&gt;C = 0x98badcfe;</span>
+<span class="lineNum">      78 </span>                :<span class="lineCov">       4665 :   ctx-&gt;D = 0x10325476;</span>
 <span class="lineNum">      79 </span>                :            : 
-<span class="lineNum">      80 </span>                :<span class="lineCov">       4667 :   ctx-&gt;total[0] = ctx-&gt;total[1] = 0;</span>
-<span class="lineNum">      81 </span>                :<span class="lineCov">       4667 :   ctx-&gt;buflen = 0;</span>
-<span class="lineNum">      82 </span>                :<span class="lineCov">       4667 : }</span>
+<span class="lineNum">      80 </span>                :<span class="lineCov">       4665 :   ctx-&gt;total[0] = ctx-&gt;total[1] = 0;</span>
+<span class="lineNum">      81 </span>                :<span class="lineCov">       4665 :   ctx-&gt;buflen = 0;</span>
+<span class="lineNum">      82 </span>                :<span class="lineCov">       4665 : }</span>
 <span class="lineNum">      83 </span>                :            : 
 <span class="lineNum">      84 </span>                :            : /* Copy the 4 byte value from v into the memory location pointed to by *cp,
 <span class="lineNum">      85 </span>                :            :    If your architecture allows unaligned access this is equivalent to
 <a name="86"><span class="lineNum">      86 </span>                :            :    * (uint32_t *) cp = v  */</a>
 <span class="lineNum">      87 </span>                :            : static inline void
-<span class="lineNum">      88 </span>                :<span class="lineCov">     177112 : set_uint32 (char *cp, uint32_t v)</span>
+<span class="lineNum">      88 </span>                :<span class="lineCov">      75360 : set_uint32 (char *cp, uint32_t v)</span>
 <span class="lineNum">      89 </span>                :            : {
-<span class="lineNum">      90 </span>                :<span class="lineCov">     177112 :   memcpy (cp, &amp;v, sizeof v);</span>
-<span class="lineNum">      91 </span>                :<span class="lineCov">     177112 : }</span>
+<span class="lineNum">      90 </span>                :<span class="lineCov">      75360 :   memcpy (cp, &amp;v, sizeof v);</span>
+<span class="lineNum">      91 </span>                :<span class="lineCov">      75360 : }</span>
 <span class="lineNum">      92 </span>                :            : 
 <span class="lineNum">      93 </span>                :            : /* Put result from CTX in first 16 bytes following RESBUF.  The result
 <a name="94"><span class="lineNum">      94 </span>                :            :    must be in little endian byte order.  */</a>
 <span class="lineNum">      95 </span>                :            : void *
-<span class="lineNum">      96 </span>                :<span class="lineCov">      44278 : md5_read_ctx (const struct md5_ctx *ctx, void *resbuf)</span>
+<span class="lineNum">      96 </span>                :<span class="lineCov">      18840 : md5_read_ctx (const struct md5_ctx *ctx, void *resbuf)</span>
 <span class="lineNum">      97 </span>                :            : {
-<span class="lineNum">      98 </span>                :<span class="lineCov">      44278 :   char *r = resbuf;</span>
-<span class="lineNum">      99 </span>                :<span class="lineCov">      44278 :   set_uint32 (r + 0 * sizeof ctx-&gt;A, SWAP (ctx-&gt;A));</span>
-<span class="lineNum">     100 </span>                :<span class="lineCov">      44278 :   set_uint32 (r + 1 * sizeof ctx-&gt;B, SWAP (ctx-&gt;B));</span>
-<span class="lineNum">     101 </span>                :<span class="lineCov">      44278 :   set_uint32 (r + 2 * sizeof ctx-&gt;C, SWAP (ctx-&gt;C));</span>
-<span class="lineNum">     102 </span>                :<span class="lineCov">      44278 :   set_uint32 (r + 3 * sizeof ctx-&gt;D, SWAP (ctx-&gt;D));</span>
+<span class="lineNum">      98 </span>                :<span class="lineCov">      18840 :   char *r = resbuf;</span>
+<span class="lineNum">      99 </span>                :<span class="lineCov">      18840 :   set_uint32 (r + 0 * sizeof ctx-&gt;A, SWAP (ctx-&gt;A));</span>
+<span class="lineNum">     100 </span>                :<span class="lineCov">      18840 :   set_uint32 (r + 1 * sizeof ctx-&gt;B, SWAP (ctx-&gt;B));</span>
+<span class="lineNum">     101 </span>                :<span class="lineCov">      18840 :   set_uint32 (r + 2 * sizeof ctx-&gt;C, SWAP (ctx-&gt;C));</span>
+<span class="lineNum">     102 </span>                :<span class="lineCov">      18840 :   set_uint32 (r + 3 * sizeof ctx-&gt;D, SWAP (ctx-&gt;D));</span>
 <span class="lineNum">     103 </span>                :            : 
-<span class="lineNum">     104 </span>                :<span class="lineCov">      44278 :   return resbuf;</span>
+<span class="lineNum">     104 </span>                :<span class="lineCov">      18840 :   return resbuf;</span>
 <span class="lineNum">     105 </span>                :            : }
 <span class="lineNum">     106 </span>                :            : 
 <span class="lineNum">     107 </span>                :            : /* Process the remaining bytes in the internal buffer and the usual
 <a name="108"><span class="lineNum">     108 </span>                :            :    prolog according to the standard and write the result to RESBUF.  */</a>
 <span class="lineNum">     109 </span>                :            : void *
-<span class="lineNum">     110 </span>                :<span class="lineCov">      44278 : md5_finish_ctx (struct md5_ctx *ctx, void *resbuf)</span>
+<span class="lineNum">     110 </span>                :<span class="lineCov">      18840 : md5_finish_ctx (struct md5_ctx *ctx, void *resbuf)</span>
 <span class="lineNum">     111 </span>                :            : {
 <span class="lineNum">     112 </span>                :            :   /* Take yet unprocessed bytes into account.  */
-<span class="lineNum">     113 </span>                :<span class="lineCov">      44278 :   uint32_t bytes = ctx-&gt;buflen;</span>
-<span class="lineNum">     114 </span>        [<span class="branchCov" title="Branch 0 was taken 44275 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">      44278 :   size_t size = (bytes &lt; 56) ? 64 / 4 : 64 * 2 / 4;</span>
+<span class="lineNum">     113 </span>                :<span class="lineCov">      18840 :   uint32_t bytes = ctx-&gt;buflen;</span>
+<span class="lineNum">     114 </span>        [<span class="branchCov" title="Branch 0 was taken 18837 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">      18840 :   size_t size = (bytes &lt; 56) ? 64 / 4 : 64 * 2 / 4;</span>
 <span class="lineNum">     115 </span>                :            : 
 <span class="lineNum">     116 </span>                :            :   /* Now count remaining bytes.  */
-<span class="lineNum">     117 </span>                :<span class="lineCov">      44278 :   ctx-&gt;total[0] += bytes;</span>
-<span class="lineNum">     118 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 44278 times"> + </span>]:<span class="lineCov">      44278 :   if (ctx-&gt;total[0] &lt; bytes)</span>
+<span class="lineNum">     117 </span>                :<span class="lineCov">      18840 :   ctx-&gt;total[0] += bytes;</span>
+<span class="lineNum">     118 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18840 times"> + </span>]:<span class="lineCov">      18840 :   if (ctx-&gt;total[0] &lt; bytes)</span>
 <span class="lineNum">     119 </span>                :<span class="lineNoCov">          0 :     ++ctx-&gt;total[1];</span>
 <span class="lineNum">     120 </span>                :            : 
 <span class="lineNum">     121 </span>                :            :   /* Put the 64-bit file length in *bits* at the end of the buffer.  */
-<span class="lineNum">     122 </span>                :<span class="lineCov">      44278 :   ctx-&gt;buffer[size - 2] = SWAP (ctx-&gt;total[0] &lt;&lt; 3);</span>
-<span class="lineNum">     123 </span>                :<span class="lineCov">      44278 :   ctx-&gt;buffer[size - 1] = SWAP ((ctx-&gt;total[1] &lt;&lt; 3) | (ctx-&gt;total[0] &gt;&gt; 29));</span>
+<span class="lineNum">     122 </span>                :<span class="lineCov">      18840 :   ctx-&gt;buffer[size - 2] = SWAP (ctx-&gt;total[0] &lt;&lt; 3);</span>
+<span class="lineNum">     123 </span>                :<span class="lineCov">      18840 :   ctx-&gt;buffer[size - 1] = SWAP ((ctx-&gt;total[1] &lt;&lt; 3) | (ctx-&gt;total[0] &gt;&gt; 29));</span>
 <span class="lineNum">     124 </span>                :            : 
-<span class="lineNum">     125 </span>                :<span class="lineCov">      44278 :   memcpy (&amp;((char *) ctx-&gt;buffer)[bytes], fillbuf, (size - 2) * 4 - bytes);</span>
+<span class="lineNum">     125 </span>                :<span class="lineCov">      18840 :   memcpy (&amp;((char *) ctx-&gt;buffer)[bytes], fillbuf, (size - 2) * 4 - bytes);</span>
 <span class="lineNum">     126 </span>                :            : 
 <span class="lineNum">     127 </span>                :            :   /* Process last bytes.  */
-<span class="lineNum">     128 </span>                :<span class="lineCov">      44278 :   md5_process_block (ctx-&gt;buffer, size * 4, ctx);</span>
+<span class="lineNum">     128 </span>                :<span class="lineCov">      18840 :   md5_process_block (ctx-&gt;buffer, size * 4, ctx);</span>
 <span class="lineNum">     129 </span>                :            : 
-<span class="lineNum">     130 </span>                :<span class="lineCov">      44278 :   return md5_read_ctx (ctx, resbuf);</span>
+<span class="lineNum">     130 </span>                :<span class="lineCov">      18840 :   return md5_read_ctx (ctx, resbuf);</span>
 <span class="lineNum">     131 </span>                :            : }
 <span class="lineNum">     132 </span>                :            : 
 <span class="lineNum">     133 </span>                :            : /* Compute MD5 message digest for bytes read from STREAM.  The
@@ -295,19 +295,19 @@
 <span class="lineNum">     224 </span>                :            : 
 <a name="225"><span class="lineNum">     225 </span>                :            : </a>
 <span class="lineNum">     226 </span>                :            : void
-<span class="lineNum">     227 </span>                :<span class="lineCov">      39786 : md5_process_bytes (const void *buffer, size_t len, struct md5_ctx *ctx)</span>
+<span class="lineNum">     227 </span>                :<span class="lineCov">      14346 : md5_process_bytes (const void *buffer, size_t len, struct md5_ctx *ctx)</span>
 <span class="lineNum">     228 </span>                :            : {
 <span class="lineNum">     229 </span>                :            :   /* When we already have some bits in our internal buffer concatenate
 <span class="lineNum">     230 </span>                :            :      both inputs first.  */
-<span class="lineNum">     231 </span>        [<span class="branchCov" title="Branch 0 was taken 39646 times"> + </span><span class="branchCov" title="Branch 1 was taken 140 times"> + </span>]:<span class="lineCov">      39786 :   if (ctx-&gt;buflen != 0)</span>
+<span class="lineNum">     231 </span>        [<span class="branchCov" title="Branch 0 was taken 14208 times"> + </span><span class="branchCov" title="Branch 1 was taken 138 times"> + </span>]:<span class="lineCov">      14346 :   if (ctx-&gt;buflen != 0)</span>
 <span class="lineNum">     232 </span>                :            :     {
-<span class="lineNum">     233 </span>                :<span class="lineCov">      39646 :       size_t left_over = ctx-&gt;buflen;</span>
-<span class="lineNum">     234 </span>                :<span class="lineCov">      39646 :       size_t add = 128 - left_over &gt; len ? len : 128 - left_over;</span>
+<span class="lineNum">     233 </span>                :<span class="lineCov">      14208 :       size_t left_over = ctx-&gt;buflen;</span>
+<span class="lineNum">     234 </span>                :<span class="lineCov">      14208 :       size_t add = 128 - left_over &gt; len ? len : 128 - left_over;</span>
 <span class="lineNum">     235 </span>                :            : 
-<span class="lineNum">     236 </span>                :<span class="lineCov">      39646 :       memcpy (&amp;((char *) ctx-&gt;buffer)[left_over], buffer, add);</span>
-<span class="lineNum">     237 </span>                :<span class="lineCov">      39646 :       ctx-&gt;buflen += add;</span>
+<span class="lineNum">     236 </span>                :<span class="lineCov">      14208 :       memcpy (&amp;((char *) ctx-&gt;buffer)[left_over], buffer, add);</span>
+<span class="lineNum">     237 </span>                :<span class="lineCov">      14208 :       ctx-&gt;buflen += add;</span>
 <span class="lineNum">     238 </span>                :            : 
-<span class="lineNum">     239 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 39646 times"> + </span>]:<span class="lineCov">      39646 :       if (ctx-&gt;buflen &gt; 64)</span>
+<span class="lineNum">     239 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 14208 times"> + </span>]:<span class="lineCov">      14208 :       if (ctx-&gt;buflen &gt; 64)</span>
 <span class="lineNum">     240 </span>                :            :         {
 <span class="lineNum">     241 </span>                :<span class="lineNoCov">          0 :           md5_process_block (ctx-&gt;buffer, ctx-&gt;buflen &amp; ~63, ctx);</span>
 <span class="lineNum">     242 </span>                :            : 
@@ -318,12 +318,12 @@
 <span class="lineNum">     247 </span>                :<span class="lineNoCov">          0 :                   ctx-&gt;buflen);</span>
 <span class="lineNum">     248 </span>                :            :         }
 <span class="lineNum">     249 </span>                :            : 
-<span class="lineNum">     250 </span>                :<span class="lineCov">      39646 :       buffer = (const char *) buffer + add;</span>
-<span class="lineNum">     251 </span>                :<span class="lineCov">      39646 :       len -= add;</span>
+<span class="lineNum">     250 </span>                :<span class="lineCov">      14208 :       buffer = (const char *) buffer + add;</span>
+<span class="lineNum">     251 </span>                :<span class="lineCov">      14208 :       len -= add;</span>
 <span class="lineNum">     252 </span>                :            :     }
 <span class="lineNum">     253 </span>                :            : 
 <span class="lineNum">     254 </span>                :            :   /* Process available complete blocks.  */
-<span class="lineNum">     255 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 39777 times"> + </span>]:<span class="lineCov">      39786 :   if (len &gt;= 64)</span>
+<span class="lineNum">     255 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 14337 times"> + </span>]:<span class="lineCov">      14346 :   if (len &gt;= 64)</span>
 <span class="lineNum">     256 </span>                :            :     {
 <span class="lineNum">     257 </span>                :            : #if !_STRING_ARCH_unaligned
 <span class="lineNum">     258 </span>                :            : # define UNALIGNED_P(p) ((uintptr_t) (p) % alignof (uint32_t) != 0)
@@ -344,21 +344,21 @@
 <span class="lineNum">     273 </span>                :            :     }
 <span class="lineNum">     274 </span>                :            : 
 <span class="lineNum">     275 </span>                :            :   /* Move remaining bytes in internal buffer.  */
-<span class="lineNum">     276 </span>        [<span class="branchCov" title="Branch 0 was taken 140 times"> + </span><span class="branchCov" title="Branch 1 was taken 39646 times"> + </span>]:<span class="lineCov">      39786 :   if (len &gt; 0)</span>
+<span class="lineNum">     276 </span>        [<span class="branchCov" title="Branch 0 was taken 138 times"> + </span><span class="branchCov" title="Branch 1 was taken 14208 times"> + </span>]:<span class="lineCov">      14346 :   if (len &gt; 0)</span>
 <span class="lineNum">     277 </span>                :            :     {
-<span class="lineNum">     278 </span>                :<span class="lineCov">        140 :       size_t left_over = ctx-&gt;buflen;</span>
+<span class="lineNum">     278 </span>                :<span class="lineCov">        138 :       size_t left_over = ctx-&gt;buflen;</span>
 <span class="lineNum">     279 </span>                :            : 
-<span class="lineNum">     280 </span>                :<span class="lineCov">        140 :       memcpy (&amp;((char *) ctx-&gt;buffer)[left_over], buffer, len);</span>
-<span class="lineNum">     281 </span>                :<span class="lineCov">        140 :       left_over += len;</span>
-<span class="lineNum">     282 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 140 times"> + </span>]:<span class="lineCov">        140 :       if (left_over &gt;= 64)</span>
+<span class="lineNum">     280 </span>                :<span class="lineCov">        138 :       memcpy (&amp;((char *) ctx-&gt;buffer)[left_over], buffer, len);</span>
+<span class="lineNum">     281 </span>                :<span class="lineCov">        138 :       left_over += len;</span>
+<span class="lineNum">     282 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 138 times"> + </span>]:<span class="lineCov">        138 :       if (left_over &gt;= 64)</span>
 <span class="lineNum">     283 </span>                :            :         {
 <span class="lineNum">     284 </span>                :<span class="lineNoCov">          0 :           md5_process_block (ctx-&gt;buffer, 64, ctx);</span>
 <span class="lineNum">     285 </span>                :<span class="lineNoCov">          0 :           left_over -= 64;</span>
 <span class="lineNum">     286 </span>                :<span class="lineNoCov">          0 :           memcpy (ctx-&gt;buffer, &amp;ctx-&gt;buffer[16], left_over);</span>
 <span class="lineNum">     287 </span>                :            :         }
-<span class="lineNum">     288 </span>                :<span class="lineCov">        140 :       ctx-&gt;buflen = left_over;</span>
+<span class="lineNum">     288 </span>                :<span class="lineCov">        138 :       ctx-&gt;buflen = left_over;</span>
 <span class="lineNum">     289 </span>                :            :     }
-<span class="lineNum">     290 </span>                :<span class="lineCov">      39786 : }</span>
+<span class="lineNum">     290 </span>                :<span class="lineCov">      14346 : }</span>
 <span class="lineNum">     291 </span>                :            : 
 <span class="lineNum">     292 </span>                :            : 
 <span class="lineNum">     293 </span>                :            : /* These are the four functions used in the four steps of the MD5 algorithm
@@ -374,33 +374,33 @@
 <span class="lineNum">     303 </span>                :            :    It is assumed that LEN % 64 == 0.  */
 <a name="304"><span class="lineNum">     304 </span>                :            : </a>
 <span class="lineNum">     305 </span>                :            : void
-<span class="lineNum">     306 </span>                :<span class="lineCov">      44881 : md5_process_block (const void *buffer, size_t len, struct md5_ctx *ctx)</span>
+<span class="lineNum">     306 </span>                :<span class="lineCov">      19443 : md5_process_block (const void *buffer, size_t len, struct md5_ctx *ctx)</span>
 <span class="lineNum">     307 </span>                :            : {
 <span class="lineNum">     308 </span>                :            :   uint32_t correct_words[16];
-<span class="lineNum">     309 </span>                :<span class="lineCov">      44881 :   const uint32_t *words = buffer;</span>
-<span class="lineNum">     310 </span>                :<span class="lineCov">      44881 :   size_t nwords = len / sizeof (uint32_t);</span>
-<span class="lineNum">     311 </span>                :<span class="lineCov">      44881 :   const uint32_t *endp = words + nwords;</span>
-<span class="lineNum">     312 </span>                :<span class="lineCov">      44881 :   uint32_t A = ctx-&gt;A;</span>
-<span class="lineNum">     313 </span>                :<span class="lineCov">      44881 :   uint32_t B = ctx-&gt;B;</span>
-<span class="lineNum">     314 </span>                :<span class="lineCov">      44881 :   uint32_t C = ctx-&gt;C;</span>
-<span class="lineNum">     315 </span>                :<span class="lineCov">      44881 :   uint32_t D = ctx-&gt;D;</span>
+<span class="lineNum">     309 </span>                :<span class="lineCov">      19443 :   const uint32_t *words = buffer;</span>
+<span class="lineNum">     310 </span>                :<span class="lineCov">      19443 :   size_t nwords = len / sizeof (uint32_t);</span>
+<span class="lineNum">     311 </span>                :<span class="lineCov">      19443 :   const uint32_t *endp = words + nwords;</span>
+<span class="lineNum">     312 </span>                :<span class="lineCov">      19443 :   uint32_t A = ctx-&gt;A;</span>
+<span class="lineNum">     313 </span>                :<span class="lineCov">      19443 :   uint32_t B = ctx-&gt;B;</span>
+<span class="lineNum">     314 </span>                :<span class="lineCov">      19443 :   uint32_t C = ctx-&gt;C;</span>
+<span class="lineNum">     315 </span>                :<span class="lineCov">      19443 :   uint32_t D = ctx-&gt;D;</span>
 <span class="lineNum">     316 </span>                :            : 
 <span class="lineNum">     317 </span>                :            :   /* First increment the byte count.  RFC 1321 specifies the possible
 <span class="lineNum">     318 </span>                :            :      length of the file up to 2^64 bits.  Here we only compute the
 <span class="lineNum">     319 </span>                :            :      number of bytes.  Do a double word increment.  */
-<span class="lineNum">     320 </span>                :<span class="lineCov">      44881 :   ctx-&gt;total[0] += len;</span>
-<span class="lineNum">     321 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 44881 times"> + </span>]:<span class="lineCov">      44881 :   if (ctx-&gt;total[0] &lt; len)</span>
+<span class="lineNum">     320 </span>                :<span class="lineCov">      19443 :   ctx-&gt;total[0] += len;</span>
+<span class="lineNum">     321 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 19443 times"> + </span>]:<span class="lineCov">      19443 :   if (ctx-&gt;total[0] &lt; len)</span>
 <span class="lineNum">     322 </span>                :<span class="lineNoCov">          0 :     ++ctx-&gt;total[1];</span>
 <span class="lineNum">     323 </span>                :            : 
 <span class="lineNum">     324 </span>                :            :   /* Process all bytes in the buffer with 64 bytes in each round of
 <span class="lineNum">     325 </span>                :            :      the loop.  */
-<span class="lineNum">     326 </span>        [<span class="branchCov" title="Branch 0 was taken 350176 times"> + </span><span class="branchCov" title="Branch 1 was taken 44881 times"> + </span>]:<span class="lineCov">     395057 :   while (words &lt; endp)</span>
+<span class="lineNum">     326 </span>        [<span class="branchCov" title="Branch 0 was taken 324738 times"> + </span><span class="branchCov" title="Branch 1 was taken 19443 times"> + </span>]:<span class="lineCov">     344181 :   while (words &lt; endp)</span>
 <span class="lineNum">     327 </span>                :            :     {
-<span class="lineNum">     328 </span>                :<span class="lineCov">     350176 :       uint32_t *cwp = correct_words;</span>
-<span class="lineNum">     329 </span>                :<span class="lineCov">     350176 :       uint32_t A_save = A;</span>
-<span class="lineNum">     330 </span>                :<span class="lineCov">     350176 :       uint32_t B_save = B;</span>
-<span class="lineNum">     331 </span>                :<span class="lineCov">     350176 :       uint32_t C_save = C;</span>
-<span class="lineNum">     332 </span>                :<span class="lineCov">     350176 :       uint32_t D_save = D;</span>
+<span class="lineNum">     328 </span>                :<span class="lineCov">     324738 :       uint32_t *cwp = correct_words;</span>
+<span class="lineNum">     329 </span>                :<span class="lineCov">     324738 :       uint32_t A_save = A;</span>
+<span class="lineNum">     330 </span>                :<span class="lineCov">     324738 :       uint32_t B_save = B;</span>
+<span class="lineNum">     331 </span>                :<span class="lineCov">     324738 :       uint32_t C_save = C;</span>
+<span class="lineNum">     332 </span>                :<span class="lineCov">     324738 :       uint32_t D_save = D;</span>
 <span class="lineNum">     333 </span>                :            : 
 <span class="lineNum">     334 </span>                :            :       /* First round: using the given function, the context and a constant
 <span class="lineNum">     335 </span>                :            :          the next context is computed.  Because the algorithms processing
@@ -434,22 +434,22 @@
 <span class="lineNum">     363 </span>                :            :        */
 <span class="lineNum">     364 </span>                :            : 
 <span class="lineNum">     365 </span>                :            :       /* Round 1.  */
-<span class="lineNum">     366 </span>                :<span class="lineCov">     350176 :       OP (A, B, C, D, 7, 0xd76aa478);</span>
-<span class="lineNum">     367 </span>                :<span class="lineCov">     350176 :       OP (D, A, B, C, 12, 0xe8c7b756);</span>
-<span class="lineNum">     368 </span>                :<span class="lineCov">     350176 :       OP (C, D, A, B, 17, 0x242070db);</span>
-<span class="lineNum">     369 </span>                :<span class="lineCov">     350176 :       OP (B, C, D, A, 22, 0xc1bdceee);</span>
-<span class="lineNum">     370 </span>                :<span class="lineCov">     350176 :       OP (A, B, C, D, 7, 0xf57c0faf);</span>
-<span class="lineNum">     371 </span>                :<span class="lineCov">     350176 :       OP (D, A, B, C, 12, 0x4787c62a);</span>
-<span class="lineNum">     372 </span>                :<span class="lineCov">     350176 :       OP (C, D, A, B, 17, 0xa8304613);</span>
-<span class="lineNum">     373 </span>                :<span class="lineCov">     350176 :       OP (B, C, D, A, 22, 0xfd469501);</span>
-<span class="lineNum">     374 </span>                :<span class="lineCov">     350176 :       OP (A, B, C, D, 7, 0x698098d8);</span>
-<span class="lineNum">     375 </span>                :<span class="lineCov">     350176 :       OP (D, A, B, C, 12, 0x8b44f7af);</span>
-<span class="lineNum">     376 </span>                :<span class="lineCov">     350176 :       OP (C, D, A, B, 17, 0xffff5bb1);</span>
-<span class="lineNum">     377 </span>                :<span class="lineCov">     350176 :       OP (B, C, D, A, 22, 0x895cd7be);</span>
-<span class="lineNum">     378 </span>                :<span class="lineCov">     350176 :       OP (A, B, C, D, 7, 0x6b901122);</span>
-<span class="lineNum">     379 </span>                :<span class="lineCov">     350176 :       OP (D, A, B, C, 12, 0xfd987193);</span>
-<span class="lineNum">     380 </span>                :<span class="lineCov">     350176 :       OP (C, D, A, B, 17, 0xa679438e);</span>
-<span class="lineNum">     381 </span>                :<span class="lineCov">     350176 :       OP (B, C, D, A, 22, 0x49b40821);</span>
+<span class="lineNum">     366 </span>                :<span class="lineCov">     324738 :       OP (A, B, C, D, 7, 0xd76aa478);</span>
+<span class="lineNum">     367 </span>                :<span class="lineCov">     324738 :       OP (D, A, B, C, 12, 0xe8c7b756);</span>
+<span class="lineNum">     368 </span>                :<span class="lineCov">     324738 :       OP (C, D, A, B, 17, 0x242070db);</span>
+<span class="lineNum">     369 </span>                :<span class="lineCov">     324738 :       OP (B, C, D, A, 22, 0xc1bdceee);</span>
+<span class="lineNum">     370 </span>                :<span class="lineCov">     324738 :       OP (A, B, C, D, 7, 0xf57c0faf);</span>
+<span class="lineNum">     371 </span>                :<span class="lineCov">     324738 :       OP (D, A, B, C, 12, 0x4787c62a);</span>
+<span class="lineNum">     372 </span>                :<span class="lineCov">     324738 :       OP (C, D, A, B, 17, 0xa8304613);</span>
+<span class="lineNum">     373 </span>                :<span class="lineCov">     324738 :       OP (B, C, D, A, 22, 0xfd469501);</span>
+<span class="lineNum">     374 </span>                :<span class="lineCov">     324738 :       OP (A, B, C, D, 7, 0x698098d8);</span>
+<span class="lineNum">     375 </span>                :<span class="lineCov">     324738 :       OP (D, A, B, C, 12, 0x8b44f7af);</span>
+<span class="lineNum">     376 </span>                :<span class="lineCov">     324738 :       OP (C, D, A, B, 17, 0xffff5bb1);</span>
+<span class="lineNum">     377 </span>                :<span class="lineCov">     324738 :       OP (B, C, D, A, 22, 0x895cd7be);</span>
+<span class="lineNum">     378 </span>                :<span class="lineCov">     324738 :       OP (A, B, C, D, 7, 0x6b901122);</span>
+<span class="lineNum">     379 </span>                :<span class="lineCov">     324738 :       OP (D, A, B, C, 12, 0xfd987193);</span>
+<span class="lineNum">     380 </span>                :<span class="lineCov">     324738 :       OP (C, D, A, B, 17, 0xa679438e);</span>
+<span class="lineNum">     381 </span>                :<span class="lineCov">     324738 :       OP (B, C, D, A, 22, 0x49b40821);</span>
 <span class="lineNum">     382 </span>                :            : 
 <span class="lineNum">     383 </span>                :            :       /* For the second to fourth round we have the possibly swapped words
 <span class="lineNum">     384 </span>                :            :          in CORRECT_WORDS.  Redefine the macro to take an additional first
@@ -465,72 +465,72 @@
 <span class="lineNum">     394 </span>                :            :       while (0)
 <span class="lineNum">     395 </span>                :            : 
 <span class="lineNum">     396 </span>                :            :       /* Round 2.  */
-<span class="lineNum">     397 </span>                :<span class="lineCov">     350176 :       OP (FG, A, B, C, D, 1, 5, 0xf61e2562);</span>
-<span class="lineNum">     398 </span>                :<span class="lineCov">     350176 :       OP (FG, D, A, B, C, 6, 9, 0xc040b340);</span>
-<span class="lineNum">     399 </span>                :<span class="lineCov">     350176 :       OP (FG, C, D, A, B, 11, 14, 0x265e5a51);</span>
-<span class="lineNum">     400 </span>                :<span class="lineCov">     350176 :       OP (FG, B, C, D, A, 0, 20, 0xe9b6c7aa);</span>
-<span class="lineNum">     401 </span>                :<span class="lineCov">     350176 :       OP (FG, A, B, C, D, 5, 5, 0xd62f105d);</span>
-<span class="lineNum">     402 </span>                :<span class="lineCov">     350176 :       OP (FG, D, A, B, C, 10, 9, 0x02441453);</span>
-<span class="lineNum">     403 </span>                :<span class="lineCov">     350176 :       OP (FG, C, D, A, B, 15, 14, 0xd8a1e681);</span>
-<span class="lineNum">     404 </span>                :<span class="lineCov">     350176 :       OP (FG, B, C, D, A, 4, 20, 0xe7d3fbc8);</span>
-<span class="lineNum">     405 </span>                :<span class="lineCov">     350176 :       OP (FG, A, B, C, D, 9, 5, 0x21e1cde6);</span>
-<span class="lineNum">     406 </span>                :<span class="lineCov">     350176 :       OP (FG, D, A, B, C, 14, 9, 0xc33707d6);</span>
-<span class="lineNum">     407 </span>                :<span class="lineCov">     350176 :       OP (FG, C, D, A, B, 3, 14, 0xf4d50d87);</span>
-<span class="lineNum">     408 </span>                :<span class="lineCov">     350176 :       OP (FG, B, C, D, A, 8, 20, 0x455a14ed);</span>
-<span class="lineNum">     409 </span>                :<span class="lineCov">     350176 :       OP (FG, A, B, C, D, 13, 5, 0xa9e3e905);</span>
-<span class="lineNum">     410 </span>                :<span class="lineCov">     350176 :       OP (FG, D, A, B, C, 2, 9, 0xfcefa3f8);</span>
-<span class="lineNum">     411 </span>                :<span class="lineCov">     350176 :       OP (FG, C, D, A, B, 7, 14, 0x676f02d9);</span>
-<span class="lineNum">     412 </span>                :<span class="lineCov">     350176 :       OP (FG, B, C, D, A, 12, 20, 0x8d2a4c8a);</span>
+<span class="lineNum">     397 </span>                :<span class="lineCov">     324738 :       OP (FG, A, B, C, D, 1, 5, 0xf61e2562);</span>
+<span class="lineNum">     398 </span>                :<span class="lineCov">     324738 :       OP (FG, D, A, B, C, 6, 9, 0xc040b340);</span>
+<span class="lineNum">     399 </span>                :<span class="lineCov">     324738 :       OP (FG, C, D, A, B, 11, 14, 0x265e5a51);</span>
+<span class="lineNum">     400 </span>                :<span class="lineCov">     324738 :       OP (FG, B, C, D, A, 0, 20, 0xe9b6c7aa);</span>
+<span class="lineNum">     401 </span>                :<span class="lineCov">     324738 :       OP (FG, A, B, C, D, 5, 5, 0xd62f105d);</span>
+<span class="lineNum">     402 </span>                :<span class="lineCov">     324738 :       OP (FG, D, A, B, C, 10, 9, 0x02441453);</span>
+<span class="lineNum">     403 </span>                :<span class="lineCov">     324738 :       OP (FG, C, D, A, B, 15, 14, 0xd8a1e681);</span>
+<span class="lineNum">     404 </span>                :<span class="lineCov">     324738 :       OP (FG, B, C, D, A, 4, 20, 0xe7d3fbc8);</span>
+<span class="lineNum">     405 </span>                :<span class="lineCov">     324738 :       OP (FG, A, B, C, D, 9, 5, 0x21e1cde6);</span>
+<span class="lineNum">     406 </span>                :<span class="lineCov">     324738 :       OP (FG, D, A, B, C, 14, 9, 0xc33707d6);</span>
+<span class="lineNum">     407 </span>                :<span class="lineCov">     324738 :       OP (FG, C, D, A, B, 3, 14, 0xf4d50d87);</span>
+<span class="lineNum">     408 </span>                :<span class="lineCov">     324738 :       OP (FG, B, C, D, A, 8, 20, 0x455a14ed);</span>
+<span class="lineNum">     409 </span>                :<span class="lineCov">     324738 :       OP (FG, A, B, C, D, 13, 5, 0xa9e3e905);</span>
+<span class="lineNum">     410 </span>                :<span class="lineCov">     324738 :       OP (FG, D, A, B, C, 2, 9, 0xfcefa3f8);</span>
+<span class="lineNum">     411 </span>                :<span class="lineCov">     324738 :       OP (FG, C, D, A, B, 7, 14, 0x676f02d9);</span>
+<span class="lineNum">     412 </span>                :<span class="lineCov">     324738 :       OP (FG, B, C, D, A, 12, 20, 0x8d2a4c8a);</span>
 <span class="lineNum">     413 </span>                :            : 
 <span class="lineNum">     414 </span>                :            :       /* Round 3.  */
-<span class="lineNum">     415 </span>                :<span class="lineCov">     350176 :       OP (FH, A, B, C, D, 5, 4, 0xfffa3942);</span>
-<span class="lineNum">     416 </span>                :<span class="lineCov">     350176 :       OP (FH, D, A, B, C, 8, 11, 0x8771f681);</span>
-<span class="lineNum">     417 </span>                :<span class="lineCov">     350176 :       OP (FH, C, D, A, B, 11, 16, 0x6d9d6122);</span>
-<span class="lineNum">     418 </span>                :<span class="lineCov">     350176 :       OP (FH, B, C, D, A, 14, 23, 0xfde5380c);</span>
-<span class="lineNum">     419 </span>                :<span class="lineCov">     350176 :       OP (FH, A, B, C, D, 1, 4, 0xa4beea44);</span>
-<span class="lineNum">     420 </span>                :<span class="lineCov">     350176 :       OP (FH, D, A, B, C, 4, 11, 0x4bdecfa9);</span>
-<span class="lineNum">     421 </span>                :<span class="lineCov">     350176 :       OP (FH, C, D, A, B, 7, 16, 0xf6bb4b60);</span>
-<span class="lineNum">     422 </span>                :<span class="lineCov">     350176 :       OP (FH, B, C, D, A, 10, 23, 0xbebfbc70);</span>
-<span class="lineNum">     423 </span>                :<span class="lineCov">     350176 :       OP (FH, A, B, C, D, 13, 4, 0x289b7ec6);</span>
-<span class="lineNum">     424 </span>                :<span class="lineCov">     350176 :       OP (FH, D, A, B, C, 0, 11, 0xeaa127fa);</span>
-<span class="lineNum">     425 </span>                :<span class="lineCov">     350176 :       OP (FH, C, D, A, B, 3, 16, 0xd4ef3085);</span>
-<span class="lineNum">     426 </span>                :<span class="lineCov">     350176 :       OP (FH, B, C, D, A, 6, 23, 0x04881d05);</span>
-<span class="lineNum">     427 </span>                :<span class="lineCov">     350176 :       OP (FH, A, B, C, D, 9, 4, 0xd9d4d039);</span>
-<span class="lineNum">     428 </span>                :<span class="lineCov">     350176 :       OP (FH, D, A, B, C, 12, 11, 0xe6db99e5);</span>
-<span class="lineNum">     429 </span>                :<span class="lineCov">     350176 :       OP (FH, C, D, A, B, 15, 16, 0x1fa27cf8);</span>
-<span class="lineNum">     430 </span>                :<span class="lineCov">     350176 :       OP (FH, B, C, D, A, 2, 23, 0xc4ac5665);</span>
+<span class="lineNum">     415 </span>                :<span class="lineCov">     324738 :       OP (FH, A, B, C, D, 5, 4, 0xfffa3942);</span>
+<span class="lineNum">     416 </span>                :<span class="lineCov">     324738 :       OP (FH, D, A, B, C, 8, 11, 0x8771f681);</span>
+<span class="lineNum">     417 </span>                :<span class="lineCov">     324738 :       OP (FH, C, D, A, B, 11, 16, 0x6d9d6122);</span>
+<span class="lineNum">     418 </span>                :<span class="lineCov">     324738 :       OP (FH, B, C, D, A, 14, 23, 0xfde5380c);</span>
+<span class="lineNum">     419 </span>                :<span class="lineCov">     324738 :       OP (FH, A, B, C, D, 1, 4, 0xa4beea44);</span>
+<span class="lineNum">     420 </span>                :<span class="lineCov">     324738 :       OP (FH, D, A, B, C, 4, 11, 0x4bdecfa9);</span>
+<span class="lineNum">     421 </span>                :<span class="lineCov">     324738 :       OP (FH, C, D, A, B, 7, 16, 0xf6bb4b60);</span>
+<span class="lineNum">     422 </span>                :<span class="lineCov">     324738 :       OP (FH, B, C, D, A, 10, 23, 0xbebfbc70);</span>
+<span class="lineNum">     423 </span>                :<span class="lineCov">     324738 :       OP (FH, A, B, C, D, 13, 4, 0x289b7ec6);</span>
+<span class="lineNum">     424 </span>                :<span class="lineCov">     324738 :       OP (FH, D, A, B, C, 0, 11, 0xeaa127fa);</span>
+<span class="lineNum">     425 </span>                :<span class="lineCov">     324738 :       OP (FH, C, D, A, B, 3, 16, 0xd4ef3085);</span>
+<span class="lineNum">     426 </span>                :<span class="lineCov">     324738 :       OP (FH, B, C, D, A, 6, 23, 0x04881d05);</span>
+<span class="lineNum">     427 </span>                :<span class="lineCov">     324738 :       OP (FH, A, B, C, D, 9, 4, 0xd9d4d039);</span>
+<span class="lineNum">     428 </span>                :<span class="lineCov">     324738 :       OP (FH, D, A, B, C, 12, 11, 0xe6db99e5);</span>
+<span class="lineNum">     429 </span>                :<span class="lineCov">     324738 :       OP (FH, C, D, A, B, 15, 16, 0x1fa27cf8);</span>
+<span class="lineNum">     430 </span>                :<span class="lineCov">     324738 :       OP (FH, B, C, D, A, 2, 23, 0xc4ac5665);</span>
 <span class="lineNum">     431 </span>                :            : 
 <span class="lineNum">     432 </span>                :            :       /* Round 4.  */
-<span class="lineNum">     433 </span>                :<span class="lineCov">     350176 :       OP (FI, A, B, C, D, 0, 6, 0xf4292244);</span>
-<span class="lineNum">     434 </span>                :<span class="lineCov">     350176 :       OP (FI, D, A, B, C, 7, 10, 0x432aff97);</span>
-<span class="lineNum">     435 </span>                :<span class="lineCov">     350176 :       OP (FI, C, D, A, B, 14, 15, 0xab9423a7);</span>
-<span class="lineNum">     436 </span>                :<span class="lineCov">     350176 :       OP (FI, B, C, D, A, 5, 21, 0xfc93a039);</span>
-<span class="lineNum">     437 </span>                :<span class="lineCov">     350176 :       OP (FI, A, B, C, D, 12, 6, 0x655b59c3);</span>
-<span class="lineNum">     438 </span>                :<span class="lineCov">     350176 :       OP (FI, D, A, B, C, 3, 10, 0x8f0ccc92);</span>
-<span class="lineNum">     439 </span>                :<span class="lineCov">     350176 :       OP (FI, C, D, A, B, 10, 15, 0xffeff47d);</span>
-<span class="lineNum">     440 </span>                :<span class="lineCov">     350176 :       OP (FI, B, C, D, A, 1, 21, 0x85845dd1);</span>
-<span class="lineNum">     441 </span>                :<span class="lineCov">     350176 :       OP (FI, A, B, C, D, 8, 6, 0x6fa87e4f);</span>
-<span class="lineNum">     442 </span>                :<span class="lineCov">     350176 :       OP (FI, D, A, B, C, 15, 10, 0xfe2ce6e0);</span>
-<span class="lineNum">     443 </span>                :<span class="lineCov">     350176 :       OP (FI, C, D, A, B, 6, 15, 0xa3014314);</span>
-<span class="lineNum">     444 </span>                :<span class="lineCov">     350176 :       OP (FI, B, C, D, A, 13, 21, 0x4e0811a1);</span>
-<span class="lineNum">     445 </span>                :<span class="lineCov">     350176 :       OP (FI, A, B, C, D, 4, 6, 0xf7537e82);</span>
-<span class="lineNum">     446 </span>                :<span class="lineCov">     350176 :       OP (FI, D, A, B, C, 11, 10, 0xbd3af235);</span>
-<span class="lineNum">     447 </span>                :<span class="lineCov">     350176 :       OP (FI, C, D, A, B, 2, 15, 0x2ad7d2bb);</span>
-<span class="lineNum">     448 </span>                :<span class="lineCov">     350176 :       OP (FI, B, C, D, A, 9, 21, 0xeb86d391);</span>
+<span class="lineNum">     433 </span>                :<span class="lineCov">     324738 :       OP (FI, A, B, C, D, 0, 6, 0xf4292244);</span>
+<span class="lineNum">     434 </span>                :<span class="lineCov">     324738 :       OP (FI, D, A, B, C, 7, 10, 0x432aff97);</span>
+<span class="lineNum">     435 </span>                :<span class="lineCov">     324738 :       OP (FI, C, D, A, B, 14, 15, 0xab9423a7);</span>
+<span class="lineNum">     436 </span>                :<span class="lineCov">     324738 :       OP (FI, B, C, D, A, 5, 21, 0xfc93a039);</span>
+<span class="lineNum">     437 </span>                :<span class="lineCov">     324738 :       OP (FI, A, B, C, D, 12, 6, 0x655b59c3);</span>
+<span class="lineNum">     438 </span>                :<span class="lineCov">     324738 :       OP (FI, D, A, B, C, 3, 10, 0x8f0ccc92);</span>
+<span class="lineNum">     439 </span>                :<span class="lineCov">     324738 :       OP (FI, C, D, A, B, 10, 15, 0xffeff47d);</span>
+<span class="lineNum">     440 </span>                :<span class="lineCov">     324738 :       OP (FI, B, C, D, A, 1, 21, 0x85845dd1);</span>
+<span class="lineNum">     441 </span>                :<span class="lineCov">     324738 :       OP (FI, A, B, C, D, 8, 6, 0x6fa87e4f);</span>
+<span class="lineNum">     442 </span>                :<span class="lineCov">     324738 :       OP (FI, D, A, B, C, 15, 10, 0xfe2ce6e0);</span>
+<span class="lineNum">     443 </span>                :<span class="lineCov">     324738 :       OP (FI, C, D, A, B, 6, 15, 0xa3014314);</span>
+<span class="lineNum">     444 </span>                :<span class="lineCov">     324738 :       OP (FI, B, C, D, A, 13, 21, 0x4e0811a1);</span>
+<span class="lineNum">     445 </span>                :<span class="lineCov">     324738 :       OP (FI, A, B, C, D, 4, 6, 0xf7537e82);</span>
+<span class="lineNum">     446 </span>                :<span class="lineCov">     324738 :       OP (FI, D, A, B, C, 11, 10, 0xbd3af235);</span>
+<span class="lineNum">     447 </span>                :<span class="lineCov">     324738 :       OP (FI, C, D, A, B, 2, 15, 0x2ad7d2bb);</span>
+<span class="lineNum">     448 </span>                :<span class="lineCov">     324738 :       OP (FI, B, C, D, A, 9, 21, 0xeb86d391);</span>
 <span class="lineNum">     449 </span>                :            : 
 <span class="lineNum">     450 </span>                :            :       /* Add the starting values of the context.  */
-<span class="lineNum">     451 </span>                :<span class="lineCov">     350176 :       A += A_save;</span>
-<span class="lineNum">     452 </span>                :<span class="lineCov">     350176 :       B += B_save;</span>
-<span class="lineNum">     453 </span>                :<span class="lineCov">     350176 :       C += C_save;</span>
-<span class="lineNum">     454 </span>                :<span class="lineCov">     350176 :       D += D_save;</span>
+<span class="lineNum">     451 </span>                :<span class="lineCov">     324738 :       A += A_save;</span>
+<span class="lineNum">     452 </span>                :<span class="lineCov">     324738 :       B += B_save;</span>
+<span class="lineNum">     453 </span>                :<span class="lineCov">     324738 :       C += C_save;</span>
+<span class="lineNum">     454 </span>                :<span class="lineCov">     324738 :       D += D_save;</span>
 <span class="lineNum">     455 </span>                :            :     }
 <span class="lineNum">     456 </span>                :            : 
 <span class="lineNum">     457 </span>                :            :   /* Put checksum in context given as argument.  */
-<span class="lineNum">     458 </span>                :<span class="lineCov">      44881 :   ctx-&gt;A = A;</span>
-<span class="lineNum">     459 </span>                :<span class="lineCov">      44881 :   ctx-&gt;B = B;</span>
-<span class="lineNum">     460 </span>                :<span class="lineCov">      44881 :   ctx-&gt;C = C;</span>
-<span class="lineNum">     461 </span>                :<span class="lineCov">      44881 :   ctx-&gt;D = D;</span>
-<span class="lineNum">     462 </span>                :<span class="lineCov">      44881 : }</span>
+<span class="lineNum">     458 </span>                :<span class="lineCov">      19443 :   ctx-&gt;A = A;</span>
+<span class="lineNum">     459 </span>                :<span class="lineCov">      19443 :   ctx-&gt;B = B;</span>
+<span class="lineNum">     460 </span>                :<span class="lineCov">      19443 :   ctx-&gt;C = C;</span>
+<span class="lineNum">     461 </span>                :<span class="lineCov">      19443 :   ctx-&gt;D = D;</span>
+<span class="lineNum">     462 </span>                :<span class="lineCov">      19443 : }</span>
 </pre>
       </td>
     </tr>
