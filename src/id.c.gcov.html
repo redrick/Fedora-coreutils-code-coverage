@@ -31,17 +31,17 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">113</td>
-            <td class="headerCovTableEntry">147</td>
-            <td class="headerCovTableEntryMed">76.9 %</td>
+            <td class="headerCovTableEntry">108</td>
+            <td class="headerCovTableEntry">141</td>
+            <td class="headerCovTableEntryMed">76.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">4</td>
-            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">3</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -143,15 +143,15 @@
 <span class="lineNum">      72 </span>                :            : };
 <a name="73"><span class="lineNum">      73 </span>                :            : </a>
 <span class="lineNum">      74 </span>                :            : void
-<span class="lineNum">      75 </span>                :<span class="lineCov">         12 : usage (int status)</span>
+<span class="lineNum">      75 </span>                :<span class="lineCov">         14 : usage (int status)</span>
 <span class="lineNum">      76 </span>                :            : {
-<span class="lineNum">      77 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         12 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      77 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         14 :   if (status != EXIT_SUCCESS)</span>
 <span class="lineNum">      78 </span>                :<span class="lineCov">          3 :     fprintf (stderr, _(&quot;Try `%s --help' for more information.\n&quot;),</span>
 <span class="lineNum">      79 </span>                :            :              program_name);
 <span class="lineNum">      80 </span>                :            :   else
 <span class="lineNum">      81 </span>                :            :     {
-<span class="lineNum">      82 </span>                :<span class="lineCov">          9 :       printf (_(&quot;Usage: %s [OPTION]... [USERNAME]\n&quot;), program_name);</span>
-<span class="lineNum">      83 </span>                :<span class="lineCov">          9 :       fputs (_(&quot;\</span>
+<span class="lineNum">      82 </span>                :<span class="lineCov">         11 :       printf (_(&quot;Usage: %s [OPTION]... [USERNAME]\n&quot;), program_name);</span>
+<span class="lineNum">      83 </span>                :<span class="lineCov">         11 :       fputs (_(&quot;\</span>
 <span class="lineNum">      84 </span>                :            : Print user and group information for the specified USERNAME,\n\
 <span class="lineNum">      85 </span>                :            : or (when USERNAME omitted) for the current user.\n\
 <span class="lineNum">      86 </span>                :            : \n\
@@ -163,49 +163,49 @@
 <span class="lineNum">      92 </span>                :            :   -r, --real      print the real ID instead of the effective ID, with -ugG\n\
 <span class="lineNum">      93 </span>                :            :   -u, --user      print only the effective user ID\n\
 <span class="lineNum">      94 </span>                :            : &quot;), stdout);
-<span class="lineNum">      95 </span>                :<span class="lineCov">          9 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
-<span class="lineNum">      96 </span>                :<span class="lineCov">          9 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
-<span class="lineNum">      97 </span>                :<span class="lineCov">          9 :       fputs (_(&quot;\</span>
+<span class="lineNum">      95 </span>                :<span class="lineCov">         11 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      96 </span>                :<span class="lineCov">         11 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      97 </span>                :<span class="lineCov">         11 :       fputs (_(&quot;\</span>
 <span class="lineNum">      98 </span>                :            : \n\
 <span class="lineNum">      99 </span>                :            : Without any OPTION, print some useful set of identified information.\n\
 <span class="lineNum">     100 </span>                :            : &quot;), stdout);
-<span class="lineNum">     101 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">     101 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">     102 </span>                :            :     }
-<span class="lineNum">     103 </span>                :<span class="lineCov">         12 :   exit (status);</span>
+<span class="lineNum">     103 </span>                :<span class="lineCov">         14 :   exit (status);</span>
 <span class="lineNum">     104 </span>                :            : }
 <a name="105"><span class="lineNum">     105 </span>                :            : </a>
 <span class="lineNum">     106 </span>                :            : int
-<span class="lineNum">     107 </span>                :<span class="lineCov">        335 : main (int argc, char **argv)</span>
+<span class="lineNum">     107 </span>                :<span class="lineCov">        339 : main (int argc, char **argv)</span>
 <span class="lineNum">     108 </span>                :            : {
 <span class="lineNum">     109 </span>                :            :   int optc;
-<span class="lineNum">     110 </span>                :<span class="lineCov">        335 :   int selinux_enabled = (is_selinux_enabled () &gt; 0);</span>
+<span class="lineNum">     110 </span>                :<span class="lineCov">        339 :   bool selinux_enabled = (is_selinux_enabled () &gt; 0);</span>
 <span class="lineNum">     111 </span>                :            : 
 <span class="lineNum">     112 </span>                :            :   /* If true, output the list of all group IDs. -G */
-<span class="lineNum">     113 </span>                :<span class="lineCov">        335 :   bool just_group_list = false;</span>
+<span class="lineNum">     113 </span>                :<span class="lineCov">        339 :   bool just_group_list = false;</span>
 <span class="lineNum">     114 </span>                :            :   /* If true, output only the group ID(s). -g */
-<span class="lineNum">     115 </span>                :<span class="lineCov">        335 :   bool just_group = false;</span>
+<span class="lineNum">     115 </span>                :<span class="lineCov">        339 :   bool just_group = false;</span>
 <span class="lineNum">     116 </span>                :            :   /* If true, output real UID/GID instead of default effective UID/GID. -r */
-<span class="lineNum">     117 </span>                :<span class="lineCov">        335 :   bool use_real = false;</span>
+<span class="lineNum">     117 </span>                :<span class="lineCov">        339 :   bool use_real = false;</span>
 <span class="lineNum">     118 </span>                :            :   /* If true, output only the user ID(s). -u */
-<span class="lineNum">     119 </span>                :<span class="lineCov">        335 :   bool just_user = false;</span>
+<span class="lineNum">     119 </span>                :<span class="lineCov">        339 :   bool just_user = false;</span>
 <span class="lineNum">     120 </span>                :            : 
 <span class="lineNum">     121 </span>                :            :   initialize_main (&amp;argc, &amp;argv);
-<span class="lineNum">     122 </span>                :<span class="lineCov">        335 :   set_program_name (argv[0]);</span>
-<span class="lineNum">     123 </span>                :<span class="lineCov">        335 :   setlocale (LC_ALL, &quot;&quot;);</span>
-<span class="lineNum">     124 </span>                :<span class="lineCov">        335 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
-<span class="lineNum">     125 </span>                :<span class="lineCov">        335 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     122 </span>                :<span class="lineCov">        339 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     123 </span>                :<span class="lineCov">        339 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     124 </span>                :<span class="lineCov">        339 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     125 </span>                :<span class="lineCov">        339 :   textdomain (PACKAGE);</span>
 <span class="lineNum">     126 </span>                :            : 
-<span class="lineNum">     127 </span>                :<span class="lineCov">        335 :   atexit (close_stdout);</span>
+<span class="lineNum">     127 </span>                :<span class="lineCov">        339 :   atexit (close_stdout);</span>
 <span class="lineNum">     128 </span>                :            : 
-<span class="lineNum">     129 </span>        [<span class="branchCov" title="Branch 1 was taken 339 times"> + </span><span class="branchCov" title="Branch 2 was taken 296 times"> + </span>]:<span class="lineCov">        635 :   while ((optc = getopt_long (argc, argv, &quot;agnruGZ&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     129 </span>        [<span class="branchCov" title="Branch 1 was taken 343 times"> + </span><span class="branchCov" title="Branch 2 was taken 296 times"> + </span>]:<span class="lineCov">        639 :   while ((optc = getopt_long (argc, argv, &quot;agnruGZ&quot;, longopts, NULL)) != -1)</span>
 <span class="lineNum">     130 </span>                :            :     {
-<span class="lineNum">     131 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchCov" title="Branch 2 was taken 36 times"> + </span><span class="branchCov" title="Branch 3 was taken 16 times"> + </span> :<span class="lineCov">        339 :       switch (optc)</span>
-<span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 221 times"> + </span><span class="branchCov" title="Branch 6 was taken 24 times"> + </span><span class="branchCov" title="Branch 7 was taken 9 times"> + </span><span class="branchCov" title="Branch 8 was taken 27 times"> + </span> 
-<span class="lineNum">         </span>            <span class="branchCov" title="Branch 9 was taken 3 times"> + </span>]
+<span class="lineNum">     131 </span>  [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span><span class="branchCov" title="Branch 2 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        343 :       switch (optc)</span>
+<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 221 times"> + </span><span class="branchCov" title="Branch 5 was taken 24 times"> + </span><span class="branchCov" title="Branch 6 was taken 11 times"> + </span><span class="branchCov" title="Branch 7 was taken 29 times"> + </span><span class="branchCov" title="Branch 8 was taken 3 times"> + </span> 
+<span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
 <span class="lineNum">     132 </span>                :            :         {
 <span class="lineNum">     133 </span>                :            :         case 'a':
 <span class="lineNum">     134 </span>                :            :           /* Ignore -a, for compatibility with SVR4.  */
-<span class="lineNum">     135 </span>                :<span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     135 </span>                :            :           break;
 <span class="lineNum">     136 </span>                :            : 
 <span class="lineNum">     137 </span>                :            :         case 'Z':
 <span class="lineNum">     138 </span>                :            :           /* politely decline if we're not on a selinux-enabled kernel. */
@@ -230,10 +230,10 @@
 <span class="lineNum">     157 </span>                :            :         case 'G':
 <span class="lineNum">     158 </span>                :<span class="lineCov">         24 :           just_group_list = true;</span>
 <span class="lineNum">     159 </span>                :<span class="lineCov">         24 :           break;</span>
-<span class="lineNum">     160 </span>                :<span class="lineCov">          9 :         case_GETOPT_HELP_CHAR;</span>
-<span class="lineNum">     161 </span>                :<span class="lineCov">         27 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     160 </span>                :<span class="lineCov">         11 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     161 </span>                :<span class="lineCov">         29 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
 <span class="lineNum">     162 </span>                :            :         default:
-<span class="lineNum">     163 </span>                :<span class="lineCov">          3 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     163 </span>                :<span class="lineCov">        303 :           usage (EXIT_FAILURE);</span>
 <span class="lineNum">     164 </span>                :            :         }
 <span class="lineNum">     165 </span>                :            :     }
 <span class="lineNum">     166 </span>                :            : 
@@ -281,9 +281,9 @@
 <span class="lineNum">     207 </span>                :<span class="lineCov">        260 :       uid_t NO_UID = -1;</span>
 <span class="lineNum">     208 </span>                :<span class="lineCov">        260 :       gid_t NO_GID = -1;</span>
 <span class="lineNum">     209 </span>                :            : 
-<span class="lineNum">     210 </span>[<span class="branchCov" title="Branch 0 was taken 215 times"> + </span><span class="branchCov" title="Branch 1 was taken 45 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 33 times"> + </span><span class="branchCov" title="Branch 3 was taken 12 times"> + </span>]:<span class="lineCov">        293 :       if (just_user ? !use_real</span>
+<span class="lineNum">     210 </span>[<span class="branchCov" title="Branch 0 was taken 215 times"> + </span><span class="branchCov" title="Branch 1 was taken 45 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 33 times"> + </span><span class="branchCov" title="Branch 3 was taken 12 times"> + </span>]:<span class="lineCov">        305 :       if (just_user ? !use_real</span>
 <span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 224 times"> + </span><span class="branchCov" title="Branch 5 was taken 36 times"> + </span>]
-<span class="lineNum">     211 </span>[<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">         33 :           : !just_group &amp;&amp; !just_group_list &amp;&amp; !just_context)</span>
+<span class="lineNum">     211 </span>[<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 9 times"> + </span>]:<span class="lineCov">         45 :           : !just_group &amp;&amp; !just_group_list &amp;&amp; !just_context)</span>
 <span class="lineNum">     212 </span>                :            :         {
 <span class="lineNum">     213 </span>                :<span class="lineCov">        224 :           errno = 0;</span>
 <span class="lineNum">     214 </span>                :<span class="lineCov">        224 :           euid = geteuid ();</span>
@@ -291,9 +291,9 @@
 <span class="lineNum">     216 </span>                :<span class="lineNoCov">          0 :             error (EXIT_FAILURE, errno, _(&quot;cannot get effective UID&quot;));</span>
 <span class="lineNum">     217 </span>                :            :         }
 <span class="lineNum">     218 </span>                :            : 
-<span class="lineNum">     219 </span>[<span class="branchCov" title="Branch 0 was taken 215 times"> + </span><span class="branchCov" title="Branch 1 was taken 45 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 33 times"> + </span><span class="branchCov" title="Branch 3 was taken 12 times"> + </span>]:<span class="lineCov">        293 :       if (just_user ? use_real</span>
+<span class="lineNum">     219 </span>[<span class="branchCov" title="Branch 0 was taken 45 times"> + </span><span class="branchCov" title="Branch 1 was taken 215 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 33 times"> + </span><span class="branchCov" title="Branch 3 was taken 12 times"> + </span>]:<span class="lineCov">        305 :       if (just_user ? use_real</span>
 <span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 30 times"> + </span><span class="branchCov" title="Branch 5 was taken 230 times"> + </span>]
-<span class="lineNum">     220 </span>[<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">         33 :           : !just_group &amp;&amp; (just_group_list || !just_context))</span>
+<span class="lineNum">     220 </span>[<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 9 times"> + </span>]:<span class="lineCov">         45 :           : !just_group &amp;&amp; (just_group_list || !just_context))</span>
 <span class="lineNum">     221 </span>                :            :         {
 <span class="lineNum">     222 </span>                :<span class="lineCov">         30 :           errno = 0;</span>
 <span class="lineNum">     223 </span>                :<span class="lineCov">         30 :           ruid = getuid ();</span>
@@ -338,15 +338,15 @@
 <span class="lineNum">     261 </span>                :            :     {
 <span class="lineNum">     262 </span>                :<span class="lineCov">         12 :       print_full_info (argv[optind]);</span>
 <span class="lineNum">     263 </span>                :            :     }
-<span class="lineNum">     264 </span>                :<span class="lineCov">        296 :   putchar ('\n');</span>
+<span class="lineNum">     264 </span>                :            :   putchar ('\n');
 <span class="lineNum">     265 </span>                :            : 
-<span class="lineNum">     266 </span>        [<span class="branchCov" title="Branch 0 was taken 296 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        296 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
+<span class="lineNum">     266 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 296 times"> + </span>]:<span class="lineCov">        296 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
 <span class="lineNum">     267 </span>                :            : }
 <span class="lineNum">     268 </span>                :            : 
 <span class="lineNum">     269 </span>                :            : /* Print the name or value of user ID UID. */
-<a name="270"><span class="lineNum">     270 </span>                :            : </a>
+<span class="lineNum">     270 </span>                :            : 
 <span class="lineNum">     271 </span>                :            : static void
-<span class="lineNum">     272 </span>                :<span class="lineCov">        221 : print_user (uid_t uid)</span>
+<span class="lineNum">     272 </span>                :            : print_user (uid_t uid)
 <span class="lineNum">     273 </span>                :            : {
 <span class="lineNum">     274 </span>                :<span class="lineCov">        221 :   struct passwd *pwd = NULL;</span>
 <span class="lineNum">     275 </span>                :            : 
@@ -365,7 +365,7 @@
 <span class="lineNum">     288 </span>                :<span class="lineCov">        208 :     printf (&quot;%lu&quot;, (unsigned long int) uid);</span>
 <span class="lineNum">     289 </span>                :            :   else
 <span class="lineNum">     290 </span>                :<span class="lineCov">         13 :     printf (&quot;%s&quot;, pwd-&gt;pw_name);</span>
-<span class="lineNum">     291 </span>                :<span class="lineCov">        221 : }</span>
+<span class="lineNum">     291 </span>                :            : }
 <span class="lineNum">     292 </span>                :            : 
 <span class="lineNum">     293 </span>                :            : /* Print all of the info about the user's user and group IDs. */
 <a name="294"><span class="lineNum">     294 </span>                :            : </a>
@@ -427,7 +427,7 @@
 <span class="lineNum">     350 </span>        [<span class="branchCov" title="Branch 0 was taken 20 times"> + </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span>]:<span class="lineCov">         32 :     for (i = 0; i &lt; n_groups; i++)</span>
 <span class="lineNum">     351 </span>                :            :       {
 <span class="lineNum">     352 </span>        [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span>]:<span class="lineCov">         20 :         if (i &gt; 0)</span>
-<span class="lineNum">     353 </span>                :<span class="lineCov">          8 :           putchar (',');</span>
+<span class="lineNum">     353 </span>                :            :           putchar (',');
 <span class="lineNum">     354 </span>                :<span class="lineCov">         20 :         printf (&quot;%lu&quot;, (unsigned long int) groups[i]);</span>
 <span class="lineNum">     355 </span>                :<span class="lineCov">         20 :         grp = getgrgid (groups[i]);</span>
 <span class="lineNum">     356 </span>        [<span class="branchCov" title="Branch 0 was taken 20 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         20 :         if (grp)</span>

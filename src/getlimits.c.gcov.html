@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">39</td>
-            <td class="headerCovTableEntry">49</td>
-            <td class="headerCovTableEntryMed">79.6 %</td>
+            <td class="headerCovTableEntry">38</td>
+            <td class="headerCovTableEntry">47</td>
+            <td class="headerCovTableEntryMed">80.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -144,7 +144,7 @@
 <span class="lineNum">      73 </span>                :            : &quot;), stdout);
 <span class="lineNum">      74 </span>                :<span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
 <span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
-<span class="lineNum">      76 </span>                :<span class="lineNoCov">          0 :       emit_ancillary_info ();</span>
+<span class="lineNum">      76 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">      77 </span>                :            :     }
 <span class="lineNum">      78 </span>                :<span class="lineNoCov">          0 :   exit (status);</span>
 <span class="lineNum">      79 </span>                :            : }
@@ -181,7 +181,7 @@
 <span class="lineNum">     110 </span>                :<span class="lineCov">         54 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
 <span class="lineNum">     111 </span>                :<span class="lineCov">         54 :   textdomain (PACKAGE);</span>
 <span class="lineNum">     112 </span>                :            : 
-<span class="lineNum">     113 </span>                :<span class="lineCov">         54 :   initialize_exit_failure (EXIT_FAILURE);</span>
+<span class="lineNum">     113 </span>                :            :   initialize_exit_failure (EXIT_FAILURE);
 <span class="lineNum">     114 </span>                :<span class="lineCov">         54 :   atexit (close_stdout);</span>
 <span class="lineNum">     115 </span>                :            : 
 <span class="lineNum">     116 </span>                :<span class="lineCov">         54 :   parse_long_options (argc, argv, PROGRAM_NAME, PACKAGE_NAME, VERSION,</span>
@@ -203,28 +203,28 @@
 <span class="lineNum">     132 </span>                :            :   printf (#TYPE&quot;_MAX=%Le\n&quot;, (long double)TYPE##_MAX);
 <span class="lineNum">     133 </span>                :            : 
 <span class="lineNum">     134 </span>                :            :   /* Variable sized ints */
-<span class="lineNum">     135 </span>                :<span class="lineCov">         54 :   print_int (CHAR);</span>
-<span class="lineNum">     136 </span>                :<span class="lineCov">         54 :   print_int (SCHAR);</span>
+<span class="lineNum">     135 </span>                :<span class="lineCov">        108 :   print_int (CHAR);</span>
+<span class="lineNum">     136 </span>                :<span class="lineCov">        108 :   print_int (SCHAR);</span>
 <span class="lineNum">     137 </span>                :<span class="lineCov">         54 :   print_int (UCHAR);</span>
-<span class="lineNum">     138 </span>                :<span class="lineCov">         54 :   print_int (SHRT);</span>
-<span class="lineNum">     139 </span>                :<span class="lineCov">         54 :   print_int (INT);</span>
+<span class="lineNum">     138 </span>                :<span class="lineCov">        108 :   print_int (SHRT);</span>
+<span class="lineNum">     139 </span>                :<span class="lineCov">        108 :   print_int (INT);</span>
 <span class="lineNum">     140 </span>                :<span class="lineCov">         54 :   print_int (UINT);</span>
-<span class="lineNum">     141 </span>                :<span class="lineCov">         54 :   print_int (LONG);</span>
+<span class="lineNum">     141 </span>                :<span class="lineCov">        108 :   print_int (LONG);</span>
 <span class="lineNum">     142 </span>                :<span class="lineCov">         54 :   print_int (ULONG);</span>
 <span class="lineNum">     143 </span>                :<span class="lineCov">         54 :   print_int (SIZE);</span>
-<span class="lineNum">     144 </span>                :<span class="lineCov">         54 :   print_int (SSIZE);</span>
-<span class="lineNum">     145 </span>                :<span class="lineCov">         54 :   print_int (TIME_T);</span>
+<span class="lineNum">     144 </span>                :<span class="lineCov">        108 :   print_int (SSIZE);</span>
+<span class="lineNum">     145 </span>                :<span class="lineCov">        108 :   print_int (TIME_T);</span>
 <span class="lineNum">     146 </span>                :<span class="lineCov">         54 :   print_int (UID_T);</span>
 <span class="lineNum">     147 </span>                :<span class="lineCov">         54 :   print_int (GID_T);</span>
-<span class="lineNum">     148 </span>                :<span class="lineCov">         54 :   print_int (PID_T);</span>
-<span class="lineNum">     149 </span>                :<span class="lineCov">         54 :   print_int (OFF_T);</span>
-<span class="lineNum">     150 </span>                :<span class="lineCov">         54 :   print_int (INTMAX);</span>
+<span class="lineNum">     148 </span>                :<span class="lineCov">        108 :   print_int (PID_T);</span>
+<span class="lineNum">     149 </span>                :<span class="lineCov">        108 :   print_int (OFF_T);</span>
+<span class="lineNum">     150 </span>                :<span class="lineCov">        108 :   print_int (INTMAX);</span>
 <span class="lineNum">     151 </span>                :<span class="lineCov">         54 :   print_int (UINTMAX);</span>
 <span class="lineNum">     152 </span>                :            : 
 <span class="lineNum">     153 </span>                :            :   /* Variable sized floats */
-<span class="lineNum">     154 </span>                :<span class="lineCov">         54 :   print_float (FLT);</span>
-<span class="lineNum">     155 </span>                :<span class="lineCov">         54 :   print_float (DBL);</span>
-<span class="lineNum">     156 </span>                :<span class="lineCov">         54 :   print_float (LDBL);</span>
+<span class="lineNum">     154 </span>                :<span class="lineCov">        108 :   print_float (FLT);</span>
+<span class="lineNum">     155 </span>                :<span class="lineCov">        108 :   print_float (DBL);</span>
+<span class="lineNum">     156 </span>                :<span class="lineCov">        108 :   print_float (LDBL);</span>
 <span class="lineNum">     157 </span>                :            : }
 </pre>
       </td>

@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">63</td>
-            <td class="headerCovTableEntry">110</td>
-            <td class="headerCovTableEntryLo">57.3 %</td>
+            <td class="headerCovTableEntry">57</td>
+            <td class="headerCovTableEntry">100</td>
+            <td class="headerCovTableEntryLo">57.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -172,7 +172,7 @@
 <span class="lineNum">     101 </span>                :            : PID is an integer; if negative it identifies a process group.\n\
 <span class="lineNum">     102 </span>                :            : &quot;), stdout);
 <span class="lineNum">     103 </span>                :<span class="lineCov">          9 :       printf (USAGE_BUILTIN_WARNING, PROGRAM_NAME);</span>
-<span class="lineNum">     104 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">     104 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">     105 </span>                :            :     }
 <span class="lineNum">     106 </span>                :<span class="lineCov">         12 :   exit (status);</span>
 <span class="lineNum">     107 </span>                :            : }
@@ -203,10 +203,10 @@
 <span class="lineNum">     132 </span>                :            : 
 <span class="lineNum">     133 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :   if (table)</span>
 <span class="lineNum">     134 </span>                :            :     {
-<span class="lineNum">     135 </span>                :<span class="lineNoCov">          0 :       unsigned int name_width = 0;</span>
+<span class="lineNum">     135 </span>                :            :       unsigned int name_width = 0;
 <span class="lineNum">     136 </span>                :            : 
 <span class="lineNum">     137 </span>                :            :       /* Compute the maximum width of a signal number.  */
-<span class="lineNum">     138 </span>                :<span class="lineNoCov">          0 :       unsigned int num_width = 1;</span>
+<span class="lineNum">     138 </span>                :            :       unsigned int num_width = 1;
 <span class="lineNum">     139 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       for (signum = 1; signum &lt;= SIGNUM_BOUND / 10; signum *= 10)</span>
 <span class="lineNum">     140 </span>                :<span class="lineNoCov">          0 :         num_width++;</span>
 <span class="lineNum">     141 </span>                :            : 
@@ -224,7 +224,7 @@
 <span class="lineNum">     153 </span>                :            :           {
 <span class="lineNum">     154 </span>                :<span class="lineNoCov">          0 :             signum = operand2sig (*argv, signame);</span>
 <span class="lineNum">     155 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if (signum &lt; 0)</span>
-<span class="lineNum">     156 </span>                :<span class="lineNoCov">          0 :               status = EXIT_FAILURE;</span>
+<span class="lineNum">     156 </span>                :            :               status = EXIT_FAILURE;
 <span class="lineNum">     157 </span>                :            :             else
 <span class="lineNum">     158 </span>                :<span class="lineNoCov">          0 :               print_table_row (num_width, signum, name_width, signame);</span>
 <span class="lineNum">     159 </span>                :            :           }
@@ -235,12 +235,12 @@
 <span class="lineNum">     164 </span>                :            :     }
 <span class="lineNum">     165 </span>                :            :   else
 <span class="lineNum">     166 </span>                :            :     {
-<span class="lineNum">     167 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          9 :       if (argv)</span>
+<span class="lineNum">     167 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :       if (argv)</span>
 <span class="lineNum">     168 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         18 :         for (; *argv; argv++)</span>
 <span class="lineNum">     169 </span>                :            :           {
 <span class="lineNum">     170 </span>                :<span class="lineCov">          9 :             signum = operand2sig (*argv, signame);</span>
-<span class="lineNum">     171 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :             if (signum &lt; 0)</span>
-<span class="lineNum">     172 </span>                :<span class="lineNoCov">          0 :               status = EXIT_FAILURE;</span>
+<span class="lineNum">     171 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          9 :             if (signum &lt; 0)</span>
+<span class="lineNum">     172 </span>                :            :               status = EXIT_FAILURE;
 <span class="lineNum">     173 </span>                :            :             else
 <span class="lineNum">     174 </span>                :            :               {
 <span class="lineNum">     175 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :                 if (ISDIGIT (**argv))</span>
@@ -346,7 +346,7 @@
 <span class="lineNum">     273 </span>                :<span class="lineCov">          3 :         signum = operand2sig (optarg, signame);</span>
 <span class="lineNum">     274 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :         if (signum &lt; 0)</span>
 <span class="lineNum">     275 </span>                :<span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
-<span class="lineNum">     276 </span>                :<span class="lineCov">          3 :         break;</span>
+<span class="lineNum">     276 </span>                :            :         break;
 <span class="lineNum">     277 </span>                :            : 
 <span class="lineNum">     278 </span>                :            :       case 't':
 <span class="lineNum">     279 </span>                :<span class="lineNoCov">          0 :         table = true;</span>
@@ -357,18 +357,18 @@
 <span class="lineNum">     284 </span>                :<span class="lineNoCov">          0 :             error (0, 0, _(&quot;multiple -l or -t options specified&quot;));</span>
 <span class="lineNum">     285 </span>                :<span class="lineNoCov">          0 :             usage (EXIT_FAILURE);</span>
 <span class="lineNum">     286 </span>                :            :           }
-<span class="lineNum">     287 </span>                :<span class="lineCov">          9 :         list = true;</span>
-<span class="lineNum">     288 </span>                :<span class="lineCov">          9 :         break;</span>
+<span class="lineNum">     287 </span>                :            :         list = true;
+<span class="lineNum">     288 </span>                :            :         break;
 <span class="lineNum">     289 </span>                :            : 
 <span class="lineNum">     290 </span>                :<span class="lineCov">          9 :       case_GETOPT_HELP_CHAR;</span>
 <span class="lineNum">     291 </span>                :<span class="lineCov">         12 :       case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
 <span class="lineNum">     292 </span>                :            :       default:
-<span class="lineNum">     293 </span>                :<span class="lineCov">          3 :         usage (EXIT_FAILURE);</span>
+<span class="lineNum">     293 </span>                :<span class="lineCov">         15 :         usage (EXIT_FAILURE);</span>
 <span class="lineNum">     294 </span>                :            :       }
 <span class="lineNum">     295 </span>                :            :  no_more_options:
 <span class="lineNum">     296 </span>                :            : 
-<span class="lineNum">     297 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         15 :   if (signum &lt; 0)</span>
-<span class="lineNum">     298 </span>                :<span class="lineCov">         12 :     signum = SIGTERM;</span>
+<span class="lineNum">     297 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span>]:<span class="lineCov">         15 :   if (signum &lt; 0)</span>
+<span class="lineNum">     298 </span>                :            :     signum = SIGTERM;
 <span class="lineNum">     299 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :   else if (list)</span>
 <span class="lineNum">     300 </span>                :            :     {
 <span class="lineNum">     301 </span>                :<span class="lineNoCov">          0 :       error (0, 0, _(&quot;cannot combine signal with -l or -t&quot;));</span>
@@ -381,7 +381,7 @@
 <span class="lineNum">     308 </span>                :<span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
 <span class="lineNum">     309 </span>                :            :     }
 <span class="lineNum">     310 </span>                :            : 
-<span class="lineNum">     311 </span>                :<span class="lineCov">         15 :   return (list</span>
+<span class="lineNum">     311 </span>                :            :   return (list
 <span class="lineNum">     312 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          9 :           ? list_signals (table, optind &lt; argc ? argv + optind : NULL)</span>
 <span class="lineNum">     313 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         24 :           : send_signals (signum, argv + optind));</span>
 <span class="lineNum">     314 </span>                :            : }

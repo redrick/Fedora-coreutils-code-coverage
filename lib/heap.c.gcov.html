@@ -31,18 +31,18 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">45</td>
-            <td class="headerCovTableEntry">50</td>
-            <td class="headerCovTableEntryHi">90.0 %</td>
+            <td class="headerCovTableEntry">41</td>
+            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntryMed">89.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryMed">85.7 %</td>
+            <td class="headerCovTableEntryMed">83.3 %</td>
           </tr>
           <tr>
             <td></td>
@@ -112,21 +112,21 @@
 <span class="lineNum">      41 </span>                :            : /* Allocate memory for the heap. */
 <a name="42"><span class="lineNum">      42 </span>                :            : </a>
 <span class="lineNum">      43 </span>                :            : struct heap *
-<span class="lineNum">      44 </span>                :<span class="lineCov">      49261 : heap_alloc (int (*compare) (void const *, void const *), size_t n_reserve)</span>
+<span class="lineNum">      44 </span>                :<span class="lineCov">      49268 : heap_alloc (int (*compare) (void const *, void const *), size_t n_reserve)</span>
 <span class="lineNum">      45 </span>                :            : {
-<span class="lineNum">      46 </span>                :<span class="lineCov">      49261 :   struct heap *heap = xmalloc (sizeof *heap);</span>
+<span class="lineNum">      46 </span>                :<span class="lineCov">      49268 :   struct heap *heap = xmalloc (sizeof *heap);</span>
 <span class="lineNum">      47 </span>                :            : 
-<span class="lineNum">      48 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 49261 times"> + </span>]:<span class="lineCov">      49261 :   if (n_reserve == 0)</span>
+<span class="lineNum">      48 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 49268 times"> + </span>]:<span class="lineCov">      49268 :   if (n_reserve == 0)</span>
 <span class="lineNum">      49 </span>                :<span class="lineNoCov">          0 :     n_reserve = 1;</span>
 <span class="lineNum">      50 </span>                :            : 
-<span class="lineNum">      51 </span>                :<span class="lineCov">      49261 :   heap-&gt;array = xnmalloc (n_reserve, sizeof *(heap-&gt;array));</span>
+<span class="lineNum">      51 </span>                :<span class="lineCov">      49268 :   heap-&gt;array = xnmalloc (n_reserve, sizeof *(heap-&gt;array));</span>
 <span class="lineNum">      52 </span>                :            : 
-<span class="lineNum">      53 </span>                :<span class="lineCov">      49261 :   heap-&gt;array[0] = NULL;</span>
-<span class="lineNum">      54 </span>                :<span class="lineCov">      49261 :   heap-&gt;capacity = n_reserve;</span>
-<span class="lineNum">      55 </span>                :<span class="lineCov">      49261 :   heap-&gt;count = 0;</span>
-<span class="lineNum">      56 </span>        [<span class="branchCov" title="Branch 0 was taken 49261 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      49261 :   heap-&gt;compare = compare ? compare : heap_default_compare;</span>
+<span class="lineNum">      53 </span>                :<span class="lineCov">      49268 :   heap-&gt;array[0] = NULL;</span>
+<span class="lineNum">      54 </span>                :<span class="lineCov">      49268 :   heap-&gt;capacity = n_reserve;</span>
+<span class="lineNum">      55 </span>                :<span class="lineCov">      49268 :   heap-&gt;count = 0;</span>
+<span class="lineNum">      56 </span>        [<span class="branchCov" title="Branch 0 was taken 49268 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      49268 :   heap-&gt;compare = compare ? compare : heap_default_compare;</span>
 <span class="lineNum">      57 </span>                :            : 
-<span class="lineNum">      58 </span>                :<span class="lineCov">      49261 :   return heap;</span>
+<span class="lineNum">      58 </span>                :<span class="lineCov">      49268 :   return heap;</span>
 <span class="lineNum">      59 </span>                :            : }
 <span class="lineNum">      60 </span>                :            : 
 <a name="61"><span class="lineNum">      61 </span>                :            : </a>
@@ -138,88 +138,88 @@
 <span class="lineNum">      67 </span>                :            : 
 <a name="68"><span class="lineNum">      68 </span>                :            : </a>
 <span class="lineNum">      69 </span>                :            : void
-<span class="lineNum">      70 </span>                :<span class="lineCov">      49261 : heap_free (struct heap *heap)</span>
+<span class="lineNum">      70 </span>                :<span class="lineCov">      49268 : heap_free (struct heap *heap)</span>
 <span class="lineNum">      71 </span>                :            : {
-<span class="lineNum">      72 </span>                :<span class="lineCov">      49261 :   free (heap-&gt;array);</span>
-<span class="lineNum">      73 </span>                :<span class="lineCov">      49261 :   free (heap);</span>
-<span class="lineNum">      74 </span>                :<span class="lineCov">      49261 : }</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">      49268 :   free (heap-&gt;array);</span>
+<span class="lineNum">      73 </span>                :<span class="lineCov">      49268 :   free (heap);</span>
+<span class="lineNum">      74 </span>                :<span class="lineCov">      49268 : }</span>
 <span class="lineNum">      75 </span>                :            : 
 <span class="lineNum">      76 </span>                :            : /* Insert element into heap. */
 <a name="77"><span class="lineNum">      77 </span>                :            : </a>
 <span class="lineNum">      78 </span>                :            : int
-<span class="lineNum">      79 </span>                :<span class="lineCov">     602296 : heap_insert (struct heap *heap, void *item)</span>
+<span class="lineNum">      79 </span>                :<span class="lineCov">     602352 : heap_insert (struct heap *heap, void *item)</span>
 <span class="lineNum">      80 </span>                :            : {
-<span class="lineNum">      81 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 602296 times"> + </span>]:<span class="lineCov">     602296 :   if (heap-&gt;capacity - 1 &lt;= heap-&gt;count)</span>
+<span class="lineNum">      81 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 602352 times"> + </span>]:<span class="lineCov">     602352 :   if (heap-&gt;capacity - 1 &lt;= heap-&gt;count)</span>
 <span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 :     heap-&gt;array = x2nrealloc (heap-&gt;array, &amp;heap-&gt;capacity,</span>
 <span class="lineNum">      83 </span>                :            :                               sizeof *(heap-&gt;array));
 <span class="lineNum">      84 </span>                :            : 
-<span class="lineNum">      85 </span>                :<span class="lineCov">     602296 :   heap-&gt;array[++heap-&gt;count] = item;</span>
-<span class="lineNum">      86 </span>                :<span class="lineCov">     602296 :   heapify_up (heap-&gt;array, heap-&gt;count, heap-&gt;compare);</span>
+<span class="lineNum">      85 </span>                :<span class="lineCov">     602352 :   heap-&gt;array[++heap-&gt;count] = item;</span>
+<span class="lineNum">      86 </span>                :<span class="lineCov">     602352 :   heapify_up (heap-&gt;array, heap-&gt;count, heap-&gt;compare);</span>
 <span class="lineNum">      87 </span>                :            : 
-<span class="lineNum">      88 </span>                :<span class="lineCov">     602296 :   return 0;</span>
+<span class="lineNum">      88 </span>                :<span class="lineCov">     602352 :   return 0;</span>
 <span class="lineNum">      89 </span>                :            : }
 <span class="lineNum">      90 </span>                :            : 
 <span class="lineNum">      91 </span>                :            : /* Pop top element off heap. */
 <a name="92"><span class="lineNum">      92 </span>                :            : </a>
 <span class="lineNum">      93 </span>                :            : void *
-<span class="lineNum">      94 </span>                :<span class="lineCov">     553183 : heap_remove_top (struct heap *heap)</span>
+<span class="lineNum">      94 </span>                :<span class="lineCov">     553240 : heap_remove_top (struct heap *heap)</span>
 <span class="lineNum">      95 </span>                :            : {
 <span class="lineNum">      96 </span>                :            :   void *top;
 <span class="lineNum">      97 </span>                :            : 
-<span class="lineNum">      98 </span>        [<span class="branchCov" title="Branch 0 was taken 148 times"> + </span><span class="branchCov" title="Branch 1 was taken 553035 times"> + </span>]:<span class="lineCov">     553183 :   if (heap-&gt;count == 0)</span>
-<span class="lineNum">      99 </span>                :<span class="lineCov">        148 :     return NULL;</span>
+<span class="lineNum">      98 </span>        [<span class="branchCov" title="Branch 0 was taken 553084 times"> + </span><span class="branchCov" title="Branch 1 was taken 156 times"> + </span>]:<span class="lineCov">     553240 :   if (heap-&gt;count == 0)</span>
+<span class="lineNum">      99 </span>                :            :     return NULL;
 <span class="lineNum">     100 </span>                :            : 
-<span class="lineNum">     101 </span>                :<span class="lineCov">     553035 :   top = heap-&gt;array[1];</span>
-<span class="lineNum">     102 </span>                :<span class="lineCov">     553035 :   heap-&gt;array[1] = heap-&gt;array[heap-&gt;count--];</span>
-<span class="lineNum">     103 </span>                :<span class="lineCov">     553035 :   heapify_down (heap-&gt;array, heap-&gt;count, 1, heap-&gt;compare);</span>
+<span class="lineNum">     101 </span>                :<span class="lineCov">     553084 :   top = heap-&gt;array[1];</span>
+<span class="lineNum">     102 </span>                :<span class="lineCov">     553084 :   heap-&gt;array[1] = heap-&gt;array[heap-&gt;count--];</span>
+<span class="lineNum">     103 </span>                :<span class="lineCov">     553084 :   heapify_down (heap-&gt;array, heap-&gt;count, 1, heap-&gt;compare);</span>
 <span class="lineNum">     104 </span>                :            : 
-<span class="lineNum">     105 </span>                :<span class="lineCov">     553183 :   return top;</span>
+<span class="lineNum">     105 </span>                :<span class="lineCov">     553240 :   return top;</span>
 <span class="lineNum">     106 </span>                :            : }
 <span class="lineNum">     107 </span>                :            : 
 <span class="lineNum">     108 </span>                :            : /* Move element down into appropriate position in heap. */
 <a name="109"><span class="lineNum">     109 </span>                :            : </a>
 <span class="lineNum">     110 </span>                :            : static size_t
-<span class="lineNum">     111 </span>                :<span class="lineCov">     553035 : heapify_down (void **array, size_t count, size_t initial,</span>
+<span class="lineNum">     111 </span>                :<span class="lineCov">     553084 : heapify_down (void **array, size_t count, size_t initial,</span>
 <span class="lineNum">     112 </span>                :            :               int (*compare) (void const *, void const *))
 <span class="lineNum">     113 </span>                :            : {
-<span class="lineNum">     114 </span>                :<span class="lineCov">     553035 :   void *element = array[initial];</span>
+<span class="lineNum">     114 </span>                :<span class="lineCov">     553084 :   void *element = array[initial];</span>
 <span class="lineNum">     115 </span>                :            : 
-<span class="lineNum">     116 </span>                :<span class="lineCov">     553035 :   size_t parent = initial;</span>
-<span class="lineNum">     117 </span>        [<span class="branchCov" title="Branch 0 was taken 294 times"> + </span><span class="branchCov" title="Branch 1 was taken 552893 times"> + </span>]:<span class="lineCov">     553187 :   while (parent &lt;= count / 2)</span>
+<span class="lineNum">     116 </span>                :<span class="lineCov">     553084 :   size_t parent = initial;</span>
+<span class="lineNum">     117 </span>        [<span class="branchCov" title="Branch 0 was taken 236 times"> + </span><span class="branchCov" title="Branch 1 was taken 552962 times"> + </span>]:<span class="lineCov">     553198 :   while (parent &lt;= count / 2)</span>
 <span class="lineNum">     118 </span>                :            :     {
-<span class="lineNum">     119 </span>                :<span class="lineCov">        294 :       size_t child = 2 * parent;</span>
+<span class="lineNum">     119 </span>                :<span class="lineCov">        236 :       size_t child = 2 * parent;</span>
 <span class="lineNum">     120 </span>                :            : 
-<span class="lineNum">     121 </span>[<span class="branchCov" title="Branch 0 was taken 134 times"> + </span><span class="branchCov" title="Branch 1 was taken 160 times"> + </span>][<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 134 times"> + </span>]:<span class="lineCov">        294 :       if (child &lt; count &amp;&amp; compare (array[child], array[child+1]) &lt; 0)</span>
+<span class="lineNum">     121 </span>[<span class="branchCov" title="Branch 0 was taken 100 times"> + </span><span class="branchCov" title="Branch 1 was taken 136 times"> + </span>][<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 100 times"> + </span>]:<span class="lineCov">        236 :       if (child &lt; count &amp;&amp; compare (array[child], array[child+1]) &lt; 0)</span>
 <span class="lineNum">     122 </span>                :<span class="lineNoCov">          0 :         child++;</span>
 <span class="lineNum">     123 </span>                :            : 
-<span class="lineNum">     124 </span>        [<span class="branchCov" title="Branch 1 was taken 142 times"> + </span><span class="branchCov" title="Branch 2 was taken 152 times"> + </span>]:<span class="lineCov">        294 :       if (compare (array[child], element) &lt;= 0)</span>
-<span class="lineNum">     125 </span>                :<span class="lineCov">        142 :         break;</span>
+<span class="lineNum">     124 </span>        [<span class="branchCov" title="Branch 1 was taken 114 times"> + </span><span class="branchCov" title="Branch 2 was taken 122 times"> + </span>]:<span class="lineCov">        236 :       if (compare (array[child], element) &lt;= 0)</span>
+<span class="lineNum">     125 </span>                :            :         break;
 <span class="lineNum">     126 </span>                :            : 
-<span class="lineNum">     127 </span>                :<span class="lineCov">        152 :       array[parent] = array[child];</span>
-<span class="lineNum">     128 </span>                :<span class="lineCov">        152 :       parent = child;</span>
+<span class="lineNum">     127 </span>                :<span class="lineCov">        114 :       array[parent] = array[child];</span>
+<span class="lineNum">     128 </span>                :<span class="lineCov">        114 :       parent = child;</span>
 <span class="lineNum">     129 </span>                :            :     }
 <span class="lineNum">     130 </span>                :            : 
-<span class="lineNum">     131 </span>                :<span class="lineCov">     553035 :   array[parent] = element;</span>
-<span class="lineNum">     132 </span>                :<span class="lineCov">     553035 :   return parent;</span>
+<span class="lineNum">     131 </span>                :<span class="lineCov">     553084 :   array[parent] = element;</span>
+<span class="lineNum">     132 </span>                :<span class="lineCov">     553084 :   return parent;</span>
 <span class="lineNum">     133 </span>                :            : }
 <span class="lineNum">     134 </span>                :            : 
 <span class="lineNum">     135 </span>                :            : /* Move element up into appropriate position in heap. */
-<a name="136"><span class="lineNum">     136 </span>                :            : </a>
+<span class="lineNum">     136 </span>                :            : 
 <span class="lineNum">     137 </span>                :            : static void
-<span class="lineNum">     138 </span>                :<span class="lineCov">     602296 : heapify_up (void **array, size_t count,</span>
+<span class="lineNum">     138 </span>                :            : heapify_up (void **array, size_t count,
 <span class="lineNum">     139 </span>                :            :             int (*compare) (void const *, void const *))
 <span class="lineNum">     140 </span>                :            : {
-<span class="lineNum">     141 </span>                :<span class="lineCov">     602296 :   size_t k = count;</span>
-<span class="lineNum">     142 </span>                :<span class="lineCov">     602296 :   void *new_element = array[k];</span>
+<span class="lineNum">     141 </span>                :<span class="lineCov">     602352 :   size_t k = count;</span>
+<span class="lineNum">     142 </span>                :<span class="lineCov">     602352 :   void *new_element = array[k];</span>
 <span class="lineNum">     143 </span>                :            : 
-<span class="lineNum">     144 </span>[<span class="branchCov" title="Branch 0 was taken 694 times"> + </span><span class="branchCov" title="Branch 1 was taken 602230 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 628 times"> + </span><span class="branchCov" title="Branch 4 was taken 66 times"> + </span>]:<span class="lineCov">     602924 :   while (k != 1 &amp;&amp; compare (array[k/2], new_element) &lt;= 0)</span>
+<span class="lineNum">     144 </span>[<span class="branchCov" title="Branch 0 was taken 568 times"> + </span><span class="branchCov" title="Branch 1 was taken 602268 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 484 times"> + </span><span class="branchCov" title="Branch 4 was taken 84 times"> + </span>]:<span class="lineCov">     602836 :   while (k != 1 &amp;&amp; compare (array[k/2], new_element) &lt;= 0)</span>
 <span class="lineNum">     145 </span>                :            :     {
-<span class="lineNum">     146 </span>                :<span class="lineCov">        628 :       array[k] = array[k/2];</span>
-<span class="lineNum">     147 </span>                :<span class="lineCov">        628 :       k /= 2;</span>
+<span class="lineNum">     146 </span>                :<span class="lineCov">        484 :       array[k] = array[k/2];</span>
+<span class="lineNum">     147 </span>                :<span class="lineCov">        484 :       k /= 2;</span>
 <span class="lineNum">     148 </span>                :            :     }
 <span class="lineNum">     149 </span>                :            : 
-<span class="lineNum">     150 </span>                :<span class="lineCov">     602296 :   array[k] = new_element;</span>
-<span class="lineNum">     151 </span>                :<span class="lineCov">     602296 : }</span>
+<span class="lineNum">     150 </span>                :<span class="lineCov">     602352 :   array[k] = new_element;</span>
+<span class="lineNum">     151 </span>                :            : }
 </pre>
       </td>
     </tr>

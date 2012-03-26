@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -93,19 +93,19 @@
 <span class="lineNum">      22 </span>                :            : #include &quot;ignore-value.h&quot;
 <a name="23"><span class="lineNum">      23 </span>                :            : </a>
 <span class="lineNum">      24 </span>                :            : void
-<span class="lineNum">      25 </span>                :<span class="lineCov">     139005 : fdadvise (int fd, off_t offset, off_t len, fadvice_t advice)</span>
+<span class="lineNum">      25 </span>                :<span class="lineCov">     140422 : fdadvise (int fd, off_t offset, off_t len, fadvice_t advice)</span>
 <span class="lineNum">      26 </span>                :            : {
 <span class="lineNum">      27 </span>                :            : #if HAVE_POSIX_FADVISE
-<span class="lineNum">      28 </span>                :<span class="lineCov">     139005 :   ignore_value (posix_fadvise (fd, offset, len, advice));</span>
+<span class="lineNum">      28 </span>                :<span class="lineCov">     140422 :   ignore_value (posix_fadvise (fd, offset, len, advice));</span>
 <span class="lineNum">      29 </span>                :            : #endif
-<span class="lineNum">      30 </span>                :<span class="lineCov">     139005 : }</span>
+<span class="lineNum">      30 </span>                :<span class="lineCov">     140422 : }</span>
 <a name="31"><span class="lineNum">      31 </span>                :            : </a>
 <span class="lineNum">      32 </span>                :            : void
-<span class="lineNum">      33 </span>                :<span class="lineCov">     113740 : fadvise (FILE *fp, fadvice_t advice)</span>
+<span class="lineNum">      33 </span>                :<span class="lineCov">     113759 : fadvise (FILE *fp, fadvice_t advice)</span>
 <span class="lineNum">      34 </span>                :            : {
-<span class="lineNum">      35 </span>        [<span class="branchCov" title="Branch 0 was taken 113539 times"> + </span><span class="branchCov" title="Branch 1 was taken 201 times"> + </span>]:<span class="lineCov">     113740 :   if (fp)</span>
-<span class="lineNum">      36 </span>                :<span class="lineCov">     113539 :     fdadvise (fileno (fp), 0, 0, advice);</span>
-<span class="lineNum">      37 </span>                :<span class="lineCov">     113740 : }</span>
+<span class="lineNum">      35 </span>        [<span class="branchCov" title="Branch 0 was taken 113558 times"> + </span><span class="branchCov" title="Branch 1 was taken 201 times"> + </span>]:<span class="lineCov">     113759 :   if (fp)</span>
+<span class="lineNum">      36 </span>                :<span class="lineCov">     113558 :     fdadvise (fileno (fp), 0, 0, advice);</span>
+<span class="lineNum">      37 </span>                :<span class="lineCov">     113759 : }</span>
 </pre>
       </td>
     </tr>

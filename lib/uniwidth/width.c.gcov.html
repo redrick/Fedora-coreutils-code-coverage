@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">32</td>
-            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntry">27</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -49,8 +49,8 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">78</td>
-            <td class="headerCovTableEntry">78</td>
+            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntry">46</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -392,8 +392,8 @@
 <span class="lineNum">     321 </span>        [<span class="branchCov" title="Branch 0 was taken 83253 times"> + </span><span class="branchCov" title="Branch 1 was taken 654339 times"> + </span>]:<span class="lineCov">     737592 :       if (ind &gt;= 0)</span>
 <span class="lineNum">     322 </span>        [<span class="branchCov" title="Branch 0 was taken 6480 times"> + </span><span class="branchCov" title="Branch 1 was taken 76773 times"> + </span>]:<span class="lineCov">      83253 :         if ((nonspacing_table_data[64*ind + ((uc &gt;&gt; 3) &amp; 63)] &gt;&gt; (uc &amp; 7)) &amp; 1)</span>
 <span class="lineNum">     323 </span>                :            :           {
-<span class="lineNum">     324 </span>[<span class="branchCov" title="Branch 0 was taken 6474 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 384 times"> + </span><span class="branchCov" title="Branch 3 was taken 6090 times"> + </span>]:<span class="lineCov">       6480 :             if (uc &gt; 0 &amp;&amp; uc &lt; 0xa0)</span>
-<span class="lineNum">     325 </span>                :<span class="lineCov">        384 :               return -1;</span>
+<span class="lineNum">     324 </span>        [<span class="branchCov" title="Branch 0 was taken 6096 times"> + </span><span class="branchCov" title="Branch 1 was taken 384 times"> + </span>]:<span class="lineCov">       6480 :             if (uc &gt; 0 &amp;&amp; uc &lt; 0xa0)</span>
+<span class="lineNum">     325 </span>                :            :               return -1;
 <span class="lineNum">     326 </span>                :            :             else
 <span class="lineNum">     327 </span>                :<span class="lineCov">       6096 :               return 0;</span>
 <span class="lineNum">     328 </span>                :            :           }
@@ -402,13 +402,13 @@
 <span class="lineNum">     331 </span>                :            :     {
 <span class="lineNum">     332 </span>        [<span class="branchCov" title="Branch 0 was taken 1536 times"> + </span><span class="branchCov" title="Branch 1 was taken 1542 times"> + </span>]:<span class="lineCov">       3078 :       if (uc &gt;= 0xe0100)</span>
 <span class="lineNum">     333 </span>                :            :         {
-<span class="lineNum">     334 </span>        [<span class="branchCov" title="Branch 0 was taken 1440 times"> + </span><span class="branchCov" title="Branch 1 was taken 96 times"> + </span>]:<span class="lineCov">       1536 :           if (uc &lt;= 0xe01ef)</span>
-<span class="lineNum">     335 </span>                :<span class="lineCov">       1440 :             return 0;</span>
+<span class="lineNum">     334 </span>        [<span class="branchCov" title="Branch 0 was taken 96 times"> + </span><span class="branchCov" title="Branch 1 was taken 1440 times"> + </span>]:<span class="lineCov">       1536 :           if (uc &lt;= 0xe01ef)</span>
+<span class="lineNum">     335 </span>                :            :             return 0;
 <span class="lineNum">     336 </span>                :            :         }
 <span class="lineNum">     337 </span>                :            :       else
 <span class="lineNum">     338 </span>                :            :         {
-<span class="lineNum">     339 </span>[<span class="branchCov" title="Branch 0 was taken 1347 times"> + </span><span class="branchCov" title="Branch 1 was taken 195 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 588 times"> + </span><span class="branchCov" title="Branch 3 was taken 954 times"> + </span>]:<span class="lineCov">       1542 :           if (uc &gt;= 0xe0020 ? uc &lt;= 0xe007f : uc == 0xe0001)</span>
-<span class="lineNum">     340 </span>                :<span class="lineCov">        588 :             return 0;</span>
+<span class="lineNum">     339 </span>[<span class="branchCov" title="Branch 0 was taken 1347 times"> + </span><span class="branchCov" title="Branch 1 was taken 195 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 954 times"> + </span><span class="branchCov" title="Branch 3 was taken 588 times"> + </span>]:<span class="lineCov">       1542 :           if (uc &gt;= 0xe0020 ? uc &lt;= 0xe007f : uc == 0xe0001)</span>
+<span class="lineNum">     340 </span>                :            :             return 0;
 <span class="lineNum">     341 </span>                :            :         }
 <span class="lineNum">     342 </span>                :            :     }
 <span class="lineNum">     343 </span>                :            :   /* Test for double-width character.
@@ -416,27 +416,25 @@
 <span class="lineNum">     345 </span>                :            :    * and            &quot;grep '^[^;]\{4,5\};[^WF]' EastAsianWidth.txt&quot;
 <span class="lineNum">     346 </span>                :            :    */
 <span class="lineNum">     347 </span>        [<span class="branchCov" title="Branch 0 was taken 6653709 times"> + </span><span class="branchCov" title="Branch 1 was taken 22779 times"> + </span>]:<span class="lineCov">    6676488 :   if (uc &gt;= 0x1100</span>
-<span class="lineNum">     348 </span>        [<span class="branchCov" title="Branch 0 was taken 6653133 times"> + </span><span class="branchCov" title="Branch 1 was taken 576 times"> + </span>]:<span class="lineCov">    6653709 :       &amp;&amp; ((uc &lt; 0x1160) /* Hangul Jamo */</span>
-<span class="lineNum">     349 </span>[<span class="branchCov" title="Branch 0 was taken 6627291 times"> + </span><span class="branchCov" title="Branch 1 was taken 25842 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6627279 times"> + </span><span class="branchCov" title="Branch 3 was taken 12 times"> + </span>]:<span class="lineCov">    6653133 :           || (uc &gt;= 0x2329 &amp;&amp; uc &lt; 0x232b) /* Angle Brackets */</span>
-<span class="lineNum">     350 </span>[<span class="branchCov" title="Branch 0 was taken 6610089 times"> + </span><span class="branchCov" title="Branch 1 was taken 43032 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 181683 times"> + </span><span class="branchCov" title="Branch 3 was taken 6428406 times"> + </span>]:<span class="lineCov">    6653121 :           || (uc &gt;= 0x2e80 &amp;&amp; uc &lt; 0xa4d0  /* CJK ... Yi */</span>
-<span class="lineNum">     351 </span>[<span class="branchCov" title="Branch 0 was taken 181677 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 133728 times"> + </span><span class="branchCov" title="Branch 3 was taken 47949 times"> + </span>]:<span class="lineCov">     181683 :               &amp;&amp; !(uc == 0x303f) &amp;&amp; !(uc &gt;= 0x4dc0 &amp;&amp; uc &lt; 0x4e00))</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 384 times"> + </span><span class="branchCov" title="Branch 5 was taken 133344 times"> + </span>]
-<span class="lineNum">     352 </span>[<span class="branchCov" title="Branch 0 was taken 6417870 times"> + </span><span class="branchCov" title="Branch 1 was taken 53958 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6350835 times"> + </span><span class="branchCov" title="Branch 3 was taken 67035 times"> + </span>]:<span class="lineCov">    6471828 :           || (uc &gt;= 0xac00 &amp;&amp; uc &lt; 0xd7a4) /* Hangul Syllables */</span>
-<span class="lineNum">     353 </span>[<span class="branchCov" title="Branch 0 was taken 6299595 times"> + </span><span class="branchCov" title="Branch 1 was taken 105198 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6296523 times"> + </span><span class="branchCov" title="Branch 3 was taken 3072 times"> + </span>]:<span class="lineCov">    6404793 :           || (uc &gt;= 0xf900 &amp;&amp; uc &lt; 0xfb00) /* CJK Compatibility Ideographs */</span>
-<span class="lineNum">     354 </span>[<span class="branchCov" title="Branch 0 was taken 6291921 times"> + </span><span class="branchCov" title="Branch 1 was taken 109800 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6291825 times"> + </span><span class="branchCov" title="Branch 3 was taken 96 times"> + </span>]:<span class="lineCov">    6401721 :           || (uc &gt;= 0xfe10 &amp;&amp; uc &lt; 0xfe20) /* Presentation Forms for Vertical */</span>
-<span class="lineNum">     355 </span>[<span class="branchCov" title="Branch 0 was taken 6291771 times"> + </span><span class="branchCov" title="Branch 1 was taken 109854 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6291387 times"> + </span><span class="branchCov" title="Branch 3 was taken 384 times"> + </span>]:<span class="lineCov">    6401625 :           || (uc &gt;= 0xfe30 &amp;&amp; uc &lt; 0xfe70) /* CJK Compatibility Forms */</span>
-<span class="lineNum">     356 </span>[<span class="branchCov" title="Branch 0 was taken 6290529 times"> + </span><span class="branchCov" title="Branch 1 was taken 110712 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6289944 times"> + </span><span class="branchCov" title="Branch 3 was taken 585 times"> + </span>]:<span class="lineCov">    6401241 :           || (uc &gt;= 0xff00 &amp;&amp; uc &lt; 0xff61) /* Fullwidth Forms */</span>
-<span class="lineNum">     357 </span>[<span class="branchCov" title="Branch 0 was taken 6289182 times"> + </span><span class="branchCov" title="Branch 1 was taken 111474 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6289140 times"> + </span><span class="branchCov" title="Branch 3 was taken 42 times"> + </span>]:<span class="lineCov">    6400656 :           || (uc &gt;= 0xffe0 &amp;&amp; uc &lt; 0xffe7) /* Fullwidth Signs */</span>
-<span class="lineNum">     358 </span>[<span class="branchCov" title="Branch 0 was taken 5896224 times"> + </span><span class="branchCov" title="Branch 1 was taken 504390 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 5503002 times"> + </span><span class="branchCov" title="Branch 3 was taken 393222 times"> + </span>]:<span class="lineCov">    6400614 :           || (uc &gt;= 0x20000 &amp;&amp; uc &lt;= 0x2ffff) /* Supplementary Ideographic Plane */</span>
-<span class="lineNum">     359 </span>[<span class="branchCov" title="Branch 0 was taken 5503002 times"> + </span><span class="branchCov" title="Branch 1 was taken 504390 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 393216 times"> + </span><span class="branchCov" title="Branch 3 was taken 5109786 times"> + </span>]:<span class="lineCov">    6007392 :           || (uc &gt;= 0x30000 &amp;&amp; uc &lt;= 0x3ffff) /* Tertiary Ideographic Plane */</span>
+<span class="lineNum">     348 </span>        [<span class="branchCov" title="Branch 0 was taken 6653121 times"> + </span><span class="branchCov" title="Branch 1 was taken 588 times"> + </span>]:<span class="lineCov">    6653709 :       &amp;&amp; ((uc &lt; 0x1160) /* Hangul Jamo */</span>
+<span class="lineNum">     349 </span>                :<span class="lineCov">    6653709 :           || (uc &gt;= 0x2329 &amp;&amp; uc &lt; 0x232b) /* Angle Brackets */</span>
+<span class="lineNum">     350 </span>        [<span class="branchCov" title="Branch 0 was taken 181677 times"> + </span><span class="branchCov" title="Branch 1 was taken 6471444 times"> + </span>]:<span class="lineCov">    6653121 :           || (uc &gt;= 0x2e80 &amp;&amp; uc &lt; 0xa4d0  /* CJK ... Yi */</span>
+<span class="lineNum">     351 </span>        [<span class="branchCov" title="Branch 0 was taken 384 times"> + </span><span class="branchCov" title="Branch 1 was taken 181293 times"> + </span>]:<span class="lineCov">     181677 :               &amp;&amp; !(uc == 0x303f) &amp;&amp; !(uc &gt;= 0x4dc0 &amp;&amp; uc &lt; 0x4e00))</span>
+<span class="lineNum">     352 </span>        [<span class="branchCov" title="Branch 0 was taken 6404793 times"> + </span><span class="branchCov" title="Branch 1 was taken 67035 times"> + </span>]:<span class="lineCov">    6471828 :           || (uc &gt;= 0xac00 &amp;&amp; uc &lt; 0xd7a4) /* Hangul Syllables */</span>
+<span class="lineNum">     353 </span>        [<span class="branchCov" title="Branch 0 was taken 6401721 times"> + </span><span class="branchCov" title="Branch 1 was taken 3072 times"> + </span>]:<span class="lineCov">    6404793 :           || (uc &gt;= 0xf900 &amp;&amp; uc &lt; 0xfb00) /* CJK Compatibility Ideographs */</span>
+<span class="lineNum">     354 </span>        [<span class="branchCov" title="Branch 0 was taken 6401625 times"> + </span><span class="branchCov" title="Branch 1 was taken 96 times"> + </span>]:<span class="lineCov">    6401721 :           || (uc &gt;= 0xfe10 &amp;&amp; uc &lt; 0xfe20) /* Presentation Forms for Vertical */</span>
+<span class="lineNum">     355 </span>        [<span class="branchCov" title="Branch 0 was taken 6401241 times"> + </span><span class="branchCov" title="Branch 1 was taken 384 times"> + </span>]:<span class="lineCov">    6401625 :           || (uc &gt;= 0xfe30 &amp;&amp; uc &lt; 0xfe70) /* CJK Compatibility Forms */</span>
+<span class="lineNum">     356 </span>        [<span class="branchCov" title="Branch 0 was taken 6400656 times"> + </span><span class="branchCov" title="Branch 1 was taken 585 times"> + </span>]:<span class="lineCov">    6401241 :           || (uc &gt;= 0xff00 &amp;&amp; uc &lt; 0xff61) /* Fullwidth Forms */</span>
+<span class="lineNum">     357 </span>        [<span class="branchCov" title="Branch 0 was taken 6400614 times"> + </span><span class="branchCov" title="Branch 1 was taken 42 times"> + </span>]:<span class="lineCov">    6400656 :           || (uc &gt;= 0xffe0 &amp;&amp; uc &lt; 0xffe7) /* Fullwidth Signs */</span>
+<span class="lineNum">     358 </span>        [<span class="branchCov" title="Branch 0 was taken 6007392 times"> + </span><span class="branchCov" title="Branch 1 was taken 393222 times"> + </span>]:<span class="lineCov">    6400614 :           || (uc &gt;= 0x20000 &amp;&amp; uc &lt;= 0x2ffff) /* Supplementary Ideographic Plane */</span>
+<span class="lineNum">     359 </span>        [<span class="branchCov" title="Branch 0 was taken 5614176 times"> + </span><span class="branchCov" title="Branch 1 was taken 393216 times"> + </span>]:<span class="lineCov">    6007392 :           || (uc &gt;= 0x30000 &amp;&amp; uc &lt;= 0x3ffff) /* Tertiary Ideographic Plane */</span>
 <span class="lineNum">     360 </span>                :            :      )   )
-<span class="lineNum">     361 </span>                :<span class="lineCov">    1039533 :     return 2;</span>
+<span class="lineNum">     361 </span>                :            :     return 2;
 <span class="lineNum">     362 </span>                :            :   /* In ancient CJK encodings, Cyrillic and most other characters are
 <span class="lineNum">     363 </span>                :            :      double-width as well.  */
-<span class="lineNum">     364 </span>[<span class="branchCov" title="Branch 0 was taken 5636094 times"> + </span><span class="branchCov" title="Branch 1 was taken 861 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 132630 times"> + </span><span class="branchCov" title="Branch 3 was taken 5503464 times"> + </span>]:<span class="lineCov">    5636955 :   if (uc &gt;= 0x00A1 &amp;&amp; uc &lt; 0xFF61 &amp;&amp; uc != 0x20A9</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 132624 times"> + </span><span class="branchCov" title="Branch 5 was taken 6 times"> + </span>]
+<span class="lineNum">     364 </span>        [<span class="branchCov" title="Branch 0 was taken 132624 times"> + </span><span class="branchCov" title="Branch 1 was taken 5504331 times"> + </span>]:<span class="lineCov">    5636955 :   if (uc &gt;= 0x00A1 &amp;&amp; uc &lt; 0xFF61 &amp;&amp; uc != 0x20A9</span>
 <span class="lineNum">     365 </span>        [<span class="branchCov" title="Branch 1 was taken 66312 times"> + </span><span class="branchCov" title="Branch 2 was taken 66312 times"> + </span>]:<span class="lineCov">     132624 :       &amp;&amp; is_cjk_encoding (encoding))</span>
-<span class="lineNum">     366 </span>                :<span class="lineCov">      66312 :     return 2;</span>
+<span class="lineNum">     366 </span>                :            :     return 2;
 <span class="lineNum">     367 </span>                :<span class="lineCov">    6684996 :   return 1;</span>
 <span class="lineNum">     368 </span>                :            : }
 </pre>

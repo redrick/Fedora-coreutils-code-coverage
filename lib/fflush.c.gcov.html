@@ -31,18 +31,18 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntryHi">100.0 %</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
           </tr>
           <tr>
             <td></td>
@@ -104,14 +104,14 @@
 <span class="lineNum">      33 </span>                :            : 
 <span class="lineNum">      34 </span>                :            : #if defined _IO_ftrylockfile || __GNU_LIBRARY__ == 1 /* GNU libc, BeOS, Haiku, Linux libc5 */
 <span class="lineNum">      35 </span>                :            : 
-<a name="36"><span class="lineNum">      36 </span>                :            : /* Clear the stream's ungetc buffer, preserving the value of ftello (fp).  */</a>
+<span class="lineNum">      36 </span>                :            : /* Clear the stream's ungetc buffer, preserving the value of ftello (fp).  */
 <span class="lineNum">      37 </span>                :            : static inline void
-<span class="lineNum">      38 </span>                :<span class="lineCov">      17791 : clear_ungetc_buffer_preserving_position (FILE *fp)</span>
+<span class="lineNum">      38 </span>                :            : clear_ungetc_buffer_preserving_position (FILE *fp)
 <span class="lineNum">      39 </span>                :            : {
-<span class="lineNum">      40 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 17788 times"> + </span>]:<span class="lineCov">      17791 :   if (fp-&gt;_flags &amp; _IO_IN_BACKUP)</span>
+<span class="lineNum">      40 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 17794 times"> + </span>]:<span class="lineCov">      17797 :   if (fp-&gt;_flags &amp; _IO_IN_BACKUP)</span>
 <span class="lineNum">      41 </span>                :            :     /* _IO_free_backup_area is a bit complicated.  Simply call fseek.  */
 <span class="lineNum">      42 </span>                :<span class="lineCov">          3 :     fseeko (fp, 0, SEEK_CUR);</span>
-<span class="lineNum">      43 </span>                :<span class="lineCov">      17791 : }</span>
+<span class="lineNum">      43 </span>                :            : }
 <span class="lineNum">      44 </span>                :            : 
 <span class="lineNum">      45 </span>                :            : #else
 <span class="lineNum">      46 </span>                :            : 
@@ -206,14 +206,14 @@
 <span class="lineNum">     135 </span>                :            :      We test ! freading (stream) here, rather than fwriting (stream), because
 <span class="lineNum">     136 </span>                :            :      what we need to know is whether the stream holds a &quot;read buffer&quot;, and on
 <span class="lineNum">     137 </span>                :            :      mingw this is indicated by _IOREAD, regardless of _IOWRT.  */
-<span class="lineNum">     138 </span>[<span class="branchCov" title="Branch 0 was taken 641159 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 623368 times"> + </span><span class="branchCov" title="Branch 4 was taken 17791 times"> + </span>]:<span class="lineCov">     641159 :   if (stream == NULL || ! freading (stream))</span>
-<span class="lineNum">     139 </span>                :<span class="lineCov">     623368 :     return fflush (stream);</span>
+<span class="lineNum">     138 </span>[<span class="branchCov" title="Branch 0 was taken 647547 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 629750 times"> + </span><span class="branchCov" title="Branch 4 was taken 17797 times"> + </span>]:<span class="lineCov">     647547 :   if (stream == NULL || ! freading (stream))</span>
+<span class="lineNum">     139 </span>                :<span class="lineCov">     629750 :     return fflush (stream);</span>
 <span class="lineNum">     140 </span>                :            : 
 <span class="lineNum">     141 </span>                :            : #if defined _IO_ftrylockfile || __GNU_LIBRARY__ == 1 /* GNU libc, BeOS, Haiku, Linux libc5 */
 <span class="lineNum">     142 </span>                :            : 
-<span class="lineNum">     143 </span>                :<span class="lineCov">      17791 :   clear_ungetc_buffer_preserving_position (stream);</span>
+<span class="lineNum">     143 </span>                :            :   clear_ungetc_buffer_preserving_position (stream);
 <span class="lineNum">     144 </span>                :            : 
-<span class="lineNum">     145 </span>                :<span class="lineCov">     641159 :   return fflush (stream);</span>
+<span class="lineNum">     145 </span>                :<span class="lineCov">     647547 :   return fflush (stream);</span>
 <span class="lineNum">     146 </span>                :            : 
 <span class="lineNum">     147 </span>                :            : #else
 <span class="lineNum">     148 </span>                :            :   {

@@ -31,27 +31,27 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">358</td>
-            <td class="headerCovTableEntry">511</td>
-            <td class="headerCovTableEntryLo">70.1 %</td>
+            <td class="headerCovTableEntry">331</td>
+            <td class="headerCovTableEntry">454</td>
+            <td class="headerCovTableEntryLo">72.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntryHi">92.3 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntryMed">87.5 %</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">178</td>
-            <td class="headerCovTableEntry">311</td>
-            <td class="headerCovTableEntryLo">57.2 %</td>
+            <td class="headerCovTableEntry">189</td>
+            <td class="headerCovTableEntry">321</td>
+            <td class="headerCovTableEntryLo">58.9 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -338,16 +338,16 @@
 <span class="lineNum">     266 </span>                :<span class="lineCov">       1314 :   pc-&gt;rels_seen = true;</span>
 <span class="lineNum">     267 </span>                :<span class="lineCov">       1314 : }</span>
 <span class="lineNum">     268 </span>                :            : 
-<a name="269"><span class="lineNum">     269 </span>                :            : /* Set PC-&gt; hour, minutes, seconds and nanoseconds members from arguments.  */</a>
+<span class="lineNum">     269 </span>                :            : /* Set PC-&gt; hour, minutes, seconds and nanoseconds members from arguments.  */
 <span class="lineNum">     270 </span>                :            : static void
-<span class="lineNum">     271 </span>                :<span class="lineCov">        216 : set_hhmmss (parser_control *pc, long int hour, long int minutes,</span>
+<span class="lineNum">     271 </span>                :            : set_hhmmss (parser_control *pc, long int hour, long int minutes,
 <span class="lineNum">     272 </span>                :            :             time_t sec, long int nsec)
 <span class="lineNum">     273 </span>                :            : {
 <span class="lineNum">     274 </span>                :<span class="lineCov">        216 :   pc-&gt;hour = hour;</span>
 <span class="lineNum">     275 </span>                :<span class="lineCov">        216 :   pc-&gt;minutes = minutes;</span>
 <span class="lineNum">     276 </span>                :<span class="lineCov">        216 :   pc-&gt;seconds.tv_sec = sec;</span>
 <span class="lineNum">     277 </span>                :<span class="lineCov">        216 :   pc-&gt;seconds.tv_nsec = nsec;</span>
-<span class="lineNum">     278 </span>                :<span class="lineCov">        216 : }</span>
+<span class="lineNum">     278 </span>                :            : }
 <span class="lineNum">     279 </span>                :            : 
 <span class="lineNum">     280 </span>                :            : %}
 <span class="lineNum">     281 </span>                :            : 
@@ -415,7 +415,7 @@
 <span class="lineNum">     343 </span>                :            :   | zone
 <span class="lineNum">     344 </span>                :<span class="lineCov">        120 :       { pc-&gt;zones_seen++; }</span>
 <span class="lineNum">     345 </span>                :            :   | date
-<span class="lineNum">     346 </span>                :<span class="lineCov">       1383 :       { pc-&gt;dates_seen++; }</span>
+<span class="lineNum">     346 </span>                :<span class="lineCov">       1380 :       { pc-&gt;dates_seen++; }</span>
 <span class="lineNum">     347 </span>                :            :   | day
 <span class="lineNum">     348 </span>                :<span class="lineCov">         57 :       { pc-&gt;days_seen++; }</span>
 <span class="lineNum">     349 </span>                :            :   | rel
@@ -477,7 +477,7 @@
 <span class="lineNum">     405 </span>                :            :     tSNUMBER o_colon_minutes
 <span class="lineNum">     406 </span>                :            :       {
 <span class="lineNum">     407 </span>                :<span class="lineCov">        111 :         pc-&gt;zones_seen++;</span>
-<span class="lineNum">     408 </span>                :<span class="lineCov">        111 :         pc-&gt;time_zone = time_zone_hhmm (pc, $1, $2);</span>
+<span class="lineNum">     408 </span>                :<span class="lineCov">        222 :         pc-&gt;time_zone = time_zone_hhmm (pc, $1, $2);</span>
 <span class="lineNum">     409 </span>                :            :       }
 <span class="lineNum">     410 </span>                :            :   ;
 <span class="lineNum">     411 </span>                :            : 
@@ -508,7 +508,7 @@
 <span class="lineNum">     436 </span>                :<span class="lineNoCov">          0 :       { pc-&gt;time_zone = HOUR(7);</span>
 <span class="lineNum">     437 </span>                :<span class="lineNoCov">          0 :         apply_relative_time (pc, $2, 1); }</span>
 <span class="lineNum">     438 </span>                :            :   | tZONE tSNUMBER o_colon_minutes
-<span class="lineNum">     439 </span>                :<span class="lineCov">         87 :       { pc-&gt;time_zone = $1 + time_zone_hhmm (pc, $2, $3); }</span>
+<span class="lineNum">     439 </span>                :<span class="lineCov">        174 :       { pc-&gt;time_zone = $1 + time_zone_hhmm (pc, $2, $3); }</span>
 <span class="lineNum">     440 </span>                :            :   | tDAYZONE
 <span class="lineNum">     441 </span>                :<span class="lineNoCov">          0 :       { pc-&gt;time_zone = $1 + 60; }</span>
 <span class="lineNum">     442 </span>                :            :   | tZONE tDST
@@ -609,9 +609,9 @@
 <span class="lineNum">     537 </span>                :            :     tUNUMBER tSNUMBER tSNUMBER
 <span class="lineNum">     538 </span>                :            :       {
 <span class="lineNum">     539 </span>                :            :         /* ISO 8601 format.  YYYY-MM-DD.  */
-<span class="lineNum">     540 </span>                :<span class="lineCov">       1380 :         pc-&gt;year = $1;</span>
-<span class="lineNum">     541 </span>                :<span class="lineCov">       1380 :         pc-&gt;month = -$2.value;</span>
-<span class="lineNum">     542 </span>                :<span class="lineCov">       1380 :         pc-&gt;day = -$3.value;</span>
+<span class="lineNum">     540 </span>                :<span class="lineCov">       1377 :         pc-&gt;year = $1;</span>
+<span class="lineNum">     541 </span>                :<span class="lineCov">       1377 :         pc-&gt;month = -$2.value;</span>
+<span class="lineNum">     542 </span>                :<span class="lineCov">       1377 :         pc-&gt;day = -$3.value;</span>
 <span class="lineNum">     543 </span>                :            :       }
 <span class="lineNum">     544 </span>                :            :   ;
 <span class="lineNum">     545 </span>                :            : 
@@ -921,62 +921,60 @@
 <span class="lineNum">     849 </span>                :            :    http://www.opengroup.org/susv3xbd/xbd_chap08.html#tag_08_03, allow
 <span class="lineNum">     850 </span>                :            :    only valid TZ range, and consider first two digits as hours, if no
 <span class="lineNum">     851 </span>                :            :    minutes specified.  */
-<a name="852"><span class="lineNum">     852 </span>                :            : </a>
+<span class="lineNum">     852 </span>                :            : 
 <span class="lineNum">     853 </span>                :            : static long int
-<span class="lineNum">     854 </span>                :<span class="lineCov">        198 : time_zone_hhmm (parser_control *pc, textint s, long int mm)</span>
+<span class="lineNum">     854 </span>                :            : time_zone_hhmm (parser_control *pc, textint s, long int mm)
 <span class="lineNum">     855 </span>                :            : {
 <span class="lineNum">     856 </span>                :            :   long int n_minutes;
 <span class="lineNum">     857 </span>                :            : 
 <span class="lineNum">     858 </span>                :            :   /* If the length of S is 1 or 2 and no minutes are specified,
 <span class="lineNum">     859 </span>                :            :      interpret it as a number of hours.  */
-<span class="lineNum">     860 </span>[<span class="branchCov" title="Branch 0 was taken 147 times"> + </span><span class="branchCov" title="Branch 1 was taken 51 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 105 times"> + </span><span class="branchCov" title="Branch 3 was taken 42 times"> + </span>]:<span class="lineCov">        198 :   if (s.digits &lt;= 2 &amp;&amp; mm &lt; 0)</span>
+<span class="lineNum">     860 </span>[<span class="branchCov" title="Branch 0 was taken 93 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 12 times"> + </span><span class="branchCov" title="Branch 3 was taken 75 times"> + </span>]:<span class="lineCov">        198 :   if (s.digits &lt;= 2 &amp;&amp; mm &lt; 0)</span>
 <span class="lineNum">     861 </span>                :<span class="lineCov">        105 :     s.value *= 100;</span>
 <span class="lineNum">     862 </span>                :            : 
-<span class="lineNum">     863 </span>        [<span class="branchCov" title="Branch 0 was taken 156 times"> + </span><span class="branchCov" title="Branch 1 was taken 42 times"> + </span>]:<span class="lineCov">        198 :   if (mm &lt; 0)</span>
+<span class="lineNum">     863 </span>[<span class="branchCov" title="Branch 0 was taken 105 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 51 times"> + </span><span class="branchCov" title="Branch 3 was taken 36 times"> + </span>]:<span class="lineCov">        198 :   if (mm &lt; 0)</span>
 <span class="lineNum">     864 </span>                :<span class="lineCov">        156 :     n_minutes = (s.value / 100) * 60 + s.value % 100;</span>
 <span class="lineNum">     865 </span>                :            :   else
-<span class="lineNum">     866 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>]:<span class="lineCov">         42 :     n_minutes = s.value * 60 + (s.negative ? -mm : mm);</span>
+<span class="lineNum">     866 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchCov" title="Branch 3 was taken 30 times"> + </span>]:<span class="lineCov">         42 :     n_minutes = s.value * 60 + (s.negative ? -mm : mm);</span>
 <span class="lineNum">     867 </span>                :            : 
 <span class="lineNum">     868 </span>                :            :   /* If the absolute number of minutes is larger than 24 hours,
 <span class="lineNum">     869 </span>                :            :      arrange to reject it by incrementing pc-&gt;zones_seen.  Thus,
 <span class="lineNum">     870 </span>                :            :      we allow only values in the range UTC-24:00 to UTC+24:00.  */
-<span class="lineNum">     871 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 195 times"> + </span>]:<span class="lineCov">        198 :   if (24 * 60 &lt; abs (n_minutes))</span>
+<span class="lineNum">     871 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 111 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 84 times"> + </span>]:<span class="lineCov">        198 :   if (24 * 60 &lt; abs (n_minutes))</span>
 <span class="lineNum">     872 </span>                :<span class="lineCov">          3 :     pc-&gt;zones_seen++;</span>
 <span class="lineNum">     873 </span>                :            : 
-<span class="lineNum">     874 </span>                :<span class="lineCov">        198 :   return n_minutes;</span>
+<span class="lineNum">     874 </span>                :            :   return n_minutes;
 <span class="lineNum">     875 </span>                :            : }
-<a name="876"><span class="lineNum">     876 </span>                :            : </a>
+<span class="lineNum">     876 </span>                :            : 
 <span class="lineNum">     877 </span>                :            : static int
-<span class="lineNum">     878 </span>                :<span class="lineCov">        315 : to_hour (long int hours, int meridian)</span>
+<a name="878"><span class="lineNum">     878 </span>                :            : to_hour (long int hours, int meridian)</a>
 <span class="lineNum">     879 </span>                :            : {
 <span class="lineNum">     880 </span>     [<span class="branchCov" title="Branch 0 was taken 315 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        315 :   switch (meridian)</span>
 <span class="lineNum">     881 </span>                :            :     {
 <span class="lineNum">     882 </span>                :            :     default: /* Pacify GCC.  */
 <span class="lineNum">     883 </span>                :            :     case MER24:
-<span class="lineNum">     884 </span>[<span class="branchCov" title="Branch 0 was taken 315 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 315 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        315 :       return 0 &lt;= hours &amp;&amp; hours &lt; 24 ? hours : -1;</span>
+<span class="lineNum">     884 </span>        [<span class="branchCov" title="Branch 0 was taken 315 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        315 :       return 0 &lt;= hours &amp;&amp; hours &lt; 24 ? hours : -1;</span>
 <span class="lineNum">     885 </span>                :            :     case MERam:
 <span class="lineNum">     886 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       return 0 &lt; hours &amp;&amp; hours &lt; 12 ? hours : hours == 12 ? 0 : -1;</span>
-<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
 <span class="lineNum">     887 </span>                :            :     case MERpm:
-<span class="lineNum">     888 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">        315 :       return 0 &lt; hours &amp;&amp; hours &lt; 12 ? hours + 12 : hours == 12 ? 12 : -1;</span>
-<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">     888 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       return 0 &lt; hours &amp;&amp; hours &lt; 12 ? hours + 12 : hours == 12 ? 12 : -1;</span>
 <span class="lineNum">     889 </span>                :            :     }
 <span class="lineNum">     890 </span>                :            : }
-<a name="891"><span class="lineNum">     891 </span>                :            : </a>
+<span class="lineNum">     891 </span>                :            : 
 <span class="lineNum">     892 </span>                :            : static long int
-<span class="lineNum">     893 </span>                :<span class="lineCov">       1596 : to_year (textint textyear)</span>
+<span class="lineNum">     893 </span>                :            : to_year (textint textyear)
 <span class="lineNum">     894 </span>                :            : {
-<span class="lineNum">     895 </span>                :<span class="lineCov">       1596 :   long int year = textyear.value;</span>
+<span class="lineNum">     895 </span>                :<span class="lineCov">       1593 :   long int year = textyear.value;</span>
 <span class="lineNum">     896 </span>                :            : 
-<span class="lineNum">     897 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1596 times"> + </span>]:<span class="lineCov">       1596 :   if (year &lt; 0)</span>
+<span class="lineNum">     897 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1593 times"> + </span>]:<span class="lineCov">       1593 :   if (year &lt; 0)</span>
 <span class="lineNum">     898 </span>                :<span class="lineNoCov">          0 :     year = -year;</span>
 <span class="lineNum">     899 </span>                :            : 
 <span class="lineNum">     900 </span>                :            :   /* XPG4 suggests that years 00-68 map to 2000-2068, and
 <span class="lineNum">     901 </span>                :            :      years 69-99 map to 1969-1999.  */
-<span class="lineNum">     902 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 1587 times"> + </span>]:<span class="lineCov">       1596 :   else if (textyear.digits == 2)</span>
-<span class="lineNum">     903 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          9 :     year += year &lt; 69 ? 2000 : 1900;</span>
+<span class="lineNum">     902 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 1584 times"> + </span>]:<span class="lineCov">       1593 :   else if (textyear.digits == 2)</span>
+<span class="lineNum">     903 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          9 :     year += year &lt; 69 ? 2000 : 1900;</span>
 <span class="lineNum">     904 </span>                :            : 
-<span class="lineNum">     905 </span>                :<span class="lineCov">       1596 :   return year;</span>
+<span class="lineNum">     905 </span>                :            :   return year;
 <span class="lineNum">     906 </span>                :            : }
 <a name="907"><span class="lineNum">     907 </span>                :            : </a>
 <span class="lineNum">     908 </span>                :            : static table const * _GL_ATTRIBUTE_PURE
@@ -985,20 +983,20 @@
 <span class="lineNum">     911 </span>                :            :   table const *tp;
 <span class="lineNum">     912 </span>                :            : 
 <span class="lineNum">     913 </span>        [<span class="branchCov" title="Branch 0 was taken 4770 times"> + </span><span class="branchCov" title="Branch 1 was taken 1476 times"> + </span>]:<span class="lineCov">       6246 :   for (tp = universal_time_zone_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">     914 </span>        [<span class="branchCov" title="Branch 0 was taken 114 times"> + </span><span class="branchCov" title="Branch 1 was taken 4656 times"> + </span>]:<span class="lineCov">       4770 :     if (strcmp (name, tp-&gt;name) == 0)</span>
-<span class="lineNum">     915 </span>                :<span class="lineCov">        114 :       return tp;</span>
+<span class="lineNum">     914 </span>        [<span class="branchCov" title="Branch 0 was taken 4656 times"> + </span><span class="branchCov" title="Branch 1 was taken 114 times"> + </span>]:<span class="lineCov">       4770 :     if (strcmp (name, tp-&gt;name) == 0)</span>
+<span class="lineNum">     915 </span>                :            :       return tp;
 <span class="lineNum">     916 </span>                :            : 
 <span class="lineNum">     917 </span>                :            :   /* Try local zone abbreviations before those in time_zone_table, as
 <span class="lineNum">     918 </span>                :            :      the local ones are more likely to be right.  */
 <span class="lineNum">     919 </span>        [<span class="branchCov" title="Branch 0 was taken 2655 times"> + </span><span class="branchCov" title="Branch 1 was taken 1476 times"> + </span>]:<span class="lineCov">       4131 :   for (tp = pc-&gt;local_time_zone_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">     920 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2655 times"> + </span>]:<span class="lineCov">       2655 :     if (strcmp (name, tp-&gt;name) == 0)</span>
-<span class="lineNum">     921 </span>                :<span class="lineNoCov">          0 :       return tp;</span>
+<span class="lineNum">     920 </span>        [<span class="branchCov" title="Branch 0 was taken 2655 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2655 :     if (strcmp (name, tp-&gt;name) == 0)</span>
+<span class="lineNum">     921 </span>                :            :       return tp;
 <span class="lineNum">     922 </span>                :            : 
-<span class="lineNum">     923 </span>        [<span class="branchCov" title="Branch 0 was taken 69372 times"> + </span><span class="branchCov" title="Branch 1 was taken 1476 times"> + </span>]:<span class="lineCov">      70848 :   for (tp = time_zone_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">     924 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 69372 times"> + </span>]:<span class="lineCov">      69372 :     if (strcmp (name, tp-&gt;name) == 0)</span>
-<span class="lineNum">     925 </span>                :<span class="lineNoCov">          0 :       return tp;</span>
+<span class="lineNum">     923 </span>        [<span class="branchCov" title="Branch 0 was taken 69372 times"> + </span><span class="branchCov" title="Branch 1 was taken 1476 times"> + </span>]:<span class="lineCov">      70962 :   for (tp = time_zone_table; tp-&gt;name; tp++)</span>
+<span class="lineNum">     924 </span>        [<span class="branchCov" title="Branch 0 was taken 69372 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      69372 :     if (strcmp (name, tp-&gt;name) == 0)</span>
+<span class="lineNum">     925 </span>                :            :       return tp;
 <span class="lineNum">     926 </span>                :            : 
-<span class="lineNum">     927 </span>                :<span class="lineCov">       1590 :   return NULL;</span>
+<span class="lineNum">     927 </span>                :            :   return NULL;
 <span class="lineNum">     928 </span>                :            : }
 <span class="lineNum">     929 </span>                :            : 
 <span class="lineNum">     930 </span>                :            : #if ! HAVE_TM_GMTOFF
@@ -1042,107 +1040,107 @@
 <span class="lineNum">     968 </span>        [<span class="branchCov" title="Branch 0 was taken 5709 times"> + </span><span class="branchCov" title="Branch 1 was taken 1656 times"> + </span>]:<span class="lineCov">       7365 :   for (p = word; *p; p++)</span>
 <span class="lineNum">     969 </span>                :            :     {
 <span class="lineNum">     970 </span>                :<span class="lineCov">       5709 :       unsigned char ch = *p;</span>
-<span class="lineNum">     971 </span>                :<span class="lineCov">       5709 :       *p = c_toupper (ch);</span>
+<span class="lineNum">     971 </span>        [<span class="branchCov" title="Branch 0 was taken 4827 times"> + </span><span class="branchCov" title="Branch 1 was taken 882 times"> + </span>]:<span class="lineCov">       5709 :       *p = c_toupper (ch);</span>
 <span class="lineNum">     972 </span>                :            :     }
 <span class="lineNum">     973 </span>                :            : 
 <span class="lineNum">     974 </span>        [<span class="branchCov" title="Branch 0 was taken 6624 times"> + </span><span class="branchCov" title="Branch 1 was taken 1656 times"> + </span>]:<span class="lineCov">       8280 :   for (tp = meridian_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">     975 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6624 times"> + </span>]:<span class="lineCov">       6624 :     if (strcmp (word, tp-&gt;name) == 0)</span>
-<span class="lineNum">     976 </span>                :<span class="lineNoCov">          0 :       return tp;</span>
+<span class="lineNum">     975 </span>        [<span class="branchCov" title="Branch 0 was taken 6624 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       6624 :     if (strcmp (word, tp-&gt;name) == 0)</span>
+<span class="lineNum">     976 </span>                :            :       return tp;
 <span class="lineNum">     977 </span>                :            : 
 <span class="lineNum">     978 </span>                :            :   /* See if we have an abbreviation for a month. */
 <span class="lineNum">     979 </span>                :<span class="lineCov">       1656 :   wordlen = strlen (word);</span>
 <span class="lineNum">     980 </span>[<span class="branchCov" title="Branch 0 was taken 342 times"> + </span><span class="branchCov" title="Branch 1 was taken 1314 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 135 times"> + </span><span class="branchCov" title="Branch 3 was taken 207 times"> + </span>]:<span class="lineCov">       1656 :   abbrev = wordlen == 3 || (wordlen == 4 &amp;&amp; word[3] == '.');</span>
-<span class="lineNum">         </span>        [<span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 135 times"> + </span>]
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 135 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
 <span class="lineNum">     981 </span>                :            : 
-<span class="lineNum">     982 </span>        [<span class="branchCov" title="Branch 0 was taken 39297 times"> + </span><span class="branchCov" title="Branch 1 was taken 1590 times"> + </span>]:<span class="lineCov">      40887 :   for (tp = month_and_day_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">     983 </span>[<span class="branchCov" title="Branch 0 was taken 31332 times"> + </span><span class="branchCov" title="Branch 1 was taken 7965 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 66 times"> + </span><span class="branchCov" title="Branch 3 was taken 39231 times"> + </span>]:<span class="lineCov">      39297 :     if ((abbrev ? strncmp (word, tp-&gt;name, 3) : strcmp (word, tp-&gt;name)) == 0)</span>
-<span class="lineNum">     984 </span>                :<span class="lineCov">         66 :       return tp;</span>
+<span class="lineNum">     982 </span>        [<span class="branchCov" title="Branch 0 was taken 39261 times"> + </span><span class="branchCov" title="Branch 1 was taken 1590 times"> + </span>]:<span class="lineCov">      40851 :   for (tp = month_and_day_table; tp-&gt;name; tp++)</span>
+<span class="lineNum">     983 </span>[<span class="branchCov" title="Branch 0 was taken 31296 times"> + </span><span class="branchCov" title="Branch 1 was taken 7965 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 39195 times"> + </span><span class="branchCov" title="Branch 3 was taken 66 times"> + </span>]:<span class="lineCov">      39261 :     if ((abbrev ? strncmp (word, tp-&gt;name, 3) : strcmp (word, tp-&gt;name)) == 0)</span>
+<span class="lineNum">     984 </span>                :            :       return tp;
 <span class="lineNum">     985 </span>                :            : 
-<span class="lineNum">     986 </span>        [<span class="branchCov" title="Branch 1 was taken 114 times"> + </span><span class="branchCov" title="Branch 2 was taken 1476 times"> + </span>]:<span class="lineCov">       1590 :   if ((tp = lookup_zone (pc, word)))</span>
-<span class="lineNum">     987 </span>                :<span class="lineCov">        114 :     return tp;</span>
+<span class="lineNum">     986 </span>        [<span class="branchCov" title="Branch 1 was taken 1476 times"> + </span><span class="branchCov" title="Branch 2 was taken 114 times"> + </span>]:<span class="lineCov">       1590 :   if ((tp = lookup_zone (pc, word)))</span>
+<span class="lineNum">     987 </span>                :            :     return tp;
 <span class="lineNum">     988 </span>                :            : 
-<span class="lineNum">     989 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1476 times"> + </span>]:<span class="lineCov">       1476 :   if (strcmp (word, dst_table[0].name) == 0)</span>
-<span class="lineNum">     990 </span>                :<span class="lineNoCov">          0 :     return dst_table;</span>
+<span class="lineNum">     989 </span>        [<span class="branchCov" title="Branch 0 was taken 1476 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1476 :   if (strcmp (word, dst_table[0].name) == 0)</span>
+<span class="lineNum">     990 </span>                :            :     return dst_table;
 <span class="lineNum">     991 </span>                :            : 
 <span class="lineNum">     992 </span>        [<span class="branchCov" title="Branch 0 was taken 8595 times"> + </span><span class="branchCov" title="Branch 1 was taken 252 times"> + </span>]:<span class="lineCov">       8847 :   for (tp = time_units_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">     993 </span>        [<span class="branchCov" title="Branch 0 was taken 1224 times"> + </span><span class="branchCov" title="Branch 1 was taken 7371 times"> + </span>]:<span class="lineCov">       8595 :     if (strcmp (word, tp-&gt;name) == 0)</span>
-<span class="lineNum">     994 </span>                :<span class="lineCov">       1224 :       return tp;</span>
+<span class="lineNum">     993 </span>        [<span class="branchCov" title="Branch 0 was taken 7371 times"> + </span><span class="branchCov" title="Branch 1 was taken 1224 times"> + </span>]:<span class="lineCov">       8595 :     if (strcmp (word, tp-&gt;name) == 0)</span>
+<span class="lineNum">     994 </span>                :            :       return tp;
 <span class="lineNum">     995 </span>                :            : 
 <span class="lineNum">     996 </span>                :            :   /* Strip off any plural and try the units table again. */
 <span class="lineNum">     997 </span>        [<span class="branchCov" title="Branch 0 was taken 63 times"> + </span><span class="branchCov" title="Branch 1 was taken 189 times"> + </span>]:<span class="lineCov">        252 :   if (word[wordlen - 1] == 'S')</span>
 <span class="lineNum">     998 </span>                :            :     {
 <span class="lineNum">     999 </span>                :<span class="lineCov">         63 :       word[wordlen - 1] = '\0';</span>
 <span class="lineNum">    1000 </span>        [<span class="branchCov" title="Branch 0 was taken 405 times"> + </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">        420 :       for (tp = time_units_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">    1001 </span>        [<span class="branchCov" title="Branch 0 was taken 48 times"> + </span><span class="branchCov" title="Branch 1 was taken 357 times"> + </span>]:<span class="lineCov">        405 :         if (strcmp (word, tp-&gt;name) == 0)</span>
-<span class="lineNum">    1002 </span>                :<span class="lineCov">         48 :           return tp;</span>
+<span class="lineNum">    1001 </span>        [<span class="branchCov" title="Branch 0 was taken 357 times"> + </span><span class="branchCov" title="Branch 1 was taken 48 times"> + </span>]:<span class="lineCov">        405 :         if (strcmp (word, tp-&gt;name) == 0)</span>
+<span class="lineNum">    1002 </span>                :            :           return tp;
 <span class="lineNum">    1003 </span>                :<span class="lineCov">         15 :       word[wordlen - 1] = 'S';  /* For &quot;this&quot; in relative_time_table.  */</span>
 <span class="lineNum">    1004 </span>                :            :     }
 <span class="lineNum">    1005 </span>                :            : 
 <span class="lineNum">    1006 </span>        [<span class="branchCov" title="Branch 0 was taken 1887 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">       1908 :   for (tp = relative_time_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">    1007 </span>        [<span class="branchCov" title="Branch 0 was taken 183 times"> + </span><span class="branchCov" title="Branch 1 was taken 1704 times"> + </span>]:<span class="lineCov">       1887 :     if (strcmp (word, tp-&gt;name) == 0)</span>
-<span class="lineNum">    1008 </span>                :<span class="lineCov">        183 :       return tp;</span>
+<span class="lineNum">    1007 </span>        [<span class="branchCov" title="Branch 0 was taken 1704 times"> + </span><span class="branchCov" title="Branch 1 was taken 183 times"> + </span>]:<span class="lineCov">       1887 :     if (strcmp (word, tp-&gt;name) == 0)</span>
+<span class="lineNum">    1008 </span>                :            :       return tp;
 <span class="lineNum">    1009 </span>                :            : 
 <span class="lineNum">    1010 </span>                :            :   /* Military time zones. */
 <span class="lineNum">    1011 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :   if (wordlen == 1)</span>
 <span class="lineNum">    1012 </span>        [<span class="branchCov" title="Branch 0 was taken 435 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        435 :     for (tp = military_table; tp-&gt;name; tp++)</span>
-<span class="lineNum">    1013 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 414 times"> + </span>]:<span class="lineCov">        435 :       if (word[0] == tp-&gt;name[0])</span>
-<span class="lineNum">    1014 </span>                :<span class="lineCov">         21 :         return tp;</span>
+<span class="lineNum">    1013 </span>        [<span class="branchCov" title="Branch 0 was taken 414 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">        435 :       if (word[0] == tp-&gt;name[0])</span>
+<span class="lineNum">    1014 </span>                :            :         return tp;
 <span class="lineNum">    1015 </span>                :            : 
 <span class="lineNum">    1016 </span>                :            :   /* Drop out any periods and try the time zone table again. */
 <span class="lineNum">    1017 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   for (period_found = false, p = q = word; (*p = *q); q++)</span>
 <span class="lineNum">    1018 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (*q == '.')</span>
-<span class="lineNum">    1019 </span>                :<span class="lineNoCov">          0 :       period_found = true;</span>
+<span class="lineNum">    1019 </span>                :            :       period_found = true;
 <span class="lineNum">    1020 </span>                :            :     else
 <span class="lineNum">    1021 </span>                :<span class="lineNoCov">          0 :       p++;</span>
 <span class="lineNum">    1022 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (period_found &amp;&amp; (tp = lookup_zone (pc, word)))</span>
-<span class="lineNum">    1023 </span>                :<span class="lineNoCov">          0 :     return tp;</span>
+<span class="lineNum">    1023 </span>                :<span class="lineCov">       1656 :     return tp;</span>
 <span class="lineNum">    1024 </span>                :            : 
-<span class="lineNum">    1025 </span>                :<span class="lineCov">       1656 :   return NULL;</span>
+<span class="lineNum">    1025 </span>                :            :   return NULL;
 <span class="lineNum">    1026 </span>                :            : }
 <a name="1027"><span class="lineNum">    1027 </span>                :            : </a>
 <span class="lineNum">    1028 </span>                :            : static int
-<span class="lineNum">    1029 </span>                :<span class="lineCov">      10032 : yylex (YYSTYPE *lvalp, parser_control *pc)</span>
+<span class="lineNum">    1029 </span>                :<span class="lineCov">      10020 : yylex (YYSTYPE *lvalp, parser_control *pc)</span>
 <span class="lineNum">    1030 </span>                :            : {
 <span class="lineNum">    1031 </span>                :            :   unsigned char c;
 <span class="lineNum">    1032 </span>                :            :   size_t count;
 <span class="lineNum">    1033 </span>                :            : 
 <span class="lineNum">    1034 </span>                :            :   for (;;)
 <span class="lineNum">    1035 </span>                :            :     {
-<span class="lineNum">    1036 </span>        [<span class="branchCov" title="Branch 1 was taken 2964 times"> + </span><span class="branchCov" title="Branch 2 was taken 10032 times"> + </span>]:<span class="lineCov">      12996 :       while (c = *pc-&gt;input, c_isspace (c))</span>
+<span class="lineNum">    1036 </span>[<span class="branchCov" title="Branch 0 was taken 10026 times"> + </span><span class="branchCov" title="Branch 1 was taken 2958 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 10020 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">      12984 :       while (c = *pc-&gt;input, c_isspace (c))</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 4 was taken 10020 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>][<span class="branchCov" title="Branch 6 was taken 2964 times"> + </span><span class="branchCov" title="Branch 7 was taken 10020 times"> + </span>]
 <span class="lineNum">    1037 </span>                :<span class="lineCov">       2964 :         pc-&gt;input++;</span>
 <span class="lineNum">    1038 </span>                :            : 
-<span class="lineNum">    1039 </span>[<span class="branchCov" title="Branch 0 was taken 7905 times"> + </span><span class="branchCov" title="Branch 1 was taken 2127 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 5079 times"> + </span><span class="branchCov" title="Branch 3 was taken 2826 times"> + </span>]:<span class="lineCov">      10032 :       if (ISDIGIT (c) || c == '-' || c == '+')</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 1344 times"> + </span><span class="branchCov" title="Branch 5 was taken 3735 times"> + </span>]
+<span class="lineNum">    1039 </span>[<span class="branchCov" title="Branch 0 was taken 5076 times"> + </span><span class="branchCov" title="Branch 1 was taken 4944 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 1344 times"> + </span><span class="branchCov" title="Branch 3 was taken 3732 times"> + </span>]:<span class="lineCov">      10020 :       if (ISDIGIT (c) || c == '-' || c == '+')</span>
 <span class="lineNum">    1040 </span>                :            :         {
 <span class="lineNum">    1041 </span>                :            :           char const *p;
 <span class="lineNum">    1042 </span>                :            :           int sign;
 <span class="lineNum">    1043 </span>                :            :           unsigned long int value;
-<span class="lineNum">    1044 </span>[<span class="branchCov" title="Branch 0 was taken 3471 times"> + </span><span class="branchCov" title="Branch 1 was taken 2826 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 1344 times"> + </span><span class="branchCov" title="Branch 3 was taken 2127 times"> + </span>]:<span class="lineCov">       6297 :           if (c == '-' || c == '+')</span>
+<span class="lineNum">    1044 </span>        [<span class="branchCov" title="Branch 0 was taken 4164 times"> + </span><span class="branchCov" title="Branch 1 was taken 2124 times"> + </span>]:<span class="lineCov">       6288 :           if (c == '-' || c == '+')</span>
 <span class="lineNum">    1045 </span>                :            :             {
-<span class="lineNum">    1046 </span>        [<span class="branchCov" title="Branch 0 was taken 2826 times"> + </span><span class="branchCov" title="Branch 1 was taken 1344 times"> + </span>]:<span class="lineCov">       4170 :               sign = c == '-' ? -1 : 1;</span>
-<span class="lineNum">    1047 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 4170 times"> + </span>]:<span class="lineCov">       4170 :               while (c = *++pc-&gt;input, c_isspace (c))</span>
+<span class="lineNum">    1046 </span>        [<span class="branchCov" title="Branch 0 was taken 1344 times"> + </span><span class="branchCov" title="Branch 1 was taken 2820 times"> + </span>]:<span class="lineCov">       4164 :               sign = c == '-' ? -1 : 1;</span>
+<span class="lineNum">    1047 </span>[<span class="branchCov" title="Branch 0 was taken 4164 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 4164 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       4164 :               while (c = *++pc-&gt;input, c_isspace (c))</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 4 was taken 4164 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>][<span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 4164 times"> + </span>]
 <span class="lineNum">    1048 </span>                :<span class="lineNoCov">          0 :                 continue;</span>
-<span class="lineNum">    1049 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 4170 times"> + </span>]:<span class="lineCov">       4170 :               if (! ISDIGIT (c))</span>
+<span class="lineNum">    1049 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 4164 times"> + </span>]:<span class="lineCov">       4164 :               if (! ISDIGIT (c))</span>
 <span class="lineNum">    1050 </span>                :            :                 /* skip the '-' sign */
 <span class="lineNum">    1051 </span>                :<span class="lineNoCov">          0 :                 continue;</span>
 <span class="lineNum">    1052 </span>                :            :             }
 <span class="lineNum">    1053 </span>                :            :           else
-<span class="lineNum">    1054 </span>                :<span class="lineCov">       2127 :             sign = 0;</span>
-<span class="lineNum">    1055 </span>                :<span class="lineCov">       6297 :           p = pc-&gt;input;</span>
-<span class="lineNum">    1056 </span>                :<span class="lineCov">       6297 :           for (value = 0; ; value *= 10)</span>
+<span class="lineNum">    1054 </span>                :            :             sign = 0;
+<span class="lineNum">    1055 </span>                :<span class="lineCov">       6288 :           p = pc-&gt;input;</span>
+<span class="lineNum">    1056 </span>                :<span class="lineCov">       6288 :           for (value = 0; ; value *= 10)</span>
 <span class="lineNum">    1057 </span>                :            :             {
-<span class="lineNum">    1058 </span>                :<span class="lineCov">      16209 :               unsigned long int value1 = value + (c - '0');</span>
-<span class="lineNum">    1059 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 16209 times"> + </span>]:<span class="lineCov">      16209 :               if (value1 &lt; value)</span>
-<span class="lineNum">    1060 </span>                :<span class="lineNoCov">          0 :                 return '?';</span>
-<span class="lineNum">    1061 </span>                :<span class="lineCov">      16209 :               value = value1;</span>
-<span class="lineNum">    1062 </span>                :<span class="lineCov">      16209 :               c = *++p;</span>
-<span class="lineNum">    1063 </span>        [<span class="branchCov" title="Branch 0 was taken 6297 times"> + </span><span class="branchCov" title="Branch 1 was taken 9912 times"> + </span>]:<span class="lineCov">      16209 :               if (! ISDIGIT (c))</span>
-<span class="lineNum">    1064 </span>                :<span class="lineCov">       6297 :                 break;</span>
-<span class="lineNum">    1065 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9912 times"> + </span>]:<span class="lineCov">       9912 :               if (ULONG_MAX / 10 &lt; value)</span>
-<span class="lineNum">    1066 </span>                :<span class="lineNoCov">          0 :                 return '?';</span>
-<span class="lineNum">    1067 </span>                :<span class="lineCov">       9912 :             }</span>
-<span class="lineNum">    1068 </span>[<span class="branchCov" title="Branch 0 was taken 6270 times"> + </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 6270 times"> + </span>]:<span class="lineCov">       6297 :           if ((c == '.' || c == ',') &amp;&amp; ISDIGIT (p[1]))</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 27 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
+<span class="lineNum">    1058 </span>                :<span class="lineCov">      16185 :               unsigned long int value1 = value + (c - '0');</span>
+<span class="lineNum">    1059 </span>        [<span class="branchCov" title="Branch 0 was taken 16185 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      16185 :               if (value1 &lt; value)</span>
+<span class="lineNum">    1060 </span>                :            :                 return '?';
+<span class="lineNum">    1061 </span>                :<span class="lineCov">      16185 :               value = value1;</span>
+<span class="lineNum">    1062 </span>                :<span class="lineCov">      16185 :               c = *++p;</span>
+<span class="lineNum">    1063 </span>        [<span class="branchCov" title="Branch 0 was taken 9897 times"> + </span><span class="branchCov" title="Branch 1 was taken 6288 times"> + </span>]:<span class="lineCov">      16185 :               if (! ISDIGIT (c))</span>
+<span class="lineNum">    1064 </span>                :            :                 break;
+<span class="lineNum">    1065 </span>        [<span class="branchCov" title="Branch 0 was taken 9897 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       9897 :               if (ULONG_MAX / 10 &lt; value)</span>
+<span class="lineNum">    1066 </span>                :            :                 return '?';
+<span class="lineNum">    1067 </span>                :<span class="lineCov">       9897 :             }</span>
+<span class="lineNum">    1068 </span>[<span class="branchCov" title="Branch 0 was taken 27 times"> + </span><span class="branchCov" title="Branch 1 was taken 6261 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 27 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       6288 :           if ((c == '.' || c == ',') &amp;&amp; ISDIGIT (p[1]))</span>
 <span class="lineNum">    1069 </span>                :            :             {
 <span class="lineNum">    1070 </span>                :            :               time_t s;
 <span class="lineNum">    1071 </span>                :            :               int ns;
@@ -1154,18 +1152,18 @@
 <span class="lineNum">    1077 </span>                :            :                 {
 <span class="lineNum">    1078 </span>                :<span class="lineNoCov">          0 :                   s = - value;</span>
 <span class="lineNum">    1079 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                   if (0 &lt; s)</span>
-<span class="lineNum">    1080 </span>                :<span class="lineNoCov">          0 :                     return '?';</span>
+<span class="lineNum">    1080 </span>                :            :                     return '?';
 <span class="lineNum">    1081 </span>                :<span class="lineNoCov">          0 :                   value1 = -s;</span>
 <span class="lineNum">    1082 </span>                :            :                 }
 <span class="lineNum">    1083 </span>                :            :               else
 <span class="lineNum">    1084 </span>                :            :                 {
 <span class="lineNum">    1085 </span>                :<span class="lineCov">         27 :                   s = value;</span>
-<span class="lineNum">    1086 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>]:<span class="lineCov">         27 :                   if (s &lt; 0)</span>
-<span class="lineNum">    1087 </span>                :<span class="lineNoCov">          0 :                     return '?';</span>
+<span class="lineNum">    1086 </span>        [<span class="branchCov" title="Branch 0 was taken 27 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         27 :                   if (s &lt; 0)</span>
+<span class="lineNum">    1087 </span>                :            :                     return '?';
 <span class="lineNum">    1088 </span>                :<span class="lineCov">         27 :                   value1 = s;</span>
 <span class="lineNum">    1089 </span>                :            :                 }
-<span class="lineNum">    1090 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>]:<span class="lineCov">         27 :               if (value != value1)</span>
-<span class="lineNum">    1091 </span>                :<span class="lineNoCov">          0 :                 return '?';</span>
+<span class="lineNum">    1090 </span>        [<span class="branchCov" title="Branch 0 was taken 27 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         27 :               if (value != value1)</span>
+<span class="lineNum">    1091 </span>                :            :                 return '?';
 <span class="lineNum">    1092 </span>                :            : 
 <span class="lineNum">    1093 </span>                :            :               /* Accumulate fraction, to ns precision.  */
 <span class="lineNum">    1094 </span>                :<span class="lineCov">         27 :               p++;</span>
@@ -1183,7 +1181,7 @@
 <span class="lineNum">    1106 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                   if (*p != '0')</span>
 <span class="lineNum">    1107 </span>                :            :                     {
 <span class="lineNum">    1108 </span>                :<span class="lineNoCov">          0 :                       ns++;</span>
-<span class="lineNum">    1109 </span>                :<span class="lineNoCov">          0 :                       break;</span>
+<span class="lineNum">    1109 </span>                :<span class="lineCov">         27 :                       break;</span>
 <span class="lineNum">    1110 </span>                :            :                     }
 <span class="lineNum">    1111 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>]:<span class="lineCov">         27 :               while (ISDIGIT (*p))</span>
 <span class="lineNum">    1112 </span>                :<span class="lineNoCov">          0 :                 p++;</span>
@@ -1191,44 +1189,44 @@
 <span class="lineNum">    1114 </span>                :            :               /* Adjust to the timespec convention, which is that
 <span class="lineNum">    1115 </span>                :            :                  tv_nsec is always a positive offset even if tv_sec is
 <span class="lineNum">    1116 </span>                :            :                  negative.  */
-<span class="lineNum">    1117 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">         27 :               if (sign &lt; 0 &amp;&amp; ns)</span>
+<span class="lineNum">    1117 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>]:<span class="lineCov">         27 :               if (sign &lt; 0 &amp;&amp; ns)</span>
 <span class="lineNum">    1118 </span>                :            :                 {
 <span class="lineNum">    1119 </span>                :<span class="lineNoCov">          0 :                   s--;</span>
 <span class="lineNum">    1120 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                   if (! (s &lt; 0))</span>
-<span class="lineNum">    1121 </span>                :<span class="lineNoCov">          0 :                     return '?';</span>
+<span class="lineNum">    1121 </span>                :            :                     return '?';
 <span class="lineNum">    1122 </span>                :<span class="lineNoCov">          0 :                   ns = BILLION - ns;</span>
 <span class="lineNum">    1123 </span>                :            :                 }
 <span class="lineNum">    1124 </span>                :            : 
 <span class="lineNum">    1125 </span>                :<span class="lineCov">         27 :               lvalp-&gt;timespec.tv_sec = s;</span>
 <span class="lineNum">    1126 </span>                :<span class="lineCov">         27 :               lvalp-&gt;timespec.tv_nsec = ns;</span>
 <span class="lineNum">    1127 </span>                :<span class="lineCov">         27 :               pc-&gt;input = p;</span>
-<span class="lineNum">    1128 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         27 :               return sign ? tSDECIMAL_NUMBER : tUDECIMAL_NUMBER;</span>
+<span class="lineNum">    1128 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         27 :               return sign ? tSDECIMAL_NUMBER : tUDECIMAL_NUMBER;</span>
 <span class="lineNum">    1129 </span>                :            :             }
 <span class="lineNum">    1130 </span>                :            :           else
 <span class="lineNum">    1131 </span>                :            :             {
-<span class="lineNum">    1132 </span>                :<span class="lineCov">       6270 :               lvalp-&gt;textintval.negative = sign &lt; 0;</span>
-<span class="lineNum">    1133 </span>        [<span class="branchCov" title="Branch 0 was taken 2826 times"> + </span><span class="branchCov" title="Branch 1 was taken 3444 times"> + </span>]:<span class="lineCov">       6270 :               if (sign &lt; 0)</span>
+<span class="lineNum">    1132 </span>                :<span class="lineCov">       6261 :               lvalp-&gt;textintval.negative = sign &lt; 0;</span>
+<span class="lineNum">    1133 </span>        [<span class="branchCov" title="Branch 0 was taken 2820 times"> + </span><span class="branchCov" title="Branch 1 was taken 3441 times"> + </span>]:<span class="lineCov">       6261 :               if (sign &lt; 0)</span>
 <span class="lineNum">    1134 </span>                :            :                 {
-<span class="lineNum">    1135 </span>                :<span class="lineCov">       2826 :                   lvalp-&gt;textintval.value = - value;</span>
-<span class="lineNum">    1136 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2826 times"> + </span>]:<span class="lineCov">       2826 :                   if (0 &lt; lvalp-&gt;textintval.value)</span>
-<span class="lineNum">    1137 </span>                :<span class="lineNoCov">          0 :                     return '?';</span>
+<span class="lineNum">    1135 </span>                :<span class="lineCov">       2820 :                   lvalp-&gt;textintval.value = - value;</span>
+<span class="lineNum">    1136 </span>        [<span class="branchCov" title="Branch 0 was taken 2820 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2820 :                   if (0 &lt; lvalp-&gt;textintval.value)</span>
+<span class="lineNum">    1137 </span>                :            :                     return '?';
 <span class="lineNum">    1138 </span>                :            :                 }
 <span class="lineNum">    1139 </span>                :            :               else
 <span class="lineNum">    1140 </span>                :            :                 {
-<span class="lineNum">    1141 </span>                :<span class="lineCov">       3444 :                   lvalp-&gt;textintval.value = value;</span>
-<span class="lineNum">    1142 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3444 times"> + </span>]:<span class="lineCov">       3444 :                   if (lvalp-&gt;textintval.value &lt; 0)</span>
-<span class="lineNum">    1143 </span>                :<span class="lineNoCov">          0 :                     return '?';</span>
+<span class="lineNum">    1141 </span>                :<span class="lineCov">       3441 :                   lvalp-&gt;textintval.value = value;</span>
+<span class="lineNum">    1142 </span>        [<span class="branchCov" title="Branch 0 was taken 3441 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       3441 :                   if (lvalp-&gt;textintval.value &lt; 0)</span>
+<span class="lineNum">    1143 </span>                :            :                     return '?';
 <span class="lineNum">    1144 </span>                :            :                 }
-<span class="lineNum">    1145 </span>                :<span class="lineCov">       6270 :               lvalp-&gt;textintval.digits = p - pc-&gt;input;</span>
-<span class="lineNum">    1146 </span>                :<span class="lineCov">       6270 :               pc-&gt;input = p;</span>
-<span class="lineNum">    1147 </span>        [<span class="branchCov" title="Branch 0 was taken 4164 times"> + </span><span class="branchCov" title="Branch 1 was taken 2106 times"> + </span>]:<span class="lineCov">       6270 :               return sign ? tSNUMBER : tUNUMBER;</span>
+<span class="lineNum">    1145 </span>                :<span class="lineCov">       6261 :               lvalp-&gt;textintval.digits = p - pc-&gt;input;</span>
+<span class="lineNum">    1146 </span>                :<span class="lineCov">       6261 :               pc-&gt;input = p;</span>
+<span class="lineNum">    1147 </span>        [<span class="branchCov" title="Branch 0 was taken 2103 times"> + </span><span class="branchCov" title="Branch 1 was taken 4158 times"> + </span>]:<span class="lineCov">       6261 :               return sign ? tSNUMBER : tUNUMBER;</span>
 <span class="lineNum">    1148 </span>                :            :             }
 <span class="lineNum">    1149 </span>                :            :         }
 <span class="lineNum">    1150 </span>                :            : 
-<span class="lineNum">    1151 </span>        [<span class="branchCov" title="Branch 1 was taken 1656 times"> + </span><span class="branchCov" title="Branch 2 was taken 2079 times"> + </span>]:<span class="lineCov">       3735 :       if (c_isalpha (c))</span>
+<span class="lineNum">    1151 </span>        [<span class="branchCov" title="Branch 0 was taken 1656 times"> + </span><span class="branchCov" title="Branch 1 was taken 2076 times"> + </span>]:<span class="lineCov">       7785 :       if (c_isalpha (c))</span>
 <span class="lineNum">    1152 </span>                :            :         {
 <span class="lineNum">    1153 </span>                :            :           char buff[20];
-<span class="lineNum">    1154 </span>                :<span class="lineCov">       1656 :           char *p = buff;</span>
+<span class="lineNum">    1154 </span>                :            :           char *p = buff;
 <span class="lineNum">    1155 </span>                :            :           table const *tp;
 <span class="lineNum">    1156 </span>                :            : 
 <span class="lineNum">    1157 </span>                :            :           do
@@ -1237,19 +1235,19 @@
 <span class="lineNum">    1160 </span>                :<span class="lineCov">       5709 :                 *p++ = c;</span>
 <span class="lineNum">    1161 </span>                :<span class="lineCov">       5709 :               c = *++pc-&gt;input;</span>
 <span class="lineNum">    1162 </span>                :            :             }
-<span class="lineNum">    1163 </span>[<span class="branchCov" title="Branch 1 was taken 4053 times"> + </span><span class="branchCov" title="Branch 2 was taken 1656 times"> + </span>][<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 1656 times"> + </span>]:<span class="lineCov">       5709 :           while (c_isalpha (c) || c == '.');</span>
+<span class="lineNum">    1163 </span>[<span class="branchCov" title="Branch 0 was taken 4053 times"> + </span><span class="branchCov" title="Branch 1 was taken 1656 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1656 times"> + </span>]:<span class="lineCov">       5709 :           while (c_isalpha (c) || c == '.');</span>
 <span class="lineNum">    1164 </span>                :            : 
 <span class="lineNum">    1165 </span>                :<span class="lineCov">       1656 :           *p = '\0';</span>
 <span class="lineNum">    1166 </span>                :<span class="lineCov">       1656 :           tp = lookup_word (pc, buff);</span>
-<span class="lineNum">    1167 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1656 times"> + </span>]:<span class="lineCov">       1656 :           if (! tp)</span>
-<span class="lineNum">    1168 </span>                :<span class="lineNoCov">          0 :             return '?';</span>
+<span class="lineNum">    1167 </span>        [<span class="branchCov" title="Branch 0 was taken 1656 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1656 :           if (! tp)</span>
+<span class="lineNum">    1168 </span>                :            :             return '?';
 <span class="lineNum">    1169 </span>                :<span class="lineCov">       1656 :           lvalp-&gt;intval = tp-&gt;value;</span>
 <span class="lineNum">    1170 </span>                :<span class="lineCov">       1656 :           return tp-&gt;type;</span>
 <span class="lineNum">    1171 </span>                :            :         }
 <span class="lineNum">    1172 </span>                :            : 
-<span class="lineNum">    1173 </span>        [<span class="branchCov" title="Branch 0 was taken 2079 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2079 :       if (c != '(')</span>
-<span class="lineNum">    1174 </span>                :<span class="lineCov">       2079 :         return *pc-&gt;input++;</span>
-<span class="lineNum">    1175 </span>                :<span class="lineNoCov">          0 :       count = 0;</span>
+<span class="lineNum">    1173 </span>        [<span class="branchCov" title="Branch 0 was taken 2076 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2076 :       if (c != '(')</span>
+<span class="lineNum">    1174 </span>                :<span class="lineCov">       2076 :         return *pc-&gt;input++;</span>
+<span class="lineNum">    1175 </span>                :            :       count = 0;
 <span class="lineNum">    1176 </span>                :            :       do
 <span class="lineNum">    1177 </span>                :            :         {
 <span class="lineNum">    1178 </span>                :<span class="lineNoCov">          0 :           c = *pc-&gt;input++;</span>
@@ -1260,16 +1258,16 @@
 <span class="lineNum">    1183 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :           else if (c == ')')</span>
 <span class="lineNum">    1184 </span>                :<span class="lineNoCov">          0 :             count--;</span>
 <span class="lineNum">    1185 </span>                :            :         }
-<span class="lineNum">    1186 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       while (count != 0);</span>
-<span class="lineNum">    1187 </span>                :<span class="lineCov">      10032 :     }</span>
+<span class="lineNum">    1186 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineCov">      10020 :       while (count != 0);</span>
+<span class="lineNum">    1187 </span>                :            :     }
 <span class="lineNum">    1188 </span>                :            : }
 <span class="lineNum">    1189 </span>                :            : 
-<a name="1190"><span class="lineNum">    1190 </span>                :            : /* Do nothing if the parser reports an error.  */</a>
+<span class="lineNum">    1190 </span>                :            : /* Do nothing if the parser reports an error.  */
 <span class="lineNum">    1191 </span>                :            : static int
-<span class="lineNum">    1192 </span>                :<span class="lineCov">         21 : yyerror (parser_control const *pc _GL_UNUSED,</span>
+<span class="lineNum">    1192 </span>                :            : yyerror (parser_control const *pc _GL_UNUSED,
 <span class="lineNum">    1193 </span>                :            :          char const *s _GL_UNUSED)
 <span class="lineNum">    1194 </span>                :            : {
-<span class="lineNum">    1195 </span>                :<span class="lineCov">         21 :   return 0;</span>
+<span class="lineNum">    1195 </span>                :            :   return 0;
 <span class="lineNum">    1196 </span>                :            : }
 <span class="lineNum">    1197 </span>                :            : 
 <span class="lineNum">    1198 </span>                :            : /* If *TM0 is the old and *TM1 is the new value of a struct tm after
@@ -1277,24 +1275,24 @@
 <span class="lineNum">    1200 </span>                :            :    It's not OK if *TM0 has out-of-range members.  */
 <a name="1201"><span class="lineNum">    1201 </span>                :            : </a>
 <span class="lineNum">    1202 </span>                :            : static bool
-<span class="lineNum">    1203 </span>                :<span class="lineCov">       1596 : mktime_ok (struct tm const *tm0, struct tm const *tm1, time_t t)</span>
+<span class="lineNum">    1203 </span>                :<span class="lineCov">       1593 : mktime_ok (struct tm const *tm0, struct tm const *tm1, time_t t)</span>
 <span class="lineNum">    1204 </span>                :            : {
-<span class="lineNum">    1205 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1596 times"> + </span>]:<span class="lineCov">       1596 :   if (t == (time_t) -1)</span>
+<span class="lineNum">    1205 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1593 times"> + </span>]:<span class="lineCov">       1593 :   if (t == (time_t) -1)</span>
 <span class="lineNum">    1206 </span>                :            :     {
 <span class="lineNum">    1207 </span>                :            :       /* Guard against falsely reporting an error when parsing a time
 <span class="lineNum">    1208 </span>                :            :          stamp that happens to equal (time_t) -1, on a host that
 <span class="lineNum">    1209 </span>                :            :          supports such a time stamp.  */
 <span class="lineNum">    1210 </span>                :<span class="lineNoCov">          0 :       tm1 = localtime (&amp;t);</span>
 <span class="lineNum">    1211 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (!tm1)</span>
-<span class="lineNum">    1212 </span>                :<span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">    1212 </span>                :            :         return false;
 <span class="lineNum">    1213 </span>                :            :     }
 <span class="lineNum">    1214 </span>                :            : 
-<span class="lineNum">    1215 </span>                :<span class="lineCov">       1596 :   return ! ((tm0-&gt;tm_sec ^ tm1-&gt;tm_sec)</span>
-<span class="lineNum">    1216 </span>                :<span class="lineCov">       1596 :             | (tm0-&gt;tm_min ^ tm1-&gt;tm_min)</span>
-<span class="lineNum">    1217 </span>                :<span class="lineCov">       1596 :             | (tm0-&gt;tm_hour ^ tm1-&gt;tm_hour)</span>
-<span class="lineNum">    1218 </span>                :<span class="lineCov">       1596 :             | (tm0-&gt;tm_mday ^ tm1-&gt;tm_mday)</span>
-<span class="lineNum">    1219 </span>                :<span class="lineCov">       1596 :             | (tm0-&gt;tm_mon ^ tm1-&gt;tm_mon)</span>
-<span class="lineNum">    1220 </span>                :<span class="lineCov">       1596 :             | (tm0-&gt;tm_year ^ tm1-&gt;tm_year));</span>
+<span class="lineNum">    1215 </span>                :<span class="lineCov">       1593 :   return ! ((tm0-&gt;tm_sec ^ tm1-&gt;tm_sec)</span>
+<span class="lineNum">    1216 </span>                :<span class="lineCov">       1593 :             | (tm0-&gt;tm_min ^ tm1-&gt;tm_min)</span>
+<span class="lineNum">    1217 </span>                :<span class="lineCov">       1593 :             | (tm0-&gt;tm_hour ^ tm1-&gt;tm_hour)</span>
+<span class="lineNum">    1218 </span>                :<span class="lineCov">       1593 :             | (tm0-&gt;tm_mday ^ tm1-&gt;tm_mday)</span>
+<span class="lineNum">    1219 </span>                :<span class="lineCov">       1593 :             | (tm0-&gt;tm_mon ^ tm1-&gt;tm_mon)</span>
+<span class="lineNum">    1220 </span>                :<span class="lineCov">       1593 :             | (tm0-&gt;tm_year ^ tm1-&gt;tm_year));</span>
 <span class="lineNum">    1221 </span>                :            : }
 <span class="lineNum">    1222 </span>                :            : 
 <span class="lineNum">    1223 </span>                :            : /* A reasonable upper bound for the size of ordinary TZ strings.
@@ -1320,9 +1318,9 @@
 <span class="lineNum">    1243 </span>                :            : /* Parse a date/time string, storing the resulting time value into *RESULT.
 <span class="lineNum">    1244 </span>                :            :    The string itself is pointed to by P.  Return true if successful.
 <span class="lineNum">    1245 </span>                :            :    P can be an incomplete or relative time specification; if so, use
-<a name="1246"><span class="lineNum">    1246 </span>                :            :    *NOW as the basis for the returned time.  */</a>
+<span class="lineNum">    1246 </span>                :            :    *NOW as the basis for the returned time.  */
 <span class="lineNum">    1247 </span>                :            : bool
-<span class="lineNum">    1248 </span>                :<span class="lineCov">       1638 : parse_datetime (struct timespec *result, char const *p,</span>
+<span class="lineNum">    1248 </span>                :<span class="lineCov">       1635 : parse_datetime (struct timespec *result, char const *p,</span>
 <span class="lineNum">    1249 </span>                :            :                 struct timespec const *now)
 <span class="lineNum">    1250 </span>                :            : {
 <span class="lineNum">    1251 </span>                :            :   time_t Start;
@@ -1333,28 +1331,29 @@
 <span class="lineNum">    1256 </span>                :            :   parser_control pc;
 <span class="lineNum">    1257 </span>                :            :   struct timespec gettime_buffer;
 <span class="lineNum">    1258 </span>                :            :   unsigned char c;
-<span class="lineNum">    1259 </span>                :<span class="lineCov">       1638 :   bool tz_was_altered = false;</span>
-<span class="lineNum">    1260 </span>                :<span class="lineCov">       1638 :   char *tz0 = NULL;</span>
+<span class="lineNum">    1259 </span>                :<span class="lineCov">       1635 :   bool tz_was_altered = false;</span>
+<span class="lineNum">    1260 </span>                :<span class="lineCov">       1635 :   char *tz0 = NULL;</span>
 <span class="lineNum">    1261 </span>                :            :   char tz0buf[TZBUFSIZE];
-<span class="lineNum">    1262 </span>                :<span class="lineCov">       1638 :   bool ok = true;</span>
+<span class="lineNum">    1262 </span>                :<span class="lineCov">       1635 :   bool ok = true;</span>
 <span class="lineNum">    1263 </span>                :            : 
-<span class="lineNum">    1264 </span>        [<span class="branchCov" title="Branch 0 was taken 1377 times"> + </span><span class="branchCov" title="Branch 1 was taken 261 times"> + </span>]:<span class="lineCov">       1638 :   if (! now)</span>
+<span class="lineNum">    1264 </span>        [<span class="branchCov" title="Branch 0 was taken 1377 times"> + </span><span class="branchCov" title="Branch 1 was taken 258 times"> + </span>]:<span class="lineCov">       1635 :   if (! now)</span>
 <span class="lineNum">    1265 </span>                :            :     {
 <span class="lineNum">    1266 </span>                :<span class="lineCov">       1377 :       gettime (&amp;gettime_buffer);</span>
 <span class="lineNum">    1267 </span>                :<span class="lineCov">       1377 :       now = &amp;gettime_buffer;</span>
 <span class="lineNum">    1268 </span>                :            :     }
 <span class="lineNum">    1269 </span>                :            : 
-<span class="lineNum">    1270 </span>                :<span class="lineCov">       1638 :   Start = now-&gt;tv_sec;</span>
-<span class="lineNum">    1271 </span>                :<span class="lineCov">       1638 :   Start_ns = now-&gt;tv_nsec;</span>
+<span class="lineNum">    1270 </span>                :<span class="lineCov">       1635 :   Start = now-&gt;tv_sec;</span>
+<span class="lineNum">    1271 </span>                :<span class="lineCov">       1635 :   Start_ns = now-&gt;tv_nsec;</span>
 <span class="lineNum">    1272 </span>                :            : 
-<span class="lineNum">    1273 </span>                :<span class="lineCov">       1638 :   tmp = localtime (&amp;now-&gt;tv_sec);</span>
-<span class="lineNum">    1274 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1638 times"> + </span>]:<span class="lineCov">       1638 :   if (! tmp)</span>
-<span class="lineNum">    1275 </span>                :<span class="lineNoCov">          0 :     return false;</span>
+<span class="lineNum">    1273 </span>                :<span class="lineCov">       1635 :   tmp = localtime (&amp;now-&gt;tv_sec);</span>
+<span class="lineNum">    1274 </span>        [<span class="branchCov" title="Branch 0 was taken 1635 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1635 :   if (! tmp)</span>
+<span class="lineNum">    1275 </span>                :            :     return false;
 <span class="lineNum">    1276 </span>                :            : 
-<span class="lineNum">    1277 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1638 times"> + </span>]:<span class="lineCov">       1638 :   while (c = *p, c_isspace (c))</span>
+<span class="lineNum">    1277 </span>[<span class="branchCov" title="Branch 0 was taken 1635 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 1635 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       1635 :   while (c = *p, c_isspace (c))</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 4 was taken 1635 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>][<span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 1635 times"> + </span>]
 <span class="lineNum">    1278 </span>                :<span class="lineNoCov">          0 :     p++;</span>
 <span class="lineNum">    1279 </span>                :            : 
-<span class="lineNum">    1280 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1638 times"> + </span>]:<span class="lineCov">       1638 :   if (strncmp (p, &quot;TZ=\&quot;&quot;, 4) == 0)</span>
+<span class="lineNum">    1280 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1635 times"> + </span>]:<span class="lineCov">       1635 :   if (strncmp (p, &quot;TZ=\&quot;&quot;, 4) == 0)</span>
 <span class="lineNum">    1281 </span>                :            :     {
 <span class="lineNum">    1282 </span>                :<span class="lineNoCov">          0 :       char const *tzbase = p + 4;</span>
 <span class="lineNum">    1283 </span>                :<span class="lineNoCov">          0 :       size_t tzsize = 1;</span>
@@ -1364,8 +1363,8 @@
 <span class="lineNum">    1287 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (*s == '\\')</span>
 <span class="lineNum">    1288 </span>                :            :           {
 <span class="lineNum">    1289 </span>                :<span class="lineNoCov">          0 :             s++;</span>
-<span class="lineNum">    1290 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if (! (*s == '\\' || *s == '&quot;'))</span>
-<span class="lineNum">    1291 </span>                :<span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">    1290 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if (! (*s == '\\' || *s == '&quot;'))</span>
+<span class="lineNum">    1291 </span>                :            :               break;
 <span class="lineNum">    1292 </span>                :            :           }
 <span class="lineNum">    1293 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         else if (*s == '&quot;')</span>
 <span class="lineNum">    1294 </span>                :            :           {
@@ -1385,7 +1384,7 @@
 <span class="lineNum">    1308 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if (large_tz)</span>
 <span class="lineNum">    1309 </span>                :<span class="lineNoCov">          0 :               free (tz1);</span>
 <span class="lineNum">    1310 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if (!setenv_ok)</span>
-<span class="lineNum">    1311 </span>                :<span class="lineNoCov">          0 :               goto fail;</span>
+<span class="lineNum">    1311 </span>                :            :               goto fail;
 <span class="lineNum">    1312 </span>                :<span class="lineNoCov">          0 :             tz_was_altered = true;</span>
 <span class="lineNum">    1313 </span>                :<span class="lineNoCov">          0 :             p = s + 1;</span>
 <span class="lineNum">    1314 </span>                :            :           }
@@ -1394,56 +1393,56 @@
 <span class="lineNum">    1317 </span>                :            :   /* As documented, be careful to treat the empty string just like
 <span class="lineNum">    1318 </span>                :            :      a date string of &quot;0&quot;.  Without this, an empty string would be
 <span class="lineNum">    1319 </span>                :            :      declared invalid when parsed during a DST transition.  */
-<span class="lineNum">    1320 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1638 times"> + </span>]:<span class="lineCov">       1638 :   if (*p == '\0')</span>
+<span class="lineNum">    1320 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1635 times"> + </span>]:<span class="lineCov">       1635 :   if (*p == '\0')</span>
 <span class="lineNum">    1321 </span>                :<span class="lineNoCov">          0 :     p = &quot;0&quot;;</span>
 <span class="lineNum">    1322 </span>                :            : 
-<span class="lineNum">    1323 </span>                :<span class="lineCov">       1638 :   pc.input = p;</span>
-<span class="lineNum">    1324 </span>                :<span class="lineCov">       1638 :   pc.year.value = tmp-&gt;tm_year;</span>
-<span class="lineNum">    1325 </span>                :<span class="lineCov">       1638 :   pc.year.value += TM_YEAR_BASE;</span>
-<span class="lineNum">    1326 </span>                :<span class="lineCov">       1638 :   pc.year.digits = 0;</span>
-<span class="lineNum">    1327 </span>                :<span class="lineCov">       1638 :   pc.month = tmp-&gt;tm_mon + 1;</span>
-<span class="lineNum">    1328 </span>                :<span class="lineCov">       1638 :   pc.day = tmp-&gt;tm_mday;</span>
-<span class="lineNum">    1329 </span>                :<span class="lineCov">       1638 :   pc.hour = tmp-&gt;tm_hour;</span>
-<span class="lineNum">    1330 </span>                :<span class="lineCov">       1638 :   pc.minutes = tmp-&gt;tm_min;</span>
-<span class="lineNum">    1331 </span>                :<span class="lineCov">       1638 :   pc.seconds.tv_sec = tmp-&gt;tm_sec;</span>
-<span class="lineNum">    1332 </span>                :<span class="lineCov">       1638 :   pc.seconds.tv_nsec = Start_ns;</span>
-<span class="lineNum">    1333 </span>                :<span class="lineCov">       1638 :   tm.tm_isdst = tmp-&gt;tm_isdst;</span>
+<span class="lineNum">    1323 </span>                :<span class="lineCov">       1635 :   pc.input = p;</span>
+<span class="lineNum">    1324 </span>                :<span class="lineCov">       1635 :   pc.year.value = tmp-&gt;tm_year;</span>
+<span class="lineNum">    1325 </span>                :<span class="lineCov">       1635 :   pc.year.value += TM_YEAR_BASE;</span>
+<span class="lineNum">    1326 </span>                :<span class="lineCov">       1635 :   pc.year.digits = 0;</span>
+<span class="lineNum">    1327 </span>                :<span class="lineCov">       1635 :   pc.month = tmp-&gt;tm_mon + 1;</span>
+<span class="lineNum">    1328 </span>                :<span class="lineCov">       1635 :   pc.day = tmp-&gt;tm_mday;</span>
+<span class="lineNum">    1329 </span>                :<span class="lineCov">       1635 :   pc.hour = tmp-&gt;tm_hour;</span>
+<span class="lineNum">    1330 </span>                :<span class="lineCov">       1635 :   pc.minutes = tmp-&gt;tm_min;</span>
+<span class="lineNum">    1331 </span>                :<span class="lineCov">       1635 :   pc.seconds.tv_sec = tmp-&gt;tm_sec;</span>
+<span class="lineNum">    1332 </span>                :<span class="lineCov">       1635 :   pc.seconds.tv_nsec = Start_ns;</span>
+<span class="lineNum">    1333 </span>                :<span class="lineCov">       1635 :   tm.tm_isdst = tmp-&gt;tm_isdst;</span>
 <span class="lineNum">    1334 </span>                :            : 
-<span class="lineNum">    1335 </span>                :<span class="lineCov">       1638 :   pc.meridian = MER24;</span>
-<span class="lineNum">    1336 </span>                :<span class="lineCov">       1638 :   pc.rel = RELATIVE_TIME_0;</span>
-<span class="lineNum">    1337 </span>                :<span class="lineCov">       1638 :   pc.timespec_seen = false;</span>
-<span class="lineNum">    1338 </span>                :<span class="lineCov">       1638 :   pc.rels_seen = false;</span>
-<span class="lineNum">    1339 </span>                :<span class="lineCov">       1638 :   pc.dates_seen = 0;</span>
-<span class="lineNum">    1340 </span>                :<span class="lineCov">       1638 :   pc.days_seen = 0;</span>
-<span class="lineNum">    1341 </span>                :<span class="lineCov">       1638 :   pc.times_seen = 0;</span>
-<span class="lineNum">    1342 </span>                :<span class="lineCov">       1638 :   pc.local_zones_seen = 0;</span>
-<span class="lineNum">    1343 </span>                :<span class="lineCov">       1638 :   pc.dsts_seen = 0;</span>
-<span class="lineNum">    1344 </span>                :<span class="lineCov">       1638 :   pc.zones_seen = 0;</span>
+<span class="lineNum">    1335 </span>                :<span class="lineCov">       1635 :   pc.meridian = MER24;</span>
+<span class="lineNum">    1336 </span>                :<span class="lineCov">       1635 :   pc.rel = RELATIVE_TIME_0;</span>
+<span class="lineNum">    1337 </span>                :<span class="lineCov">       1635 :   pc.timespec_seen = false;</span>
+<span class="lineNum">    1338 </span>                :<span class="lineCov">       1635 :   pc.rels_seen = false;</span>
+<span class="lineNum">    1339 </span>                :<span class="lineCov">       1635 :   pc.dates_seen = 0;</span>
+<span class="lineNum">    1340 </span>                :<span class="lineCov">       1635 :   pc.days_seen = 0;</span>
+<span class="lineNum">    1341 </span>                :<span class="lineCov">       1635 :   pc.times_seen = 0;</span>
+<span class="lineNum">    1342 </span>                :<span class="lineCov">       1635 :   pc.local_zones_seen = 0;</span>
+<span class="lineNum">    1343 </span>                :<span class="lineCov">       1635 :   pc.dsts_seen = 0;</span>
+<span class="lineNum">    1344 </span>                :<span class="lineCov">       1635 :   pc.zones_seen = 0;</span>
 <span class="lineNum">    1345 </span>                :            : 
 <span class="lineNum">    1346 </span>                :            : #if HAVE_STRUCT_TM_TM_ZONE
-<span class="lineNum">    1347 </span>                :<span class="lineCov">       1638 :   pc.local_time_zone_table[0].name = tmp-&gt;tm_zone;</span>
-<span class="lineNum">    1348 </span>                :<span class="lineCov">       1638 :   pc.local_time_zone_table[0].type = tLOCAL_ZONE;</span>
-<span class="lineNum">    1349 </span>                :<span class="lineCov">       1638 :   pc.local_time_zone_table[0].value = tmp-&gt;tm_isdst;</span>
-<span class="lineNum">    1350 </span>                :<span class="lineCov">       1638 :   pc.local_time_zone_table[1].name = NULL;</span>
+<span class="lineNum">    1347 </span>                :<span class="lineCov">       1635 :   pc.local_time_zone_table[0].name = tmp-&gt;tm_zone;</span>
+<span class="lineNum">    1348 </span>                :<span class="lineCov">       1635 :   pc.local_time_zone_table[0].type = tLOCAL_ZONE;</span>
+<span class="lineNum">    1349 </span>                :<span class="lineCov">       1635 :   pc.local_time_zone_table[0].value = tmp-&gt;tm_isdst;</span>
+<span class="lineNum">    1350 </span>                :<span class="lineCov">       1635 :   pc.local_time_zone_table[1].name = NULL;</span>
 <span class="lineNum">    1351 </span>                :            : 
 <span class="lineNum">    1352 </span>                :            :   /* Probe the names used in the next three calendar quarters, looking
 <span class="lineNum">    1353 </span>                :            :      for a tm_isdst different from the one we already have.  */
 <span class="lineNum">    1354 </span>                :            :   {
 <span class="lineNum">    1355 </span>                :            :     int quarter;
-<span class="lineNum">    1356 </span>        [<span class="branchCov" title="Branch 0 was taken 2484 times"> + </span><span class="branchCov" title="Branch 1 was taken 423 times"> + </span>]:<span class="lineCov">       2907 :     for (quarter = 1; quarter &lt;= 3; quarter++)</span>
+<span class="lineNum">    1356 </span>        [<span class="branchCov" title="Branch 0 was taken 4887 times"> + </span><span class="branchCov" title="Branch 1 was taken 423 times"> + </span>]:<span class="lineCov">       5310 :     for (quarter = 1; quarter &lt;= 3; quarter++)</span>
 <span class="lineNum">    1357 </span>                :            :       {
-<span class="lineNum">    1358 </span>                :<span class="lineCov">       2484 :         time_t probe = Start + quarter * (90 * 24 * 60 * 60);</span>
-<span class="lineNum">    1359 </span>                :<span class="lineCov">       2484 :         struct tm const *probe_tm = localtime (&amp;probe);</span>
-<span class="lineNum">    1360 </span>[<span class="branchCov" title="Branch 2 was taken 2484 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 0 was taken 2484 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2484 :         if (probe_tm &amp;&amp; probe_tm-&gt;tm_zone</span>
-<span class="lineNum">    1361 </span>        [<span class="branchCov" title="Branch 0 was taken 1215 times"> + </span><span class="branchCov" title="Branch 1 was taken 1269 times"> + </span>]:<span class="lineCov">       2484 :             &amp;&amp; probe_tm-&gt;tm_isdst != pc.local_time_zone_table[0].value)</span>
+<span class="lineNum">    1358 </span>                :<span class="lineCov">       4887 :         time_t probe = Start + quarter * (90 * 24 * 60 * 60);</span>
+<span class="lineNum">    1359 </span>                :<span class="lineCov">       4887 :         struct tm const *probe_tm = localtime (&amp;probe);</span>
+<span class="lineNum">    1360 </span>[<span class="branchCov" title="Branch 2 was taken 4887 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 0 was taken 4887 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       4887 :         if (probe_tm &amp;&amp; probe_tm-&gt;tm_zone</span>
+<span class="lineNum">    1361 </span>        [<span class="branchCov" title="Branch 0 was taken 1212 times"> + </span><span class="branchCov" title="Branch 1 was taken 3675 times"> + </span>]:<span class="lineCov">       4887 :             &amp;&amp; probe_tm-&gt;tm_isdst != pc.local_time_zone_table[0].value)</span>
 <span class="lineNum">    1362 </span>                :            :           {
 <span class="lineNum">    1363 </span>                :            :               {
-<span class="lineNum">    1364 </span>                :<span class="lineCov">       1215 :                 pc.local_time_zone_table[1].name = probe_tm-&gt;tm_zone;</span>
-<span class="lineNum">    1365 </span>                :<span class="lineCov">       1215 :                 pc.local_time_zone_table[1].type = tLOCAL_ZONE;</span>
-<span class="lineNum">    1366 </span>                :<span class="lineCov">       1215 :                 pc.local_time_zone_table[1].value = probe_tm-&gt;tm_isdst;</span>
-<span class="lineNum">    1367 </span>                :<span class="lineCov">       1215 :                 pc.local_time_zone_table[2].name = NULL;</span>
+<span class="lineNum">    1364 </span>                :<span class="lineCov">       1212 :                 pc.local_time_zone_table[1].name = probe_tm-&gt;tm_zone;</span>
+<span class="lineNum">    1365 </span>                :<span class="lineCov">       1212 :                 pc.local_time_zone_table[1].type = tLOCAL_ZONE;</span>
+<span class="lineNum">    1366 </span>                :<span class="lineCov">       1212 :                 pc.local_time_zone_table[1].value = probe_tm-&gt;tm_isdst;</span>
+<span class="lineNum">    1367 </span>                :<span class="lineCov">       1212 :                 pc.local_time_zone_table[2].name = NULL;</span>
 <span class="lineNum">    1368 </span>                :            :               }
-<span class="lineNum">    1369 </span>                :<span class="lineCov">       1215 :             break;</span>
+<span class="lineNum">    1369 </span>                :<span class="lineCov">       1212 :             break;</span>
 <span class="lineNum">    1370 </span>                :            :           }
 <span class="lineNum">    1371 </span>                :            :       }
 <span class="lineNum">    1372 </span>                :            :   }
@@ -1467,8 +1466,8 @@
 <span class="lineNum">    1390 </span>                :            : #endif
 <span class="lineNum">    1391 </span>                :            : #endif
 <span class="lineNum">    1392 </span>                :            : 
-<span class="lineNum">    1393 </span>[<span class="branchCov" title="Branch 0 was taken 1638 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 1215 times"> + </span><span class="branchCov" title="Branch 3 was taken 423 times"> + </span>]:<span class="lineCov">       1638 :   if (pc.local_time_zone_table[0].name &amp;&amp; pc.local_time_zone_table[1].name</span>
-<span class="lineNum">    1394 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1215 times"> + </span>]:<span class="lineCov">       1215 :       &amp;&amp; ! strcmp (pc.local_time_zone_table[0].name,</span>
+<span class="lineNum">    1393 </span>[<span class="branchCov" title="Branch 0 was taken 1635 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 1212 times"> + </span><span class="branchCov" title="Branch 3 was taken 423 times"> + </span>]:<span class="lineCov">       1635 :   if (pc.local_time_zone_table[0].name &amp;&amp; pc.local_time_zone_table[1].name</span>
+<span class="lineNum">    1394 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1212 times"> + </span>]:<span class="lineCov">       1212 :       &amp;&amp; ! strcmp (pc.local_time_zone_table[0].name,</span>
 <span class="lineNum">    1395 </span>                :            :                    pc.local_time_zone_table[1].name))
 <span class="lineNum">    1396 </span>                :            :     {
 <span class="lineNum">    1397 </span>                :            :       /* This locale uses the same abbrevation for standard and
@@ -1478,52 +1477,52 @@
 <span class="lineNum">    1401 </span>                :<span class="lineNoCov">          0 :       pc.local_time_zone_table[1].name = NULL;</span>
 <span class="lineNum">    1402 </span>                :            :     }
 <span class="lineNum">    1403 </span>                :            : 
-<span class="lineNum">    1404 </span>        [<span class="branchCov" title="Branch 1 was taken 21 times"> + </span><span class="branchCov" title="Branch 2 was taken 1617 times"> + </span>]:<span class="lineCov">       1638 :   if (yyparse (&amp;pc) != 0)</span>
-<span class="lineNum">    1405 </span>                :<span class="lineCov">         21 :     goto fail;</span>
+<span class="lineNum">    1404 </span>        [<span class="branchCov" title="Branch 1 was taken 1614 times"> + </span><span class="branchCov" title="Branch 2 was taken 21 times"> + </span>]:<span class="lineCov">       1635 :   if (yyparse (&amp;pc) != 0)</span>
+<span class="lineNum">    1405 </span>                :            :     goto fail;
 <span class="lineNum">    1406 </span>                :            : 
-<span class="lineNum">    1407 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 1599 times"> + </span>]:<span class="lineCov">       1617 :   if (pc.timespec_seen)</span>
+<span class="lineNum">    1407 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 1596 times"> + </span>]:<span class="lineCov">       1614 :   if (pc.timespec_seen)</span>
 <span class="lineNum">    1408 </span>                :<span class="lineCov">         18 :     *result = pc.seconds;</span>
 <span class="lineNum">    1409 </span>                :            :   else
 <span class="lineNum">    1410 </span>                :            :     {
-<span class="lineNum">    1411 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 1596 times"> + </span>]:<span class="lineCov">       1599 :       if (1 &lt; (pc.times_seen | pc.dates_seen | pc.days_seen | pc.dsts_seen</span>
-<span class="lineNum">    1412 </span>                :<span class="lineCov">       1599 :                | (pc.local_zones_seen + pc.zones_seen)))</span>
-<span class="lineNum">    1413 </span>                :<span class="lineCov">          3 :         goto fail;</span>
+<span class="lineNum">    1411 </span>        [<span class="branchCov" title="Branch 0 was taken 1593 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">       1596 :       if (1 &lt; (pc.times_seen | pc.dates_seen | pc.days_seen | pc.dsts_seen</span>
+<span class="lineNum">    1412 </span>                :<span class="lineCov">       1596 :                | (pc.local_zones_seen + pc.zones_seen)))</span>
+<span class="lineNum">    1413 </span>                :            :         goto fail;
 <span class="lineNum">    1414 </span>                :            : 
-<span class="lineNum">    1415 </span>                :<span class="lineCov">       1596 :       tm.tm_year = to_year (pc.year) - TM_YEAR_BASE;</span>
-<span class="lineNum">    1416 </span>                :<span class="lineCov">       1596 :       tm.tm_mon = pc.month - 1;</span>
-<span class="lineNum">    1417 </span>                :<span class="lineCov">       1596 :       tm.tm_mday = pc.day;</span>
-<span class="lineNum">    1418 </span>[<span class="branchCov" title="Branch 2 was taken 1215 times"> + </span><span class="branchCov" title="Branch 3 was taken 165 times"> + </span>][<span class="branchCov" title="Branch 4 was taken 99 times"> + </span><span class="branchCov" title="Branch 5 was taken 1116 times"> + </span>]:<span class="lineCov">       1596 :       if (pc.times_seen || (pc.rels_seen &amp;&amp; ! pc.dates_seen &amp;&amp; ! pc.days_seen))</span>
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 6 was taken 99 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>][<span class="branchCov" title="Branch 0 was taken 1380 times"> + </span><span class="branchCov" title="Branch 1 was taken 216 times"> + </span>]
+<span class="lineNum">    1415 </span>                :<span class="lineCov">       1593 :       tm.tm_year = to_year (pc.year) - TM_YEAR_BASE;</span>
+<span class="lineNum">    1416 </span>                :<span class="lineCov">       1593 :       tm.tm_mon = pc.month - 1;</span>
+<span class="lineNum">    1417 </span>                :<span class="lineCov">       1593 :       tm.tm_mday = pc.day;</span>
+<span class="lineNum">    1418 </span>[<span class="branchCov" title="Branch 0 was taken 1377 times"> + </span><span class="branchCov" title="Branch 1 was taken 216 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 1215 times"> + </span><span class="branchCov" title="Branch 3 was taken 162 times"> + </span>]:<span class="lineCov">       1593 :       if (pc.times_seen || (pc.rels_seen &amp;&amp; ! pc.dates_seen &amp;&amp; ! pc.days_seen))</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 4 was taken 99 times"> + </span><span class="branchCov" title="Branch 5 was taken 1116 times"> + </span>][<span class="branchCov" title="Branch 6 was taken 99 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
 <span class="lineNum">    1419 </span>                :            :         {
-<span class="lineNum">    1420 </span>                :<span class="lineCov">        315 :           tm.tm_hour = to_hour (pc.hour, pc.meridian);</span>
-<span class="lineNum">    1421 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 315 times"> + </span>]:<span class="lineCov">        315 :           if (tm.tm_hour &lt; 0)</span>
-<span class="lineNum">    1422 </span>                :<span class="lineNoCov">          0 :             goto fail;</span>
+<span class="lineNum">    1420 </span>                :<span class="lineCov">        630 :           tm.tm_hour = to_hour (pc.hour, pc.meridian);</span>
+<span class="lineNum">    1421 </span>        [<span class="branchCov" title="Branch 0 was taken 315 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        315 :           if (tm.tm_hour &lt; 0)</span>
+<span class="lineNum">    1422 </span>                :            :             goto fail;
 <span class="lineNum">    1423 </span>                :<span class="lineCov">        315 :           tm.tm_min = pc.minutes;</span>
 <span class="lineNum">    1424 </span>                :<span class="lineCov">        315 :           tm.tm_sec = pc.seconds.tv_sec;</span>
 <span class="lineNum">    1425 </span>                :            :         }
 <span class="lineNum">    1426 </span>                :            :       else
 <span class="lineNum">    1427 </span>                :            :         {
-<span class="lineNum">    1428 </span>                :<span class="lineCov">       1281 :           tm.tm_hour = tm.tm_min = tm.tm_sec = 0;</span>
-<span class="lineNum">    1429 </span>                :<span class="lineCov">       1281 :           pc.seconds.tv_nsec = 0;</span>
+<span class="lineNum">    1428 </span>                :<span class="lineCov">       1278 :           tm.tm_hour = tm.tm_min = tm.tm_sec = 0;</span>
+<span class="lineNum">    1429 </span>                :<span class="lineCov">       1278 :           pc.seconds.tv_nsec = 0;</span>
 <span class="lineNum">    1430 </span>                :            :         }
 <span class="lineNum">    1431 </span>                :            : 
 <span class="lineNum">    1432 </span>                :            :       /* Let mktime deduce tm_isdst if we have an absolute time stamp.  */
-<span class="lineNum">    1433 </span>        [<span class="branchCov" title="Branch 0 was taken 1467 times"> + </span><span class="branchCov" title="Branch 1 was taken 129 times"> + </span>]:<span class="lineCov">       1596 :       if (pc.dates_seen | pc.days_seen | pc.times_seen)</span>
-<span class="lineNum">    1434 </span>                :<span class="lineCov">       1467 :         tm.tm_isdst = -1;</span>
+<span class="lineNum">    1433 </span>        [<span class="branchCov" title="Branch 0 was taken 1464 times"> + </span><span class="branchCov" title="Branch 1 was taken 129 times"> + </span>]:<span class="lineCov">       1593 :       if (pc.dates_seen | pc.days_seen | pc.times_seen)</span>
+<span class="lineNum">    1434 </span>                :<span class="lineCov">       1464 :         tm.tm_isdst = -1;</span>
 <span class="lineNum">    1435 </span>                :            : 
 <span class="lineNum">    1436 </span>                :            :       /* But if the input explicitly specifies local time with or without
 <span class="lineNum">    1437 </span>                :            :          DST, give mktime that information.  */
-<span class="lineNum">    1438 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1596 times"> + </span>]:<span class="lineCov">       1596 :       if (pc.local_zones_seen)</span>
+<span class="lineNum">    1438 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1593 times"> + </span>]:<span class="lineCov">       1593 :       if (pc.local_zones_seen)</span>
 <span class="lineNum">    1439 </span>                :<span class="lineNoCov">          0 :         tm.tm_isdst = pc.local_isdst;</span>
 <span class="lineNum">    1440 </span>                :            : 
-<span class="lineNum">    1441 </span>                :<span class="lineCov">       1596 :       tm0 = tm;</span>
+<span class="lineNum">    1441 </span>                :<span class="lineCov">       1593 :       tm0 = tm;</span>
 <span class="lineNum">    1442 </span>                :            : 
-<span class="lineNum">    1443 </span>                :<span class="lineCov">       1596 :       Start = mktime (&amp;tm);</span>
+<span class="lineNum">    1443 </span>                :<span class="lineCov">       1593 :       Start = mktime (&amp;tm);</span>
 <span class="lineNum">    1444 </span>                :            : 
-<span class="lineNum">    1445 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1596 times"> + </span>]:<span class="lineCov">       1596 :       if (! mktime_ok (&amp;tm0, &amp;tm, Start))</span>
+<span class="lineNum">    1445 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1593 times"> + </span>]:<span class="lineCov">       1593 :       if (! mktime_ok (&amp;tm0, &amp;tm, Start))</span>
 <span class="lineNum">    1446 </span>                :            :         {
 <span class="lineNum">    1447 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :           if (! pc.zones_seen)</span>
-<span class="lineNum">    1448 </span>                :<span class="lineNoCov">          0 :             goto fail;</span>
+<span class="lineNum">    1448 </span>                :            :             goto fail;
 <span class="lineNum">    1449 </span>                :            :           else
 <span class="lineNum">    1450 </span>                :            :             {
 <span class="lineNum">    1451 </span>                :            :               /* Guard against falsely reporting errors near the time_t
@@ -1547,37 +1546,37 @@
 <span class="lineNum">    1469 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :               sprintf (tz1buf, &quot;XXX%s%ld:%02d&quot;, &quot;-&quot; + (time_zone &lt; 0),</span>
 <span class="lineNum">    1470 </span>                :            :                        abs_time_zone_hour, abs_time_zone_min);
 <span class="lineNum">    1471 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :               if (setenv (&quot;TZ&quot;, tz1buf, 1) != 0)</span>
-<span class="lineNum">    1472 </span>                :<span class="lineNoCov">          0 :                 goto fail;</span>
+<span class="lineNum">    1472 </span>                :            :                 goto fail;
 <span class="lineNum">    1473 </span>                :<span class="lineNoCov">          0 :               tz_was_altered = true;</span>
 <span class="lineNum">    1474 </span>                :<span class="lineNoCov">          0 :               tm = tm0;</span>
 <span class="lineNum">    1475 </span>                :<span class="lineNoCov">          0 :               Start = mktime (&amp;tm);</span>
 <span class="lineNum">    1476 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :               if (! mktime_ok (&amp;tm0, &amp;tm, Start))</span>
-<span class="lineNum">    1477 </span>                :<span class="lineNoCov">          0 :                 goto fail;</span>
+<span class="lineNum">    1477 </span>                :            :                 goto fail;
 <span class="lineNum">    1478 </span>                :            :             }
 <span class="lineNum">    1479 </span>                :            :         }
 <span class="lineNum">    1480 </span>                :            : 
-<span class="lineNum">    1481 </span>[<span class="branchCov" title="Branch 0 was taken 57 times"> + </span><span class="branchCov" title="Branch 1 was taken 1539 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       1596 :       if (pc.days_seen &amp;&amp; ! pc.dates_seen)</span>
+<span class="lineNum">    1481 </span>[<span class="branchCov" title="Branch 0 was taken 57 times"> + </span><span class="branchCov" title="Branch 1 was taken 1536 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       1593 :       if (pc.days_seen &amp;&amp; ! pc.dates_seen)</span>
 <span class="lineNum">    1482 </span>                :            :         {
 <span class="lineNum">    1483 </span>                :<span class="lineCov">        114 :           tm.tm_mday += ((pc.day_number - tm.tm_wday + 7) % 7</span>
-<span class="lineNum">    1484 </span>                :<span class="lineCov">         57 :                          + 7 * (pc.day_ordinal</span>
-<span class="lineNum">    1485 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span>]:<span class="lineCov">         81 :                                 - (0 &lt; pc.day_ordinal</span>
-<span class="lineNum">    1486 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         24 :                                    &amp;&amp; tm.tm_wday != pc.day_number)));</span>
+<span class="lineNum">    1484 </span>                :            :                          + 7 * (pc.day_ordinal
+<span class="lineNum">    1485 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span>]:<span class="lineCov">         57 :                                 - (0 &lt; pc.day_ordinal</span>
+<span class="lineNum">    1486 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         57 :                                    &amp;&amp; tm.tm_wday != pc.day_number)));</span>
 <span class="lineNum">    1487 </span>                :<span class="lineCov">         57 :           tm.tm_isdst = -1;</span>
 <span class="lineNum">    1488 </span>                :<span class="lineCov">         57 :           Start = mktime (&amp;tm);</span>
-<span class="lineNum">    1489 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 57 times"> + </span>]:<span class="lineCov">         57 :           if (Start == (time_t) -1)</span>
-<span class="lineNum">    1490 </span>                :<span class="lineNoCov">          0 :             goto fail;</span>
+<span class="lineNum">    1489 </span>        [<span class="branchCov" title="Branch 0 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         57 :           if (Start == (time_t) -1)</span>
+<span class="lineNum">    1490 </span>                :            :             goto fail;
 <span class="lineNum">    1491 </span>                :            :         }
 <span class="lineNum">    1492 </span>                :            : 
 <span class="lineNum">    1493 </span>                :            :       /* Add relative date.  */
-<span class="lineNum">    1494 </span>        [<span class="branchCov" title="Branch 0 was taken 1212 times"> + </span><span class="branchCov" title="Branch 1 was taken 384 times"> + </span>]:<span class="lineCov">       1596 :       if (pc.rel.year | pc.rel.month | pc.rel.day)</span>
+<span class="lineNum">    1494 </span>        [<span class="branchCov" title="Branch 0 was taken 1212 times"> + </span><span class="branchCov" title="Branch 1 was taken 381 times"> + </span>]:<span class="lineCov">       1593 :       if (pc.rel.year | pc.rel.month | pc.rel.day)</span>
 <span class="lineNum">    1495 </span>                :            :         {
 <span class="lineNum">    1496 </span>                :<span class="lineCov">       1212 :           int year = tm.tm_year + pc.rel.year;</span>
 <span class="lineNum">    1497 </span>                :<span class="lineCov">       1212 :           int month = tm.tm_mon + pc.rel.month;</span>
 <span class="lineNum">    1498 </span>                :<span class="lineCov">       1212 :           int day = tm.tm_mday + pc.rel.day;</span>
-<span class="lineNum">    1499 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1212 times"> + </span>]:<span class="lineCov">       1212 :           if (((year &lt; tm.tm_year) ^ (pc.rel.year &lt; 0))</span>
+<span class="lineNum">    1499 </span>        [<span class="branchCov" title="Branch 0 was taken 1212 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1212 :           if (((year &lt; tm.tm_year) ^ (pc.rel.year &lt; 0))</span>
 <span class="lineNum">    1500 </span>                :<span class="lineCov">       1212 :               | ((month &lt; tm.tm_mon) ^ (pc.rel.month &lt; 0))</span>
 <span class="lineNum">    1501 </span>                :<span class="lineCov">       1212 :               | ((day &lt; tm.tm_mday) ^ (pc.rel.day &lt; 0)))</span>
-<span class="lineNum">    1502 </span>                :<span class="lineNoCov">          0 :             goto fail;</span>
+<span class="lineNum">    1502 </span>                :            :             goto fail;
 <span class="lineNum">    1503 </span>                :<span class="lineCov">       1212 :           tm.tm_year = year;</span>
 <span class="lineNum">    1504 </span>                :<span class="lineCov">       1212 :           tm.tm_mon = month;</span>
 <span class="lineNum">    1505 </span>                :<span class="lineCov">       1212 :           tm.tm_mday = day;</span>
@@ -1586,13 +1585,13 @@
 <span class="lineNum">    1508 </span>                :<span class="lineCov">       1212 :           tm.tm_sec = tm0.tm_sec;</span>
 <span class="lineNum">    1509 </span>                :<span class="lineCov">       1212 :           tm.tm_isdst = tm0.tm_isdst;</span>
 <span class="lineNum">    1510 </span>                :<span class="lineCov">       1212 :           Start = mktime (&amp;tm);</span>
-<span class="lineNum">    1511 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1212 times"> + </span>]:<span class="lineCov">       1212 :           if (Start == (time_t) -1)</span>
-<span class="lineNum">    1512 </span>                :<span class="lineNoCov">          0 :             goto fail;</span>
+<span class="lineNum">    1511 </span>        [<span class="branchCov" title="Branch 0 was taken 1212 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1212 :           if (Start == (time_t) -1)</span>
+<span class="lineNum">    1512 </span>                :            :             goto fail;
 <span class="lineNum">    1513 </span>                :            :         }
 <span class="lineNum">    1514 </span>                :            : 
 <span class="lineNum">    1515 </span>                :            :       /* The only &quot;output&quot; of this if-block is an updated Start value,
 <span class="lineNum">    1516 </span>                :            :          so this block must follow others that clobber Start.  */
-<span class="lineNum">    1517 </span>        [<span class="branchCov" title="Branch 0 was taken 207 times"> + </span><span class="branchCov" title="Branch 1 was taken 1389 times"> + </span>]:<span class="lineCov">       1596 :       if (pc.zones_seen)</span>
+<span class="lineNum">    1517 </span>        [<span class="branchCov" title="Branch 0 was taken 207 times"> + </span><span class="branchCov" title="Branch 1 was taken 1386 times"> + </span>]:<span class="lineCov">       1593 :       if (pc.zones_seen)</span>
 <span class="lineNum">    1518 </span>                :            :         {
 <span class="lineNum">    1519 </span>                :<span class="lineCov">        207 :           long int delta = pc.time_zone * 60;</span>
 <span class="lineNum">    1520 </span>                :            :           time_t t1;
@@ -1606,9 +1605,9 @@
 <span class="lineNum">    1528 </span>                :            :           delta -= tm_diff (&amp;tm, gmt);
 <span class="lineNum">    1529 </span>                :            : #endif
 <span class="lineNum">    1530 </span>                :<span class="lineCov">        207 :           t1 = Start - delta;</span>
-<span class="lineNum">    1531 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 207 times"> + </span>]:<span class="lineCov">        207 :           if ((Start &lt; t1) != (delta &lt; 0))</span>
-<span class="lineNum">    1532 </span>                :<span class="lineNoCov">          0 :             goto fail;  /* time_t overflow */</span>
-<span class="lineNum">    1533 </span>                :<span class="lineCov">        207 :           Start = t1;</span>
+<span class="lineNum">    1531 </span>        [<span class="branchCov" title="Branch 0 was taken 207 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        207 :           if ((Start &lt; t1) != (delta &lt; 0))</span>
+<span class="lineNum">    1532 </span>                :            :             goto fail;  /* time_t overflow */
+<span class="lineNum">    1533 </span>                :            :           Start = t1;
 <span class="lineNum">    1534 </span>                :            :         }
 <span class="lineNum">    1535 </span>                :            : 
 <span class="lineNum">    1536 </span>                :            :       /* Add relative hours, minutes, and seconds.  On hosts that support
@@ -1619,43 +1618,43 @@
 <span class="lineNum">    1541 </span>                :            :          must be applied before relative times, and if mktime is applied
 <span class="lineNum">    1542 </span>                :            :          again the time zone will be lost.  */
 <span class="lineNum">    1543 </span>                :            :       {
-<span class="lineNum">    1544 </span>                :<span class="lineCov">       1596 :         long int sum_ns = pc.seconds.tv_nsec + pc.rel.ns;</span>
-<span class="lineNum">    1545 </span>                :<span class="lineCov">       1596 :         long int normalized_ns = (sum_ns % BILLION + BILLION) % BILLION;</span>
-<span class="lineNum">    1546 </span>                :<span class="lineCov">       1596 :         time_t t0 = Start;</span>
-<span class="lineNum">    1547 </span>                :<span class="lineCov">       1596 :         long int d1 = 60 * 60 * pc.rel.hour;</span>
-<span class="lineNum">    1548 </span>                :<span class="lineCov">       1596 :         time_t t1 = t0 + d1;</span>
-<span class="lineNum">    1549 </span>                :<span class="lineCov">       1596 :         long int d2 = 60 * pc.rel.minutes;</span>
-<span class="lineNum">    1550 </span>                :<span class="lineCov">       1596 :         time_t t2 = t1 + d2;</span>
-<span class="lineNum">    1551 </span>                :<span class="lineCov">       1596 :         long_time_t d3 = pc.rel.seconds;</span>
-<span class="lineNum">    1552 </span>                :<span class="lineCov">       1596 :         long_time_t t3 = t2 + d3;</span>
-<span class="lineNum">    1553 </span>                :<span class="lineCov">       1596 :         long int d4 = (sum_ns - normalized_ns) / BILLION;</span>
-<span class="lineNum">    1554 </span>                :<span class="lineCov">       1596 :         long_time_t t4 = t3 + d4;</span>
-<span class="lineNum">    1555 </span>                :<span class="lineCov">       1596 :         time_t t5 = t4;</span>
+<span class="lineNum">    1544 </span>                :<span class="lineCov">       1593 :         long int sum_ns = pc.seconds.tv_nsec + pc.rel.ns;</span>
+<span class="lineNum">    1545 </span>                :<span class="lineCov">       1593 :         long int normalized_ns = (sum_ns % BILLION + BILLION) % BILLION;</span>
+<span class="lineNum">    1546 </span>                :<span class="lineCov">       1593 :         time_t t0 = Start;</span>
+<span class="lineNum">    1547 </span>                :<span class="lineCov">       1593 :         long int d1 = 60 * 60 * pc.rel.hour;</span>
+<span class="lineNum">    1548 </span>                :<span class="lineCov">       1593 :         time_t t1 = t0 + d1;</span>
+<span class="lineNum">    1549 </span>                :<span class="lineCov">       1593 :         long int d2 = 60 * pc.rel.minutes;</span>
+<span class="lineNum">    1550 </span>                :<span class="lineCov">       1593 :         time_t t2 = t1 + d2;</span>
+<span class="lineNum">    1551 </span>                :<span class="lineCov">       1593 :         long_time_t d3 = pc.rel.seconds;</span>
+<span class="lineNum">    1552 </span>                :<span class="lineCov">       1593 :         long_time_t t3 = t2 + d3;</span>
+<span class="lineNum">    1553 </span>                :<span class="lineCov">       1593 :         long int d4 = (sum_ns - normalized_ns) / BILLION;</span>
+<span class="lineNum">    1554 </span>                :<span class="lineCov">       1593 :         long_time_t t4 = t3 + d4;</span>
+<span class="lineNum">    1555 </span>                :<span class="lineCov">       1593 :         time_t t5 = t4;</span>
 <span class="lineNum">    1556 </span>                :            : 
-<span class="lineNum">    1557 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1596 times"> + </span>]:<span class="lineCov">       1596 :         if ((d1 / (60 * 60) ^ pc.rel.hour)</span>
-<span class="lineNum">    1558 </span>                :<span class="lineCov">       1596 :             | (d2 / 60 ^ pc.rel.minutes)</span>
-<span class="lineNum">    1559 </span>                :<span class="lineCov">       1596 :             | ((t1 &lt; t0) ^ (d1 &lt; 0))</span>
-<span class="lineNum">    1560 </span>                :<span class="lineCov">       1596 :             | ((t2 &lt; t1) ^ (d2 &lt; 0))</span>
-<span class="lineNum">    1561 </span>                :<span class="lineCov">       1596 :             | ((t3 &lt; t2) ^ (d3 &lt; 0))</span>
-<span class="lineNum">    1562 </span>                :<span class="lineCov">       1596 :             | ((t4 &lt; t3) ^ (d4 &lt; 0))</span>
-<span class="lineNum">    1563 </span>                :<span class="lineCov">       1596 :             | (t5 != t4))</span>
-<span class="lineNum">    1564 </span>                :<span class="lineNoCov">          0 :           goto fail;</span>
+<span class="lineNum">    1557 </span>        [<span class="branchCov" title="Branch 0 was taken 1593 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1593 :         if ((d1 / (60 * 60) ^ pc.rel.hour)</span>
+<span class="lineNum">    1558 </span>                :<span class="lineCov">       1593 :             | (d2 / 60 ^ pc.rel.minutes)</span>
+<span class="lineNum">    1559 </span>                :<span class="lineCov">       1593 :             | ((t1 &lt; t0) ^ (d1 &lt; 0))</span>
+<span class="lineNum">    1560 </span>                :<span class="lineCov">       1593 :             | ((t2 &lt; t1) ^ (d2 &lt; 0))</span>
+<span class="lineNum">    1561 </span>                :<span class="lineCov">       1593 :             | ((t3 &lt; t2) ^ (d3 &lt; 0))</span>
+<span class="lineNum">    1562 </span>                :<span class="lineCov">       1593 :             | ((t4 &lt; t3) ^ (d4 &lt; 0))</span>
+<span class="lineNum">    1563 </span>                :<span class="lineCov">       1593 :             | (t5 != t4))</span>
+<span class="lineNum">    1564 </span>                :            :           goto fail;
 <span class="lineNum">    1565 </span>                :            : 
-<span class="lineNum">    1566 </span>                :<span class="lineCov">       1596 :         result-&gt;tv_sec = t5;</span>
-<span class="lineNum">    1567 </span>                :<span class="lineCov">       1596 :         result-&gt;tv_nsec = normalized_ns;</span>
+<span class="lineNum">    1566 </span>                :<span class="lineCov">       1593 :         result-&gt;tv_sec = t5;</span>
+<span class="lineNum">    1567 </span>                :<span class="lineCov">       1593 :         result-&gt;tv_nsec = normalized_ns;</span>
 <span class="lineNum">    1568 </span>                :            :       }
 <span class="lineNum">    1569 </span>                :            :     }
 <span class="lineNum">    1570 </span>                :            : 
-<span class="lineNum">    1571 </span>                :<span class="lineCov">       1614 :   goto done;</span>
+<span class="lineNum">    1571 </span>                :            :   goto done;
 <span class="lineNum">    1572 </span>                :            : 
 <span class="lineNum">    1573 </span>                :            :  fail:
-<span class="lineNum">    1574 </span>                :<span class="lineCov">         24 :   ok = false;</span>
+<span class="lineNum">    1574 </span>                :            :   ok = false;
 <span class="lineNum">    1575 </span>                :            :  done:
-<span class="lineNum">    1576 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1638 times"> + </span>]:<span class="lineCov">       1638 :   if (tz_was_altered)</span>
+<span class="lineNum">    1576 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1635 times"> + </span>]:<span class="lineCov">       1635 :   if (tz_was_altered)</span>
 <span class="lineNum">    1577 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     ok &amp;= (tz0 ? setenv (&quot;TZ&quot;, tz0, 1) : unsetenv (&quot;TZ&quot;)) == 0;</span>
-<span class="lineNum">    1578 </span>        [<span class="branchCov" title="Branch 0 was taken 1638 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1638 :   if (tz0 != tz0buf)</span>
-<span class="lineNum">    1579 </span>                :<span class="lineCov">       1638 :     free (tz0);</span>
-<span class="lineNum">    1580 </span>                :<span class="lineCov">       1638 :   return ok;</span>
+<span class="lineNum">    1578 </span>        [<span class="branchCov" title="Branch 0 was taken 1635 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1635 :   if (tz0 != tz0buf)</span>
+<span class="lineNum">    1579 </span>                :<span class="lineCov">       1635 :     free (tz0);</span>
+<span class="lineNum">    1580 </span>                :            :   return ok;
 <span class="lineNum">    1581 </span>                :            : }
 <span class="lineNum">    1582 </span>                :            : 
 <span class="lineNum">    1583 </span>                :            : #if TEST

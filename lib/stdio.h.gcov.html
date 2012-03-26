@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">11</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -540,7 +540,7 @@
 <span class="lineNum">     469 </span>                :            : #  if !(defined __cplusplus &amp;&amp; defined GNULIB_NAMESPACE)
 <a name="470"><span class="lineNum">     470 </span>                :            : #   define fclose rpl_fclose</a>
 <span class="lineNum">     471 </span>                :            : #  endif
-<span class="lineNum">     472 </span>                :<span class="lineCov">     704282 : _GL_FUNCDECL_RPL (fclose, int, (FILE *stream) _GL_ARG_NONNULL ((1)));</span>
+<span class="lineNum">     472 </span>                :<span class="lineCov">     712189 : _GL_FUNCDECL_RPL (fclose, int, (FILE *stream) _GL_ARG_NONNULL ((1)));</span>
 <span class="lineNum">     473 </span>                :            : _GL_CXXALIAS_RPL (fclose, int, (FILE *stream));
 <span class="lineNum">     474 </span>                :            : # else
 <span class="lineNum">     475 </span>                :            : _GL_CXXALIAS_SYS (fclose, int, (FILE *stream));
@@ -582,9 +582,9 @@
 <span class="lineNum">     511 </span>                :            :    be tested with lseek(fileno(fp),0,SEEK_CUR).  */
 <span class="lineNum">     512 </span>                :            : # if 1
 <span class="lineNum">     513 </span>                :            : #  if !(defined __cplusplus &amp;&amp; defined GNULIB_NAMESPACE)
-<span class="lineNum">     514 </span>                :            : #   define fflush rpl_fflush
+<a name="514"><span class="lineNum">     514 </span>                :            : #   define fflush rpl_fflush</a>
 <span class="lineNum">     515 </span>                :            : #  endif
-<span class="lineNum">     516 </span>                :<span class="lineCov">     641159 : _GL_FUNCDECL_RPL (fflush, int, (FILE *gl_stream));</span>
+<span class="lineNum">     516 </span>                :<span class="lineCov">     647547 : _GL_FUNCDECL_RPL (fflush, int, (FILE *gl_stream));</span>
 <span class="lineNum">     517 </span>                :            : _GL_CXXALIAS_RPL (fflush, int, (FILE *gl_stream));
 <span class="lineNum">     518 </span>                :            : # else
 <span class="lineNum">     519 </span>                :            : _GL_CXXALIAS_SYS (fflush, int, (FILE *gl_stream));
@@ -965,9 +965,9 @@
 <span class="lineNum">     894 </span>                :            :    needed for C++.  */
 <span class="lineNum">     895 </span>                :            : #  if !defined __cplusplus &amp;&amp; 0 &lt; __USE_FORTIFY_LEVEL
 <span class="lineNum">     896 </span>                :            : static inline size_t _GL_ARG_NONNULL ((1, 4))
-<span class="lineNum">     897 </span>                :            : rpl_fwrite (const void *ptr, size_t s, size_t n, FILE *stream)
+<a name="897"><span class="lineNum">     897 </span>                :            : rpl_fwrite (const void *ptr, size_t s, size_t n, FILE *stream)</a>
 <span class="lineNum">     898 </span>                :            : {
-<span class="lineNum">     899 </span>                :            :   size_t r = fwrite (ptr, s, n, stream);
+<span class="lineNum">     899 </span>                :<span class="lineCov">      63215 :   size_t r = fwrite (ptr, s, n, stream);</span>
 <span class="lineNum">     900 </span>                :            :   (void) r;
 <span class="lineNum">     901 </span>                :            :   return r;
 <span class="lineNum">     902 </span>                :            : }
@@ -1495,7 +1495,7 @@
 <span class="lineNum">    1424 </span>                :            : #  if !(defined __cplusplus &amp;&amp; defined GNULIB_NAMESPACE)
 <a name="1425"><span class="lineNum">    1425 </span>                :            : #   define asprintf rpl_asprintf</a>
 <span class="lineNum">    1426 </span>                :            : #  endif
-<span class="lineNum">    1427 </span>                :<span class="lineCov">       3165 : _GL_FUNCDECL_RPL (asprintf, int,</span>
+<span class="lineNum">    1427 </span>                :<span class="lineCov">       3210 : _GL_FUNCDECL_RPL (asprintf, int,</span>
 <span class="lineNum">    1428 </span>                :            :                   (char **result, const char *format, ...)
 <span class="lineNum">    1429 </span>                :            :                   _GL_ATTRIBUTE_FORMAT_PRINTF (2, 3)
 <span class="lineNum">    1430 </span>                :            :                   _GL_ARG_NONNULL ((1, 2)));
@@ -1516,7 +1516,7 @@
 <span class="lineNum">    1445 </span>                :            : #  if !(defined __cplusplus &amp;&amp; defined GNULIB_NAMESPACE)
 <a name="1446"><span class="lineNum">    1446 </span>                :            : #   define vasprintf rpl_vasprintf</a>
 <span class="lineNum">    1447 </span>                :            : #  endif
-<span class="lineNum">    1448 </span>                :<span class="lineCov">       5641 : _GL_FUNCDECL_RPL (vasprintf, int,</span>
+<span class="lineNum">    1448 </span>                :<span class="lineCov">       5686 : _GL_FUNCDECL_RPL (vasprintf, int,</span>
 <span class="lineNum">    1449 </span>                :            :                   (char **result, const char *format, va_list args)
 <span class="lineNum">    1450 </span>                :            :                   _GL_ATTRIBUTE_FORMAT_PRINTF (2, 0)
 <span class="lineNum">    1451 </span>                :            :                   _GL_ARG_NONNULL ((1, 2)));
@@ -1570,7 +1570,7 @@
 <span class="lineNum">    1499 </span>                :            : #  if !(defined __cplusplus &amp;&amp; defined GNULIB_NAMESPACE)
 <span class="lineNum">    1500 </span>                :            : #   define vfprintf rpl_vfprintf
 <span class="lineNum">    1501 </span>                :            : #  endif
-<a name="1502"><span class="lineNum">    1502 </span>                :            : #  define GNULIB_overrides_vfprintf 1</a>
+<span class="lineNum">    1502 </span>                :            : #  define GNULIB_overrides_vfprintf 1
 <span class="lineNum">    1503 </span>                :            : #  if 1
 <span class="lineNum">    1504 </span>                :<span class="lineCov">      60845 : _GL_FUNCDECL_RPL (vfprintf, int, (FILE *fp, const char *format, va_list args)</span>
 <span class="lineNum">    1505 </span>                :            :                                  _GL_ATTRIBUTE_FORMAT_PRINTF (2, 0)

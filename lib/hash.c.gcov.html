@@ -31,27 +31,27 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">308</td>
-            <td class="headerCovTableEntry">374</td>
-            <td class="headerCovTableEntryMed">82.4 %</td>
+            <td class="headerCovTableEntry">278</td>
+            <td class="headerCovTableEntry">325</td>
+            <td class="headerCovTableEntryMed">85.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">27</td>
-            <td class="headerCovTableEntry">32</td>
-            <td class="headerCovTableEntryMed">84.4 %</td>
+            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntry">28</td>
+            <td class="headerCovTableEntryMed">82.1 %</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">168</td>
-            <td class="headerCovTableEntry">220</td>
-            <td class="headerCovTableEntryMed">76.4 %</td>
+            <td class="headerCovTableEntry">170</td>
+            <td class="headerCovTableEntry">222</td>
+            <td class="headerCovTableEntryMed">76.6 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -251,8 +251,8 @@
 <span class="lineNum">     180 </span>                :            :     {
 <span class="lineNum">     181 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (bucket-&gt;data)</span>
 <span class="lineNum">     182 </span>                :            :         {
-<span class="lineNum">     183 </span>                :<span class="lineNoCov">          0 :           struct hash_entry const *cursor = bucket;</span>
-<span class="lineNum">     184 </span>                :<span class="lineNoCov">          0 :           size_t bucket_length = 1;</span>
+<span class="lineNum">     183 </span>                :            :           struct hash_entry const *cursor = bucket;
+<span class="lineNum">     184 </span>                :            :           size_t bucket_length = 1;
 <span class="lineNum">     185 </span>                :            : 
 <span class="lineNum">     186 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :           while (cursor = cursor-&gt;next, cursor)</span>
 <span class="lineNum">     187 </span>                :<span class="lineNoCov">          0 :             bucket_length++;</span>
@@ -291,8 +291,8 @@
 <span class="lineNum">     220 </span>                :            :         }
 <span class="lineNum">     221 </span>                :            :     }
 <span class="lineNum">     222 </span>                :            : 
-<span class="lineNum">     223 </span>[<span class="branchCov" title="Branch 0 was taken 60000 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 60000 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      60000 :   if (n_buckets_used == table-&gt;n_buckets_used &amp;&amp; n_entries == table-&gt;n_entries)</span>
-<span class="lineNum">     224 </span>                :<span class="lineCov">      60000 :     return true;</span>
+<span class="lineNum">     223 </span>[<span class="branchCov" title="Branch 0 was taken 60000 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 60000 times"> + </span>]:<span class="lineCov">      60000 :   if (n_buckets_used == table-&gt;n_buckets_used &amp;&amp; n_entries == table-&gt;n_entries)</span>
+<span class="lineNum">     224 </span>                :            :     return true;
 <span class="lineNum">     225 </span>                :            : 
 <span class="lineNum">     226 </span>                :<span class="lineCov">      60000 :   return false;</span>
 <span class="lineNum">     227 </span>                :            : }
@@ -305,43 +305,43 @@
 <span class="lineNum">     234 </span>                :<span class="lineNoCov">          0 :   size_t n_buckets_used = hash_get_n_buckets_used (table);</span>
 <span class="lineNum">     235 </span>                :<span class="lineNoCov">          0 :   size_t max_bucket_length = hash_get_max_bucket_length (table);</span>
 <span class="lineNum">     236 </span>                :            : 
-<span class="lineNum">     237 </span>                :<span class="lineNoCov">          0 :   fprintf (stream, &quot;# entries:         %lu\n&quot;, (unsigned long int) n_entries);</span>
-<span class="lineNum">     238 </span>                :<span class="lineNoCov">          0 :   fprintf (stream, &quot;# buckets:         %lu\n&quot;, (unsigned long int) n_buckets);</span>
+<span class="lineNum">     237 </span>                :            :   fprintf (stream, &quot;# entries:         %lu\n&quot;, (unsigned long int) n_entries);
+<span class="lineNum">     238 </span>                :            :   fprintf (stream, &quot;# buckets:         %lu\n&quot;, (unsigned long int) n_buckets);
 <span class="lineNum">     239 </span>                :<span class="lineNoCov">          0 :   fprintf (stream, &quot;# buckets used:    %lu (%.2f%%)\n&quot;,</span>
 <span class="lineNum">     240 </span>                :            :            (unsigned long int) n_buckets_used,
 <span class="lineNum">     241 </span>                :<span class="lineNoCov">          0 :            (100.0 * n_buckets_used) / n_buckets);</span>
-<span class="lineNum">     242 </span>                :<span class="lineNoCov">          0 :   fprintf (stream, &quot;max bucket length: %lu\n&quot;,</span>
+<span class="lineNum">     242 </span>                :            :   fprintf (stream, &quot;max bucket length: %lu\n&quot;,
 <span class="lineNum">     243 </span>                :            :            (unsigned long int) max_bucket_length);
 <span class="lineNum">     244 </span>                :<span class="lineNoCov">          0 : }</span>
 <span class="lineNum">     245 </span>                :            : 
 <span class="lineNum">     246 </span>                :            : /* Hash KEY and return a pointer to the selected bucket.
 <a name="247"><span class="lineNum">     247 </span>                :            :    If TABLE-&gt;hasher misbehaves, abort.  */</a>
 <span class="lineNum">     248 </span>                :            : static struct hash_entry *
-<span class="lineNum">     249 </span>                :<span class="lineCov">   30030111 : safe_hasher (const Hash_table *table, const void *key)</span>
+<span class="lineNum">     249 </span>                :<span class="lineCov">   30033480 : safe_hasher (const Hash_table *table, const void *key)</span>
 <span class="lineNum">     250 </span>                :            : {
-<span class="lineNum">     251 </span>                :<span class="lineCov">   30030111 :   size_t n = table-&gt;hasher (key, table-&gt;n_buckets);</span>
-<span class="lineNum">     252 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 30030111 times"> + </span>]:<span class="lineCov">   30030111 :   if (! (n &lt; table-&gt;n_buckets))</span>
+<span class="lineNum">     251 </span>                :<span class="lineCov">   30033480 :   size_t n = table-&gt;hasher (key, table-&gt;n_buckets);</span>
+<span class="lineNum">     252 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 30033480 times"> + </span>]:<span class="lineCov">   30033480 :   if (! (n &lt; table-&gt;n_buckets))</span>
 <span class="lineNum">     253 </span>                :<span class="lineNoCov">          0 :     abort ();</span>
-<span class="lineNum">     254 </span>                :<span class="lineCov">   30030111 :   return table-&gt;bucket + n;</span>
+<span class="lineNum">     254 </span>                :<span class="lineCov">   30033480 :   return table-&gt;bucket + n;</span>
 <span class="lineNum">     255 </span>                :            : }
 <span class="lineNum">     256 </span>                :            : 
 <span class="lineNum">     257 </span>                :            : /* If ENTRY matches an entry already in the hash table, return the
 <span class="lineNum">     258 </span>                :            :    entry from the table.  Otherwise, return NULL.  */
 <a name="259"><span class="lineNum">     259 </span>                :            : </a>
 <span class="lineNum">     260 </span>                :            : void *
-<span class="lineNum">     261 </span>                :<span class="lineCov">      70999 : hash_lookup (const Hash_table *table, const void *entry)</span>
+<span class="lineNum">     261 </span>                :<span class="lineCov">      70996 : hash_lookup (const Hash_table *table, const void *entry)</span>
 <span class="lineNum">     262 </span>                :            : {
-<span class="lineNum">     263 </span>                :<span class="lineCov">      70999 :   struct hash_entry const *bucket = safe_hasher (table, entry);</span>
+<span class="lineNum">     263 </span>                :<span class="lineCov">      70996 :   struct hash_entry const *bucket = safe_hasher (table, entry);</span>
 <span class="lineNum">     264 </span>                :            :   struct hash_entry const *cursor;
 <span class="lineNum">     265 </span>                :            : 
-<span class="lineNum">     266 </span>        [<span class="branchCov" title="Branch 0 was taken 64676 times"> + </span><span class="branchCov" title="Branch 1 was taken 6323 times"> + </span>]:<span class="lineCov">      70999 :   if (bucket-&gt;data == NULL)</span>
-<span class="lineNum">     267 </span>                :<span class="lineCov">      64676 :     return NULL;</span>
+<span class="lineNum">     266 </span>        [<span class="branchCov" title="Branch 0 was taken 6893 times"> + </span><span class="branchCov" title="Branch 1 was taken 64103 times"> + </span>]:<span class="lineCov">      70996 :   if (bucket-&gt;data == NULL)</span>
+<span class="lineNum">     267 </span>                :            :     return NULL;
 <span class="lineNum">     268 </span>                :            : 
-<span class="lineNum">     269 </span>        [<span class="branchCov" title="Branch 0 was taken 9561 times"> + </span><span class="branchCov" title="Branch 1 was taken 5992 times"> + </span>]:<span class="lineCov">      15553 :   for (cursor = bucket; cursor; cursor = cursor-&gt;next)</span>
-<span class="lineNum">     270 </span>[<span class="branchCov" title="Branch 0 was taken 9375 times"> + </span><span class="branchCov" title="Branch 1 was taken 186 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 145 times"> + </span><span class="branchCov" title="Branch 4 was taken 9230 times"> + </span>]:<span class="lineCov">       9561 :     if (entry == cursor-&gt;data || table-&gt;comparator (entry, cursor-&gt;data))</span>
+<span class="lineNum">     269 </span>        [<span class="branchCov" title="Branch 0 was taken 9908 times"> + </span><span class="branchCov" title="Branch 1 was taken 6562 times"> + </span>]:<span class="lineCov">      80904 :   for (cursor = bucket; cursor; cursor = cursor-&gt;next)</span>
+<span class="lineNum">     270 </span>[<span class="branchCov" title="Branch 0 was taken 9722 times"> + </span><span class="branchCov" title="Branch 1 was taken 186 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 145 times"> + </span><span class="branchCov" title="Branch 4 was taken 9577 times"> + </span>]:<span class="lineCov">       9908 :     if (entry == cursor-&gt;data || table-&gt;comparator (entry, cursor-&gt;data))</span>
 <span class="lineNum">     271 </span>                :<span class="lineCov">        331 :       return cursor-&gt;data;</span>
 <span class="lineNum">     272 </span>                :            : 
-<span class="lineNum">     273 </span>                :<span class="lineCov">      70999 :   return NULL;</span>
+<span class="lineNum">     273 </span>                :            :   return NULL;
 <span class="lineNum">     274 </span>                :            : }
 <span class="lineNum">     275 </span>                :            : 
 <span class="lineNum">     276 </span>                :            : /* Walking.  */
@@ -360,8 +360,8 @@
 <span class="lineNum">     289 </span>                :            : {
 <span class="lineNum">     290 </span>                :            :   struct hash_entry const *bucket;
 <span class="lineNum">     291 </span>                :            : 
-<span class="lineNum">     292 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 11979 times"> + </span>]:<span class="lineCov">      11979 :   if (table-&gt;n_entries == 0)</span>
-<span class="lineNum">     293 </span>                :<span class="lineNoCov">          0 :     return NULL;</span>
+<span class="lineNum">     292 </span>        [<span class="branchCov" title="Branch 0 was taken 11979 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      11979 :   if (table-&gt;n_entries == 0)</span>
+<span class="lineNum">     293 </span>                :            :     return NULL;
 <span class="lineNum">     294 </span>                :            : 
 <span class="lineNum">     295 </span>                :<span class="lineCov">      11979 :   for (bucket = table-&gt;bucket; ; bucket++)</span>
 <span class="lineNum">     296 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 31152 times"> + </span>]:<span class="lineCov">      31152 :     if (! (bucket &lt; table-&gt;bucket_limit))</span>
@@ -391,12 +391,12 @@
 <span class="lineNum">     320 </span>        [<span class="branchCov" title="Branch 0 was taken 4606509 times"> + </span><span class="branchCov" title="Branch 1 was taken 7910271 times"> + </span>]:<span class="lineCov">   12516780 :   while (cursor != NULL);</span>
 <span class="lineNum">     321 </span>                :            : 
 <span class="lineNum">     322 </span>                :            :   /* Find first entry in any subsequent bucket.  */
-<span class="lineNum">     323 </span>        [<span class="branchCov" title="Branch 0 was taken 12984693 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">   12984693 :   while (++bucket &lt; table-&gt;bucket_limit)</span>
+<span class="lineNum">     323 </span>        [<span class="branchCov" title="Branch 0 was taken 12984693 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">   24556359 :   while (++bucket &lt; table-&gt;bucket_limit)</span>
 <span class="lineNum">     324 </span>        [<span class="branchCov" title="Branch 0 was taken 7910271 times"> + </span><span class="branchCov" title="Branch 1 was taken 5074422 times"> + </span>]:<span class="lineCov">   12984693 :     if (bucket-&gt;data)</span>
-<span class="lineNum">     325 </span>                :<span class="lineCov">    7910271 :       return bucket-&gt;data;</span>
+<span class="lineNum">     325 </span>                :<span class="lineCov">   15820542 :       return bucket-&gt;data;</span>
 <span class="lineNum">     326 </span>                :            : 
 <span class="lineNum">     327 </span>                :            :   /* None found.  */
-<span class="lineNum">     328 </span>                :<span class="lineCov">   11571666 :   return NULL;</span>
+<span class="lineNum">     328 </span>                :            :   return NULL;
 <span class="lineNum">     329 </span>                :            : }
 <span class="lineNum">     330 </span>                :            : 
 <span class="lineNum">     331 </span>                :            : /* Fill BUFFER with pointers to active user entries in the hash table, then
@@ -411,20 +411,20 @@
 <span class="lineNum">     340 </span>                :            :   struct hash_entry const *bucket;
 <span class="lineNum">     341 </span>                :            :   struct hash_entry const *cursor;
 <span class="lineNum">     342 </span>                :            : 
-<span class="lineNum">     343 </span>        [<span class="branchCov" title="Branch 0 was taken 36 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         39 :   for (bucket = table-&gt;bucket; bucket &lt; table-&gt;bucket_limit; bucket++)</span>
+<span class="lineNum">     343 </span>        [<span class="branchCov" title="Branch 0 was taken 36 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         42 :   for (bucket = table-&gt;bucket; bucket &lt; table-&gt;bucket_limit; bucket++)</span>
 <span class="lineNum">     344 </span>                :            :     {
 <span class="lineNum">     345 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">         36 :       if (bucket-&gt;data)</span>
 <span class="lineNum">     346 </span>                :            :         {
 <span class="lineNum">     347 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         21 :           for (cursor = bucket; cursor; cursor = cursor-&gt;next)</span>
 <span class="lineNum">     348 </span>                :            :             {
-<span class="lineNum">     349 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         12 :               if (counter &gt;= buffer_size)</span>
-<span class="lineNum">     350 </span>                :<span class="lineCov">          3 :                 return counter;</span>
+<span class="lineNum">     349 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         12 :               if (counter &gt;= buffer_size)</span>
+<span class="lineNum">     350 </span>                :            :                 return counter;
 <span class="lineNum">     351 </span>                :<span class="lineCov">          9 :               buffer[counter++] = cursor-&gt;data;</span>
 <span class="lineNum">     352 </span>                :            :             }
 <span class="lineNum">     353 </span>                :            :         }
 <span class="lineNum">     354 </span>                :            :     }
 <span class="lineNum">     355 </span>                :            : 
-<span class="lineNum">     356 </span>                :<span class="lineCov">          6 :   return counter;</span>
+<span class="lineNum">     356 </span>                :            :   return counter;
 <span class="lineNum">     357 </span>                :            : }
 <span class="lineNum">     358 </span>                :            : 
 <span class="lineNum">     359 </span>                :            : /* Call a PROCESSOR function for each entry of a hash table, and return the
@@ -449,14 +449,14 @@
 <span class="lineNum">     378 </span>                :            :         {
 <span class="lineNum">     379 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         18 :           for (cursor = bucket; cursor; cursor = cursor-&gt;next)</span>
 <span class="lineNum">     380 </span>                :            :             {
-<span class="lineNum">     381 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 9 times"> + </span>]:<span class="lineCov">          9 :               if (! processor (cursor-&gt;data, processor_data))</span>
-<span class="lineNum">     382 </span>                :<span class="lineNoCov">          0 :                 return counter;</span>
+<span class="lineNum">     381 </span>        [<span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          9 :               if (! processor (cursor-&gt;data, processor_data))</span>
+<span class="lineNum">     382 </span>                :            :                 return counter;
 <span class="lineNum">     383 </span>                :<span class="lineCov">          9 :               counter++;</span>
 <span class="lineNum">     384 </span>                :            :             }
 <span class="lineNum">     385 </span>                :            :         }
 <span class="lineNum">     386 </span>                :            :     }
 <span class="lineNum">     387 </span>                :            : 
-<span class="lineNum">     388 </span>                :<span class="lineCov">          3 :   return counter;</span>
+<span class="lineNum">     388 </span>                :            :   return counter;
 <span class="lineNum">     389 </span>                :            : }
 <span class="lineNum">     390 </span>                :            : 
 <span class="lineNum">     391 </span>                :            : /* Allocation and clean-up.  */
@@ -510,40 +510,40 @@
 <span class="lineNum">     439 </span>                :            : 
 <span class="lineNum">     440 </span>                :            : /* Return true if CANDIDATE is a prime number.  CANDIDATE should be an odd
 <span class="lineNum">     441 </span>                :            :    number at least equal to 11.  */
-<a name="442"><span class="lineNum">     442 </span>                :            : </a>
+<span class="lineNum">     442 </span>                :            : 
 <span class="lineNum">     443 </span>                :            : static bool _GL_ATTRIBUTE_CONST
-<span class="lineNum">     444 </span>                :<span class="lineCov">      50594 : is_prime (size_t candidate)</span>
+<span class="lineNum">     444 </span>                :            : is_prime (size_t candidate)
 <span class="lineNum">     445 </span>                :            : {
-<span class="lineNum">     446 </span>                :<span class="lineCov">      50594 :   size_t divisor = 3;</span>
-<span class="lineNum">     447 </span>                :<span class="lineCov">      50594 :   size_t square = divisor * divisor;</span>
+<span class="lineNum">     446 </span>                :            :   size_t divisor = 3;
+<a name="447"><span class="lineNum">     447 </span>                :            :   size_t square = divisor * divisor;</a>
 <span class="lineNum">     448 </span>                :            : 
-<span class="lineNum">     449 </span>[<span class="branchCov" title="Branch 0 was taken 402261 times"> + </span><span class="branchCov" title="Branch 1 was taken 18655 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 370322 times"> + </span><span class="branchCov" title="Branch 3 was taken 31939 times"> + </span>]:<span class="lineCov">     420916 :   while (square &lt; candidate &amp;&amp; (candidate % divisor))</span>
+<span class="lineNum">     449 </span>[<span class="branchCov" title="Branch 0 was taken 402646 times"> + </span><span class="branchCov" title="Branch 1 was taken 18711 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 370647 times"> + </span><span class="branchCov" title="Branch 3 was taken 31999 times"> + </span>]:<span class="lineCov">     421357 :   while (square &lt; candidate &amp;&amp; (candidate % divisor))</span>
 <span class="lineNum">     450 </span>                :            :     {
-<span class="lineNum">     451 </span>                :<span class="lineCov">     370322 :       divisor++;</span>
-<span class="lineNum">     452 </span>                :<span class="lineCov">     370322 :       square += 4 * divisor;</span>
-<span class="lineNum">     453 </span>                :<span class="lineCov">     370322 :       divisor++;</span>
+<span class="lineNum">     451 </span>                :<span class="lineCov">     370647 :       divisor++;</span>
+<span class="lineNum">     452 </span>                :<span class="lineCov">     370647 :       square += 4 * divisor;</span>
+<span class="lineNum">     453 </span>                :<span class="lineCov">     370647 :       divisor++;</span>
 <span class="lineNum">     454 </span>                :            :     }
 <span class="lineNum">     455 </span>                :            : 
-<span class="lineNum">     456 </span>                :<span class="lineCov">      50594 :   return (candidate % divisor ? true : false);</span>
+<span class="lineNum">     456 </span>                :<span class="lineCov">      50710 :   return (candidate % divisor ? true : false);</span>
 <span class="lineNum">     457 </span>                :            : }
 <span class="lineNum">     458 </span>                :            : 
 <span class="lineNum">     459 </span>                :            : /* Round a given CANDIDATE number up to the nearest prime, and return that
 <span class="lineNum">     460 </span>                :            :    prime.  Primes lower than 10 are merely skipped.  */
-<a name="461"><span class="lineNum">     461 </span>                :            : </a>
+<span class="lineNum">     461 </span>                :            : 
 <span class="lineNum">     462 </span>                :            : static size_t _GL_ATTRIBUTE_CONST
-<span class="lineNum">     463 </span>                :<span class="lineCov">      18433 : next_prime (size_t candidate)</span>
+<span class="lineNum">     463 </span>                :            : next_prime (size_t candidate)
 <span class="lineNum">     464 </span>                :            : {
 <span class="lineNum">     465 </span>                :            :   /* Skip small primes.  */
-<span class="lineNum">     466 </span>        [<span class="branchCov" title="Branch 0 was taken 469 times"> + </span><span class="branchCov" title="Branch 1 was taken 17964 times"> + </span>]:<span class="lineCov">      18433 :   if (candidate &lt; 10)</span>
+<span class="lineNum">     466 </span>        [<span class="branchCov" title="Branch 0 was taken 469 times"> + </span><span class="branchCov" title="Branch 1 was taken 18020 times"> + </span>]:<span class="lineCov">      18489 :   if (candidate &lt; 10)</span>
 <span class="lineNum">     467 </span>                :<span class="lineCov">        469 :     candidate = 10;</span>
 <span class="lineNum">     468 </span>                :            : 
 <span class="lineNum">     469 </span>                :            :   /* Make it definitely odd.  */
-<span class="lineNum">     470 </span>                :<span class="lineCov">      18433 :   candidate |= 1;</span>
+<span class="lineNum">     470 </span>                :<span class="lineCov">      18489 :   candidate |= 1;</span>
 <span class="lineNum">     471 </span>                :            : 
-<span class="lineNum">     472 </span>[<span class="branchCov" title="Branch 0 was taken 50594 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 32161 times"> + </span><span class="branchCov" title="Branch 4 was taken 18433 times"> + </span>]:<span class="lineCov">      50594 :   while (SIZE_MAX != candidate &amp;&amp; !is_prime (candidate))</span>
-<span class="lineNum">     473 </span>                :<span class="lineCov">      32161 :     candidate += 2;</span>
+<span class="lineNum">     472 </span>[<span class="branchCov" title="Branch 0 was taken 50710 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 32221 times"> + </span><span class="branchCov" title="Branch 3 was taken 18489 times"> + </span>]:<span class="lineCov">     101420 :   while (SIZE_MAX != candidate &amp;&amp; !is_prime (candidate))</span>
+<span class="lineNum">     473 </span>                :<span class="lineCov">      32221 :     candidate += 2;</span>
 <span class="lineNum">     474 </span>                :            : 
-<span class="lineNum">     475 </span>                :<span class="lineCov">      18433 :   return candidate;</span>
+<span class="lineNum">     475 </span>                :            :   return candidate;
 <span class="lineNum">     476 </span>                :            : }
 <a name="477"><span class="lineNum">     477 </span>                :            : </a>
 <span class="lineNum">     478 </span>                :            : void
@@ -561,15 +561,15 @@
 <span class="lineNum">     490 </span>                :            :      bits are 0.  As this tends to give poorer performance with small
 <span class="lineNum">     491 </span>                :            :      tables, we rotate the pointer value before performing division,
 <span class="lineNum">     492 </span>                :            :      in an attempt to improve hash quality.  */
-<span class="lineNum">     493 </span>                :<span class="lineCov">          9 :   size_t val = rotr_sz ((size_t) data, 3);</span>
+<span class="lineNum">     493 </span>                :<span class="lineCov">         18 :   size_t val = rotr_sz ((size_t) data, 3);</span>
 <span class="lineNum">     494 </span>                :<span class="lineCov">          9 :   return val % n;</span>
 <span class="lineNum">     495 </span>                :            : }
 <span class="lineNum">     496 </span>                :            : 
 <a name="497"><span class="lineNum">     497 </span>                :            : /* If the user passes a NULL comparator, we use pointer comparison.  */</a>
 <span class="lineNum">     498 </span>                :            : static bool
-<span class="lineNum">     499 </span>                :<span class="lineCov">       2091 : raw_comparator (const void *a, const void *b)</span>
+<span class="lineNum">     499 </span>                :<span class="lineCov">        603 : raw_comparator (const void *a, const void *b)</span>
 <span class="lineNum">     500 </span>                :            : {
-<span class="lineNum">     501 </span>                :<span class="lineCov">       2091 :   return a == b;</span>
+<span class="lineNum">     501 </span>                :<span class="lineCov">        603 :   return a == b;</span>
 <span class="lineNum">     502 </span>                :            : }
 <span class="lineNum">     503 </span>                :            : 
 <span class="lineNum">     504 </span>                :            : 
@@ -580,12 +580,12 @@
 <span class="lineNum">     509 </span>                :            :    tuning arguments), and return false.  */
 <a name="510"><span class="lineNum">     510 </span>                :            : </a>
 <span class="lineNum">     511 </span>                :            : static bool
-<span class="lineNum">     512 </span>                :<span class="lineCov">       6352 : check_tuning (Hash_table *table)</span>
+<span class="lineNum">     512 </span>                :<span class="lineCov">       6408 : check_tuning (Hash_table *table)</span>
 <span class="lineNum">     513 </span>                :            : {
-<span class="lineNum">     514 </span>                :<span class="lineCov">       6352 :   const Hash_tuning *tuning = table-&gt;tuning;</span>
+<span class="lineNum">     514 </span>                :<span class="lineCov">       6408 :   const Hash_tuning *tuning = table-&gt;tuning;</span>
 <span class="lineNum">     515 </span>                :            :   float epsilon;
-<span class="lineNum">     516 </span>        [<span class="branchCov" title="Branch 0 was taken 6328 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">       6352 :   if (tuning == &amp;default_tuning)</span>
-<span class="lineNum">     517 </span>                :<span class="lineCov">       6328 :     return true;</span>
+<span class="lineNum">     516 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 6384 times"> + </span>]:<span class="lineCov">       6408 :   if (tuning == &amp;default_tuning)</span>
+<span class="lineNum">     517 </span>                :            :     return true;
 <span class="lineNum">     518 </span>                :            : 
 <span class="lineNum">     519 </span>                :            :   /* Be a bit stricter than mathematics would require, so that
 <span class="lineNum">     520 </span>                :            :      rounding errors in size calculations do not cause allocations to
@@ -600,31 +600,31 @@
 <span class="lineNum">     529 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :       &amp;&amp; 0 &lt;= tuning-&gt;shrink_threshold</span>
 <span class="lineNum">     530 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :       &amp;&amp; tuning-&gt;shrink_threshold + epsilon &lt; tuning-&gt;shrink_factor</span>
 <span class="lineNum">     531 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :       &amp;&amp; tuning-&gt;shrink_factor &lt;= 1</span>
-<span class="lineNum">     532 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :       &amp;&amp; tuning-&gt;shrink_threshold + epsilon &lt; tuning-&gt;growth_threshold)</span>
-<span class="lineNum">     533 </span>                :<span class="lineCov">         21 :     return true;</span>
+<span class="lineNum">     532 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         21 :       &amp;&amp; tuning-&gt;shrink_threshold + epsilon &lt; tuning-&gt;growth_threshold)</span>
+<span class="lineNum">     533 </span>                :            :     return true;
 <span class="lineNum">     534 </span>                :            : 
 <span class="lineNum">     535 </span>                :<span class="lineCov">          3 :   table-&gt;tuning = &amp;default_tuning;</span>
-<span class="lineNum">     536 </span>                :<span class="lineCov">       6352 :   return false;</span>
+<span class="lineNum">     536 </span>                :<span class="lineCov">       6408 :   return false;</span>
 <span class="lineNum">     537 </span>                :            : }
 <span class="lineNum">     538 </span>                :            : 
 <span class="lineNum">     539 </span>                :            : /* Compute the size of the bucket array for the given CANDIDATE and
 <span class="lineNum">     540 </span>                :            :    TUNING, or return 0 if there is no possible way to allocate that
 <span class="lineNum">     541 </span>                :            :    many entries.  */
-<a name="542"><span class="lineNum">     542 </span>                :            : </a>
+<span class="lineNum">     542 </span>                :            : 
 <span class="lineNum">     543 </span>                :            : static size_t _GL_ATTRIBUTE_PURE
-<span class="lineNum">     544 </span>                :<span class="lineCov">      18433 : compute_bucket_size (size_t candidate, const Hash_tuning *tuning)</span>
+<span class="lineNum">     544 </span>                :<span class="lineCov">      18489 : compute_bucket_size (size_t candidate, const Hash_tuning *tuning)</span>
 <span class="lineNum">     545 </span>                :            : {
-<span class="lineNum">     546 </span>        [<span class="branchCov" title="Branch 0 was taken 12493 times"> + </span><span class="branchCov" title="Branch 1 was taken 5940 times"> + </span>]:<span class="lineCov">      18433 :   if (!tuning-&gt;is_n_buckets)</span>
+<span class="lineNum">     546 </span>        [<span class="branchCov" title="Branch 0 was taken 12549 times"> + </span><span class="branchCov" title="Branch 1 was taken 5940 times"> + </span>]:<span class="lineCov">      18489 :   if (!tuning-&gt;is_n_buckets)</span>
 <span class="lineNum">     547 </span>                :            :     {
-<span class="lineNum">     548 </span>                :<span class="lineCov">      12493 :       float new_candidate = candidate / tuning-&gt;growth_threshold;</span>
-<span class="lineNum">     549 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 12493 times"> + </span>]:<span class="lineCov">      12493 :       if (SIZE_MAX &lt;= new_candidate)</span>
-<span class="lineNum">     550 </span>                :<span class="lineNoCov">          0 :         return 0;</span>
-<span class="lineNum">     551 </span>                :<span class="lineCov">      12493 :       candidate = new_candidate;</span>
+<span class="lineNum">     548 </span>                :<span class="lineCov">      12549 :       float new_candidate = candidate / tuning-&gt;growth_threshold;</span>
+<span class="lineNum">     549 </span>        [<span class="branchCov" title="Branch 0 was taken 12549 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      12549 :       if (SIZE_MAX &lt;= new_candidate)</span>
+<span class="lineNum">     550 </span>                :            :         return 0;
+<span class="lineNum">     551 </span>                :<span class="lineCov">      12549 :       candidate = new_candidate;</span>
 <span class="lineNum">     552 </span>                :            :     }
-<span class="lineNum">     553 </span>                :<span class="lineCov">      18433 :   candidate = next_prime (candidate);</span>
-<span class="lineNum">     554 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18433 times"> + </span>]:<span class="lineCov">      18433 :   if (xalloc_oversized (candidate, sizeof (struct hash_entry *)))</span>
-<span class="lineNum">     555 </span>                :<span class="lineNoCov">          0 :     return 0;</span>
-<span class="lineNum">     556 </span>                :<span class="lineCov">      18433 :   return candidate;</span>
+<span class="lineNum">     553 </span>                :<span class="lineCov">      18489 :   candidate = next_prime (candidate);</span>
+<span class="lineNum">     554 </span>        [<span class="branchCov" title="Branch 0 was taken 18489 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      18489 :   if (xalloc_oversized (candidate, sizeof (struct hash_entry *)))</span>
+<span class="lineNum">     555 </span>                :            :     return 0;
+<span class="lineNum">     556 </span>                :<span class="lineCov">      18489 :   return candidate;</span>
 <span class="lineNum">     557 </span>                :            : }
 <span class="lineNum">     558 </span>                :            : 
 <span class="lineNum">     559 </span>                :            : /* Allocate and return a new hash table, or NULL upon failure.  The initial
@@ -662,58 +662,58 @@
 <span class="lineNum">     591 </span>                :            :    values.  */
 <a name="592"><span class="lineNum">     592 </span>                :            : </a>
 <span class="lineNum">     593 </span>                :            : Hash_table *
-<span class="lineNum">     594 </span>                :<span class="lineCov">       6253 : hash_initialize (size_t candidate, const Hash_tuning *tuning,</span>
+<span class="lineNum">     594 </span>                :<span class="lineCov">       6301 : hash_initialize (size_t candidate, const Hash_tuning *tuning,</span>
 <span class="lineNum">     595 </span>                :            :                  Hash_hasher hasher, Hash_comparator comparator,
 <span class="lineNum">     596 </span>                :            :                  Hash_data_freer data_freer)
 <span class="lineNum">     597 </span>                :            : {
 <span class="lineNum">     598 </span>                :            :   Hash_table *table;
 <span class="lineNum">     599 </span>                :            : 
-<span class="lineNum">     600 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 6250 times"> + </span>]:<span class="lineCov">       6253 :   if (hasher == NULL)</span>
+<span class="lineNum">     600 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 6298 times"> + </span>]:<span class="lineCov">       6301 :   if (hasher == NULL)</span>
 <span class="lineNum">     601 </span>                :<span class="lineCov">          3 :     hasher = raw_hasher;</span>
-<span class="lineNum">     602 </span>        [<span class="branchCov" title="Branch 0 was taken 77 times"> + </span><span class="branchCov" title="Branch 1 was taken 6176 times"> + </span>]:<span class="lineCov">       6253 :   if (comparator == NULL)</span>
+<span class="lineNum">     602 </span>        [<span class="branchCov" title="Branch 0 was taken 77 times"> + </span><span class="branchCov" title="Branch 1 was taken 6224 times"> + </span>]:<span class="lineCov">       6301 :   if (comparator == NULL)</span>
 <span class="lineNum">     603 </span>                :<span class="lineCov">         77 :     comparator = raw_comparator;</span>
 <span class="lineNum">     604 </span>                :            : 
-<span class="lineNum">     605 </span>                :<span class="lineCov">       6253 :   table = malloc (sizeof *table);</span>
-<span class="lineNum">     606 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6253 times"> + </span>]:<span class="lineCov">       6253 :   if (table == NULL)</span>
-<span class="lineNum">     607 </span>                :<span class="lineNoCov">          0 :     return NULL;</span>
+<span class="lineNum">     605 </span>                :<span class="lineCov">       6301 :   table = malloc (sizeof *table);</span>
+<span class="lineNum">     606 </span>        [<span class="branchCov" title="Branch 0 was taken 6301 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       6301 :   if (table == NULL)</span>
+<span class="lineNum">     607 </span>                :            :     return NULL;
 <span class="lineNum">     608 </span>                :            : 
-<span class="lineNum">     609 </span>        [<span class="branchCov" title="Branch 0 was taken 6247 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       6253 :   if (!tuning)</span>
-<span class="lineNum">     610 </span>                :<span class="lineCov">       6247 :     tuning = &amp;default_tuning;</span>
-<span class="lineNum">     611 </span>                :<span class="lineCov">       6253 :   table-&gt;tuning = tuning;</span>
-<span class="lineNum">     612 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchCov" title="Branch 2 was taken 6250 times"> + </span>]:<span class="lineCov">       6253 :   if (!check_tuning (table))</span>
+<span class="lineNum">     609 </span>        [<span class="branchCov" title="Branch 0 was taken 6295 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       6301 :   if (!tuning)</span>
+<span class="lineNum">     610 </span>                :<span class="lineCov">       6295 :     tuning = &amp;default_tuning;</span>
+<span class="lineNum">     611 </span>                :<span class="lineCov">       6301 :   table-&gt;tuning = tuning;</span>
+<span class="lineNum">     612 </span>        [<span class="branchCov" title="Branch 1 was taken 6298 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">       6301 :   if (!check_tuning (table))</span>
 <span class="lineNum">     613 </span>                :            :     {
 <span class="lineNum">     614 </span>                :            :       /* Fail if the tuning options are invalid.  This is the only occasion
 <span class="lineNum">     615 </span>                :            :          when the user gets some feedback about it.  Once the table is created,
 <span class="lineNum">     616 </span>                :            :          if the user provides invalid tuning options, we silently revert to
 <span class="lineNum">     617 </span>                :            :          using the defaults, and ignore further request to change the tuning
 <span class="lineNum">     618 </span>                :            :          options.  */
-<span class="lineNum">     619 </span>                :<span class="lineCov">          3 :       goto fail;</span>
+<span class="lineNum">     619 </span>                :            :       goto fail;
 <span class="lineNum">     620 </span>                :            :     }
 <span class="lineNum">     621 </span>                :            : 
-<span class="lineNum">     622 </span>                :<span class="lineCov">       6250 :   table-&gt;n_buckets = compute_bucket_size (candidate, tuning);</span>
-<span class="lineNum">     623 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6250 times"> + </span>]:<span class="lineCov">       6250 :   if (!table-&gt;n_buckets)</span>
-<span class="lineNum">     624 </span>                :<span class="lineNoCov">          0 :     goto fail;</span>
+<span class="lineNum">     622 </span>                :<span class="lineCov">       6298 :   table-&gt;n_buckets = compute_bucket_size (candidate, tuning);</span>
+<span class="lineNum">     623 </span>        [<span class="branchCov" title="Branch 0 was taken 6298 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       6298 :   if (!table-&gt;n_buckets)</span>
+<span class="lineNum">     624 </span>                :            :     goto fail;
 <span class="lineNum">     625 </span>                :            : 
-<span class="lineNum">     626 </span>                :<span class="lineCov">       6250 :   table-&gt;bucket = calloc (table-&gt;n_buckets, sizeof *table-&gt;bucket);</span>
-<span class="lineNum">     627 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6250 times"> + </span>]:<span class="lineCov">       6250 :   if (table-&gt;bucket == NULL)</span>
-<span class="lineNum">     628 </span>                :<span class="lineNoCov">          0 :     goto fail;</span>
-<span class="lineNum">     629 </span>                :<span class="lineCov">       6250 :   table-&gt;bucket_limit = table-&gt;bucket + table-&gt;n_buckets;</span>
-<span class="lineNum">     630 </span>                :<span class="lineCov">       6250 :   table-&gt;n_buckets_used = 0;</span>
-<span class="lineNum">     631 </span>                :<span class="lineCov">       6250 :   table-&gt;n_entries = 0;</span>
+<span class="lineNum">     626 </span>                :<span class="lineCov">       6298 :   table-&gt;bucket = calloc (table-&gt;n_buckets, sizeof *table-&gt;bucket);</span>
+<span class="lineNum">     627 </span>        [<span class="branchCov" title="Branch 0 was taken 6298 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       6298 :   if (table-&gt;bucket == NULL)</span>
+<span class="lineNum">     628 </span>                :            :     goto fail;
+<span class="lineNum">     629 </span>                :<span class="lineCov">       6298 :   table-&gt;bucket_limit = table-&gt;bucket + table-&gt;n_buckets;</span>
+<span class="lineNum">     630 </span>                :<span class="lineCov">       6298 :   table-&gt;n_buckets_used = 0;</span>
+<span class="lineNum">     631 </span>                :<span class="lineCov">       6298 :   table-&gt;n_entries = 0;</span>
 <span class="lineNum">     632 </span>                :            : 
-<span class="lineNum">     633 </span>                :<span class="lineCov">       6250 :   table-&gt;hasher = hasher;</span>
-<span class="lineNum">     634 </span>                :<span class="lineCov">       6250 :   table-&gt;comparator = comparator;</span>
-<span class="lineNum">     635 </span>                :<span class="lineCov">       6250 :   table-&gt;data_freer = data_freer;</span>
+<span class="lineNum">     633 </span>                :<span class="lineCov">       6298 :   table-&gt;hasher = hasher;</span>
+<span class="lineNum">     634 </span>                :<span class="lineCov">       6298 :   table-&gt;comparator = comparator;</span>
+<span class="lineNum">     635 </span>                :<span class="lineCov">       6298 :   table-&gt;data_freer = data_freer;</span>
 <span class="lineNum">     636 </span>                :            : 
-<span class="lineNum">     637 </span>                :<span class="lineCov">       6250 :   table-&gt;free_entry_list = NULL;</span>
+<span class="lineNum">     637 </span>                :<span class="lineCov">       6298 :   table-&gt;free_entry_list = NULL;</span>
 <span class="lineNum">     638 </span>                :            : #if USE_OBSTACK
 <span class="lineNum">     639 </span>                :            :   obstack_init (&amp;table-&gt;entry_stack);
 <span class="lineNum">     640 </span>                :            : #endif
-<span class="lineNum">     641 </span>                :<span class="lineCov">       6250 :   return table;</span>
+<span class="lineNum">     641 </span>                :<span class="lineCov">       6298 :   return table;</span>
 <span class="lineNum">     642 </span>                :            : 
 <span class="lineNum">     643 </span>                :            :  fail:
 <span class="lineNum">     644 </span>                :<span class="lineCov">          3 :   free (table);</span>
-<span class="lineNum">     645 </span>                :<span class="lineCov">       6253 :   return NULL;</span>
+<span class="lineNum">     645 </span>                :<span class="lineCov">       6301 :   return NULL;</span>
 <span class="lineNum">     646 </span>                :            : }
 <span class="lineNum">     647 </span>                :            : 
 <span class="lineNum">     648 </span>                :            : /* Make all buckets empty, placing any chained entries on the free list.
@@ -764,20 +764,20 @@
 <span class="lineNum">     693 </span>                :            :    entry.  */
 <a name="694"><span class="lineNum">     694 </span>                :            : </a>
 <span class="lineNum">     695 </span>                :            : void
-<span class="lineNum">     696 </span>                :<span class="lineCov">       4137 : hash_free (Hash_table *table)</span>
+<span class="lineNum">     696 </span>                :<span class="lineCov">       4191 : hash_free (Hash_table *table)</span>
 <span class="lineNum">     697 </span>                :            : {
 <span class="lineNum">     698 </span>                :            :   struct hash_entry *bucket;
 <span class="lineNum">     699 </span>                :            :   struct hash_entry *cursor;
 <span class="lineNum">     700 </span>                :            :   struct hash_entry *next;
 <span class="lineNum">     701 </span>                :            : 
 <span class="lineNum">     702 </span>                :            :   /* Call the user data_freer function.  */
-<span class="lineNum">     703 </span>[<span class="branchCov" title="Branch 0 was taken 3865 times"> + </span><span class="branchCov" title="Branch 1 was taken 272 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 579 times"> + </span><span class="branchCov" title="Branch 3 was taken 3286 times"> + </span>]:<span class="lineCov">       4137 :   if (table-&gt;data_freer &amp;&amp; table-&gt;n_entries)</span>
+<span class="lineNum">     703 </span>[<span class="branchCov" title="Branch 0 was taken 3919 times"> + </span><span class="branchCov" title="Branch 1 was taken 272 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 579 times"> + </span><span class="branchCov" title="Branch 3 was taken 3340 times"> + </span>]:<span class="lineCov">       4191 :   if (table-&gt;data_freer &amp;&amp; table-&gt;n_entries)</span>
 <span class="lineNum">     704 </span>                :            :     {
-<span class="lineNum">     705 </span>        [<span class="branchCov" title="Branch 0 was taken 53575 times"> + </span><span class="branchCov" title="Branch 1 was taken 579 times"> + </span>]:<span class="lineCov">      54154 :       for (bucket = table-&gt;bucket; bucket &lt; table-&gt;bucket_limit; bucket++)</span>
+<span class="lineNum">     705 </span>        [<span class="branchCov" title="Branch 0 was taken 53593 times"> + </span><span class="branchCov" title="Branch 1 was taken 579 times"> + </span>]:<span class="lineCov">      54172 :       for (bucket = table-&gt;bucket; bucket &lt; table-&gt;bucket_limit; bucket++)</span>
 <span class="lineNum">     706 </span>                :            :         {
-<span class="lineNum">     707 </span>        [<span class="branchCov" title="Branch 0 was taken 16524 times"> + </span><span class="branchCov" title="Branch 1 was taken 37051 times"> + </span>]:<span class="lineCov">      53575 :           if (bucket-&gt;data)</span>
+<span class="lineNum">     707 </span>        [<span class="branchCov" title="Branch 0 was taken 16539 times"> + </span><span class="branchCov" title="Branch 1 was taken 37054 times"> + </span>]:<span class="lineCov">      53593 :           if (bucket-&gt;data)</span>
 <span class="lineNum">     708 </span>                :            :             {
-<span class="lineNum">     709 </span>        [<span class="branchCov" title="Branch 0 was taken 25061 times"> + </span><span class="branchCov" title="Branch 1 was taken 16524 times"> + </span>]:<span class="lineCov">      41585 :               for (cursor = bucket; cursor; cursor = cursor-&gt;next)</span>
+<span class="lineNum">     709 </span>        [<span class="branchCov" title="Branch 0 was taken 25061 times"> + </span><span class="branchCov" title="Branch 1 was taken 16539 times"> + </span>]:<span class="lineCov">      41600 :               for (cursor = bucket; cursor; cursor = cursor-&gt;next)</span>
 <span class="lineNum">     710 </span>                :<span class="lineCov">      25061 :                 table-&gt;data_freer (cursor-&gt;data);</span>
 <span class="lineNum">     711 </span>                :            :             }
 <span class="lineNum">     712 </span>                :            :         }
@@ -790,135 +790,135 @@
 <span class="lineNum">     719 </span>                :            : #else
 <span class="lineNum">     720 </span>                :            : 
 <span class="lineNum">     721 </span>                :            :   /* Free all bucket overflowed entries.  */
-<span class="lineNum">     722 </span>        [<span class="branchCov" title="Branch 0 was taken 558343 times"> + </span><span class="branchCov" title="Branch 1 was taken 4137 times"> + </span>]:<span class="lineCov">     562480 :   for (bucket = table-&gt;bucket; bucket &lt; table-&gt;bucket_limit; bucket++)</span>
+<span class="lineNum">     722 </span>        [<span class="branchCov" title="Branch 0 was taken 566317 times"> + </span><span class="branchCov" title="Branch 1 was taken 4191 times"> + </span>]:<span class="lineCov">     570508 :   for (bucket = table-&gt;bucket; bucket &lt; table-&gt;bucket_limit; bucket++)</span>
 <span class="lineNum">     723 </span>                :            :     {
-<span class="lineNum">     724 </span>        [<span class="branchCov" title="Branch 0 was taken 10312 times"> + </span><span class="branchCov" title="Branch 1 was taken 558343 times"> + </span>]:<span class="lineCov">     568655 :       for (cursor = bucket-&gt;next; cursor; cursor = next)</span>
+<span class="lineNum">     724 </span>        [<span class="branchCov" title="Branch 0 was taken 10134 times"> + </span><span class="branchCov" title="Branch 1 was taken 566317 times"> + </span>]:<span class="lineCov">     576451 :       for (cursor = bucket-&gt;next; cursor; cursor = next)</span>
 <span class="lineNum">     725 </span>                :            :         {
-<span class="lineNum">     726 </span>                :<span class="lineCov">      10312 :           next = cursor-&gt;next;</span>
-<span class="lineNum">     727 </span>                :<span class="lineCov">      10312 :           free (cursor);</span>
+<span class="lineNum">     726 </span>                :<span class="lineCov">      10134 :           next = cursor-&gt;next;</span>
+<span class="lineNum">     727 </span>                :<span class="lineCov">      10134 :           free (cursor);</span>
 <span class="lineNum">     728 </span>                :            :         }
 <span class="lineNum">     729 </span>                :            :     }
 <span class="lineNum">     730 </span>                :            : 
 <span class="lineNum">     731 </span>                :            :   /* Also reclaim the internal list of previously freed entries.  */
-<span class="lineNum">     732 </span>        [<span class="branchCov" title="Branch 0 was taken 4187 times"> + </span><span class="branchCov" title="Branch 1 was taken 4137 times"> + </span>]:<span class="lineCov">       8324 :   for (cursor = table-&gt;free_entry_list; cursor; cursor = next)</span>
+<span class="lineNum">     732 </span>        [<span class="branchCov" title="Branch 0 was taken 4177 times"> + </span><span class="branchCov" title="Branch 1 was taken 4191 times"> + </span>]:<span class="lineCov">       8368 :   for (cursor = table-&gt;free_entry_list; cursor; cursor = next)</span>
 <span class="lineNum">     733 </span>                :            :     {
-<span class="lineNum">     734 </span>                :<span class="lineCov">       4187 :       next = cursor-&gt;next;</span>
-<span class="lineNum">     735 </span>                :<span class="lineCov">       4187 :       free (cursor);</span>
+<span class="lineNum">     734 </span>                :<span class="lineCov">       4177 :       next = cursor-&gt;next;</span>
+<span class="lineNum">     735 </span>                :<span class="lineCov">       4177 :       free (cursor);</span>
 <span class="lineNum">     736 </span>                :            :     }
 <span class="lineNum">     737 </span>                :            : 
 <span class="lineNum">     738 </span>                :            : #endif
 <span class="lineNum">     739 </span>                :            : 
 <span class="lineNum">     740 </span>                :            :   /* Free the remainder of the hash table structure.  */
-<span class="lineNum">     741 </span>                :<span class="lineCov">       4137 :   free (table-&gt;bucket);</span>
-<span class="lineNum">     742 </span>                :<span class="lineCov">       4137 :   free (table);</span>
-<span class="lineNum">     743 </span>                :<span class="lineCov">       4137 : }</span>
+<span class="lineNum">     741 </span>                :<span class="lineCov">       4191 :   free (table-&gt;bucket);</span>
+<span class="lineNum">     742 </span>                :<span class="lineCov">       4191 :   free (table);</span>
+<span class="lineNum">     743 </span>                :<span class="lineCov">       4191 : }</span>
 <span class="lineNum">     744 </span>                :            : 
 <span class="lineNum">     745 </span>                :            : /* Insertion and deletion.  */
 <span class="lineNum">     746 </span>                :            : 
 <span class="lineNum">     747 </span>                :            : /* Get a new hash entry for a bucket overflow, possibly by recycling a
 <span class="lineNum">     748 </span>                :            :    previously freed one.  If this is not possible, allocate a new one.  */
-<a name="749"><span class="lineNum">     749 </span>                :            : </a>
+<span class="lineNum">     749 </span>                :            : 
 <span class="lineNum">     750 </span>                :            : static struct hash_entry *
-<span class="lineNum">     751 </span>                :<span class="lineCov">    3944632 : allocate_entry (Hash_table *table)</span>
+<span class="lineNum">     751 </span>                :            : allocate_entry (Hash_table *table)
 <span class="lineNum">     752 </span>                :            : {
-<span class="lineNum">     753 </span>                :            :   struct hash_entry *new;
+<a name="753"><span class="lineNum">     753 </span>                :            :   struct hash_entry *new;</a>
 <span class="lineNum">     754 </span>                :            : 
-<span class="lineNum">     755 </span>        [<span class="branchCov" title="Branch 0 was taken 3918585 times"> + </span><span class="branchCov" title="Branch 1 was taken 26047 times"> + </span>]:<span class="lineCov">    3944632 :   if (table-&gt;free_entry_list)</span>
+<span class="lineNum">     755 </span>[<span class="branchCov" title="Branch 0 was taken 28420 times"> + </span><span class="branchCov" title="Branch 1 was taken 10933 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3892162 times"> + </span><span class="branchCov" title="Branch 3 was taken 12991 times"> + </span>]:<span class="lineCov">    3944506 :   if (table-&gt;free_entry_list)</span>
 <span class="lineNum">     756 </span>                :            :     {
-<span class="lineNum">     757 </span>                :<span class="lineCov">    3918585 :       new = table-&gt;free_entry_list;</span>
-<span class="lineNum">     758 </span>                :<span class="lineCov">    3918585 :       table-&gt;free_entry_list = new-&gt;next;</span>
+<span class="lineNum">     757 </span>                :<span class="lineCov">    3920582 :       new = table-&gt;free_entry_list;</span>
+<span class="lineNum">     758 </span>                :<span class="lineCov">    3920582 :       table-&gt;free_entry_list = new-&gt;next;</span>
 <span class="lineNum">     759 </span>                :            :     }
 <span class="lineNum">     760 </span>                :            :   else
 <span class="lineNum">     761 </span>                :            :     {
 <span class="lineNum">     762 </span>                :            : #if USE_OBSTACK
 <span class="lineNum">     763 </span>                :            :       new = obstack_alloc (&amp;table-&gt;entry_stack, sizeof *new);
 <span class="lineNum">     764 </span>                :            : #else
-<span class="lineNum">     765 </span>                :<span class="lineCov">      26047 :       new = malloc (sizeof *new);</span>
+<span class="lineNum">     765 </span>                :<span class="lineCov">      23924 :       new = malloc (sizeof *new);</span>
 <span class="lineNum">     766 </span>                :            : #endif
 <span class="lineNum">     767 </span>                :            :     }
 <span class="lineNum">     768 </span>                :            : 
-<span class="lineNum">     769 </span>                :<span class="lineCov">    3944632 :   return new;</span>
+<span class="lineNum">     769 </span>                :            :   return new;
 <span class="lineNum">     770 </span>                :            : }
 <span class="lineNum">     771 </span>                :            : 
 <span class="lineNum">     772 </span>                :            : /* Free a hash entry which was part of some bucket overflow,
 <span class="lineNum">     773 </span>                :            :    saving it for later recycling.  */
-<a name="774"><span class="lineNum">     774 </span>                :            : </a>
+<span class="lineNum">     774 </span>                :            : 
 <span class="lineNum">     775 </span>                :            : static void
-<span class="lineNum">     776 </span>                :<span class="lineCov">    3923457 : free_entry (Hash_table *table, struct hash_entry *entry)</span>
+<a name="776"><span class="lineNum">     776 </span>                :            : free_entry (Hash_table *table, struct hash_entry *entry)</a>
 <span class="lineNum">     777 </span>                :            : {
-<span class="lineNum">     778 </span>                :<span class="lineCov">    3923457 :   entry-&gt;data = NULL;</span>
-<span class="lineNum">     779 </span>                :<span class="lineCov">    3923457 :   entry-&gt;next = table-&gt;free_entry_list;</span>
-<span class="lineNum">     780 </span>                :<span class="lineCov">    3923457 :   table-&gt;free_entry_list = entry;</span>
-<span class="lineNum">     781 </span>                :<span class="lineCov">    3923457 : }</span>
+<span class="lineNum">     778 </span>                :<span class="lineCov">    3924795 :   entry-&gt;data = NULL;</span>
+<span class="lineNum">     779 </span>                :<span class="lineCov">    3924795 :   entry-&gt;next = table-&gt;free_entry_list;</span>
+<span class="lineNum">     780 </span>                :<span class="lineCov">    3924795 :   table-&gt;free_entry_list = entry;</span>
+<span class="lineNum">     781 </span>                :            : }
 <span class="lineNum">     782 </span>                :            : 
 <span class="lineNum">     783 </span>                :            : /* This private function is used to help with insertion and deletion.  When
 <span class="lineNum">     784 </span>                :            :    ENTRY matches an entry in the table, return a pointer to the corresponding
 <span class="lineNum">     785 </span>                :            :    user data and set *BUCKET_HEAD to the head of the selected bucket.
 <span class="lineNum">     786 </span>                :            :    Otherwise, return NULL.  When DELETE is true and ENTRY matches an entry in
 <span class="lineNum">     787 </span>                :            :    the table, unlink the matching entry.  */
-<a name="788"><span class="lineNum">     788 </span>                :            : </a>
+<span class="lineNum">     788 </span>                :            : 
 <span class="lineNum">     789 </span>                :            : static void *
-<span class="lineNum">     790 </span>                :<span class="lineCov">     289122 : hash_find_entry (Hash_table *table, const void *entry,</span>
+<span class="lineNum">     790 </span>                :<span class="lineCov">     289115 : hash_find_entry (Hash_table *table, const void *entry,</span>
 <span class="lineNum">     791 </span>                :            :                  struct hash_entry **bucket_head, bool delete)
 <span class="lineNum">     792 </span>                :            : {
-<span class="lineNum">     793 </span>                :<span class="lineCov">     289122 :   struct hash_entry *bucket = safe_hasher (table, entry);</span>
+<span class="lineNum">     793 </span>                :<span class="lineCov">     289115 :   struct hash_entry *bucket = safe_hasher (table, entry);</span>
 <span class="lineNum">     794 </span>                :            :   struct hash_entry *cursor;
 <span class="lineNum">     795 </span>                :            : 
-<span class="lineNum">     796 </span>                :<span class="lineCov">     289122 :   *bucket_head = bucket;</span>
+<span class="lineNum">     796 </span>                :<span class="lineCov">     289115 :   *bucket_head = bucket;</span>
 <span class="lineNum">     797 </span>                :            : 
 <span class="lineNum">     798 </span>                :            :   /* Test for empty bucket.  */
-<span class="lineNum">     799 </span>        [<span class="branchCov" title="Branch 0 was taken 131273 times"> + </span><span class="branchCov" title="Branch 1 was taken 157849 times"> + </span>]:<span class="lineCov">     289122 :   if (bucket-&gt;data == NULL)</span>
-<span class="lineNum">     800 </span>                :<span class="lineCov">     131273 :     return NULL;</span>
+<span class="lineNum">     799 </span>        [<span class="branchCov" title="Branch 0 was taken 156127 times"> + </span><span class="branchCov" title="Branch 1 was taken 132988 times"> + </span>]:<span class="lineCov">     289115 :   if (bucket-&gt;data == NULL)</span>
+<span class="lineNum">     800 </span>                :            :     return NULL;
 <span class="lineNum">     801 </span>                :            : 
 <span class="lineNum">     802 </span>                :            :   /* See if the entry is the first in the bucket.  */
-<span class="lineNum">     803 </span>[<span class="branchCov" title="Branch 0 was taken 140530 times"> + </span><span class="branchCov" title="Branch 1 was taken 17319 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 95270 times"> + </span><span class="branchCov" title="Branch 4 was taken 45260 times"> + </span>]:<span class="lineCov">     157849 :   if (entry == bucket-&gt;data || table-&gt;comparator (entry, bucket-&gt;data))</span>
+<span class="lineNum">     803 </span>[<span class="branchCov" title="Branch 0 was taken 138808 times"> + </span><span class="branchCov" title="Branch 1 was taken 17319 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 43692 times"> + </span><span class="branchCov" title="Branch 4 was taken 95116 times"> + </span>]:<span class="lineCov">     156127 :   if (entry == bucket-&gt;data || table-&gt;comparator (entry, bucket-&gt;data))</span>
 <span class="lineNum">     804 </span>                :            :     {
-<span class="lineNum">     805 </span>                :<span class="lineCov">     112589 :       void *data = bucket-&gt;data;</span>
+<span class="lineNum">     805 </span>                :<span class="lineCov">     112435 :       void *data = bucket-&gt;data;</span>
 <span class="lineNum">     806 </span>                :            : 
-<span class="lineNum">     807 </span>        [<span class="branchCov" title="Branch 0 was taken 103344 times"> + </span><span class="branchCov" title="Branch 1 was taken 9245 times"> + </span>]:<span class="lineCov">     112589 :       if (delete)</span>
+<span class="lineNum">     807 </span>        [<span class="branchCov" title="Branch 0 was taken 103202 times"> + </span><span class="branchCov" title="Branch 1 was taken 9233 times"> + </span>]:<span class="lineCov">     112435 :       if (delete)</span>
 <span class="lineNum">     808 </span>                :            :         {
-<span class="lineNum">     809 </span>        [<span class="branchCov" title="Branch 0 was taken 4027 times"> + </span><span class="branchCov" title="Branch 1 was taken 99317 times"> + </span>]:<span class="lineCov">     103344 :           if (bucket-&gt;next)</span>
+<span class="lineNum">     809 </span>        [<span class="branchCov" title="Branch 0 was taken 4262 times"> + </span><span class="branchCov" title="Branch 1 was taken 98940 times"> + </span>]:<span class="lineCov">     103202 :           if (bucket-&gt;next)</span>
 <span class="lineNum">     810 </span>                :            :             {
-<span class="lineNum">     811 </span>                :<span class="lineCov">       4027 :               struct hash_entry *next = bucket-&gt;next;</span>
+<span class="lineNum">     811 </span>                :<span class="lineCov">       4262 :               struct hash_entry *next = bucket-&gt;next;</span>
 <span class="lineNum">     812 </span>                :            : 
 <span class="lineNum">     813 </span>                :            :               /* Bump the first overflow entry into the bucket head, then save
 <span class="lineNum">     814 </span>                :            :                  the previous first overflow entry for later recycling.  */
-<span class="lineNum">     815 </span>                :<span class="lineCov">       4027 :               *bucket = *next;</span>
-<span class="lineNum">     816 </span>                :<span class="lineCov">       4027 :               free_entry (table, next);</span>
+<span class="lineNum">     815 </span>                :<span class="lineCov">       4262 :               *bucket = *next;</span>
+<span class="lineNum">     816 </span>                :            :               free_entry (table, next);
 <span class="lineNum">     817 </span>                :            :             }
 <span class="lineNum">     818 </span>                :            :           else
 <span class="lineNum">     819 </span>                :            :             {
-<span class="lineNum">     820 </span>                :<span class="lineCov">      99317 :               bucket-&gt;data = NULL;</span>
+<span class="lineNum">     820 </span>                :<span class="lineCov">      98940 :               bucket-&gt;data = NULL;</span>
 <span class="lineNum">     821 </span>                :            :             }
 <span class="lineNum">     822 </span>                :            :         }
 <span class="lineNum">     823 </span>                :            : 
-<span class="lineNum">     824 </span>                :<span class="lineCov">     112589 :       return data;</span>
+<span class="lineNum">     824 </span>                :            :       return data;
 <span class="lineNum">     825 </span>                :            :     }
 <span class="lineNum">     826 </span>                :            : 
 <span class="lineNum">     827 </span>                :            :   /* Scan the bucket overflow.  */
-<span class="lineNum">     828 </span>        [<span class="branchCov" title="Branch 0 was taken 29684 times"> + </span><span class="branchCov" title="Branch 1 was taken 41132 times"> + </span>]:<span class="lineCov">      70816 :   for (cursor = bucket; cursor-&gt;next; cursor = cursor-&gt;next)</span>
+<span class="lineNum">     828 </span>        [<span class="branchCov" title="Branch 0 was taken 26882 times"> + </span><span class="branchCov" title="Branch 1 was taken 39422 times"> + </span>]:<span class="lineCov">     315997 :   for (cursor = bucket; cursor-&gt;next; cursor = cursor-&gt;next)</span>
 <span class="lineNum">     829 </span>                :            :     {
-<span class="lineNum">     830 </span>        [<span class="branchCov" title="Branch 0 was taken 25973 times"> + </span><span class="branchCov" title="Branch 1 was taken 3711 times"> + </span>]:<span class="lineCov">      29684 :       if (entry == cursor-&gt;next-&gt;data</span>
-<span class="lineNum">     831 </span>        [<span class="branchCov" title="Branch 1 was taken 417 times"> + </span><span class="branchCov" title="Branch 2 was taken 25556 times"> + </span>]:<span class="lineCov">      25973 :           || table-&gt;comparator (entry, cursor-&gt;next-&gt;data))</span>
+<span class="lineNum">     830 </span>        [<span class="branchCov" title="Branch 0 was taken 23171 times"> + </span><span class="branchCov" title="Branch 1 was taken 3711 times"> + </span>]:<span class="lineCov">      26882 :       if (entry == cursor-&gt;next-&gt;data</span>
+<span class="lineNum">     831 </span>        [<span class="branchCov" title="Branch 1 was taken 559 times"> + </span><span class="branchCov" title="Branch 2 was taken 22612 times"> + </span>]:<span class="lineCov">      23171 :           || table-&gt;comparator (entry, cursor-&gt;next-&gt;data))</span>
 <span class="lineNum">     832 </span>                :            :         {
-<span class="lineNum">     833 </span>                :<span class="lineCov">       4128 :           void *data = cursor-&gt;next-&gt;data;</span>
+<span class="lineNum">     833 </span>                :<span class="lineCov">       4270 :           void *data = cursor-&gt;next-&gt;data;</span>
 <span class="lineNum">     834 </span>                :            : 
-<span class="lineNum">     835 </span>        [<span class="branchCov" title="Branch 0 was taken 4125 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">       4128 :           if (delete)</span>
+<span class="lineNum">     835 </span>        [<span class="branchCov" title="Branch 0 was taken 4267 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">       4270 :           if (delete)</span>
 <span class="lineNum">     836 </span>                :            :             {
-<span class="lineNum">     837 </span>                :<span class="lineCov">       4125 :               struct hash_entry *next = cursor-&gt;next;</span>
+<span class="lineNum">     837 </span>                :<span class="lineCov">       4267 :               struct hash_entry *next = cursor-&gt;next;</span>
 <span class="lineNum">     838 </span>                :            : 
 <span class="lineNum">     839 </span>                :            :               /* Unlink the entry to delete, then save the freed entry for later
 <span class="lineNum">     840 </span>                :            :                  recycling.  */
-<span class="lineNum">     841 </span>                :<span class="lineCov">       4125 :               cursor-&gt;next = next-&gt;next;</span>
-<span class="lineNum">     842 </span>                :<span class="lineCov">       4125 :               free_entry (table, next);</span>
+<span class="lineNum">     841 </span>                :<span class="lineCov">       4267 :               cursor-&gt;next = next-&gt;next;</span>
+<span class="lineNum">     842 </span>                :            :               free_entry (table, next);
 <span class="lineNum">     843 </span>                :            :             }
 <span class="lineNum">     844 </span>                :            : 
-<span class="lineNum">     845 </span>                :<span class="lineCov">       4128 :           return data;</span>
+<span class="lineNum">     845 </span>                :            :           return data;
 <span class="lineNum">     846 </span>                :            :         }
 <span class="lineNum">     847 </span>                :            :     }
 <span class="lineNum">     848 </span>                :            : 
 <span class="lineNum">     849 </span>                :            :   /* No entry found.  */
-<span class="lineNum">     850 </span>                :<span class="lineCov">     289122 :   return NULL;</span>
+<span class="lineNum">     850 </span>                :            :   return NULL;
 <span class="lineNum">     851 </span>                :            : }
 <span class="lineNum">     852 </span>                :            : 
 <span class="lineNum">     853 </span>                :            : /* Internal helper, to move entries from SRC to DST.  Both tables must
@@ -926,15 +926,15 @@
 <span class="lineNum">     855 </span>                :            :    entries, saving bucket heads for later, so that no allocations will
 <span class="lineNum">     856 </span>                :            :    occur.  Return false if the free entry list is exhausted and an
 <span class="lineNum">     857 </span>                :            :    allocation fails.  */
-<a name="858"><span class="lineNum">     858 </span>                :            : </a>
+<span class="lineNum">     858 </span>                :            : 
 <span class="lineNum">     859 </span>                :            : static bool
-<span class="lineNum">     860 </span>                :<span class="lineCov">       9552 : transfer_entries (Hash_table *dst, Hash_table *src, bool safe)</span>
+<span class="lineNum">     860 </span>                :<span class="lineCov">       9560 : transfer_entries (Hash_table *dst, Hash_table *src, bool safe)</span>
 <span class="lineNum">     861 </span>                :            : {
 <span class="lineNum">     862 </span>                :            :   struct hash_entry *bucket;
 <span class="lineNum">     863 </span>                :            :   struct hash_entry *cursor;
 <span class="lineNum">     864 </span>                :            :   struct hash_entry *next;
-<span class="lineNum">     865 </span>        [<span class="branchCov" title="Branch 0 was taken 20442174 times"> + </span><span class="branchCov" title="Branch 1 was taken 9552 times"> + </span>]:<span class="lineCov">   20451726 :   for (bucket = src-&gt;bucket; bucket &lt; src-&gt;bucket_limit; bucket++)</span>
-<span class="lineNum">     866 </span>        [<span class="branchCov" title="Branch 0 was taken 12333965 times"> + </span><span class="branchCov" title="Branch 1 was taken 8108209 times"> + </span>]:<span class="lineCov">   20442174 :     if (bucket-&gt;data)</span>
+<span class="lineNum">     865 </span>        [<span class="branchCov" title="Branch 0 was taken 20448592 times"> + </span><span class="branchCov" title="Branch 1 was taken 9560 times"> + </span>]:<span class="lineCov">   20458152 :   for (bucket = src-&gt;bucket; bucket &lt; src-&gt;bucket_limit; bucket++)</span>
+<span class="lineNum">     866 </span>        [<span class="branchCov" title="Branch 0 was taken 12339312 times"> + </span><span class="branchCov" title="Branch 1 was taken 8109280 times"> + </span>]:<span class="lineCov">   20448592 :     if (bucket-&gt;data)</span>
 <span class="lineNum">     867 </span>                :            :       {
 <span class="lineNum">     868 </span>                :            :         void *data;
 <span class="lineNum">     869 </span>                :            :         struct hash_entry *new_bucket;
@@ -945,61 +945,61 @@
 <span class="lineNum">     874 </span>                :            :            bucket head, but moving overflow entries first may create
 <span class="lineNum">     875 </span>                :            :            free entries that can be recycled by the time we finally
 <span class="lineNum">     876 </span>                :            :            get to the bucket head.  */
-<span class="lineNum">     877 </span>        [<span class="branchCov" title="Branch 0 was taken 5764359 times"> + </span><span class="branchCov" title="Branch 1 was taken 12333965 times"> + </span>]:<span class="lineCov">   18098324 :         for (cursor = bucket-&gt;next; cursor; cursor = next)</span>
+<span class="lineNum">     877 </span>        [<span class="branchCov" title="Branch 0 was taken 5762391 times"> + </span><span class="branchCov" title="Branch 1 was taken 12339312 times"> + </span>]:<span class="lineCov">   18101703 :         for (cursor = bucket-&gt;next; cursor; cursor = next)</span>
 <span class="lineNum">     878 </span>                :            :           {
-<span class="lineNum">     879 </span>                :<span class="lineCov">    5764359 :             data = cursor-&gt;data;</span>
-<span class="lineNum">     880 </span>                :<span class="lineCov">    5764359 :             new_bucket = safe_hasher (dst, data);</span>
+<span class="lineNum">     879 </span>                :<span class="lineCov">    5762391 :             data = cursor-&gt;data;</span>
+<span class="lineNum">     880 </span>                :<span class="lineCov">    5762391 :             new_bucket = safe_hasher (dst, data);</span>
 <span class="lineNum">     881 </span>                :            : 
-<span class="lineNum">     882 </span>                :<span class="lineCov">    5764359 :             next = cursor-&gt;next;</span>
+<span class="lineNum">     882 </span>                :<span class="lineCov">    5762391 :             next = cursor-&gt;next;</span>
 <span class="lineNum">     883 </span>                :            : 
-<span class="lineNum">     884 </span>        [<span class="branchCov" title="Branch 0 was taken 1849054 times"> + </span><span class="branchCov" title="Branch 1 was taken 3915305 times"> + </span>]:<span class="lineCov">    5764359 :             if (new_bucket-&gt;data)</span>
+<span class="lineNum">     884 </span>        [<span class="branchCov" title="Branch 0 was taken 1846125 times"> + </span><span class="branchCov" title="Branch 1 was taken 3916266 times"> + </span>]:<span class="lineCov">    5762391 :             if (new_bucket-&gt;data)</span>
 <span class="lineNum">     885 </span>                :            :               {
 <span class="lineNum">     886 </span>                :            :                 /* Merely relink an existing entry, when moving from a
 <span class="lineNum">     887 </span>                :            :                    bucket overflow into a bucket overflow.  */
-<span class="lineNum">     888 </span>                :<span class="lineCov">    1849054 :                 cursor-&gt;next = new_bucket-&gt;next;</span>
-<span class="lineNum">     889 </span>                :<span class="lineCov">    1849054 :                 new_bucket-&gt;next = cursor;</span>
+<span class="lineNum">     888 </span>                :<span class="lineCov">    1846125 :                 cursor-&gt;next = new_bucket-&gt;next;</span>
+<span class="lineNum">     889 </span>                :<span class="lineCov">    1846125 :                 new_bucket-&gt;next = cursor;</span>
 <span class="lineNum">     890 </span>                :            :               }
 <span class="lineNum">     891 </span>                :            :             else
 <span class="lineNum">     892 </span>                :            :               {
 <span class="lineNum">     893 </span>                :            :                 /* Free an existing entry, when moving from a bucket
 <span class="lineNum">     894 </span>                :            :                    overflow into a bucket header.  */
-<span class="lineNum">     895 </span>                :<span class="lineCov">    3915305 :                 new_bucket-&gt;data = data;</span>
-<span class="lineNum">     896 </span>                :<span class="lineCov">    3915305 :                 dst-&gt;n_buckets_used++;</span>
-<span class="lineNum">     897 </span>                :<span class="lineCov">    3915305 :                 free_entry (dst, cursor);</span>
+<span class="lineNum">     895 </span>                :<span class="lineCov">    3916266 :                 new_bucket-&gt;data = data;</span>
+<span class="lineNum">     896 </span>                :<span class="lineCov">    3916266 :                 dst-&gt;n_buckets_used++;</span>
+<span class="lineNum">     897 </span>                :            :                 free_entry (dst, cursor);
 <span class="lineNum">     898 </span>                :            :               }
 <span class="lineNum">     899 </span>                :            :           }
 <span class="lineNum">     900 </span>                :            :         /* Now move the bucket head.  Be sure that if we fail due to
 <span class="lineNum">     901 </span>                :            :            allocation failure that the src table is in a consistent
 <span class="lineNum">     902 </span>                :            :            state.  */
-<span class="lineNum">     903 </span>                :<span class="lineCov">   12333965 :         data = bucket-&gt;data;</span>
-<span class="lineNum">     904 </span>                :<span class="lineCov">   12333965 :         bucket-&gt;next = NULL;</span>
-<span class="lineNum">     905 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 12333965 times"> + </span>]:<span class="lineCov">   12333965 :         if (safe)</span>
+<span class="lineNum">     903 </span>                :<span class="lineCov">   12339312 :         data = bucket-&gt;data;</span>
+<span class="lineNum">     904 </span>                :<span class="lineCov">   12339312 :         bucket-&gt;next = NULL;</span>
+<span class="lineNum">     905 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 12339312 times"> + </span>]:<span class="lineCov">   12339312 :         if (safe)</span>
 <span class="lineNum">     906 </span>                :<span class="lineNoCov">          0 :           continue;</span>
-<span class="lineNum">     907 </span>                :<span class="lineCov">   12333965 :         new_bucket = safe_hasher (dst, data);</span>
+<span class="lineNum">     907 </span>                :<span class="lineCov">   12339312 :         new_bucket = safe_hasher (dst, data);</span>
 <span class="lineNum">     908 </span>                :            : 
-<span class="lineNum">     909 </span>        [<span class="branchCov" title="Branch 0 was taken 3903567 times"> + </span><span class="branchCov" title="Branch 1 was taken 8430398 times"> + </span>]:<span class="lineCov">   12333965 :         if (new_bucket-&gt;data)</span>
+<span class="lineNum">     909 </span>        [<span class="branchCov" title="Branch 0 was taken 3905153 times"> + </span><span class="branchCov" title="Branch 1 was taken 8434159 times"> + </span>]:<span class="lineCov">   12339312 :         if (new_bucket-&gt;data)</span>
 <span class="lineNum">     910 </span>                :            :           {
 <span class="lineNum">     911 </span>                :            :             /* Allocate or recycle an entry, when moving from a bucket
 <span class="lineNum">     912 </span>                :            :                header into a bucket overflow.  */
-<span class="lineNum">     913 </span>                :<span class="lineCov">    3903567 :             struct hash_entry *new_entry = allocate_entry (dst);</span>
+<span class="lineNum">     913 </span>                :<span class="lineCov">    3905153 :             struct hash_entry *new_entry = allocate_entry (dst);</span>
 <span class="lineNum">     914 </span>                :            : 
-<span class="lineNum">     915 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3903567 times"> + </span>]:<span class="lineCov">    3903567 :             if (new_entry == NULL)</span>
-<span class="lineNum">     916 </span>                :<span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     915 </span>        [<span class="branchCov" title="Branch 0 was taken 3905153 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">    3905153 :             if (new_entry == NULL)</span>
+<span class="lineNum">     916 </span>                :            :               return false;
 <span class="lineNum">     917 </span>                :            : 
-<span class="lineNum">     918 </span>                :<span class="lineCov">    3903567 :             new_entry-&gt;data = data;</span>
-<span class="lineNum">     919 </span>                :<span class="lineCov">    3903567 :             new_entry-&gt;next = new_bucket-&gt;next;</span>
-<span class="lineNum">     920 </span>                :<span class="lineCov">    3903567 :             new_bucket-&gt;next = new_entry;</span>
+<span class="lineNum">     918 </span>                :<span class="lineCov">    3905153 :             new_entry-&gt;data = data;</span>
+<span class="lineNum">     919 </span>                :<span class="lineCov">    3905153 :             new_entry-&gt;next = new_bucket-&gt;next;</span>
+<span class="lineNum">     920 </span>                :<span class="lineCov">    3905153 :             new_bucket-&gt;next = new_entry;</span>
 <span class="lineNum">     921 </span>                :            :           }
 <span class="lineNum">     922 </span>                :            :         else
 <span class="lineNum">     923 </span>                :            :           {
 <span class="lineNum">     924 </span>                :            :             /* Move from one bucket header to another.  */
-<span class="lineNum">     925 </span>                :<span class="lineCov">    8430398 :             new_bucket-&gt;data = data;</span>
-<span class="lineNum">     926 </span>                :<span class="lineCov">    8430398 :             dst-&gt;n_buckets_used++;</span>
+<span class="lineNum">     925 </span>                :<span class="lineCov">    8434159 :             new_bucket-&gt;data = data;</span>
+<span class="lineNum">     926 </span>                :<span class="lineCov">    8434159 :             dst-&gt;n_buckets_used++;</span>
 <span class="lineNum">     927 </span>                :            :           }
-<span class="lineNum">     928 </span>                :<span class="lineCov">   12333965 :         bucket-&gt;data = NULL;</span>
-<span class="lineNum">     929 </span>                :<span class="lineCov">   12333965 :         src-&gt;n_buckets_used--;</span>
+<span class="lineNum">     928 </span>                :<span class="lineCov">   12339312 :         bucket-&gt;data = NULL;</span>
+<span class="lineNum">     929 </span>                :<span class="lineCov">   12339312 :         src-&gt;n_buckets_used--;</span>
 <span class="lineNum">     930 </span>                :            :       }
-<span class="lineNum">     931 </span>                :<span class="lineCov">       9552 :   return true;</span>
+<span class="lineNum">     931 </span>                :            :   return true;
 <span class="lineNum">     932 </span>                :            : }
 <span class="lineNum">     933 </span>                :            : 
 <span class="lineNum">     934 </span>                :            : /* For an already existing hash table, change the number of buckets through
@@ -1011,28 +1011,28 @@
 <span class="lineNum">     940 </span>                :            :    exact number of buckets desired.  Return true iff the rehash succeeded.  */
 <a name="941"><span class="lineNum">     941 </span>                :            : </a>
 <span class="lineNum">     942 </span>                :            : bool
-<span class="lineNum">     943 </span>                :<span class="lineCov">      12183 : hash_rehash (Hash_table *table, size_t candidate)</span>
+<span class="lineNum">     943 </span>                :<span class="lineCov">      12191 : hash_rehash (Hash_table *table, size_t candidate)</span>
 <span class="lineNum">     944 </span>                :            : {
 <span class="lineNum">     945 </span>                :            :   Hash_table storage;
 <span class="lineNum">     946 </span>                :            :   Hash_table *new_table;
-<span class="lineNum">     947 </span>                :<span class="lineCov">      12183 :   size_t new_size = compute_bucket_size (candidate, table-&gt;tuning);</span>
+<span class="lineNum">     947 </span>                :<span class="lineCov">      12191 :   size_t new_size = compute_bucket_size (candidate, table-&gt;tuning);</span>
 <span class="lineNum">     948 </span>                :            : 
-<span class="lineNum">     949 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 12183 times"> + </span>]:<span class="lineCov">      12183 :   if (!new_size)</span>
-<span class="lineNum">     950 </span>                :<span class="lineNoCov">          0 :     return false;</span>
-<span class="lineNum">     951 </span>        [<span class="branchCov" title="Branch 0 was taken 2631 times"> + </span><span class="branchCov" title="Branch 1 was taken 9552 times"> + </span>]:<span class="lineCov">      12183 :   if (new_size == table-&gt;n_buckets)</span>
-<span class="lineNum">     952 </span>                :<span class="lineCov">       2631 :     return true;</span>
-<span class="lineNum">     953 </span>                :<span class="lineCov">       9552 :   new_table = &amp;storage;</span>
-<span class="lineNum">     954 </span>                :<span class="lineCov">       9552 :   new_table-&gt;bucket = calloc (new_size, sizeof *new_table-&gt;bucket);</span>
-<span class="lineNum">     955 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9552 times"> + </span>]:<span class="lineCov">       9552 :   if (new_table-&gt;bucket == NULL)</span>
-<span class="lineNum">     956 </span>                :<span class="lineNoCov">          0 :     return false;</span>
-<span class="lineNum">     957 </span>                :<span class="lineCov">       9552 :   new_table-&gt;n_buckets = new_size;</span>
-<span class="lineNum">     958 </span>                :<span class="lineCov">       9552 :   new_table-&gt;bucket_limit = new_table-&gt;bucket + new_size;</span>
-<span class="lineNum">     959 </span>                :<span class="lineCov">       9552 :   new_table-&gt;n_buckets_used = 0;</span>
-<span class="lineNum">     960 </span>                :<span class="lineCov">       9552 :   new_table-&gt;n_entries = 0;</span>
-<span class="lineNum">     961 </span>                :<span class="lineCov">       9552 :   new_table-&gt;tuning = table-&gt;tuning;</span>
-<span class="lineNum">     962 </span>                :<span class="lineCov">       9552 :   new_table-&gt;hasher = table-&gt;hasher;</span>
-<span class="lineNum">     963 </span>                :<span class="lineCov">       9552 :   new_table-&gt;comparator = table-&gt;comparator;</span>
-<span class="lineNum">     964 </span>                :<span class="lineCov">       9552 :   new_table-&gt;data_freer = table-&gt;data_freer;</span>
+<span class="lineNum">     949 </span>        [<span class="branchCov" title="Branch 0 was taken 12191 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      12191 :   if (!new_size)</span>
+<span class="lineNum">     950 </span>                :            :     return false;
+<span class="lineNum">     951 </span>        [<span class="branchCov" title="Branch 0 was taken 9560 times"> + </span><span class="branchCov" title="Branch 1 was taken 2631 times"> + </span>]:<span class="lineCov">      12191 :   if (new_size == table-&gt;n_buckets)</span>
+<span class="lineNum">     952 </span>                :            :     return true;
+<span class="lineNum">     953 </span>                :<span class="lineCov">       9560 :   new_table = &amp;storage;</span>
+<span class="lineNum">     954 </span>                :<span class="lineCov">       9560 :   new_table-&gt;bucket = calloc (new_size, sizeof *new_table-&gt;bucket);</span>
+<span class="lineNum">     955 </span>        [<span class="branchCov" title="Branch 0 was taken 9560 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       9560 :   if (new_table-&gt;bucket == NULL)</span>
+<span class="lineNum">     956 </span>                :            :     return false;
+<span class="lineNum">     957 </span>                :<span class="lineCov">       9560 :   new_table-&gt;n_buckets = new_size;</span>
+<span class="lineNum">     958 </span>                :<span class="lineCov">       9560 :   new_table-&gt;bucket_limit = new_table-&gt;bucket + new_size;</span>
+<span class="lineNum">     959 </span>                :<span class="lineCov">       9560 :   new_table-&gt;n_buckets_used = 0;</span>
+<span class="lineNum">     960 </span>                :<span class="lineCov">       9560 :   new_table-&gt;n_entries = 0;</span>
+<span class="lineNum">     961 </span>                :<span class="lineCov">       9560 :   new_table-&gt;tuning = table-&gt;tuning;</span>
+<span class="lineNum">     962 </span>                :<span class="lineCov">       9560 :   new_table-&gt;hasher = table-&gt;hasher;</span>
+<span class="lineNum">     963 </span>                :<span class="lineCov">       9560 :   new_table-&gt;comparator = table-&gt;comparator;</span>
+<span class="lineNum">     964 </span>                :<span class="lineCov">       9560 :   new_table-&gt;data_freer = table-&gt;data_freer;</span>
 <span class="lineNum">     965 </span>                :            : 
 <span class="lineNum">     966 </span>                :            :   /* In order for the transfer to successfully complete, we need
 <span class="lineNum">     967 </span>                :            :      additional overflow entries when distinct buckets in the old
@@ -1052,19 +1052,19 @@
 <span class="lineNum">     981 </span>                :            : #if USE_OBSTACK
 <span class="lineNum">     982 </span>                :            :   new_table-&gt;entry_stack = table-&gt;entry_stack;
 <span class="lineNum">     983 </span>                :            : #endif
-<span class="lineNum">     984 </span>                :<span class="lineCov">       9552 :   new_table-&gt;free_entry_list = table-&gt;free_entry_list;</span>
+<span class="lineNum">     984 </span>                :<span class="lineCov">       9560 :   new_table-&gt;free_entry_list = table-&gt;free_entry_list;</span>
 <span class="lineNum">     985 </span>                :            : 
-<span class="lineNum">     986 </span>        [<span class="branchCov" title="Branch 1 was taken 9552 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">       9552 :   if (transfer_entries (new_table, table, false))</span>
+<span class="lineNum">     986 </span>        [<span class="branchCov" title="Branch 1 was taken 9560 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">       9560 :   if (transfer_entries (new_table, table, false))</span>
 <span class="lineNum">     987 </span>                :            :     {
 <span class="lineNum">     988 </span>                :            :       /* Entries transferred successfully; tie up the loose ends.  */
-<span class="lineNum">     989 </span>                :<span class="lineCov">       9552 :       free (table-&gt;bucket);</span>
-<span class="lineNum">     990 </span>                :<span class="lineCov">       9552 :       table-&gt;bucket = new_table-&gt;bucket;</span>
-<span class="lineNum">     991 </span>                :<span class="lineCov">       9552 :       table-&gt;bucket_limit = new_table-&gt;bucket_limit;</span>
-<span class="lineNum">     992 </span>                :<span class="lineCov">       9552 :       table-&gt;n_buckets = new_table-&gt;n_buckets;</span>
-<span class="lineNum">     993 </span>                :<span class="lineCov">       9552 :       table-&gt;n_buckets_used = new_table-&gt;n_buckets_used;</span>
-<span class="lineNum">     994 </span>                :<span class="lineCov">       9552 :       table-&gt;free_entry_list = new_table-&gt;free_entry_list;</span>
+<span class="lineNum">     989 </span>                :<span class="lineCov">       9560 :       free (table-&gt;bucket);</span>
+<span class="lineNum">     990 </span>                :<span class="lineCov">       9560 :       table-&gt;bucket = new_table-&gt;bucket;</span>
+<span class="lineNum">     991 </span>                :<span class="lineCov">       9560 :       table-&gt;bucket_limit = new_table-&gt;bucket_limit;</span>
+<span class="lineNum">     992 </span>                :<span class="lineCov">       9560 :       table-&gt;n_buckets = new_table-&gt;n_buckets;</span>
+<span class="lineNum">     993 </span>                :<span class="lineCov">       9560 :       table-&gt;n_buckets_used = new_table-&gt;n_buckets_used;</span>
+<span class="lineNum">     994 </span>                :<span class="lineCov">       9560 :       table-&gt;free_entry_list = new_table-&gt;free_entry_list;</span>
 <span class="lineNum">     995 </span>                :            :       /* table-&gt;n_entries and table-&gt;entry_stack already hold their value.  */
-<span class="lineNum">     996 </span>                :<span class="lineCov">       9552 :       return true;</span>
+<span class="lineNum">     996 </span>                :<span class="lineCov">       9560 :       return true;</span>
 <span class="lineNum">     997 </span>                :            :     }
 <span class="lineNum">     998 </span>                :            : 
 <span class="lineNum">     999 </span>                :            :   /* We've allocated new_table-&gt;bucket (and possibly some entries),
@@ -1086,7 +1086,7 @@
 <span class="lineNum">    1015 </span>                :<span class="lineNoCov">          0 :     abort ();</span>
 <span class="lineNum">    1016 </span>                :            :   /* table-&gt;n_entries already holds its value.  */
 <span class="lineNum">    1017 </span>                :<span class="lineNoCov">          0 :   free (new_table-&gt;bucket);</span>
-<span class="lineNum">    1018 </span>                :<span class="lineCov">      12183 :   return false;</span>
+<span class="lineNum">    1018 </span>                :<span class="lineCov">      12191 :   return false;</span>
 <span class="lineNum">    1019 </span>                :            : }
 <span class="lineNum">    1020 </span>                :            : 
 <span class="lineNum">    1021 </span>                :            : /* Insert ENTRY into hash TABLE if there is not already a matching entry.
@@ -1104,9 +1104,9 @@
 <span class="lineNum">    1033 </span>                :            :    the return value and ENTRY.  That works only when you can have two
 <span class="lineNum">    1034 </span>                :            :    different ENTRY values that point to data that compares &quot;equal&quot;.  Thus,
 <span class="lineNum">    1035 </span>                :            :    when the ENTRY value is a simple scalar, you must use
-<a name="1036"><span class="lineNum">    1036 </span>                :            :    hash_insert_if_absent.  ENTRY must not be NULL.  */</a>
+<span class="lineNum">    1036 </span>                :            :    hash_insert_if_absent.  ENTRY must not be NULL.  */
 <span class="lineNum">    1037 </span>                :            : int
-<span class="lineNum">    1038 </span>                :<span class="lineCov">     181524 : hash_insert_if_absent (Hash_table *table, void const *entry,</span>
+<span class="lineNum">    1038 </span>                :<span class="lineCov">     181509 : hash_insert_if_absent (Hash_table *table, void const *entry,</span>
 <span class="lineNum">    1039 </span>                :            :                        void const **matched_ent)
 <span class="lineNum">    1040 </span>                :            : {
 <span class="lineNum">    1041 </span>                :            :   void *data;
@@ -1115,15 +1115,15 @@
 <span class="lineNum">    1044 </span>                :            :   /* The caller cannot insert a NULL entry, since hash_lookup returns NULL
 <span class="lineNum">    1045 </span>                :            :      to indicate &quot;not found&quot;, and hash_find_entry uses &quot;bucket-&gt;data == NULL&quot;
 <span class="lineNum">    1046 </span>                :            :      to indicate an empty bucket.  */
-<span class="lineNum">    1047 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 181524 times"> + </span>]:<span class="lineCov">     181524 :   if (! entry)</span>
+<span class="lineNum">    1047 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 181509 times"> + </span>]:<span class="lineCov">     181509 :   if (! entry)</span>
 <span class="lineNum">    1048 </span>                :<span class="lineNoCov">          0 :     abort ();</span>
 <span class="lineNum">    1049 </span>                :            : 
 <span class="lineNum">    1050 </span>                :            :   /* If there's a matching entry already in the table, return that.  */
-<span class="lineNum">    1051 </span>        [<span class="branchCov" title="Branch 1 was taken 9248 times"> + </span><span class="branchCov" title="Branch 2 was taken 172276 times"> + </span>]:<span class="lineCov">     181524 :   if ((data = hash_find_entry (table, entry, &amp;bucket, false)) != NULL)</span>
+<span class="lineNum">    1051 </span>        [<span class="branchCov" title="Branch 1 was taken 9236 times"> + </span><span class="branchCov" title="Branch 2 was taken 172273 times"> + </span>]:<span class="lineCov">     181509 :   if ((data = hash_find_entry (table, entry, &amp;bucket, false)) != NULL)</span>
 <span class="lineNum">    1052 </span>                :            :     {
-<span class="lineNum">    1053 </span>        [<span class="branchCov" title="Branch 0 was taken 206 times"> + </span><span class="branchCov" title="Branch 1 was taken 9042 times"> + </span>]:<span class="lineCov">       9248 :       if (matched_ent)</span>
-<span class="lineNum">    1054 </span>                :<span class="lineCov">        206 :         *matched_ent = data;</span>
-<span class="lineNum">    1055 </span>                :<span class="lineCov">       9248 :       return 0;</span>
+<span class="lineNum">    1053 </span>        [<span class="branchCov" title="Branch 0 was taken 194 times"> + </span><span class="branchCov" title="Branch 1 was taken 9042 times"> + </span>]:<span class="lineCov">       9236 :       if (matched_ent)</span>
+<span class="lineNum">    1054 </span>                :<span class="lineCov">        194 :         *matched_ent = data;</span>
+<span class="lineNum">    1055 </span>                :            :       return 0;
 <span class="lineNum">    1056 </span>                :            :     }
 <span class="lineNum">    1057 </span>                :            : 
 <span class="lineNum">    1058 </span>                :            :   /* If the growth threshold of the buckets in use has been reached, increase
@@ -1131,60 +1131,60 @@
 <span class="lineNum">    1060 </span>                :            :      entries:  if the hashing function is ill-conditioned, rehashing is not
 <span class="lineNum">    1061 </span>                :            :      likely to improve it.  */
 <span class="lineNum">    1062 </span>                :            : 
-<span class="lineNum">    1063 </span>        [<span class="branchCov" title="Branch 0 was taken 90 times"> + </span><span class="branchCov" title="Branch 1 was taken 172186 times"> + </span>]:<span class="lineCov">     172276 :   if (table-&gt;n_buckets_used</span>
-<span class="lineNum">    1064 </span>                :<span class="lineCov">     172276 :       &gt; table-&gt;tuning-&gt;growth_threshold * table-&gt;n_buckets)</span>
+<span class="lineNum">    1063 </span>        [<span class="branchCov" title="Branch 0 was taken 98 times"> + </span><span class="branchCov" title="Branch 1 was taken 172175 times"> + </span>]:<span class="lineCov">     172273 :   if (table-&gt;n_buckets_used</span>
+<span class="lineNum">    1064 </span>                :<span class="lineCov">     172273 :       &gt; table-&gt;tuning-&gt;growth_threshold * table-&gt;n_buckets)</span>
 <span class="lineNum">    1065 </span>                :            :     {
 <span class="lineNum">    1066 </span>                :            :       /* Check more fully, before starting real work.  If tuning arguments
 <span class="lineNum">    1067 </span>                :            :          became invalid, the second check will rely on proper defaults.  */
-<span class="lineNum">    1068 </span>                :<span class="lineCov">         90 :       check_tuning (table);</span>
-<span class="lineNum">    1069 </span>        [<span class="branchCov" title="Branch 0 was taken 90 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         90 :       if (table-&gt;n_buckets_used</span>
-<span class="lineNum">    1070 </span>                :<span class="lineCov">         90 :           &gt; table-&gt;tuning-&gt;growth_threshold * table-&gt;n_buckets)</span>
+<span class="lineNum">    1068 </span>                :<span class="lineCov">         98 :       check_tuning (table);</span>
+<span class="lineNum">    1069 </span>        [<span class="branchCov" title="Branch 0 was taken 98 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         98 :       if (table-&gt;n_buckets_used</span>
+<span class="lineNum">    1070 </span>                :<span class="lineCov">         98 :           &gt; table-&gt;tuning-&gt;growth_threshold * table-&gt;n_buckets)</span>
 <span class="lineNum">    1071 </span>                :            :         {
-<span class="lineNum">    1072 </span>                :<span class="lineCov">         90 :           const Hash_tuning *tuning = table-&gt;tuning;</span>
-<span class="lineNum">    1073 </span>                :<span class="lineCov">         90 :           float candidate =</span>
-<span class="lineNum">    1074 </span>                :<span class="lineCov">         90 :             (tuning-&gt;is_n_buckets</span>
+<span class="lineNum">    1072 </span>                :<span class="lineCov">         98 :           const Hash_tuning *tuning = table-&gt;tuning;</span>
+<span class="lineNum">    1073 </span>                :<span class="lineCov">         98 :           float candidate =</span>
+<span class="lineNum">    1074 </span>                :<span class="lineCov">         98 :             (tuning-&gt;is_n_buckets</span>
 <span class="lineNum">    1075 </span>                :<span class="lineCov">          9 :              ? (table-&gt;n_buckets * tuning-&gt;growth_factor)</span>
-<span class="lineNum">    1076 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 81 times"> + </span>]:<span class="lineCov">         90 :              : (table-&gt;n_buckets * tuning-&gt;growth_factor</span>
-<span class="lineNum">    1077 </span>                :<span class="lineCov">         81 :                 * tuning-&gt;growth_threshold));</span>
+<span class="lineNum">    1076 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 89 times"> + </span>]:<span class="lineCov">         98 :              : (table-&gt;n_buckets * tuning-&gt;growth_factor</span>
+<span class="lineNum">    1077 </span>                :<span class="lineCov">         89 :                 * tuning-&gt;growth_threshold));</span>
 <span class="lineNum">    1078 </span>                :            : 
-<span class="lineNum">    1079 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 90 times"> + </span>]:<span class="lineCov">         90 :           if (SIZE_MAX &lt;= candidate)</span>
-<span class="lineNum">    1080 </span>                :<span class="lineNoCov">          0 :             return -1;</span>
+<span class="lineNum">    1079 </span>        [<span class="branchCov" title="Branch 0 was taken 98 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         98 :           if (SIZE_MAX &lt;= candidate)</span>
+<span class="lineNum">    1080 </span>                :            :             return -1;
 <span class="lineNum">    1081 </span>                :            : 
 <span class="lineNum">    1082 </span>                :            :           /* If the rehash fails, arrange to return NULL.  */
-<span class="lineNum">    1083 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 90 times"> + </span>]:<span class="lineCov">         90 :           if (!hash_rehash (table, candidate))</span>
-<span class="lineNum">    1084 </span>                :<span class="lineNoCov">          0 :             return -1;</span>
+<span class="lineNum">    1083 </span>        [<span class="branchCov" title="Branch 1 was taken 98 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         98 :           if (!hash_rehash (table, candidate))</span>
+<span class="lineNum">    1084 </span>                :            :             return -1;
 <span class="lineNum">    1085 </span>                :            : 
 <span class="lineNum">    1086 </span>                :            :           /* Update the bucket we are interested in.  */
-<span class="lineNum">    1087 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 90 times"> + </span>]:<span class="lineCov">         90 :           if (hash_find_entry (table, entry, &amp;bucket, false) != NULL)</span>
+<span class="lineNum">    1087 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 98 times"> + </span>]:<span class="lineCov">         98 :           if (hash_find_entry (table, entry, &amp;bucket, false) != NULL)</span>
 <span class="lineNum">    1088 </span>                :<span class="lineNoCov">          0 :             abort ();</span>
 <span class="lineNum">    1089 </span>                :            :         }
 <span class="lineNum">    1090 </span>                :            :     }
 <span class="lineNum">    1091 </span>                :            : 
 <span class="lineNum">    1092 </span>                :            :   /* ENTRY is not matched, it should be inserted.  */
 <span class="lineNum">    1093 </span>                :            : 
-<span class="lineNum">    1094 </span>        [<span class="branchCov" title="Branch 0 was taken 41065 times"> + </span><span class="branchCov" title="Branch 1 was taken 131211 times"> + </span>]:<span class="lineCov">     172276 :   if (bucket-&gt;data)</span>
+<span class="lineNum">    1094 </span>        [<span class="branchCov" title="Branch 0 was taken 39353 times"> + </span><span class="branchCov" title="Branch 1 was taken 132920 times"> + </span>]:<span class="lineCov">     172273 :   if (bucket-&gt;data)</span>
 <span class="lineNum">    1095 </span>                :            :     {
-<span class="lineNum">    1096 </span>                :<span class="lineCov">      41065 :       struct hash_entry *new_entry = allocate_entry (table);</span>
+<span class="lineNum">    1096 </span>                :<span class="lineCov">      39353 :       struct hash_entry *new_entry = allocate_entry (table);</span>
 <span class="lineNum">    1097 </span>                :            : 
-<span class="lineNum">    1098 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 41065 times"> + </span>]:<span class="lineCov">      41065 :       if (new_entry == NULL)</span>
-<span class="lineNum">    1099 </span>                :<span class="lineNoCov">          0 :         return -1;</span>
+<span class="lineNum">    1098 </span>        [<span class="branchCov" title="Branch 0 was taken 39353 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      39353 :       if (new_entry == NULL)</span>
+<span class="lineNum">    1099 </span>                :            :         return -1;
 <span class="lineNum">    1100 </span>                :            : 
 <span class="lineNum">    1101 </span>                :            :       /* Add ENTRY in the overflow of the bucket.  */
 <span class="lineNum">    1102 </span>                :            : 
-<span class="lineNum">    1103 </span>                :<span class="lineCov">      41065 :       new_entry-&gt;data = (void *) entry;</span>
-<span class="lineNum">    1104 </span>                :<span class="lineCov">      41065 :       new_entry-&gt;next = bucket-&gt;next;</span>
-<span class="lineNum">    1105 </span>                :<span class="lineCov">      41065 :       bucket-&gt;next = new_entry;</span>
-<span class="lineNum">    1106 </span>                :<span class="lineCov">      41065 :       table-&gt;n_entries++;</span>
-<span class="lineNum">    1107 </span>                :<span class="lineCov">      41065 :       return 1;</span>
+<span class="lineNum">    1103 </span>                :<span class="lineCov">      39353 :       new_entry-&gt;data = (void *) entry;</span>
+<span class="lineNum">    1104 </span>                :<span class="lineCov">      39353 :       new_entry-&gt;next = bucket-&gt;next;</span>
+<span class="lineNum">    1105 </span>                :<span class="lineCov">      39353 :       bucket-&gt;next = new_entry;</span>
+<span class="lineNum">    1106 </span>                :<span class="lineCov">      39353 :       table-&gt;n_entries++;</span>
+<span class="lineNum">    1107 </span>                :<span class="lineCov">      39353 :       return 1;</span>
 <span class="lineNum">    1108 </span>                :            :     }
 <span class="lineNum">    1109 </span>                :            : 
 <span class="lineNum">    1110 </span>                :            :   /* Add ENTRY right in the bucket head.  */
 <span class="lineNum">    1111 </span>                :            : 
-<span class="lineNum">    1112 </span>                :<span class="lineCov">     131211 :   bucket-&gt;data = (void *) entry;</span>
-<span class="lineNum">    1113 </span>                :<span class="lineCov">     131211 :   table-&gt;n_entries++;</span>
-<span class="lineNum">    1114 </span>                :<span class="lineCov">     131211 :   table-&gt;n_buckets_used++;</span>
+<span class="lineNum">    1112 </span>                :<span class="lineCov">     132920 :   bucket-&gt;data = (void *) entry;</span>
+<span class="lineNum">    1113 </span>                :<span class="lineCov">     132920 :   table-&gt;n_entries++;</span>
+<span class="lineNum">    1114 </span>                :<span class="lineCov">     132920 :   table-&gt;n_buckets_used++;</span>
 <span class="lineNum">    1115 </span>                :            : 
-<span class="lineNum">    1116 </span>                :<span class="lineCov">     181524 :   return 1;</span>
+<span class="lineNum">    1116 </span>                :<span class="lineCov">     181509 :   return 1;</span>
 <span class="lineNum">    1117 </span>                :            : }
 <span class="lineNum">    1118 </span>                :            : 
 <span class="lineNum">    1119 </span>                :            : /* hash_insert0 is the deprecated name for hash_insert_if_absent.
@@ -1202,13 +1202,13 @@
 <span class="lineNum">    1131 </span>                :            :    NULL.  */
 <a name="1132"><span class="lineNum">    1132 </span>                :            : </a>
 <span class="lineNum">    1133 </span>                :            : void *
-<span class="lineNum">    1134 </span>                :<span class="lineCov">     156975 : hash_insert (Hash_table *table, void const *entry)</span>
+<span class="lineNum">    1134 </span>                :<span class="lineCov">     156960 : hash_insert (Hash_table *table, void const *entry)</span>
 <span class="lineNum">    1135 </span>                :            : {
 <span class="lineNum">    1136 </span>                :            :   void const *matched_ent;
-<span class="lineNum">    1137 </span>                :<span class="lineCov">     156975 :   int err = hash_insert_if_absent (table, entry, &amp;matched_ent);</span>
-<span class="lineNum">    1138 </span>                :<span class="lineCov">     156975 :   return (err == -1</span>
+<span class="lineNum">    1137 </span>                :<span class="lineCov">     156960 :   int err = hash_insert_if_absent (table, entry, &amp;matched_ent);</span>
+<span class="lineNum">    1138 </span>                :<span class="lineCov">     156960 :   return (err == -1</span>
 <span class="lineNum">    1139 </span>                :            :           ? NULL
-<span class="lineNum">    1140 </span>[<span class="branchCov" title="Branch 2 was taken 206 times"> + </span><span class="branchCov" title="Branch 3 was taken 156769 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 156975 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">     156975 :           : (void *) (err == 0 ? matched_ent : entry));</span>
+<span class="lineNum">    1140 </span>[<span class="branchCov" title="Branch 2 was taken 194 times"> + </span><span class="branchCov" title="Branch 3 was taken 156766 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 156960 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">     156960 :           : (void *) (err == 0 ? matched_ent : entry));</span>
 <span class="lineNum">    1141 </span>                :            : }
 <span class="lineNum">    1142 </span>                :            : 
 <span class="lineNum">    1143 </span>                :            : /* If ENTRY is already in the table, remove it and return the just-deleted
@@ -1222,19 +1222,19 @@
 <span class="lineNum">    1151 </span>                :            :   struct hash_entry *bucket;
 <span class="lineNum">    1152 </span>                :            : 
 <span class="lineNum">    1153 </span>                :<span class="lineCov">     107508 :   data = hash_find_entry (table, entry, &amp;bucket, true);</span>
-<span class="lineNum">    1154 </span>        [<span class="branchCov" title="Branch 0 was taken 39 times"> + </span><span class="branchCov" title="Branch 1 was taken 107469 times"> + </span>]:<span class="lineCov">     107508 :   if (!data)</span>
-<span class="lineNum">    1155 </span>                :<span class="lineCov">         39 :     return NULL;</span>
+<span class="lineNum">    1154 </span>        [<span class="branchCov" title="Branch 0 was taken 107469 times"> + </span><span class="branchCov" title="Branch 1 was taken 39 times"> + </span>]:<span class="lineCov">     107508 :   if (!data)</span>
+<span class="lineNum">    1155 </span>                :            :     return NULL;
 <span class="lineNum">    1156 </span>                :            : 
 <span class="lineNum">    1157 </span>                :<span class="lineCov">     107469 :   table-&gt;n_entries--;</span>
-<span class="lineNum">    1158 </span>        [<span class="branchCov" title="Branch 0 was taken 99317 times"> + </span><span class="branchCov" title="Branch 1 was taken 8152 times"> + </span>]:<span class="lineCov">     107469 :   if (!bucket-&gt;data)</span>
+<span class="lineNum">    1158 </span>        [<span class="branchCov" title="Branch 0 was taken 98940 times"> + </span><span class="branchCov" title="Branch 1 was taken 8529 times"> + </span>]:<span class="lineCov">     107469 :   if (!bucket-&gt;data)</span>
 <span class="lineNum">    1159 </span>                :            :     {
-<span class="lineNum">    1160 </span>                :<span class="lineCov">      99317 :       table-&gt;n_buckets_used--;</span>
+<span class="lineNum">    1160 </span>                :<span class="lineCov">      98940 :       table-&gt;n_buckets_used--;</span>
 <span class="lineNum">    1161 </span>                :            : 
 <span class="lineNum">    1162 </span>                :            :       /* If the shrink threshold of the buckets in use has been reached,
 <span class="lineNum">    1163 </span>                :            :          rehash into a smaller table.  */
 <span class="lineNum">    1164 </span>                :            : 
-<span class="lineNum">    1165 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 99308 times"> + </span>]:<span class="lineCov">      99317 :       if (table-&gt;n_buckets_used</span>
-<span class="lineNum">    1166 </span>                :<span class="lineCov">      99317 :           &lt; table-&gt;tuning-&gt;shrink_threshold * table-&gt;n_buckets)</span>
+<span class="lineNum">    1165 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 98931 times"> + </span>]:<span class="lineCov">      98940 :       if (table-&gt;n_buckets_used</span>
+<span class="lineNum">    1166 </span>                :<span class="lineCov">      98940 :           &lt; table-&gt;tuning-&gt;shrink_threshold * table-&gt;n_buckets)</span>
 <span class="lineNum">    1167 </span>                :            :         {
 <span class="lineNum">    1168 </span>                :            :           /* Check more fully, before starting real work.  If tuning arguments
 <span class="lineNum">    1169 </span>                :            :              became invalid, the second check will rely on proper defaults.  */
@@ -1265,14 +1265,14 @@
 <span class="lineNum">    1194 </span>                :<span class="lineNoCov">          0 :                       free (cursor);</span>
 <span class="lineNum">    1195 </span>                :<span class="lineNoCov">          0 :                       cursor = next;</span>
 <span class="lineNum">    1196 </span>                :            :                     }
-<span class="lineNum">    1197 </span>                :<span class="lineNoCov">          0 :                   table-&gt;free_entry_list = NULL;</span>
+<span class="lineNum">    1197 </span>                :<span class="lineCov">     107508 :                   table-&gt;free_entry_list = NULL;</span>
 <span class="lineNum">    1198 </span>                :            : #endif
 <span class="lineNum">    1199 </span>                :            :                 }
 <span class="lineNum">    1200 </span>                :            :             }
 <span class="lineNum">    1201 </span>                :            :         }
 <span class="lineNum">    1202 </span>                :            :     }
 <span class="lineNum">    1203 </span>                :            : 
-<span class="lineNum">    1204 </span>                :<span class="lineCov">     107508 :   return data;</span>
+<span class="lineNum">    1204 </span>                :            :   return data;
 <span class="lineNum">    1205 </span>                :            : }
 <span class="lineNum">    1206 </span>                :            : 
 <span class="lineNum">    1207 </span>                :            : /* Testing.  */

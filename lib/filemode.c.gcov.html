@@ -31,17 +31,17 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">36</td>
-            <td class="headerCovTableEntry">39</td>
-            <td class="headerCovTableEntryHi">92.3 %</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">3</td>
-            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -120,29 +120,29 @@
 <span class="lineNum">      49 </span>                :            :    's' socket
 <span class="lineNum">      50 </span>                :            :    'w' whiteout (4.4BSD)
 <span class="lineNum">      51 </span>                :            :    '?' some other file type  */
-<a name="52"><span class="lineNum">      52 </span>                :            : </a>
+<span class="lineNum">      52 </span>                :            : 
 <span class="lineNum">      53 </span>                :            : static char
-<span class="lineNum">      54 </span>                :<span class="lineCov">       7485 : ftypelet (mode_t bits)</span>
-<span class="lineNum">      55 </span>                :            : {
+<span class="lineNum">      54 </span>                :            : ftypelet (mode_t bits)
+<a name="55"><span class="lineNum">      55 </span>                :            : {</a>
 <span class="lineNum">      56 </span>                :            :   /* These are the most common, so test for them first.  */
-<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 5700 times"> + </span><span class="branchCov" title="Branch 1 was taken 1785 times"> + </span>]:<span class="lineCov">       7485 :   if (S_ISREG (bits))</span>
-<span class="lineNum">      58 </span>                :<span class="lineCov">       5700 :     return '-';</span>
-<span class="lineNum">      59 </span>        [<span class="branchCov" title="Branch 0 was taken 1450 times"> + </span><span class="branchCov" title="Branch 1 was taken 335 times"> + </span>]:<span class="lineCov">       1785 :   if (S_ISDIR (bits))</span>
-<span class="lineNum">      60 </span>                :<span class="lineCov">       1450 :     return 'd';</span>
+<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 1797 times"> + </span><span class="branchCov" title="Branch 1 was taken 5703 times"> + </span>]:<span class="lineCov">       7500 :   if (S_ISREG (bits))</span>
+<span class="lineNum">      58 </span>                :            :     return '-';
+<span class="lineNum">      59 </span>        [<span class="branchCov" title="Branch 0 was taken 335 times"> + </span><span class="branchCov" title="Branch 1 was taken 1462 times"> + </span>]:<span class="lineCov">       1797 :   if (S_ISDIR (bits))</span>
+<span class="lineNum">      60 </span>                :            :     return 'd';
 <span class="lineNum">      61 </span>                :            : 
 <span class="lineNum">      62 </span>                :            :   /* Other letters standardized by POSIX 1003.1-2004.  */
-<span class="lineNum">      63 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 335 times"> + </span>]:<span class="lineCov">        335 :   if (S_ISBLK (bits))</span>
-<span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :     return 'b';</span>
-<span class="lineNum">      65 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 335 times"> + </span>]:<span class="lineCov">        335 :   if (S_ISCHR (bits))</span>
-<span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :     return 'c';</span>
-<span class="lineNum">      67 </span>        [<span class="branchCov" title="Branch 0 was taken 319 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        335 :   if (S_ISLNK (bits))</span>
-<span class="lineNum">      68 </span>                :<span class="lineCov">        319 :     return 'l';</span>
-<span class="lineNum">      69 </span>        [<span class="branchCov" title="Branch 0 was taken 7 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         16 :   if (S_ISFIFO (bits))</span>
-<span class="lineNum">      70 </span>                :<span class="lineCov">          7 :     return 'p';</span>
+<span class="lineNum">      63 </span>        [<span class="branchCov" title="Branch 0 was taken 335 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        335 :   if (S_ISBLK (bits))</span>
+<span class="lineNum">      64 </span>                :            :     return 'b';
+<span class="lineNum">      65 </span>        [<span class="branchCov" title="Branch 0 was taken 335 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        335 :   if (S_ISCHR (bits))</span>
+<span class="lineNum">      66 </span>                :            :     return 'c';
+<span class="lineNum">      67 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">        335 :   if (S_ISLNK (bits))</span>
+<span class="lineNum">      68 </span>                :            :     return 'l';
+<span class="lineNum">      69 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 7 times"> + </span>]:<span class="lineCov">         16 :   if (S_ISFIFO (bits))</span>
+<span class="lineNum">      70 </span>                :            :     return 'p';
 <span class="lineNum">      71 </span>                :            : 
 <span class="lineNum">      72 </span>                :            :   /* Other file types (though not letters) standardized by POSIX.  */
-<span class="lineNum">      73 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :   if (S_ISSOCK (bits))</span>
-<span class="lineNum">      74 </span>                :<span class="lineNoCov">          0 :     return 's';</span>
+<span class="lineNum">      73 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          9 :   if (S_ISSOCK (bits))</span>
+<span class="lineNum">      74 </span>                :            :     return 's';
 <span class="lineNum">      75 </span>                :            : 
 <span class="lineNum">      76 </span>                :            :   /* Nonstandard file types.  */
 <span class="lineNum">      77 </span>                :            :   if (S_ISCTG (bits))
@@ -158,36 +158,36 @@
 <span class="lineNum">      87 </span>                :            :   if (S_ISWHT (bits))
 <span class="lineNum">      88 </span>                :            :     return 'w';
 <span class="lineNum">      89 </span>                :            : 
-<span class="lineNum">      90 </span>                :<span class="lineCov">       7485 :   return '?';</span>
+<span class="lineNum">      90 </span>                :            :   return '?';
 <span class="lineNum">      91 </span>                :            : }
 <span class="lineNum">      92 </span>                :            : 
 <span class="lineNum">      93 </span>                :            : /* Like filemodestring, but rely only on MODE.  */
-<a name="94"><span class="lineNum">      94 </span>                :            : </a>
+<span class="lineNum">      94 </span>                :            : 
 <span class="lineNum">      95 </span>                :            : void
-<span class="lineNum">      96 </span>                :<span class="lineCov">       7485 : strmode (mode_t mode, char *str)</span>
+<span class="lineNum">      96 </span>                :<span class="lineCov">       7500 : strmode (mode_t mode, char *str)</span>
 <span class="lineNum">      97 </span>                :            : {
-<span class="lineNum">      98 </span>                :<span class="lineCov">       7485 :   str[0] = ftypelet (mode);</span>
-<span class="lineNum">      99 </span>        [<span class="branchCov" title="Branch 0 was taken 7428 times"> + </span><span class="branchCov" title="Branch 1 was taken 57 times"> + </span>]:<span class="lineCov">       7485 :   str[1] = mode &amp; S_IRUSR ? 'r' : '-';</span>
-<span class="lineNum">     100 </span>        [<span class="branchCov" title="Branch 0 was taken 4386 times"> + </span><span class="branchCov" title="Branch 1 was taken 3099 times"> + </span>]:<span class="lineCov">       7485 :   str[2] = mode &amp; S_IWUSR ? 'w' : '-';</span>
-<span class="lineNum">     101 </span>[<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 7482 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       7485 :   str[3] = (mode &amp; S_ISUID</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 1825 times"> + </span><span class="branchCov" title="Branch 5 was taken 5657 times"> + </span>]
+<span class="lineNum">      98 </span>                :<span class="lineCov">       7500 :   str[0] = ftypelet (mode);</span>
+<span class="lineNum">      99 </span>        [<span class="branchCov" title="Branch 0 was taken 57 times"> + </span><span class="branchCov" title="Branch 1 was taken 7443 times"> + </span>]:<span class="lineCov">       7500 :   str[1] = mode &amp; S_IRUSR ? 'r' : '-';</span>
+<span class="lineNum">     100 </span>        [<span class="branchCov" title="Branch 0 was taken 3099 times"> + </span><span class="branchCov" title="Branch 1 was taken 4401 times"> + </span>]:<span class="lineCov">       7500 :   str[2] = mode &amp; S_IWUSR ? 'w' : '-';</span>
+<span class="lineNum">     101 </span>[<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 7497 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">       7500 :   str[3] = (mode &amp; S_ISUID</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 5660 times"> + </span><span class="branchCov" title="Branch 5 was taken 1837 times"> + </span>]
 <span class="lineNum">     102 </span>                :<span class="lineCov">          3 :             ? (mode &amp; S_IXUSR ? 's' : 'S')</span>
-<span class="lineNum">     103 </span>                :<span class="lineCov">       7482 :             : (mode &amp; S_IXUSR ? 'x' : '-'));</span>
-<span class="lineNum">     104 </span>        [<span class="branchCov" title="Branch 0 was taken 5829 times"> + </span><span class="branchCov" title="Branch 1 was taken 1656 times"> + </span>]:<span class="lineCov">       7485 :   str[4] = mode &amp; S_IRGRP ? 'r' : '-';</span>
-<span class="lineNum">     105 </span>        [<span class="branchCov" title="Branch 0 was taken 2030 times"> + </span><span class="branchCov" title="Branch 1 was taken 5455 times"> + </span>]:<span class="lineCov">       7485 :   str[5] = mode &amp; S_IWGRP ? 'w' : '-';</span>
-<span class="lineNum">     106 </span>[<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 7473 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span>]:<span class="lineCov">       7485 :   str[6] = (mode &amp; S_ISGID</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 3831 times"> + </span><span class="branchCov" title="Branch 5 was taken 3642 times"> + </span>]
+<span class="lineNum">     103 </span>                :<span class="lineCov">       7497 :             : (mode &amp; S_IXUSR ? 'x' : '-'));</span>
+<span class="lineNum">     104 </span>        [<span class="branchCov" title="Branch 0 was taken 1668 times"> + </span><span class="branchCov" title="Branch 1 was taken 5832 times"> + </span>]:<span class="lineCov">       7500 :   str[4] = mode &amp; S_IRGRP ? 'r' : '-';</span>
+<span class="lineNum">     105 </span>        [<span class="branchCov" title="Branch 0 was taken 5470 times"> + </span><span class="branchCov" title="Branch 1 was taken 2030 times"> + </span>]:<span class="lineCov">       7500 :   str[5] = mode &amp; S_IWGRP ? 'w' : '-';</span>
+<span class="lineNum">     106 </span>[<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 7488 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 9 times"> + </span>]:<span class="lineCov">       7500 :   str[6] = (mode &amp; S_ISGID</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 3657 times"> + </span><span class="branchCov" title="Branch 5 was taken 3831 times"> + </span>]
 <span class="lineNum">     107 </span>                :<span class="lineCov">         12 :             ? (mode &amp; S_IXGRP ? 's' : 'S')</span>
-<span class="lineNum">     108 </span>                :<span class="lineCov">       7473 :             : (mode &amp; S_IXGRP ? 'x' : '-'));</span>
-<span class="lineNum">     109 </span>        [<span class="branchCov" title="Branch 0 was taken 2830 times"> + </span><span class="branchCov" title="Branch 1 was taken 4655 times"> + </span>]:<span class="lineCov">       7485 :   str[7] = mode &amp; S_IROTH ? 'r' : '-';</span>
-<span class="lineNum">     110 </span>        [<span class="branchCov" title="Branch 0 was taken 739 times"> + </span><span class="branchCov" title="Branch 1 was taken 6746 times"> + </span>]:<span class="lineCov">       7485 :   str[8] = mode &amp; S_IWOTH ? 'w' : '-';</span>
-<span class="lineNum">     111 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 7479 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">       7485 :   str[9] = (mode &amp; S_ISVTX</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 787 times"> + </span><span class="branchCov" title="Branch 5 was taken 6692 times"> + </span>]
+<span class="lineNum">     108 </span>                :<span class="lineCov">       7488 :             : (mode &amp; S_IXGRP ? 'x' : '-'));</span>
+<span class="lineNum">     109 </span>        [<span class="branchCov" title="Branch 0 was taken 4667 times"> + </span><span class="branchCov" title="Branch 1 was taken 2833 times"> + </span>]:<span class="lineCov">       7500 :   str[7] = mode &amp; S_IROTH ? 'r' : '-';</span>
+<span class="lineNum">     110 </span>        [<span class="branchCov" title="Branch 0 was taken 6761 times"> + </span><span class="branchCov" title="Branch 1 was taken 739 times"> + </span>]:<span class="lineCov">       7500 :   str[8] = mode &amp; S_IWOTH ? 'w' : '-';</span>
+<span class="lineNum">     111 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 7494 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       7500 :   str[9] = (mode &amp; S_ISVTX</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 6707 times"> + </span><span class="branchCov" title="Branch 5 was taken 787 times"> + </span>]
 <span class="lineNum">     112 </span>                :<span class="lineCov">          6 :             ? (mode &amp; S_IXOTH ? 't' : 'T')</span>
-<span class="lineNum">     113 </span>                :<span class="lineCov">       7479 :             : (mode &amp; S_IXOTH ? 'x' : '-'));</span>
-<span class="lineNum">     114 </span>                :<span class="lineCov">       7485 :   str[10] = ' ';</span>
-<span class="lineNum">     115 </span>                :<span class="lineCov">       7485 :   str[11] = '\0';</span>
-<span class="lineNum">     116 </span>                :<span class="lineCov">       7485 : }</span>
+<span class="lineNum">     113 </span>                :<span class="lineCov">       7494 :             : (mode &amp; S_IXOTH ? 'x' : '-'));</span>
+<span class="lineNum">     114 </span>                :<span class="lineCov">       7500 :   str[10] = ' ';</span>
+<span class="lineNum">     115 </span>                :<span class="lineCov">       7500 :   str[11] = '\0';</span>
+<span class="lineNum">     116 </span>                :<span class="lineCov">       7500 : }</span>
 <span class="lineNum">     117 </span>                :            : 
 <span class="lineNum">     118 </span>                :            : #endif /* ! HAVE_DECL_STRMODE */
 <span class="lineNum">     119 </span>                :            : 
@@ -237,9 +237,9 @@
 <span class="lineNum">     163 </span>                :            :    11   '\0'.  */
 <a name="164"><span class="lineNum">     164 </span>                :            : </a>
 <span class="lineNum">     165 </span>                :            : void
-<span class="lineNum">     166 </span>                :<span class="lineCov">       7467 : filemodestring (struct stat const *statp, char *str)</span>
+<span class="lineNum">     166 </span>                :<span class="lineCov">       7482 : filemodestring (struct stat const *statp, char *str)</span>
 <span class="lineNum">     167 </span>                :            : {
-<span class="lineNum">     168 </span>                :<span class="lineCov">       7467 :   strmode (statp-&gt;st_mode, str);</span>
+<span class="lineNum">     168 </span>                :<span class="lineCov">       7482 :   strmode (statp-&gt;st_mode, str);</span>
 <span class="lineNum">     169 </span>                :            : 
 <span class="lineNum">     170 </span>                :            :   if (S_TYPEISSEM (statp))
 <span class="lineNum">     171 </span>                :            :     str[0] = 'F';
@@ -251,7 +251,7 @@
 <span class="lineNum">     177 </span>                :            :     str[0] = 'S';
 <span class="lineNum">     178 </span>                :            :   else if (S_TYPEISTMO (statp))
 <span class="lineNum">     179 </span>                :            :     str[0] = 'T';
-<span class="lineNum">     180 </span>                :<span class="lineCov">       7467 : }</span>
+<span class="lineNum">     180 </span>                :<span class="lineCov">       7482 : }</span>
 </pre>
       </td>
     </tr>

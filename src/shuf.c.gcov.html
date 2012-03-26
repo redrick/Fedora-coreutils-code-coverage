@@ -31,17 +31,17 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">124</td>
-            <td class="headerCovTableEntry">150</td>
-            <td class="headerCovTableEntryMed">82.7 %</td>
+            <td class="headerCovTableEntry">111</td>
+            <td class="headerCovTableEntry">134</td>
+            <td class="headerCovTableEntryMed">82.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">4</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">57</td>
-            <td class="headerCovTableEntry">92</td>
-            <td class="headerCovTableEntryLo">62.0 %</td>
+            <td class="headerCovTableEntry">55</td>
+            <td class="headerCovTableEntry">96</td>
+            <td class="headerCovTableEntryLo">57.3 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -144,7 +144,7 @@
 <span class="lineNum">      73 </span>                :            : \n\
 <span class="lineNum">      74 </span>                :            : With no FILE, or when FILE is -, read standard input.\n\
 <span class="lineNum">      75 </span>                :            : &quot;), stdout);
-<span class="lineNum">      76 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">      76 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">      77 </span>                :            :     }
 <span class="lineNum">      78 </span>                :            : 
 <span class="lineNum">      79 </span>                :<span class="lineCov">         12 :   exit (status);</span>
@@ -169,15 +169,15 @@
 <span class="lineNum">      98 </span>                :            :   {GETOPT_VERSION_OPTION_DECL},
 <span class="lineNum">      99 </span>                :            :   {0, 0, 0, 0},
 <span class="lineNum">     100 </span>                :            : };
-<a name="101"><span class="lineNum">     101 </span>                :            : </a>
+<span class="lineNum">     101 </span>                :            : 
 <span class="lineNum">     102 </span>                :            : static bool
-<span class="lineNum">     103 </span>                :<span class="lineCov">         76 : input_numbers_option_used (size_t lo_input, size_t hi_input)</span>
+<a name="103"><span class="lineNum">     103 </span>                :            : input_numbers_option_used (size_t lo_input, size_t hi_input)</a>
 <span class="lineNum">     104 </span>                :            : {
-<span class="lineNum">     105 </span>[<span class="branchCov" title="Branch 0 was taken 58 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 58 times"> + </span>]:<span class="lineCov">         76 :   return ! (lo_input == SIZE_MAX &amp;&amp; hi_input == 0);</span>
+<span class="lineNum">     105 </span>                :<span class="lineCov">         76 :   return ! (lo_input == SIZE_MAX &amp;&amp; hi_input == 0);</span>
 <span class="lineNum">     106 </span>                :            : }
-<a name="107"><span class="lineNum">     107 </span>                :            : </a>
+<span class="lineNum">     107 </span>                :            : 
 <span class="lineNum">     108 </span>                :            : static void
-<span class="lineNum">     109 </span>                :<span class="lineCov">          3 : input_from_argv (char **operand, int n_operands, char eolbyte)</span>
+<span class="lineNum">     109 </span>                :            : input_from_argv (char **operand, int n_operands, char eolbyte)
 <span class="lineNum">     110 </span>                :            : {
 <span class="lineNum">     111 </span>                :            :   char *p;
 <span class="lineNum">     112 </span>                :<span class="lineCov">          3 :   size_t size = n_operands;</span>
@@ -187,25 +187,25 @@
 <span class="lineNum">     116 </span>                :<span class="lineCov">         15 :     size += strlen (operand[i]);</span>
 <span class="lineNum">     117 </span>                :<span class="lineCov">          3 :   p = xmalloc (size);</span>
 <span class="lineNum">     118 </span>                :            : 
-<span class="lineNum">     119 </span>        [<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         18 :   for (i = 0; i &lt; n_operands; i++)</span>
+<span class="lineNum">     119 </span>        [<span class="branchCov" title="Branch 1 was taken 15 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">         18 :   for (i = 0; i &lt; n_operands; i++)</span>
 <span class="lineNum">     120 </span>                :            :     {
-<span class="lineNum">     121 </span>                :<span class="lineCov">         15 :       char *p1 = stpcpy (p, operand[i]);</span>
+<span class="lineNum">     121 </span>                :<span class="lineCov">         30 :       char *p1 = stpcpy (p, operand[i]);</span>
 <span class="lineNum">     122 </span>                :<span class="lineCov">         15 :       operand[i] = p;</span>
 <span class="lineNum">     123 </span>                :<span class="lineCov">         15 :       p = p1;</span>
 <span class="lineNum">     124 </span>                :<span class="lineCov">         15 :       *p++ = eolbyte;</span>
 <span class="lineNum">     125 </span>                :            :     }
 <span class="lineNum">     126 </span>                :            : 
 <span class="lineNum">     127 </span>                :<span class="lineCov">          3 :   operand[n_operands] = p;</span>
-<span class="lineNum">     128 </span>                :<span class="lineCov">          3 : }</span>
+<span class="lineNum">     128 </span>                :            : }
 <span class="lineNum">     129 </span>                :            : 
 <span class="lineNum">     130 </span>                :            : /* Return the start of the next line after LINE.  The current line
 <span class="lineNum">     131 </span>                :            :    ends in EOLBYTE, and is guaranteed to end before LINE + N.  */
-<a name="132"><span class="lineNum">     132 </span>                :            : </a>
+<span class="lineNum">     132 </span>                :            : 
 <span class="lineNum">     133 </span>                :            : static char *
-<span class="lineNum">     134 </span>                :<span class="lineCov">      51988 : next_line (char *line, char eolbyte, size_t n)</span>
+<a name="134"><span class="lineNum">     134 </span>                :            : next_line (char *line, char eolbyte, size_t n)</a>
 <span class="lineNum">     135 </span>                :            : {
 <span class="lineNum">     136 </span>                :<span class="lineCov">      51988 :   char *p = memchr (line, eolbyte, n);</span>
-<span class="lineNum">     137 </span>                :<span class="lineCov">      51988 :   return p + 1;</span>
+<span class="lineNum">     137 </span>                :            :   return p + 1;
 <span class="lineNum">     138 </span>                :            : }
 <span class="lineNum">     139 </span>                :            : 
 <span class="lineNum">     140 </span>                :            : /* Read data from file IN.  Input lines are delimited by EOLBYTE;
@@ -213,7 +213,7 @@
 <span class="lineNum">     142 </span>                :            :    byte.  Store a pointer to the resulting array of lines into *PLINE.
 <span class="lineNum">     143 </span>                :            :    Return the number of lines read.  Report an error and exit on
 <span class="lineNum">     144 </span>                :            :    failure.  */
-<a name="145"><span class="lineNum">     145 </span>                :            : </a>
+<span class="lineNum">     145 </span>                :            : 
 <span class="lineNum">     146 </span>                :            : static size_t
 <span class="lineNum">     147 </span>                :<span class="lineCov">         23 : read_input (FILE *in, char eolbyte, char ***pline)</span>
 <span class="lineNum">     148 </span>                :            : {
@@ -234,14 +234,14 @@
 <span class="lineNum">     163 </span>                :<span class="lineCov">         23 :   lim = buf + used;</span>
 <span class="lineNum">     164 </span>                :            : 
 <span class="lineNum">     165 </span>                :<span class="lineCov">         23 :   n_lines = 0;</span>
-<span class="lineNum">     166 </span>        [<span class="branchCov" title="Branch 1 was taken 25994 times"> + </span><span class="branchCov" title="Branch 2 was taken 23 times"> + </span>]:<span class="lineCov">      26017 :   for (p = buf; p &lt; lim; p = next_line (p, eolbyte, lim - p))</span>
+<span class="lineNum">     166 </span>        [<span class="branchCov" title="Branch 0 was taken 25994 times"> + </span><span class="branchCov" title="Branch 1 was taken 23 times"> + </span>]:<span class="lineCov">      26017 :   for (p = buf; p &lt; lim; p = next_line (p, eolbyte, lim - p))</span>
 <span class="lineNum">     167 </span>                :<span class="lineCov">      25994 :     n_lines++;</span>
 <span class="lineNum">     168 </span>                :            : 
-<span class="lineNum">     169 </span>                :<span class="lineCov">         23 :   *pline = line = xnmalloc (n_lines + 1, sizeof *line);</span>
+<span class="lineNum">     169 </span>                :<span class="lineCov">         46 :   *pline = line = xnmalloc (n_lines + 1, sizeof *line);</span>
 <span class="lineNum">     170 </span>                :            : 
 <span class="lineNum">     171 </span>                :<span class="lineCov">         23 :   line[0] = p = buf;</span>
 <span class="lineNum">     172 </span>        [<span class="branchCov" title="Branch 0 was taken 25994 times"> + </span><span class="branchCov" title="Branch 1 was taken 23 times"> + </span>]:<span class="lineCov">      26017 :   for (i = 1; i &lt;= n_lines; i++)</span>
-<span class="lineNum">     173 </span>                :<span class="lineCov">      25994 :     line[i] = p = next_line (p, eolbyte, lim - p);</span>
+<span class="lineNum">     173 </span>                :<span class="lineCov">      51988 :     line[i] = p = next_line (p, eolbyte, lim - p);</span>
 <span class="lineNum">     174 </span>                :            : 
 <span class="lineNum">     175 </span>                :<span class="lineCov">         23 :   return n_lines;</span>
 <span class="lineNum">     176 </span>                :            : }
@@ -252,25 +252,27 @@
 <span class="lineNum">     181 </span>                :            : {
 <span class="lineNum">     182 </span>                :            :   size_t i;
 <span class="lineNum">     183 </span>                :            : 
-<span class="lineNum">     184 </span>        [<span class="branchCov" title="Branch 0 was taken 26 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         35 :   if (line)</span>
+<span class="lineNum">     184 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 26 times"> + </span>]:<span class="lineCov">         35 :   if (line)</span>
 <span class="lineNum">     185 </span>        [<span class="branchCov" title="Branch 0 was taken 26009 times"> + </span><span class="branchCov" title="Branch 1 was taken 26 times"> + </span>]:<span class="lineCov">      26035 :     for (i = 0; i &lt; n_lines; i++)</span>
 <span class="lineNum">     186 </span>                :            :       {
 <span class="lineNum">     187 </span>                :<span class="lineCov">      26009 :         char * const *p = line + permutation[i];</span>
 <span class="lineNum">     188 </span>                :<span class="lineCov">      26009 :         size_t len = p[1] - p[0];</span>
-<span class="lineNum">     189 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 26009 times"> + </span>]:<span class="lineCov">      26009 :         if (fwrite (p[0], sizeof *p[0], len, stdout) != len)</span>
-<span class="lineNum">     190 </span>                :<span class="lineNoCov">          0 :           return -1;</span>
+<span class="lineNum">     189 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 26009 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">      26009 :         if (fwrite (p[0], sizeof *p[0], len, stdout) != len)</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>][<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 9 was taken 26009 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>][<span class="branchCov" title="Branch 12 was taken 26009 times"> + </span><span class="branchNoCov" title="Branch 13 was not taken"> - </span>]
+<span class="lineNum">     190 </span>                :            :           return -1;
 <span class="lineNum">     191 </span>                :            :       }
 <span class="lineNum">     192 </span>                :            :   else
-<span class="lineNum">     193 </span>        [<span class="branchCov" title="Branch 0 was taken 309 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">        318 :     for (i = 0; i &lt; n_lines; i++)</span>
+<span class="lineNum">     193 </span>        [<span class="branchCov" title="Branch 0 was taken 309 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">        344 :     for (i = 0; i &lt; n_lines; i++)</span>
 <span class="lineNum">     194 </span>                :            :       {
 <span class="lineNum">     195 </span>                :<span class="lineCov">        309 :         unsigned long int n = lo_input + permutation[i];</span>
-<span class="lineNum">     196 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 309 times"> + </span>]:<span class="lineCov">        309 :         if (printf (&quot;%lu%c&quot;, n, eolbyte) &lt; 0)</span>
-<span class="lineNum">     197 </span>                :<span class="lineNoCov">          0 :           return -1;</span>
+<span class="lineNum">     196 </span>        [<span class="branchCov" title="Branch 0 was taken 309 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        309 :         if (printf (&quot;%lu%c&quot;, n, eolbyte) &lt; 0)</span>
+<span class="lineNum">     197 </span>                :            :           return -1;
 <span class="lineNum">     198 </span>                :            :       }
 <span class="lineNum">     199 </span>                :            : 
-<span class="lineNum">     200 </span>                :<span class="lineCov">         35 :   return 0;</span>
+<span class="lineNum">     200 </span>                :            :   return 0;
 <span class="lineNum">     201 </span>                :            : }
-<a name="202"><span class="lineNum">     202 </span>                :            : </a>
+<span class="lineNum">     202 </span>                :            : 
 <span class="lineNum">     203 </span>                :            : int
 <span class="lineNum">     204 </span>                :<span class="lineCov">         62 : main (int argc, char **argv)</span>
 <span class="lineNum">     205 </span>                :            : {
@@ -300,13 +302,13 @@
 <span class="lineNum">     229 </span>                :<span class="lineCov">         62 :   atexit (close_stdout);</span>
 <span class="lineNum">     230 </span>                :            : 
 <span class="lineNum">     231 </span>        [<span class="branchCov" title="Branch 1 was taken 45 times"> + </span><span class="branchCov" title="Branch 2 was taken 35 times"> + </span>]:<span class="lineCov">         80 :   while ((optc = getopt_long (argc, argv, &quot;ei:n:o:z&quot;, long_opts, NULL)) != -1)</span>
-<span class="lineNum">     232 </span>  [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         45 :     switch (optc)</span>
-<span class="lineNum">         </span>   <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 3 times"> + </span><span class="branchCov" title="Branch 6 was taken 9 times"> + </span><span class="branchCov" title="Branch 7 was taken 15 times"> + </span> 
+<span class="lineNum">     232 </span>  [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         45 :     switch (optc)</span>
+<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 3 times"> + </span><span class="branchCov" title="Branch 5 was taken 9 times"> + </span><span class="branchCov" title="Branch 6 was taken 15 times"> + </span><span class="branchCov" title="Branch 7 was taken 3 times"> + </span> 
 <span class="lineNum">         </span>            <span class="branchCov" title="Branch 8 was taken 3 times"> + </span>]
 <span class="lineNum">     233 </span>                :            :       {
 <span class="lineNum">     234 </span>                :            :       case 'e':
-<span class="lineNum">     235 </span>                :<span class="lineCov">          3 :         echo = true;</span>
-<span class="lineNum">     236 </span>                :<span class="lineCov">          3 :         break;</span>
+<span class="lineNum">     235 </span>                :            :         echo = true;
+<span class="lineNum">     236 </span>                :            :         break;
 <span class="lineNum">     237 </span>                :            : 
 <span class="lineNum">     238 </span>                :            :       case 'i':
 <span class="lineNum">     239 </span>                :            :         {
@@ -315,7 +317,7 @@
 <span class="lineNum">     242 </span>                :<span class="lineCov">          9 :           char const *hi_optarg = optarg;</span>
 <span class="lineNum">     243 </span>                :<span class="lineCov">          9 :           bool invalid = !p;</span>
 <span class="lineNum">     244 </span>                :            : 
-<span class="lineNum">     245 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 9 times"> + </span>]:<span class="lineCov">          9 :           if (input_numbers_option_used (lo_input, hi_input))</span>
+<span class="lineNum">     245 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :           if (input_numbers_option_used (lo_input, hi_input))</span>
 <span class="lineNum">     246 </span>                :<span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;multiple -i options specified&quot;));</span>
 <span class="lineNum">     247 </span>                :            : 
 <span class="lineNum">     248 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          9 :           if (p)</span>
@@ -323,15 +325,15 @@
 <span class="lineNum">     250 </span>                :<span class="lineCov">          9 :               *p = '\0';</span>
 <span class="lineNum">     251 </span>                :<span class="lineCov">          9 :               invalid = ((xstrtoul (optarg, NULL, 10, &amp;argval, NULL)</span>
 <span class="lineNum">     252 </span>                :            :                           != LONGINT_OK)
-<span class="lineNum">     253 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :                          || SIZE_MAX &lt; argval);</span>
+<span class="lineNum">     253 </span>                :            :                          || SIZE_MAX &lt; argval);
 <span class="lineNum">     254 </span>                :<span class="lineCov">          9 :               *p = '-';</span>
 <span class="lineNum">     255 </span>                :<span class="lineCov">          9 :               lo_input = argval;</span>
 <span class="lineNum">     256 </span>                :<span class="lineCov">          9 :               hi_optarg = p + 1;</span>
 <span class="lineNum">     257 </span>                :            :             }
 <span class="lineNum">     258 </span>                :            : 
-<span class="lineNum">     259 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 9 times"> + </span>]:<span class="lineCov">          9 :           invalid |= ((xstrtoul (hi_optarg, NULL, 10, &amp;argval, NULL)</span>
+<span class="lineNum">     259 </span>                :<span class="lineCov">          9 :           invalid |= ((xstrtoul (hi_optarg, NULL, 10, &amp;argval, NULL)</span>
 <span class="lineNum">     260 </span>                :            :                        != LONGINT_OK)
-<span class="lineNum">     261 </span>                :            :                       || SIZE_MAX &lt; argval);
+<span class="lineNum">     261 </span>                :<span class="lineCov">          9 :                       || SIZE_MAX &lt; argval);</span>
 <span class="lineNum">     262 </span>                :<span class="lineCov">          9 :           hi_input = argval;</span>
 <span class="lineNum">     263 </span>                :<span class="lineCov">          9 :           n_lines = hi_input - lo_input + 1;</span>
 <span class="lineNum">     264 </span>                :<span class="lineCov">          9 :           invalid |= ((lo_input &lt;= hi_input) == (n_lines == 0));</span>
@@ -339,7 +341,7 @@
 <span class="lineNum">     266 </span>                :<span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;invalid input range %s&quot;),</span>
 <span class="lineNum">     267 </span>                :            :                    quote (optarg));
 <span class="lineNum">     268 </span>                :            :         }
-<span class="lineNum">     269 </span>                :<span class="lineCov">          9 :         break;</span>
+<span class="lineNum">     269 </span>                :            :         break;
 <span class="lineNum">     270 </span>                :            : 
 <span class="lineNum">     271 </span>                :            :       case 'n':
 <span class="lineNum">     272 </span>                :            :         {
@@ -352,7 +354,7 @@
 <span class="lineNum">     279 </span>                :<span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;invalid line count %s&quot;),</span>
 <span class="lineNum">     280 </span>                :            :                    quote (optarg));
 <span class="lineNum">     281 </span>                :            :         }
-<span class="lineNum">     282 </span>                :<span class="lineCov">          3 :         break;</span>
+<span class="lineNum">     282 </span>                :            :         break;
 <span class="lineNum">     283 </span>                :            : 
 <span class="lineNum">     284 </span>                :            :       case 'o':
 <span class="lineNum">     285 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (outfile &amp;&amp; !STREQ (outfile, optarg))</span>
@@ -373,7 +375,7 @@
 <span class="lineNum">     300 </span>                :<span class="lineCov">          9 :       case_GETOPT_HELP_CHAR;</span>
 <span class="lineNum">     301 </span>                :<span class="lineCov">         15 :       case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
 <span class="lineNum">     302 </span>                :            :       default:
-<span class="lineNum">     303 </span>                :<span class="lineCov">          3 :         usage (EXIT_FAILURE);</span>
+<span class="lineNum">     303 </span>                :<span class="lineCov">         21 :         usage (EXIT_FAILURE);</span>
 <span class="lineNum">     304 </span>                :            :       }
 <span class="lineNum">     305 </span>                :            : 
 <span class="lineNum">     306 </span>                :<span class="lineCov">         35 :   n_operands = argc - optind;</span>
@@ -381,13 +383,13 @@
 <span class="lineNum">     308 </span>                :            : 
 <span class="lineNum">     309 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 32 times"> + </span>]:<span class="lineCov">         35 :   if (echo)</span>
 <span class="lineNum">     310 </span>                :            :     {
-<span class="lineNum">     311 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">          3 :       if (input_numbers_option_used (lo_input, hi_input))</span>
+<span class="lineNum">     311 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :       if (input_numbers_option_used (lo_input, hi_input))</span>
 <span class="lineNum">     312 </span>                :<span class="lineNoCov">          0 :         error (EXIT_FAILURE, 0, _(&quot;cannot combine -e and -i options&quot;));</span>
 <span class="lineNum">     313 </span>                :<span class="lineCov">          3 :       input_from_argv (operand, n_operands, eolbyte);</span>
 <span class="lineNum">     314 </span>                :<span class="lineCov">          3 :       n_lines = n_operands;</span>
 <span class="lineNum">     315 </span>                :<span class="lineCov">          3 :       line = operand;</span>
 <span class="lineNum">     316 </span>                :            :     }
-<span class="lineNum">     317 </span>        [<span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchCov" title="Branch 2 was taken 23 times"> + </span>]:<span class="lineCov">         32 :   else if (input_numbers_option_used (lo_input, hi_input))</span>
+<span class="lineNum">     317 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 23 times"> + </span>]:<span class="lineCov">         32 :   else if (input_numbers_option_used (lo_input, hi_input))</span>
 <span class="lineNum">     318 </span>                :            :     {
 <span class="lineNum">     319 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :       if (n_operands)</span>
 <span class="lineNum">     320 </span>                :            :         {
@@ -399,15 +401,16 @@
 <span class="lineNum">     326 </span>                :            :     }
 <span class="lineNum">     327 </span>                :            :   else
 <span class="lineNum">     328 </span>                :            :     {
-<span class="lineNum">     329 </span>     [<span class="branchCov" title="Branch 0 was taken 20 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         23 :       switch (n_operands)</span>
+<span class="lineNum">     329 </span>     [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 20 times"> + </span>]:<span class="lineCov">         23 :       switch (n_operands)</span>
 <span class="lineNum">     330 </span>                :            :         {
 <span class="lineNum">     331 </span>                :            :         case 0:
-<span class="lineNum">     332 </span>                :<span class="lineCov">         20 :           break;</span>
+<span class="lineNum">     332 </span>                :            :           break;
 <span class="lineNum">     333 </span>                :            : 
 <span class="lineNum">     334 </span>                :            :         case 1:
-<span class="lineNum">     335 </span>[<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 3 times"> + </span>]:<span class="lineCov">          3 :           if (! (STREQ (operand[0], &quot;-&quot;) || freopen (operand[0], &quot;r&quot;, stdin)))</span>
+<span class="lineNum">     335 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          3 :           if (! (STREQ (operand[0], &quot;-&quot;) || freopen (operand[0], &quot;r&quot;, stdin)))</span>
+<span class="lineNum">         </span>        [<span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchCov" title="Branch 6 was taken 3 times"> + </span>]
 <span class="lineNum">     336 </span>                :<span class="lineNoCov">          0 :             error (EXIT_FAILURE, errno, &quot;%s&quot;, operand[0]);</span>
-<span class="lineNum">     337 </span>                :<span class="lineCov">          3 :           break;</span>
+<span class="lineNum">     337 </span>                :            :           break;
 <span class="lineNum">     338 </span>                :            : 
 <span class="lineNum">     339 </span>                :            :         default:
 <span class="lineNum">     340 </span>                :<span class="lineNoCov">          0 :           error (0, 0, _(&quot;extra operand %s&quot;), quote (operand[1]));</span>
@@ -430,7 +433,7 @@
 <span class="lineNum">     357 </span>                :            :   /* Close stdin now, rather than earlier, so that randint_all_new
 <span class="lineNum">     358 </span>                :            :      doesn't have to worry about opening something other than
 <span class="lineNum">     359 </span>                :            :      stdin.  */
-<span class="lineNum">     360 </span>[<span class="branchCov" title="Branch 0 was taken 32 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 23 times"> + </span><span class="branchCov" title="Branch 4 was taken 9 times"> + </span>]:<span class="lineCov">         35 :   if (! (echo || input_numbers_option_used (lo_input, hi_input))</span>
+<span class="lineNum">     360 </span>[<span class="branchCov" title="Branch 0 was taken 32 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchCov" title="Branch 3 was taken 9 times"> + </span>]:<span class="lineCov">         35 :   if (! (echo || input_numbers_option_used (lo_input, hi_input))</span>
 <span class="lineNum">     361 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 23 times"> + </span>]:<span class="lineCov">         23 :       &amp;&amp; (fclose (stdin) != 0))</span>
 <span class="lineNum">     362 </span>                :<span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;read error&quot;));</span>
 <span class="lineNum">     363 </span>                :            : 
@@ -440,7 +443,7 @@
 <span class="lineNum">     367 </span>                :<span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, quotearg_colon (outfile));</span>
 <span class="lineNum">     368 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 35 times"> + </span>]:<span class="lineCov">         35 :   if (write_permuted_output (head_lines, line, lo_input, permutation, eolbyte)</span>
 <span class="lineNum">     369 </span>                :            :       != 0)
-<span class="lineNum">     370 </span>                :<span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
+<span class="lineNum">     370 </span>                :<span class="lineCov">         35 :     error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
 <span class="lineNum">     371 </span>                :            : 
 <span class="lineNum">     372 </span>                :            : #ifdef lint
 <span class="lineNum">     373 </span>                :            :   free (permutation);
@@ -452,7 +455,7 @@
 <span class="lineNum">     379 </span>                :            :     }
 <span class="lineNum">     380 </span>                :            : #endif
 <span class="lineNum">     381 </span>                :            : 
-<span class="lineNum">     382 </span>                :<span class="lineCov">         35 :   return EXIT_SUCCESS;</span>
+<span class="lineNum">     382 </span>                :            :   return EXIT_SUCCESS;
 <span class="lineNum">     383 </span>                :            : }
 </pre>
       </td>

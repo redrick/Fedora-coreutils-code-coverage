@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -93,49 +93,49 @@
 <span class="lineNum">      22 </span>                :            : #include &lt;stdlib.h&gt;
 <a name="23"><span class="lineNum">      23 </span>                :            : </a>
 <span class="lineNum">      24 </span>                :            : void
-<span class="lineNum">      25 </span>                :<span class="lineCov">      22538 : i_ring_init (I_ring *ir, int default_val)</span>
+<span class="lineNum">      25 </span>                :<span class="lineCov">      24005 : i_ring_init (I_ring *ir, int default_val)</span>
 <span class="lineNum">      26 </span>                :            : {
 <span class="lineNum">      27 </span>                :            :   int i;
-<span class="lineNum">      28 </span>                :<span class="lineCov">      22538 :   ir-&gt;ir_empty = true;</span>
-<span class="lineNum">      29 </span>                :<span class="lineCov">      22538 :   ir-&gt;ir_front = 0;</span>
-<span class="lineNum">      30 </span>                :<span class="lineCov">      22538 :   ir-&gt;ir_back = 0;</span>
-<span class="lineNum">      31 </span>        [<span class="branchCov" title="Branch 0 was taken 90152 times"> + </span><span class="branchCov" title="Branch 1 was taken 22538 times"> + </span>]:<span class="lineCov">     112690 :   for (i = 0; i &lt; I_RING_SIZE; i++)</span>
-<span class="lineNum">      32 </span>                :<span class="lineCov">      90152 :     ir-&gt;ir_data[i] = default_val;</span>
-<span class="lineNum">      33 </span>                :<span class="lineCov">      22538 :   ir-&gt;ir_default_val = default_val;</span>
-<span class="lineNum">      34 </span>                :<span class="lineCov">      22538 : }</span>
+<span class="lineNum">      28 </span>                :<span class="lineCov">      24005 :   ir-&gt;ir_empty = true;</span>
+<span class="lineNum">      29 </span>                :<span class="lineCov">      24005 :   ir-&gt;ir_front = 0;</span>
+<span class="lineNum">      30 </span>                :<span class="lineCov">      24005 :   ir-&gt;ir_back = 0;</span>
+<span class="lineNum">      31 </span>        [<span class="branchCov" title="Branch 0 was taken 96020 times"> + </span><span class="branchCov" title="Branch 1 was taken 24005 times"> + </span>]:<span class="lineCov">     120025 :   for (i = 0; i &lt; I_RING_SIZE; i++)</span>
+<span class="lineNum">      32 </span>                :<span class="lineCov">      96020 :     ir-&gt;ir_data[i] = default_val;</span>
+<span class="lineNum">      33 </span>                :<span class="lineCov">      24005 :   ir-&gt;ir_default_val = default_val;</span>
+<span class="lineNum">      34 </span>                :<span class="lineCov">      24005 : }</span>
 <a name="35"><span class="lineNum">      35 </span>                :            : </a>
 <span class="lineNum">      36 </span>                :            : bool
-<span class="lineNum">      37 </span>                :<span class="lineCov">     551584 : i_ring_empty (I_ring const *ir)</span>
+<span class="lineNum">      37 </span>                :<span class="lineCov">     557836 : i_ring_empty (I_ring const *ir)</span>
 <span class="lineNum">      38 </span>                :            : {
-<span class="lineNum">      39 </span>                :<span class="lineCov">     551584 :   return ir-&gt;ir_empty;</span>
+<span class="lineNum">      39 </span>                :<span class="lineCov">     557836 :   return ir-&gt;ir_empty;</span>
 <span class="lineNum">      40 </span>                :            : }
 <a name="41"><span class="lineNum">      41 </span>                :            : </a>
 <span class="lineNum">      42 </span>                :            : int
-<span class="lineNum">      43 </span>                :<span class="lineCov">     261997 : i_ring_push (I_ring *ir, int val)</span>
+<span class="lineNum">      43 </span>                :<span class="lineCov">     263596 : i_ring_push (I_ring *ir, int val)</span>
 <span class="lineNum">      44 </span>                :            : {
-<span class="lineNum">      45 </span>                :<span class="lineCov">     261997 :   unsigned int dest_idx = (ir-&gt;ir_front + !ir-&gt;ir_empty) % I_RING_SIZE;</span>
-<span class="lineNum">      46 </span>                :<span class="lineCov">     261997 :   int old_val = ir-&gt;ir_data[dest_idx];</span>
-<span class="lineNum">      47 </span>                :<span class="lineCov">     261997 :   ir-&gt;ir_data[dest_idx] = val;</span>
-<span class="lineNum">      48 </span>                :<span class="lineCov">     261997 :   ir-&gt;ir_front = dest_idx;</span>
-<span class="lineNum">      49 </span>        [<span class="branchCov" title="Branch 0 was taken 76456 times"> + </span><span class="branchCov" title="Branch 1 was taken 185541 times"> + </span>]:<span class="lineCov">     261997 :   if (dest_idx == ir-&gt;ir_back)</span>
-<span class="lineNum">      50 </span>                :<span class="lineCov">      76456 :     ir-&gt;ir_back = (ir-&gt;ir_back + !ir-&gt;ir_empty) % I_RING_SIZE;</span>
-<span class="lineNum">      51 </span>                :<span class="lineCov">     261997 :   ir-&gt;ir_empty = false;</span>
-<span class="lineNum">      52 </span>                :<span class="lineCov">     261997 :   return old_val;</span>
+<span class="lineNum">      45 </span>                :<span class="lineCov">     263596 :   unsigned int dest_idx = (ir-&gt;ir_front + !ir-&gt;ir_empty) % I_RING_SIZE;</span>
+<span class="lineNum">      46 </span>                :<span class="lineCov">     263596 :   int old_val = ir-&gt;ir_data[dest_idx];</span>
+<span class="lineNum">      47 </span>                :<span class="lineCov">     263596 :   ir-&gt;ir_data[dest_idx] = val;</span>
+<span class="lineNum">      48 </span>                :<span class="lineCov">     263596 :   ir-&gt;ir_front = dest_idx;</span>
+<span class="lineNum">      49 </span>        [<span class="branchCov" title="Branch 0 was taken 78043 times"> + </span><span class="branchCov" title="Branch 1 was taken 185553 times"> + </span>]:<span class="lineCov">     263596 :   if (dest_idx == ir-&gt;ir_back)</span>
+<span class="lineNum">      50 </span>                :<span class="lineCov">      78043 :     ir-&gt;ir_back = (ir-&gt;ir_back + !ir-&gt;ir_empty) % I_RING_SIZE;</span>
+<span class="lineNum">      51 </span>                :<span class="lineCov">     263596 :   ir-&gt;ir_empty = false;</span>
+<span class="lineNum">      52 </span>                :<span class="lineCov">     263596 :   return old_val;</span>
 <span class="lineNum">      53 </span>                :            : }
 <a name="54"><span class="lineNum">      54 </span>                :            : </a>
 <span class="lineNum">      55 </span>                :            : int
-<span class="lineNum">      56 </span>                :<span class="lineCov">     226687 : i_ring_pop (I_ring *ir)</span>
+<span class="lineNum">      56 </span>                :<span class="lineCov">     228286 : i_ring_pop (I_ring *ir)</span>
 <span class="lineNum">      57 </span>                :            : {
 <span class="lineNum">      58 </span>                :            :   int top_val;
-<span class="lineNum">      59 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 226687 times"> + </span>]:<span class="lineCov">     226687 :   if (i_ring_empty (ir))</span>
+<span class="lineNum">      59 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 228286 times"> + </span>]:<span class="lineCov">     228286 :   if (i_ring_empty (ir))</span>
 <span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 :     abort ();</span>
-<span class="lineNum">      61 </span>                :<span class="lineCov">     226687 :   top_val = ir-&gt;ir_data[ir-&gt;ir_front];</span>
-<span class="lineNum">      62 </span>                :<span class="lineCov">     226687 :   ir-&gt;ir_data[ir-&gt;ir_front] = ir-&gt;ir_default_val;</span>
-<span class="lineNum">      63 </span>        [<span class="branchCov" title="Branch 0 was taken 41146 times"> + </span><span class="branchCov" title="Branch 1 was taken 185541 times"> + </span>]:<span class="lineCov">     226687 :   if (ir-&gt;ir_front == ir-&gt;ir_back)</span>
-<span class="lineNum">      64 </span>                :<span class="lineCov">      41146 :     ir-&gt;ir_empty = true;</span>
+<span class="lineNum">      61 </span>                :<span class="lineCov">     228286 :   top_val = ir-&gt;ir_data[ir-&gt;ir_front];</span>
+<span class="lineNum">      62 </span>                :<span class="lineCov">     228286 :   ir-&gt;ir_data[ir-&gt;ir_front] = ir-&gt;ir_default_val;</span>
+<span class="lineNum">      63 </span>        [<span class="branchCov" title="Branch 0 was taken 42733 times"> + </span><span class="branchCov" title="Branch 1 was taken 185553 times"> + </span>]:<span class="lineCov">     228286 :   if (ir-&gt;ir_front == ir-&gt;ir_back)</span>
+<span class="lineNum">      64 </span>                :<span class="lineCov">      42733 :     ir-&gt;ir_empty = true;</span>
 <span class="lineNum">      65 </span>                :            :   else
-<span class="lineNum">      66 </span>                :<span class="lineCov">     185541 :     ir-&gt;ir_front = ((ir-&gt;ir_front + I_RING_SIZE - 1) % I_RING_SIZE);</span>
-<span class="lineNum">      67 </span>                :<span class="lineCov">     226687 :   return top_val;</span>
+<span class="lineNum">      66 </span>                :<span class="lineCov">     185553 :     ir-&gt;ir_front = ((ir-&gt;ir_front + I_RING_SIZE - 1) % I_RING_SIZE);</span>
+<span class="lineNum">      67 </span>                :<span class="lineCov">     228286 :   return top_val;</span>
 <span class="lineNum">      68 </span>                :            : }
 </pre>
       </td>

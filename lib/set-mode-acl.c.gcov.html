@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">20</td>
-            <td class="headerCovTableEntry">29</td>
-            <td class="headerCovTableEntryLo">69.0 %</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntry">26</td>
+            <td class="headerCovTableEntryLo">73.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -50,8 +50,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntry">26</td>
-            <td class="headerCovTableEntryLo">38.5 %</td>
+            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntryLo">41.7 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -149,8 +149,8 @@
 <span class="lineNum">      78 </span>                :            :   if (HAVE_ACL_FROM_MODE) /* Linux */
 <span class="lineNum">      79 </span>                :            :     {
 <span class="lineNum">      80 </span>                :<span class="lineCov">        247 :       acl = acl_from_mode (mode);</span>
-<span class="lineNum">      81 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 247 times"> + </span>]:<span class="lineCov">        247 :       if (!acl)</span>
-<span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 :         return -1;</span>
+<span class="lineNum">      81 </span>        [<span class="branchCov" title="Branch 0 was taken 247 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        247 :       if (!acl)</span>
+<span class="lineNum">      82 </span>                :            :         return -1;
 <span class="lineNum">      83 </span>                :            :     }
 <span class="lineNum">      84 </span>                :            :   else /* FreeBSD, IRIX, Tru64 */
 <span class="lineNum">      85 </span>                :            :     {
@@ -190,8 +190,7 @@
 <span class="lineNum">     119 </span>                :<span class="lineNoCov">          0 :       acl_free (acl);</span>
 <span class="lineNum">     120 </span>                :            : 
 <span class="lineNum">     121 </span>[<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>][<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (ACL_NOT_WELL_SUPPORTED (errno))</span>
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>][<span class="branchNoExec" title="Branch 13 was not executed"> # </span><span class="branchNoExec" title="Branch 14 was not executed"> # </span>]
-<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>][<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]
 <span class="lineNum">     122 </span>                :<span class="lineNoCov">          0 :         return chmod_or_fchmod (name, desc, mode);</span>
 <span class="lineNum">     123 </span>                :            :       else
 <span class="lineNum">     124 </span>                :            :         {
@@ -203,15 +202,15 @@
 <span class="lineNum">     130 </span>                :<span class="lineCov">        247 :     acl_free (acl);</span>
 <span class="lineNum">     131 </span>                :            : 
 <span class="lineNum">     132 </span>[<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>][<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 247 times"> + </span>]:<span class="lineCov">        247 :   if (S_ISDIR (mode) &amp;&amp; acl_delete_def_file (name))</span>
-<span class="lineNum">     133 </span>                :<span class="lineNoCov">          0 :     return -1;</span>
+<span class="lineNum">     133 </span>                :            :     return -1;
 <span class="lineNum">     134 </span>                :            : 
 <span class="lineNum">     135 </span>        [<span class="branchCov" title="Branch 0 was taken 36 times"> + </span><span class="branchCov" title="Branch 1 was taken 211 times"> + </span>]:<span class="lineCov">        247 :   if (!MODE_INSIDE_ACL || (mode &amp; (S_ISUID | S_ISGID | S_ISVTX)))</span>
 <span class="lineNum">     136 </span>                :            :     {
 <span class="lineNum">     137 </span>                :            :       /* We did not call chmod so far, and either the mode and the ACL are
 <span class="lineNum">     138 </span>                :            :          separate or special bits are to be set which don't fit into ACLs.  */
-<span class="lineNum">     139 </span>                :<span class="lineCov">         36 :       return chmod_or_fchmod (name, desc, mode);</span>
+<span class="lineNum">     139 </span>                :<span class="lineCov">        247 :       return chmod_or_fchmod (name, desc, mode);</span>
 <span class="lineNum">     140 </span>                :            :     }
-<span class="lineNum">     141 </span>                :<span class="lineCov">        247 :   return 0;</span>
+<span class="lineNum">     141 </span>                :            :   return 0;
 <span class="lineNum">     142 </span>                :            : 
 <span class="lineNum">     143 </span>                :            : #  else /* HAVE_ACL_TYPE_EXTENDED */
 <span class="lineNum">     144 </span>                :            :   /* MacOS X */

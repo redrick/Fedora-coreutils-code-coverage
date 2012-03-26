@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryLo">66.7 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">70.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -99,15 +99,15 @@
 <span class="lineNum">      28 </span>                :            : /* Like fopen, but do not return stdin, stdout, or stderr.  */
 <a name="29"><span class="lineNum">      29 </span>                :            : </a>
 <span class="lineNum">      30 </span>                :            : FILE *
-<span class="lineNum">      31 </span>                :<span class="lineCov">      16420 : fopen_safer (char const *file, char const *mode)</span>
+<span class="lineNum">      31 </span>                :<span class="lineCov">      16426 : fopen_safer (char const *file, char const *mode)</span>
 <span class="lineNum">      32 </span>                :            : {
-<span class="lineNum">      33 </span>                :<span class="lineCov">      16420 :   FILE *fp = fopen (file, mode);</span>
+<span class="lineNum">      33 </span>                :<span class="lineCov">      16426 :   FILE *fp = fopen (file, mode);</span>
 <span class="lineNum">      34 </span>                :            : 
-<span class="lineNum">      35 </span>        [<span class="branchCov" title="Branch 0 was taken 16195 times"> + </span><span class="branchCov" title="Branch 1 was taken 225 times"> + </span>]:<span class="lineCov">      16420 :   if (fp)</span>
+<span class="lineNum">      35 </span>        [<span class="branchCov" title="Branch 0 was taken 16201 times"> + </span><span class="branchCov" title="Branch 1 was taken 225 times"> + </span>]:<span class="lineCov">      16426 :   if (fp)</span>
 <span class="lineNum">      36 </span>                :            :     {
-<span class="lineNum">      37 </span>                :<span class="lineCov">      16195 :       int fd = fileno (fp);</span>
+<span class="lineNum">      37 </span>                :<span class="lineCov">      16201 :       int fd = fileno (fp);</span>
 <span class="lineNum">      38 </span>                :            : 
-<span class="lineNum">      39 </span>[<span class="branchCov" title="Branch 2 was taken 18 times"> + </span><span class="branchCov" title="Branch 3 was taken 16177 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 16195 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      16195 :       if (0 &lt;= fd &amp;&amp; fd &lt;= STDERR_FILENO)</span>
+<span class="lineNum">      39 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 16183 times"> + </span>]:<span class="lineCov">      16201 :       if (0 &lt;= fd &amp;&amp; fd &lt;= STDERR_FILENO)</span>
 <span class="lineNum">      40 </span>                :            :         {
 <span class="lineNum">      41 </span>                :<span class="lineCov">         18 :           int f = dup_safer (fd);</span>
 <span class="lineNum">      42 </span>                :            : 
@@ -130,7 +130,7 @@
 <span class="lineNum">      59 </span>                :            :         }
 <span class="lineNum">      60 </span>                :            :     }
 <span class="lineNum">      61 </span>                :            : 
-<span class="lineNum">      62 </span>                :<span class="lineCov">      16420 :   return fp;</span>
+<span class="lineNum">      62 </span>                :<span class="lineCov">      16426 :   return fp;</span>
 <span class="lineNum">      63 </span>                :            : }
 </pre>
       </td>

@@ -31,17 +31,17 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">135</td>
-            <td class="headerCovTableEntry">198</td>
-            <td class="headerCovTableEntryLo">68.2 %</td>
+            <td class="headerCovTableEntry">105</td>
+            <td class="headerCovTableEntry">141</td>
+            <td class="headerCovTableEntryLo">74.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">2</td>
-            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">89</td>
-            <td class="headerCovTableEntry">147</td>
-            <td class="headerCovTableEntryLo">60.5 %</td>
+            <td class="headerCovTableEntry">75</td>
+            <td class="headerCovTableEntry">115</td>
+            <td class="headerCovTableEntryLo">65.2 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -1501,9 +1501,9 @@
 <span class="lineNum">    1430 </span>                :            : 
 <span class="lineNum">    1431 </span>                :            : /*ARGSUSED*/
 <span class="lineNum">    1432 </span>                :            : #if (defined __STDC__ || defined __C99__FUNC__ \
-<a name="1433"><span class="lineNum">    1433 </span>                :            :      || defined __cplusplus || defined _MSC_VER)</a>
+<span class="lineNum">    1433 </span>                :            :      || defined __cplusplus || defined _MSC_VER)
 <span class="lineNum">    1434 </span>                :            : static void
-<span class="lineNum">    1435 </span>                :<span class="lineCov">       3288 : yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep, parser_control *pc)</span>
+<span class="lineNum">    1435 </span>                :            : yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep, parser_control *pc)
 <span class="lineNum">    1436 </span>                :            : #else
 <span class="lineNum">    1437 </span>                :            : static void
 <span class="lineNum">    1438 </span>                :            : yydestruct (yymsg, yytype, yyvaluep, pc)
@@ -1516,16 +1516,16 @@
 <span class="lineNum">    1445 </span>                :            :   YYUSE (yyvaluep);
 <span class="lineNum">    1446 </span>                :            :   YYUSE (pc);
 <span class="lineNum">    1447 </span>                :            : 
-<span class="lineNum">    1448 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3288 times"> + </span>]:<span class="lineCov">       3288 :   if (!yymsg)</span>
-<span class="lineNum">    1449 </span>                :<span class="lineNoCov">          0 :     yymsg = &quot;Deleting&quot;;</span>
+<span class="lineNum">    1448 </span>                :            :   if (!yymsg)
+<span class="lineNum">    1449 </span>                :            :     yymsg = &quot;Deleting&quot;;
 <span class="lineNum">    1450 </span>                :            :   YY_SYMBOL_PRINT (yymsg, yytype, yyvaluep, yylocationp);
 <span class="lineNum">    1451 </span>                :            : 
 <span class="lineNum">    1452 </span>                :            :   switch (yytype)
 <span class="lineNum">    1453 </span>                :            :     {
 <span class="lineNum">    1454 </span>                :            :       default:
-<span class="lineNum">    1455 </span>                :<span class="lineCov">       3288 :         break;</span>
+<span class="lineNum">    1455 </span>                :            :         break;
 <span class="lineNum">    1456 </span>                :            :     }
-<span class="lineNum">    1457 </span>                :<span class="lineCov">       3288 : }</span>
+<span class="lineNum">    1457 </span>                :            : }
 <span class="lineNum">    1458 </span>                :            : 
 <span class="lineNum">    1459 </span>                :            : 
 <span class="lineNum">    1460 </span>                :            : /* Prevent warnings from -Wmissing-prototypes.  */
@@ -1564,7 +1564,7 @@
 <span class="lineNum">    1493 </span>                :            : #if (defined __STDC__ || defined __C99__FUNC__ \
 <span class="lineNum">    1494 </span>                :            :      || defined __cplusplus || defined _MSC_VER)
 <span class="lineNum">    1495 </span>                :            : int
-<span class="lineNum">    1496 </span>                :<span class="lineCov">       1638 : yyparse (parser_control *pc)</span>
+<span class="lineNum">    1496 </span>                :<span class="lineCov">       1635 : yyparse (parser_control *pc)</span>
 <span class="lineNum">    1497 </span>                :            : #else
 <span class="lineNum">    1498 </span>                :            : int
 <span class="lineNum">    1499 </span>                :            : yyparse (pc)
@@ -1623,28 +1623,28 @@
 <span class="lineNum">    1552 </span>                :            : 
 <span class="lineNum">    1553 </span>                :            :   /* The number of symbols on the RHS of the reduced rule.
 <span class="lineNum">    1554 </span>                :            :      Keep to zero when no symbol should be popped.  */
-<span class="lineNum">    1555 </span>                :<span class="lineCov">       1638 :   int yylen = 0;</span>
+<span class="lineNum">    1555 </span>                :<span class="lineCov">       1635 :   int yylen = 0;</span>
 <span class="lineNum">    1556 </span>                :            : 
-<span class="lineNum">    1557 </span>                :<span class="lineCov">       1638 :   yytoken = 0;</span>
-<span class="lineNum">    1558 </span>                :<span class="lineCov">       1638 :   yyss = yyssa;</span>
-<span class="lineNum">    1559 </span>                :<span class="lineCov">       1638 :   yyvs = yyvsa;</span>
-<span class="lineNum">    1560 </span>                :<span class="lineCov">       1638 :   yystacksize = YYINITDEPTH;</span>
+<span class="lineNum">    1557 </span>                :<span class="lineCov">       1635 :   yytoken = 0;</span>
+<span class="lineNum">    1558 </span>                :<span class="lineCov">       1635 :   yyss = yyssa;</span>
+<span class="lineNum">    1559 </span>                :<span class="lineCov">       1635 :   yyvs = yyvsa;</span>
+<span class="lineNum">    1560 </span>                :<span class="lineCov">       1635 :   yystacksize = YYINITDEPTH;</span>
 <span class="lineNum">    1561 </span>                :            : 
 <span class="lineNum">    1562 </span>                :            :   YYDPRINTF ((stderr, &quot;Starting parse\n&quot;));
 <span class="lineNum">    1563 </span>                :            : 
-<span class="lineNum">    1564 </span>                :<span class="lineCov">       1638 :   yystate = 0;</span>
-<span class="lineNum">    1565 </span>                :<span class="lineCov">       1638 :   yyerrstatus = 0;</span>
-<span class="lineNum">    1566 </span>                :<span class="lineCov">       1638 :   yynerrs = 0;</span>
-<span class="lineNum">    1567 </span>                :<span class="lineCov">       1638 :   yychar = YYEMPTY; /* Cause a token to be read.  */</span>
+<span class="lineNum">    1564 </span>                :<span class="lineCov">       1635 :   yystate = 0;</span>
+<span class="lineNum">    1565 </span>                :<span class="lineCov">       1635 :   yyerrstatus = 0;</span>
+<span class="lineNum">    1566 </span>                :<span class="lineCov">       1635 :   yynerrs = 0;</span>
+<span class="lineNum">    1567 </span>                :<span class="lineCov">       1635 :   yychar = YYEMPTY; /* Cause a token to be read.  */</span>
 <span class="lineNum">    1568 </span>                :            : 
 <span class="lineNum">    1569 </span>                :            :   /* Initialize stack pointers.
 <span class="lineNum">    1570 </span>                :            :      Waste one element of value and location stack
 <span class="lineNum">    1571 </span>                :            :      so that they stay on the same level as the state stack.
 <span class="lineNum">    1572 </span>                :            :      The wasted elements are never initialized.  */
-<span class="lineNum">    1573 </span>                :<span class="lineCov">       1638 :   yyssp = yyss;</span>
-<span class="lineNum">    1574 </span>                :<span class="lineCov">       1638 :   yyvsp = yyvs;</span>
+<span class="lineNum">    1573 </span>                :<span class="lineCov">       1635 :   yyssp = yyss;</span>
+<span class="lineNum">    1574 </span>                :<span class="lineCov">       1635 :   yyvsp = yyvs;</span>
 <span class="lineNum">    1575 </span>                :            : 
-<span class="lineNum">    1576 </span>                :<span class="lineCov">       1638 :   goto yysetstate;</span>
+<span class="lineNum">    1576 </span>                :<span class="lineCov">       1635 :   goto yysetstate;</span>
 <span class="lineNum">    1577 </span>                :            : 
 <span class="lineNum">    1578 </span>                :            : /*------------------------------------------------------------.
 <span class="lineNum">    1579 </span>                :            : | yynewstate -- Push a new state, which is found in yystate.  |
@@ -1652,15 +1652,15 @@
 <span class="lineNum">    1581 </span>                :            :  yynewstate:
 <span class="lineNum">    1582 </span>                :            :   /* In all cases, when you get here, the value and location stacks
 <span class="lineNum">    1583 </span>                :            :      have just been pushed.  So pushing a state here evens the stacks.  */
-<span class="lineNum">    1584 </span>                :<span class="lineCov">      27342 :   yyssp++;</span>
+<span class="lineNum">    1584 </span>                :<span class="lineCov">      27312 :   yyssp++;</span>
 <span class="lineNum">    1585 </span>                :            : 
 <span class="lineNum">    1586 </span>                :            :  yysetstate:
-<span class="lineNum">    1587 </span>                :<span class="lineCov">      28980 :   *yyssp = yystate;</span>
+<span class="lineNum">    1587 </span>                :<span class="lineCov">      28947 :   *yyssp = yystate;</span>
 <span class="lineNum">    1588 </span>                :            : 
-<span class="lineNum">    1589 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 28980 times"> + </span>]:<span class="lineCov">      28980 :   if (yyss + yystacksize - 1 &lt;= yyssp)</span>
+<span class="lineNum">    1589 </span>        [<span class="branchCov" title="Branch 0 was taken 28947 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      28947 :   if (yyss + yystacksize - 1 &lt;= yyssp)</span>
 <span class="lineNum">    1590 </span>                :            :     {
 <span class="lineNum">    1591 </span>                :            :       /* Get the current used size of the three stacks, in elements.  */
-<span class="lineNum">    1592 </span>                :<span class="lineNoCov">          0 :       YYSIZE_T yysize = yyssp - yyss + 1;</span>
+<span class="lineNum">    1592 </span>                :            :       YYSIZE_T yysize = yyssp - yyss + 1;
 <span class="lineNum">    1593 </span>                :            : 
 <span class="lineNum">    1594 </span>                :            : #ifdef yyoverflow
 <span class="lineNum">    1595 </span>                :            :       {
@@ -1687,43 +1687,43 @@
 <span class="lineNum">    1616 </span>                :            :       goto yyexhaustedlab;
 <span class="lineNum">    1617 </span>                :            : # else
 <span class="lineNum">    1618 </span>                :            :       /* Extend the stack our own way.  */
-<span class="lineNum">    1619 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (YYMAXDEPTH &lt;= yystacksize)</span>
-<span class="lineNum">    1620 </span>                :<span class="lineNoCov">          0 :         goto yyexhaustedlab;</span>
-<span class="lineNum">    1621 </span>                :<span class="lineNoCov">          0 :       yystacksize *= 2;</span>
-<span class="lineNum">    1622 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (YYMAXDEPTH &lt; yystacksize)</span>
-<span class="lineNum">    1623 </span>                :<span class="lineNoCov">          0 :         yystacksize = YYMAXDEPTH;</span>
+<span class="lineNum">    1619 </span>                :            :       if (YYMAXDEPTH &lt;= yystacksize)
+<span class="lineNum">    1620 </span>                :            :         goto yyexhaustedlab;
+<span class="lineNum">    1621 </span>                :            :       yystacksize *= 2;
+<span class="lineNum">    1622 </span>                :            :       if (YYMAXDEPTH &lt; yystacksize)
+<span class="lineNum">    1623 </span>                :            :         yystacksize = YYMAXDEPTH;
 <span class="lineNum">    1624 </span>                :            : 
 <span class="lineNum">    1625 </span>                :            :       {
-<span class="lineNum">    1626 </span>                :<span class="lineNoCov">          0 :         yytype_int16 *yyss1 = yyss;</span>
-<span class="lineNum">    1627 </span>                :<span class="lineNoCov">          0 :         union yyalloc *yyptr =</span>
-<span class="lineNum">    1628 </span>                :<span class="lineNoCov">          0 :           (union yyalloc *) YYSTACK_ALLOC (YYSTACK_BYTES (yystacksize));</span>
-<span class="lineNum">    1629 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (! yyptr)</span>
-<span class="lineNum">    1630 </span>                :<span class="lineNoCov">          0 :           goto yyexhaustedlab;</span>
-<span class="lineNum">    1631 </span>                :<span class="lineNoCov">          0 :         YYSTACK_RELOCATE (yyss_alloc, yyss);</span>
-<span class="lineNum">    1632 </span>                :<span class="lineNoCov">          0 :         YYSTACK_RELOCATE (yyvs_alloc, yyvs);</span>
+<span class="lineNum">    1626 </span>                :            :         yytype_int16 *yyss1 = yyss;
+<span class="lineNum">    1627 </span>                :            :         union yyalloc *yyptr =
+<span class="lineNum">    1628 </span>                :            :           (union yyalloc *) YYSTACK_ALLOC (YYSTACK_BYTES (yystacksize));
+<span class="lineNum">    1629 </span>                :            :         if (! yyptr)
+<span class="lineNum">    1630 </span>                :            :           goto yyexhaustedlab;
+<span class="lineNum">    1631 </span>                :            :         YYSTACK_RELOCATE (yyss_alloc, yyss);
+<span class="lineNum">    1632 </span>                :            :         YYSTACK_RELOCATE (yyvs_alloc, yyvs);
 <span class="lineNum">    1633 </span>                :            : #  undef YYSTACK_RELOCATE
-<span class="lineNum">    1634 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (yyss1 != yyssa)</span>
-<span class="lineNum">    1635 </span>                :<span class="lineNoCov">          0 :           YYSTACK_FREE (yyss1);</span>
+<span class="lineNum">    1634 </span>                :            :         if (yyss1 != yyssa)
+<span class="lineNum">    1635 </span>                :            :           YYSTACK_FREE (yyss1);
 <span class="lineNum">    1636 </span>                :            :       }
 <span class="lineNum">    1637 </span>                :            : # endif
 <span class="lineNum">    1638 </span>                :            : #endif /* no yyoverflow */
 <span class="lineNum">    1639 </span>                :            : 
-<span class="lineNum">    1640 </span>                :<span class="lineNoCov">          0 :       yyssp = yyss + yysize - 1;</span>
-<span class="lineNum">    1641 </span>                :<span class="lineNoCov">          0 :       yyvsp = yyvs + yysize - 1;</span>
+<span class="lineNum">    1640 </span>                :            :       yyssp = yyss + yysize - 1;
+<span class="lineNum">    1641 </span>                :            :       yyvsp = yyvs + yysize - 1;
 <span class="lineNum">    1642 </span>                :            : 
 <span class="lineNum">    1643 </span>                :            :       YYDPRINTF ((stderr, &quot;Stack size increased to %lu\n&quot;,
 <span class="lineNum">    1644 </span>                :            :                   (unsigned long int) yystacksize));
 <span class="lineNum">    1645 </span>                :            : 
-<span class="lineNum">    1646 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (yyss + yystacksize - 1 &lt;= yyssp)</span>
-<span class="lineNum">    1647 </span>                :<span class="lineNoCov">          0 :         YYABORT;</span>
+<span class="lineNum">    1646 </span>                :            :       if (yyss + yystacksize - 1 &lt;= yyssp)
+<span class="lineNum">    1647 </span>                :            :         YYABORT;
 <span class="lineNum">    1648 </span>                :            :     }
 <span class="lineNum">    1649 </span>                :            : 
 <span class="lineNum">    1650 </span>                :            :   YYDPRINTF ((stderr, &quot;Entering state %d\n&quot;, yystate));
 <span class="lineNum">    1651 </span>                :            : 
-<span class="lineNum">    1652 </span>        [<span class="branchCov" title="Branch 0 was taken 1617 times"> + </span><span class="branchCov" title="Branch 1 was taken 27363 times"> + </span>]:<span class="lineCov">      28980 :   if (yystate == YYFINAL)</span>
-<span class="lineNum">    1653 </span>                :<span class="lineCov">       1617 :     YYACCEPT;</span>
+<span class="lineNum">    1652 </span>        [<span class="branchCov" title="Branch 0 was taken 27333 times"> + </span><span class="branchCov" title="Branch 1 was taken 1614 times"> + </span>]:<span class="lineCov">      28947 :   if (yystate == YYFINAL)</span>
+<span class="lineNum">    1653 </span>                :            :     YYACCEPT;
 <span class="lineNum">    1654 </span>                :            : 
-<span class="lineNum">    1655 </span>                :<span class="lineCov">      27363 :   goto yybackup;</span>
+<span class="lineNum">    1655 </span>                :            :   goto yybackup;
 <span class="lineNum">    1656 </span>                :            : 
 <span class="lineNum">    1657 </span>                :            : /*-----------.
 <span class="lineNum">    1658 </span>                :            : | yybackup.  |
@@ -1734,38 +1734,37 @@
 <span class="lineNum">    1663 </span>                :            :      lookahead token if we need one and don't already have one.  */
 <span class="lineNum">    1664 </span>                :            : 
 <span class="lineNum">    1665 </span>                :            :   /* First try to decide what to do without reference to lookahead token.  */
-<span class="lineNum">    1666 </span>                :<span class="lineCov">      27363 :   yyn = yypact[yystate];</span>
-<span class="lineNum">    1667 </span>        [<span class="branchCov" title="Branch 0 was taken 11217 times"> + </span><span class="branchCov" title="Branch 1 was taken 16146 times"> + </span>]:<span class="lineCov">      27363 :   if (yypact_value_is_default (yyn))</span>
-<span class="lineNum">    1668 </span>                :<span class="lineCov">      11217 :     goto yydefault;</span>
+<span class="lineNum">    1666 </span>                :<span class="lineCov">      27333 :   yyn = yypact[yystate];</span>
+<span class="lineNum">    1667 </span>        [<span class="branchCov" title="Branch 0 was taken 16125 times"> + </span><span class="branchCov" title="Branch 1 was taken 11208 times"> + </span>]:<span class="lineCov">      27333 :   if (yypact_value_is_default (yyn))</span>
+<span class="lineNum">    1668 </span>                :            :     goto yydefault;
 <span class="lineNum">    1669 </span>                :            : 
 <span class="lineNum">    1670 </span>                :            :   /* Not known =&gt; get a lookahead token if don't already have one.  */
 <span class="lineNum">    1671 </span>                :            : 
 <span class="lineNum">    1672 </span>                :            :   /* YYCHAR is either YYEMPTY or YYEOF or a valid lookahead symbol.  */
-<span class="lineNum">    1673 </span>        [<span class="branchCov" title="Branch 0 was taken 10032 times"> + </span><span class="branchCov" title="Branch 1 was taken 6114 times"> + </span>]:<span class="lineCov">      16146 :   if (yychar == YYEMPTY)</span>
+<span class="lineNum">    1673 </span>        [<span class="branchCov" title="Branch 0 was taken 10020 times"> + </span><span class="branchCov" title="Branch 1 was taken 6105 times"> + </span>]:<span class="lineCov">      16125 :   if (yychar == YYEMPTY)</span>
 <span class="lineNum">    1674 </span>                :            :     {
 <span class="lineNum">    1675 </span>                :            :       YYDPRINTF ((stderr, &quot;Reading a token: &quot;));
-<span class="lineNum">    1676 </span>                :<span class="lineCov">      10032 :       yychar = YYLEX;</span>
+<span class="lineNum">    1676 </span>                :<span class="lineCov">      10020 :       yychar = YYLEX;</span>
 <span class="lineNum">    1677 </span>                :            :     }
 <span class="lineNum">    1678 </span>                :            : 
-<span class="lineNum">    1679 </span>        [<span class="branchCov" title="Branch 0 was taken 4656 times"> + </span><span class="branchCov" title="Branch 1 was taken 11490 times"> + </span>]:<span class="lineCov">      16146 :   if (yychar &lt;= YYEOF)</span>
+<span class="lineNum">    1679 </span>        [<span class="branchCov" title="Branch 0 was taken 11478 times"> + </span><span class="branchCov" title="Branch 1 was taken 4647 times"> + </span>]:<span class="lineCov">      16125 :   if (yychar &lt;= YYEOF)</span>
 <span class="lineNum">    1680 </span>                :            :     {
-<span class="lineNum">    1681 </span>                :<span class="lineCov">       4656 :       yychar = yytoken = YYEOF;</span>
+<span class="lineNum">    1681 </span>                :            :       yychar = yytoken = YYEOF;
 <span class="lineNum">    1682 </span>                :            :       YYDPRINTF ((stderr, &quot;Now at end of input.\n&quot;));
 <span class="lineNum">    1683 </span>                :            :     }
 <span class="lineNum">    1684 </span>                :            :   else
 <span class="lineNum">    1685 </span>                :            :     {
-<span class="lineNum">    1686 </span>        [<span class="branchCov" title="Branch 0 was taken 11490 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      11490 :       yytoken = YYTRANSLATE (yychar);</span>
+<span class="lineNum">    1686 </span>        [<span class="branchCov" title="Branch 0 was taken 11478 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      11478 :       yytoken = YYTRANSLATE (yychar);</span>
 <span class="lineNum">    1687 </span>                :            :       YY_SYMBOL_PRINT (&quot;Next token is&quot;, yytoken, &amp;yylval, &amp;yylloc);
 <span class="lineNum">    1688 </span>                :            :     }
 <span class="lineNum">    1689 </span>                :            : 
 <span class="lineNum">    1690 </span>                :            :   /* If the proper action on seeing token YYTOKEN is to reduce or to
 <span class="lineNum">    1691 </span>                :            :      detect an error, take that action.  */
-<span class="lineNum">    1692 </span>                :<span class="lineCov">      16146 :   yyn += yytoken;</span>
-<span class="lineNum">    1693 </span>[<span class="branchCov" title="Branch 0 was taken 16080 times"> + </span><span class="branchCov" title="Branch 1 was taken 66 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 16080 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      16146 :   if (yyn &lt; 0 || YYLAST &lt; yyn || yycheck[yyn] != yytoken)</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 10011 times"> + </span><span class="branchCov" title="Branch 5 was taken 6069 times"> + </span>]
+<span class="lineNum">    1692 </span>                :<span class="lineCov">      16125 :   yyn += yytoken;</span>
+<span class="lineNum">    1693 </span>[<span class="branchCov" title="Branch 0 was taken 16059 times"> + </span><span class="branchCov" title="Branch 1 was taken 66 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 9999 times"> + </span><span class="branchCov" title="Branch 3 was taken 6060 times"> + </span>]:<span class="lineCov">      16125 :   if (yyn &lt; 0 || YYLAST &lt; yyn || yycheck[yyn] != yytoken)</span>
 <span class="lineNum">    1694 </span>                :            :     goto yydefault;
-<span class="lineNum">    1695 </span>                :<span class="lineCov">      10011 :   yyn = yytable[yyn];</span>
-<span class="lineNum">    1696 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 10011 times"> + </span>]:<span class="lineCov">      10011 :   if (yyn &lt;= 0)</span>
+<span class="lineNum">    1695 </span>                :<span class="lineCov">       9999 :   yyn = yytable[yyn];</span>
+<span class="lineNum">    1696 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9999 times"> + </span>]:<span class="lineCov">       9999 :   if (yyn &lt;= 0)</span>
 <span class="lineNum">    1697 </span>                :            :     {
 <span class="lineNum">    1698 </span>                :            :       if (yytable_value_is_error (yyn))
 <span class="lineNum">    1699 </span>                :            :         goto yyerrlab;
@@ -1775,29 +1774,29 @@
 <span class="lineNum">    1703 </span>                :            : 
 <span class="lineNum">    1704 </span>                :            :   /* Count tokens shifted since error; after three, turn off error
 <span class="lineNum">    1705 </span>                :            :      status.  */
-<span class="lineNum">    1706 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 10011 times"> + </span>]:<span class="lineCov">      10011 :   if (yyerrstatus)</span>
+<span class="lineNum">    1706 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9999 times"> + </span>]:<span class="lineCov">       9999 :   if (yyerrstatus)</span>
 <span class="lineNum">    1707 </span>                :<span class="lineNoCov">          0 :     yyerrstatus--;</span>
 <span class="lineNum">    1708 </span>                :            : 
 <span class="lineNum">    1709 </span>                :            :   /* Shift the lookahead token.  */
 <span class="lineNum">    1710 </span>                :            :   YY_SYMBOL_PRINT (&quot;Shifting&quot;, yytoken, &amp;yylval, &amp;yylloc);
 <span class="lineNum">    1711 </span>                :            : 
 <span class="lineNum">    1712 </span>                :            :   /* Discard the shifted token.  */
-<span class="lineNum">    1713 </span>                :<span class="lineCov">      10011 :   yychar = YYEMPTY;</span>
+<span class="lineNum">    1713 </span>                :<span class="lineCov">       9999 :   yychar = YYEMPTY;</span>
 <span class="lineNum">    1714 </span>                :            : 
-<span class="lineNum">    1715 </span>                :<span class="lineCov">      10011 :   yystate = yyn;</span>
-<span class="lineNum">    1716 </span>                :<span class="lineCov">      10011 :   *++yyvsp = yylval;</span>
+<span class="lineNum">    1715 </span>                :<span class="lineCov">       9999 :   yystate = yyn;</span>
+<span class="lineNum">    1716 </span>                :<span class="lineCov">       9999 :   *++yyvsp = yylval;</span>
 <span class="lineNum">    1717 </span>                :            : 
-<span class="lineNum">    1718 </span>                :<span class="lineCov">      10011 :   goto yynewstate;</span>
+<span class="lineNum">    1718 </span>                :<span class="lineCov">       9999 :   goto yynewstate;</span>
 <span class="lineNum">    1719 </span>                :            : 
 <span class="lineNum">    1720 </span>                :            : 
 <span class="lineNum">    1721 </span>                :            : /*-----------------------------------------------------------.
 <span class="lineNum">    1722 </span>                :            : | yydefault -- do the default action for the current state.  |
 <span class="lineNum">    1723 </span>                :            : `-----------------------------------------------------------*/
 <span class="lineNum">    1724 </span>                :            : yydefault:
-<span class="lineNum">    1725 </span>                :<span class="lineCov">      17352 :   yyn = yydefact[yystate];</span>
-<span class="lineNum">    1726 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 17331 times"> + </span>]:<span class="lineCov">      17352 :   if (yyn == 0)</span>
-<span class="lineNum">    1727 </span>                :<span class="lineCov">         21 :     goto yyerrlab;</span>
-<span class="lineNum">    1728 </span>                :<span class="lineCov">      17331 :   goto yyreduce;</span>
+<span class="lineNum">    1725 </span>                :<span class="lineCov">      17334 :   yyn = yydefact[yystate];</span>
+<span class="lineNum">    1726 </span>        [<span class="branchCov" title="Branch 0 was taken 17313 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">      17334 :   if (yyn == 0)</span>
+<span class="lineNum">    1727 </span>                :            :     goto yyerrlab;
+<span class="lineNum">    1728 </span>                :            :   goto yyreduce;
 <span class="lineNum">    1729 </span>                :            : 
 <span class="lineNum">    1730 </span>                :            : 
 <span class="lineNum">    1731 </span>                :            : /*-----------------------------.
@@ -1805,7 +1804,7 @@
 <span class="lineNum">    1733 </span>                :            : `-----------------------------*/
 <span class="lineNum">    1734 </span>                :            : yyreduce:
 <span class="lineNum">    1735 </span>                :            :   /* yyn is the number of a rule to reduce with.  */
-<span class="lineNum">    1736 </span>                :<span class="lineCov">      17331 :   yylen = yyr2[yyn];</span>
+<span class="lineNum">    1736 </span>                :<span class="lineCov">      17313 :   yylen = yyr2[yyn];</span>
 <span class="lineNum">    1737 </span>                :            : 
 <span class="lineNum">    1738 </span>                :            :   /* If YYLEN is nonzero, implement the default value of the action:
 <span class="lineNum">    1739 </span>                :            :      `$$ = $1'.
@@ -1815,25 +1814,25 @@
 <span class="lineNum">    1743 </span>                :            :      users should not rely upon it.  Assigning to YYVAL
 <span class="lineNum">    1744 </span>                :            :      unconditionally makes the parser a bit smaller, and it avoids a
 <span class="lineNum">    1745 </span>                :            :      GCC warning that YYVAL may be used uninitialized.  */
-<span class="lineNum">    1746 </span>                :<span class="lineCov">      17331 :   yyval = yyvsp[1-yylen];</span>
+<span class="lineNum">    1746 </span>                :<span class="lineCov">      17313 :   yyval = yyvsp[1-yylen];</span>
 <span class="lineNum">    1747 </span>                :            : 
 <span class="lineNum">    1748 </span>                :            : 
 <span class="lineNum">    1749 </span>                :            :   YY_REDUCE_PRINT (yyn);
-<span class="lineNum">    1750 </span>  [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span><span class="branchCov" title="Branch 2 was taken 201 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">      17331 :   switch (yyn)</span>
-<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 120 times"> + </span><span class="branchCov" title="Branch 5 was taken 1383 times"> + </span><span class="branchCov" title="Branch 6 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
+<span class="lineNum">    1750 </span>  [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span><span class="branchCov" title="Branch 2 was taken 201 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">      17313 :   switch (yyn)</span>
+<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 120 times"> + </span><span class="branchCov" title="Branch 5 was taken 1380 times"> + </span><span class="branchCov" title="Branch 6 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchCov" title="Branch 11 was taken 48 times"> + </span><span class="branchCov" title="Branch 12 was taken 168 times"> + </span><span class="branchCov" title="Branch 13 was taken 111 times"> + </span> 
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 14 was not taken"> - </span><span class="branchNoCov" title="Branch 15 was not taken"> - </span><span class="branchCov" title="Branch 16 was taken 15 times"> + </span><span class="branchNoCov" title="Branch 17 was not taken"> - </span><span class="branchCov" title="Branch 18 was taken 18 times"> + </span> 
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 19 was not taken"> - </span><span class="branchCov" title="Branch 20 was taken 87 times"> + </span><span class="branchNoCov" title="Branch 21 was not taken"> - </span><span class="branchNoCov" title="Branch 22 was not taken"> - </span><span class="branchCov" title="Branch 23 was taken 12 times"> + </span> 
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 24 was not taken"> - </span><span class="branchCov" title="Branch 25 was taken 45 times"> + </span><span class="branchNoCov" title="Branch 26 was not taken"> - </span><span class="branchNoCov" title="Branch 27 was not taken"> - </span><span class="branchCov" title="Branch 28 was taken 9 times"> + </span> 
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 29 was not taken"> - </span><span class="branchCov" title="Branch 30 was taken 6 times"> + </span><span class="branchCov" title="Branch 31 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 32 was not taken"> - </span><span class="branchNoCov" title="Branch 33 was not taken"> - </span> 
-<span class="lineNum">         </span><span class="branchNoCov" title="Branch 34 was not taken"> - </span><span class="branchCov" title="Branch 35 was taken 1380 times"> + </span><span class="branchCov" title="Branch 36 was taken 33 times"> + </span><span class="branchCov" title="Branch 37 was taken 1218 times"> + </span><span class="branchCov" title="Branch 38 was taken 42 times"> + </span> 
+<span class="lineNum">         </span><span class="branchNoCov" title="Branch 34 was not taken"> - </span><span class="branchCov" title="Branch 35 was taken 1377 times"> + </span><span class="branchCov" title="Branch 36 was taken 33 times"> + </span><span class="branchCov" title="Branch 37 was taken 1218 times"> + </span><span class="branchCov" title="Branch 38 was taken 42 times"> + </span> 
 <span class="lineNum">         </span><span class="branchCov" title="Branch 39 was taken 6 times"> + </span><span class="branchCov" title="Branch 40 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 41 was not taken"> - </span><span class="branchCov" title="Branch 42 was taken 6 times"> + </span><span class="branchCov" title="Branch 43 was taken 3 times"> + </span> 
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 44 was not taken"> - </span><span class="branchCov" title="Branch 45 was taken 9 times"> + </span><span class="branchCov" title="Branch 46 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 47 was not taken"> - </span><span class="branchCov" title="Branch 48 was taken 6 times"> + </span> 
 <span class="lineNum">         </span><span class="branchCov" title="Branch 49 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 50 was not taken"> - </span><span class="branchCov" title="Branch 51 was taken 6 times"> + </span><span class="branchCov" title="Branch 52 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 53 was not taken"> - </span> 
 <span class="lineNum">         </span><span class="branchCov" title="Branch 54 was taken 3 times"> + </span><span class="branchCov" title="Branch 55 was taken 9 times"> + </span><span class="branchCov" title="Branch 56 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 57 was not taken"> - </span><span class="branchNoCov" title="Branch 58 was not taken"> - </span> 
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 59 was not taken"> - </span><span class="branchCov" title="Branch 60 was taken 36 times"> + </span><span class="branchCov" title="Branch 61 was taken 1110 times"> + </span><span class="branchCov" title="Branch 62 was taken 27 times"> + </span><span class="branchCov" title="Branch 63 was taken 3 times"> + </span> 
 <span class="lineNum">         </span><span class="branchCov" title="Branch 64 was taken 6 times"> + </span><span class="branchCov" title="Branch 65 was taken 42 times"> + </span><span class="branchCov" title="Branch 66 was taken 6 times"> + </span><span class="branchCov" title="Branch 67 was taken 159 times"> + </span><span class="branchCov" title="Branch 68 was taken 12 times"> + </span> 
-<span class="lineNum">         </span>   <span class="branchCov" title="Branch 69 was taken 3 times"> + </span><span class="branchCov" title="Branch 70 was taken 156 times"> + </span><span class="branchCov" title="Branch 71 was taken 42 times"> + </span><span class="branchCov" title="Branch 72 was taken 10650 times"> + </span>]
+<span class="lineNum">         </span>   <span class="branchCov" title="Branch 69 was taken 3 times"> + </span><span class="branchCov" title="Branch 70 was taken 156 times"> + </span><span class="branchCov" title="Branch 71 was taken 42 times"> + </span><span class="branchCov" title="Branch 72 was taken 10638 times"> + </span>]
 <span class="lineNum">    1751 </span>                :            :     {
 <span class="lineNum">    1752 </span>                :            :         case 4:
 <span class="lineNum">    1753 </span>                :            : /* Line 1740 of yacc.c  */
@@ -1884,7 +1883,7 @@
 <span class="lineNum">    1798 </span>                :            :     { pc-&gt;dates_seen++; }
 <span class="lineNum">    1799 </span>                :            : /* Line 1740 of yacc.c  */
 <span class="lineNum">    1800 </span>                :            : #line 1801 &quot;parse-datetime.c&quot;
-<span class="lineNum">    1801 </span>                :<span class="lineCov">       1383 :     break;</span>
+<span class="lineNum">    1801 </span>                :<span class="lineCov">       1380 :     break;</span>
 <span class="lineNum">    1802 </span>                :            : 
 <span class="lineNum">    1803 </span>                :            :   case 12:
 <span class="lineNum">    1804 </span>                :            : /* Line 1740 of yacc.c  */
@@ -2130,7 +2129,7 @@
 <span class="lineNum">    2044 </span>                :            :       }
 <span class="lineNum">    2045 </span>                :            : /* Line 1740 of yacc.c  */
 <span class="lineNum">    2046 </span>                :            : #line 2047 &quot;parse-datetime.c&quot;
-<span class="lineNum">    2047 </span>                :<span class="lineCov">          9 :     break;</span>
+<span class="lineNum">    2047 </span>                :            :     break;
 <span class="lineNum">    2048 </span>                :            : 
 <span class="lineNum">    2049 </span>                :            :   case 43:
 <span class="lineNum">    2050 </span>                :            : /* Line 1740 of yacc.c  */
@@ -2217,7 +2216,7 @@
 <span class="lineNum">    2131 </span>                :            :       }
 <span class="lineNum">    2132 </span>                :            : /* Line 1740 of yacc.c  */
 <span class="lineNum">    2133 </span>                :            : #line 2134 &quot;parse-datetime.c&quot;
-<span class="lineNum">    2134 </span>                :<span class="lineCov">       1380 :     break;</span>
+<span class="lineNum">    2134 </span>                :<span class="lineCov">       1377 :     break;</span>
 <span class="lineNum">    2135 </span>                :            : 
 <span class="lineNum">    2136 </span>                :            :   case 51:
 <span class="lineNum">    2137 </span>                :            : /* Line 1740 of yacc.c  */
@@ -2515,7 +2514,7 @@
 <span class="lineNum">    2429 </span>                :            : 
 <span class="lineNum">    2430 </span>                :            : /* Line 1740 of yacc.c  */
 <span class="lineNum">    2431 </span>                :            : #line 2432 &quot;parse-datetime.c&quot;
-<span class="lineNum">    2432 </span>                :<span class="lineCov">      10650 :       default: break;</span>
+<span class="lineNum">    2432 </span>                :            :       default: break;
 <span class="lineNum">    2433 </span>                :            :     }
 <span class="lineNum">    2434 </span>                :            :   /* User semantic actions sometimes alter yychar, and that requires
 <span class="lineNum">    2435 </span>                :            :      that yytoken be updated with the new translation.  We take the
@@ -2530,26 +2529,25 @@
 <span class="lineNum">    2444 </span>                :            :      before the lookahead is translated.  */
 <span class="lineNum">    2445 </span>                :            :   YY_SYMBOL_PRINT (&quot;-&gt; $$ =&quot;, yyr1[yyn], &amp;yyval, &amp;yyloc);
 <span class="lineNum">    2446 </span>                :            : 
-<span class="lineNum">    2447 </span>                :<span class="lineCov">      17331 :   YYPOPSTACK (yylen);</span>
-<span class="lineNum">    2448 </span>                :<span class="lineCov">      17331 :   yylen = 0;</span>
+<span class="lineNum">    2447 </span>                :<span class="lineCov">      17313 :   YYPOPSTACK (yylen);</span>
+<span class="lineNum">    2448 </span>                :<span class="lineCov">      17313 :   yylen = 0;</span>
 <span class="lineNum">    2449 </span>                :            :   YY_STACK_PRINT (yyss, yyssp);
 <span class="lineNum">    2450 </span>                :            : 
-<span class="lineNum">    2451 </span>                :<span class="lineCov">      17331 :   *++yyvsp = yyval;</span>
+<span class="lineNum">    2451 </span>                :<span class="lineCov">      17313 :   *++yyvsp = yyval;</span>
 <span class="lineNum">    2452 </span>                :            : 
 <span class="lineNum">    2453 </span>                :            :   /* Now `shift' the result of the reduction.  Determine what state
 <span class="lineNum">    2454 </span>                :            :      that goes to, based on the state we popped back to and the rule
 <span class="lineNum">    2455 </span>                :            :      number reduced by.  */
 <span class="lineNum">    2456 </span>                :            : 
-<span class="lineNum">    2457 </span>                :<span class="lineCov">      17331 :   yyn = yyr1[yyn];</span>
+<span class="lineNum">    2457 </span>                :<span class="lineCov">      17313 :   yyn = yyr1[yyn];</span>
 <span class="lineNum">    2458 </span>                :            : 
-<span class="lineNum">    2459 </span>                :<span class="lineCov">      17331 :   yystate = yypgoto[yyn - YYNTOKENS] + *yyssp;</span>
-<span class="lineNum">    2460 </span>[<span class="branchCov" title="Branch 0 was taken 2091 times"> + </span><span class="branchCov" title="Branch 1 was taken 15240 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 1980 times"> + </span><span class="branchCov" title="Branch 3 was taken 111 times"> + </span>]:<span class="lineCov">      17331 :   if (0 &lt;= yystate &amp;&amp; yystate &lt;= YYLAST &amp;&amp; yycheck[yystate] == *yyssp)</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 459 times"> + </span><span class="branchCov" title="Branch 5 was taken 1521 times"> + </span>]
+<span class="lineNum">    2459 </span>                :<span class="lineCov">      17313 :   yystate = yypgoto[yyn - YYNTOKENS] + *yyssp;</span>
+<span class="lineNum">    2460 </span>[<span class="branchCov" title="Branch 0 was taken 1980 times"> + </span><span class="branchCov" title="Branch 1 was taken 15333 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 459 times"> + </span><span class="branchCov" title="Branch 3 was taken 1521 times"> + </span>]:<span class="lineCov">      17313 :   if (0 &lt;= yystate &amp;&amp; yystate &lt;= YYLAST &amp;&amp; yycheck[yystate] == *yyssp)</span>
 <span class="lineNum">    2461 </span>                :<span class="lineCov">        459 :     yystate = yytable[yystate];</span>
 <span class="lineNum">    2462 </span>                :            :   else
-<span class="lineNum">    2463 </span>                :<span class="lineCov">      16872 :     yystate = yydefgoto[yyn - YYNTOKENS];</span>
+<span class="lineNum">    2463 </span>                :<span class="lineCov">      16854 :     yystate = yydefgoto[yyn - YYNTOKENS];</span>
 <span class="lineNum">    2464 </span>                :            : 
-<span class="lineNum">    2465 </span>                :<span class="lineCov">      17331 :   goto yynewstate;</span>
+<span class="lineNum">    2465 </span>                :            :   goto yynewstate;
 <span class="lineNum">    2466 </span>                :            : 
 <span class="lineNum">    2467 </span>                :            : 
 <span class="lineNum">    2468 </span>                :            : /*------------------------------------.
@@ -2558,14 +2556,14 @@
 <span class="lineNum">    2471 </span>                :            : yyerrlab:
 <span class="lineNum">    2472 </span>                :            :   /* Make sure we have latest lookahead translation.  See comments at
 <span class="lineNum">    2473 </span>                :            :      user semantic actions for why this is necessary.  */
-<span class="lineNum">    2474 </span>[<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         21 :   yytoken = yychar == YYEMPTY ? YYEMPTY : YYTRANSLATE (yychar);</span>
+<span class="lineNum">    2474 </span>                :<span class="lineCov">         21 :   yytoken = yychar == YYEMPTY ? YYEMPTY : YYTRANSLATE (yychar);</span>
 <span class="lineNum">    2475 </span>                :            : 
 <span class="lineNum">    2476 </span>                :            :   /* If not already recovering from an error, report this error.  */
-<span class="lineNum">    2477 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :   if (!yyerrstatus)</span>
+<span class="lineNum">    2477 </span>                :            :   if (!yyerrstatus)
 <span class="lineNum">    2478 </span>                :            :     {
-<span class="lineNum">    2479 </span>                :<span class="lineCov">         21 :       ++yynerrs;</span>
+<span class="lineNum">    2479 </span>                :            :       ++yynerrs;
 <span class="lineNum">    2480 </span>                :            : #if ! YYERROR_VERBOSE
-<span class="lineNum">    2481 </span>                :<span class="lineCov">         21 :       yyerror (pc, YY_(&quot;syntax error&quot;));</span>
+<span class="lineNum">    2481 </span>                :            :       yyerror (pc, YY_(&quot;syntax error&quot;));
 <span class="lineNum">    2482 </span>                :            : #else
 <span class="lineNum">    2483 </span>                :            : # define YYSYNTAX_ERROR yysyntax_error (&amp;yymsg_alloc, &amp;yymsg, \
 <span class="lineNum">    2484 </span>                :            :                                         yyssp, yytoken)
@@ -2611,19 +2609,19 @@
 <span class="lineNum">    2524 </span>                :            :         {
 <span class="lineNum">    2525 </span>                :            :           /* Return failure if at end of input.  */
 <span class="lineNum">    2526 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :           if (yychar == YYEOF)</span>
-<span class="lineNum">    2527 </span>                :<span class="lineNoCov">          0 :             YYABORT;</span>
+<span class="lineNum">    2527 </span>                :            :             YYABORT;
 <span class="lineNum">    2528 </span>                :            :         }
 <span class="lineNum">    2529 </span>                :            :       else
 <span class="lineNum">    2530 </span>                :            :         {
-<span class="lineNum">    2531 </span>                :<span class="lineNoCov">          0 :           yydestruct (&quot;Error: discarding&quot;,</span>
+<span class="lineNum">    2531 </span>                :            :           yydestruct (&quot;Error: discarding&quot;,
 <span class="lineNum">    2532 </span>                :            :                       yytoken, &amp;yylval, pc);
-<span class="lineNum">    2533 </span>                :<span class="lineNoCov">          0 :           yychar = YYEMPTY;</span>
+<span class="lineNum">    2533 </span>                :            :           yychar = YYEMPTY;
 <span class="lineNum">    2534 </span>                :            :         }
 <span class="lineNum">    2535 </span>                :            :     }
 <span class="lineNum">    2536 </span>                :            : 
 <span class="lineNum">    2537 </span>                :            :   /* Else will try to reuse lookahead token after shifting the error
 <span class="lineNum">    2538 </span>                :            :      token.  */
-<span class="lineNum">    2539 </span>                :<span class="lineCov">         21 :   goto yyerrlab1;</span>
+<span class="lineNum">    2539 </span>                :            :   goto yyerrlab1;
 <span class="lineNum">    2540 </span>                :            : 
 <span class="lineNum">    2541 </span>                :            : 
 <span class="lineNum">    2542 </span>                :            : /*---------------------------------------------------.
@@ -2658,18 +2656,17 @@
 <span class="lineNum">    2571 </span>        [<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         54 :       if (!yypact_value_is_default (yyn))</span>
 <span class="lineNum">    2572 </span>                :            :         {
 <span class="lineNum">    2573 </span>                :<span class="lineCov">         54 :           yyn += YYTERROR;</span>
-<span class="lineNum">    2574 </span>[<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         54 :           if (0 &lt;= yyn &amp;&amp; yyn &lt;= YYLAST &amp;&amp; yycheck[yyn] == YYTERROR)</span>
-<span class="lineNum">         </span>        [<span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 54 times"> + </span>]
+<span class="lineNum">    2574 </span>[<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 54 times"> + </span>]:<span class="lineCov">         54 :           if (0 &lt;= yyn &amp;&amp; yyn &lt;= YYLAST &amp;&amp; yycheck[yyn] == YYTERROR)</span>
 <span class="lineNum">    2575 </span>                :            :             {
 <span class="lineNum">    2576 </span>                :<span class="lineNoCov">          0 :               yyn = yytable[yyn];</span>
 <span class="lineNum">    2577 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :               if (0 &lt; yyn)</span>
-<span class="lineNum">    2578 </span>                :<span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">    2578 </span>                :            :                 break;
 <span class="lineNum">    2579 </span>                :            :             }
 <span class="lineNum">    2580 </span>                :            :         }
 <span class="lineNum">    2581 </span>                :            : 
 <span class="lineNum">    2582 </span>                :            :       /* Pop the current state because it cannot handle the error token.  */
-<span class="lineNum">    2583 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span>]:<span class="lineCov">         54 :       if (yyssp == yyss)</span>
-<span class="lineNum">    2584 </span>                :<span class="lineCov">         21 :         YYABORT;</span>
+<span class="lineNum">    2583 </span>        [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         54 :       if (yyssp == yyss)</span>
+<span class="lineNum">    2584 </span>                :            :         YYABORT;
 <span class="lineNum">    2585 </span>                :            : 
 <span class="lineNum">    2586 </span>                :            : 
 <span class="lineNum">    2587 </span>                :<span class="lineCov">         33 :       yydestruct (&quot;Error: popping&quot;,</span>
@@ -2693,55 +2690,55 @@
 <span class="lineNum">    2605 </span>                :            : | yyacceptlab -- YYACCEPT comes here.  |
 <span class="lineNum">    2606 </span>                :            : `-------------------------------------*/
 <span class="lineNum">    2607 </span>                :            : yyacceptlab:
-<span class="lineNum">    2608 </span>                :<span class="lineCov">       1617 :   yyresult = 0;</span>
-<span class="lineNum">    2609 </span>                :<span class="lineCov">       1617 :   goto yyreturn;</span>
+<span class="lineNum">    2608 </span>                :            :   yyresult = 0;
+<span class="lineNum">    2609 </span>                :            :   goto yyreturn;
 <span class="lineNum">    2610 </span>                :            : 
 <span class="lineNum">    2611 </span>                :            : /*-----------------------------------.
 <span class="lineNum">    2612 </span>                :            : | yyabortlab -- YYABORT comes here.  |
 <span class="lineNum">    2613 </span>                :            : `-----------------------------------*/
 <span class="lineNum">    2614 </span>                :            : yyabortlab:
-<span class="lineNum">    2615 </span>                :<span class="lineCov">         21 :   yyresult = 1;</span>
-<span class="lineNum">    2616 </span>                :<span class="lineCov">         21 :   goto yyreturn;</span>
+<span class="lineNum">    2615 </span>                :            :   yyresult = 1;
+<span class="lineNum">    2616 </span>                :            :   goto yyreturn;
 <span class="lineNum">    2617 </span>                :            : 
 <span class="lineNum">    2618 </span>                :            : #if !defined(yyoverflow) || YYERROR_VERBOSE
 <span class="lineNum">    2619 </span>                :            : /*-------------------------------------------------.
 <span class="lineNum">    2620 </span>                :            : | yyexhaustedlab -- memory exhaustion comes here.  |
 <span class="lineNum">    2621 </span>                :            : `-------------------------------------------------*/
 <span class="lineNum">    2622 </span>                :            : yyexhaustedlab:
-<span class="lineNum">    2623 </span>                :<span class="lineNoCov">          0 :   yyerror (pc, YY_(&quot;memory exhausted&quot;));</span>
-<span class="lineNum">    2624 </span>                :<span class="lineNoCov">          0 :   yyresult = 2;</span>
+<span class="lineNum">    2623 </span>                :            :   yyerror (pc, YY_(&quot;memory exhausted&quot;));
+<span class="lineNum">    2624 </span>                :            :   yyresult = 2;
 <span class="lineNum">    2625 </span>                :            :   /* Fall through.  */
 <span class="lineNum">    2626 </span>                :            : #endif
 <span class="lineNum">    2627 </span>                :            : 
 <span class="lineNum">    2628 </span>                :            : yyreturn:
-<span class="lineNum">    2629 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 1617 times"> + </span>]:<span class="lineCov">       1638 :   if (yychar != YYEMPTY)</span>
+<span class="lineNum">    2629 </span>                :            :   if (yychar != YYEMPTY)
 <span class="lineNum">    2630 </span>                :            :     {
 <span class="lineNum">    2631 </span>                :            :       /* Make sure we have latest lookahead translation.  See comments at
 <span class="lineNum">    2632 </span>                :            :          user semantic actions for why this is necessary.  */
-<span class="lineNum">    2633 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :       yytoken = YYTRANSLATE (yychar);</span>
-<span class="lineNum">    2634 </span>                :<span class="lineCov">         21 :       yydestruct (&quot;Cleanup: discarding lookahead&quot;,</span>
+<span class="lineNum">    2633 </span>                :            :       yytoken = YYTRANSLATE (yychar);
+<span class="lineNum">    2634 </span>                :            :       yydestruct (&quot;Cleanup: discarding lookahead&quot;,
 <span class="lineNum">    2635 </span>                :            :                   yytoken, &amp;yylval, pc);
 <span class="lineNum">    2636 </span>                :            :     }
 <span class="lineNum">    2637 </span>                :            :   /* Do not reclaim the symbols of the rule which action triggered
 <span class="lineNum">    2638 </span>                :            :      this YYABORT or YYACCEPT.  */
-<span class="lineNum">    2639 </span>                :<span class="lineCov">       1638 :   YYPOPSTACK (yylen);</span>
+<span class="lineNum">    2639 </span>                :<span class="lineCov">       1635 :   YYPOPSTACK (yylen);</span>
 <span class="lineNum">    2640 </span>                :            :   YY_STACK_PRINT (yyss, yyssp);
-<span class="lineNum">    2641 </span>        [<span class="branchCov" title="Branch 0 was taken 3234 times"> + </span><span class="branchCov" title="Branch 1 was taken 1638 times"> + </span>]:<span class="lineCov">       4872 :   while (yyssp != yyss)</span>
+<span class="lineNum">    2641 </span>                :            :   while (yyssp != yyss)
 <span class="lineNum">    2642 </span>                :            :     {
-<span class="lineNum">    2643 </span>                :<span class="lineCov">       3234 :       yydestruct (&quot;Cleanup: popping&quot;,</span>
-<span class="lineNum">    2644 </span>                :<span class="lineCov">       3234 :                   yystos[*yyssp], yyvsp, pc);</span>
-<span class="lineNum">    2645 </span>                :<span class="lineCov">       3234 :       YYPOPSTACK (1);</span>
+<span class="lineNum">    2643 </span>                :            :       yydestruct (&quot;Cleanup: popping&quot;,
+<span class="lineNum">    2644 </span>                :            :                   yystos[*yyssp], yyvsp, pc);
+<span class="lineNum">    2645 </span>                :            :       YYPOPSTACK (1);
 <span class="lineNum">    2646 </span>                :            :     }
 <span class="lineNum">    2647 </span>                :            : #ifndef yyoverflow
-<span class="lineNum">    2648 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1638 times"> + </span>]:<span class="lineCov">       1638 :   if (yyss != yyssa)</span>
-<span class="lineNum">    2649 </span>                :<span class="lineNoCov">          0 :     YYSTACK_FREE (yyss);</span>
+<span class="lineNum">    2648 </span>                :            :   if (yyss != yyssa)
+<span class="lineNum">    2649 </span>                :            :     YYSTACK_FREE (yyss);
 <span class="lineNum">    2650 </span>                :            : #endif
 <span class="lineNum">    2651 </span>                :            : #if YYERROR_VERBOSE
 <span class="lineNum">    2652 </span>                :            :   if (yymsg != yymsgbuf)
 <span class="lineNum">    2653 </span>                :            :     YYSTACK_FREE (yymsg);
 <span class="lineNum">    2654 </span>                :            : #endif
 <span class="lineNum">    2655 </span>                :            :   /* Make sure YYID is used.  */
-<span class="lineNum">    2656 </span>                :<span class="lineCov">       1638 :   return YYID (yyresult);</span>
+<span class="lineNum">    2656 </span>                :<span class="lineCov">       1635 :   return YYID (yyresult);</span>
 <span class="lineNum">    2657 </span>                :            : }
 <span class="lineNum">    2658 </span>                :            : 
 <span class="lineNum">    2659 </span>                :            : /* Line 2000 of yacc.c  */

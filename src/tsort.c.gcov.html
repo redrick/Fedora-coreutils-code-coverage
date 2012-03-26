@@ -31,17 +31,17 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">200</td>
-            <td class="headerCovTableEntry">206</td>
-            <td class="headerCovTableEntryHi">97.1 %</td>
+            <td class="headerCovTableEntry">184</td>
+            <td class="headerCovTableEntry">189</td>
+            <td class="headerCovTableEntryHi">97.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">10</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">105</td>
-            <td class="headerCovTableEntry">120</td>
-            <td class="headerCovTableEntryMed">87.5 %</td>
+            <td class="headerCovTableEntry">107</td>
+            <td class="headerCovTableEntry">122</td>
+            <td class="headerCovTableEntryMed">87.7 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -159,7 +159,7 @@
 <span class="lineNum">      88 </span>                :            : &quot;), program_name);
 <span class="lineNum">      89 </span>                :<span class="lineCov">          9 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
 <span class="lineNum">      90 </span>                :<span class="lineCov">          9 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
-<span class="lineNum">      91 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">      91 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">      92 </span>                :            :     }
 <span class="lineNum">      93 </span>                :            : 
 <span class="lineNum">      94 </span>                :<span class="lineCov">         15 :   exit (status);</span>
@@ -206,14 +206,14 @@
 <span class="lineNum">     135 </span>                :            : 
 <span class="lineNum">     136 </span>                :            :   /* A1. Initialize.  */
 <span class="lineNum">     137 </span>                :<span class="lineCov">        255 :   t = root;</span>
-<span class="lineNum">     138 </span>                :<span class="lineCov">        255 :   s = p = root-&gt;right;</span>
+<span class="lineNum">     138 </span>                :<span class="lineCov">        654 :   s = p = root-&gt;right;</span>
 <span class="lineNum">     139 </span>                :            : 
 <span class="lineNum">     140 </span>                :            :   while (true)
 <span class="lineNum">     141 </span>                :            :     {
 <span class="lineNum">     142 </span>                :            :       /* A2. Compare.  */
 <span class="lineNum">     143 </span>                :<span class="lineCov">        654 :       a = strcmp (str, p-&gt;str);</span>
-<span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 114 times"> + </span><span class="branchCov" title="Branch 1 was taken 540 times"> + </span>]:<span class="lineCov">        654 :       if (a == 0)</span>
-<span class="lineNum">     145 </span>                :<span class="lineCov">        114 :         return p;</span>
+<span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 540 times"> + </span><span class="branchCov" title="Branch 1 was taken 114 times"> + </span>]:<span class="lineCov">        654 :       if (a == 0)</span>
+<span class="lineNum">     145 </span>                :            :         return p;
 <span class="lineNum">     146 </span>                :            : 
 <span class="lineNum">     147 </span>                :            :       /* A3 &amp; A4.  Move left &amp; right.  */
 <span class="lineNum">     148 </span>        [<span class="branchCov" title="Branch 0 was taken 66 times"> + </span><span class="branchCov" title="Branch 1 was taken 474 times"> + </span>]:<span class="lineCov">        540 :       if (a &lt; 0)</span>
@@ -237,7 +237,7 @@
 <span class="lineNum">     166 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 123 times"> + </span>]:<span class="lineCov">        141 :           if (strcmp (str, s-&gt;str) &lt; 0)</span>
 <span class="lineNum">     167 </span>                :            :             {
 <span class="lineNum">     168 </span>                :<span class="lineCov">         18 :               r = p = s-&gt;left;</span>
-<span class="lineNum">     169 </span>                :<span class="lineCov">         18 :               a = -1;</span>
+<span class="lineNum">     169 </span>                :<span class="lineCov">        141 :               a = -1;</span>
 <span class="lineNum">     170 </span>                :            :             }
 <span class="lineNum">     171 </span>                :            :           else
 <span class="lineNum">     172 </span>                :            :             {
@@ -256,7 +256,7 @@
 <span class="lineNum">     185 </span>                :            :               else
 <span class="lineNum">     186 </span>                :            :                 {
 <span class="lineNum">     187 </span>                :<span class="lineCov">        132 :                   p-&gt;balance = 1;</span>
-<span class="lineNum">     188 </span>                :<span class="lineCov">        132 :                   p = p-&gt;right;</span>
+<span class="lineNum">     188 </span>                :<span class="lineCov">        150 :                   p = p-&gt;right;</span>
 <span class="lineNum">     189 </span>                :            :                 }
 <span class="lineNum">     190 </span>                :            :             }
 <span class="lineNum">     191 </span>                :            : 
@@ -318,30 +318,30 @@
 <span class="lineNum">     247 </span>                :            :           else
 <span class="lineNum">     248 </span>                :<span class="lineCov">          3 :             t-&gt;left = p;</span>
 <span class="lineNum">     249 </span>                :            : 
-<span class="lineNum">     250 </span>                :<span class="lineCov">         75 :           return q;</span>
+<span class="lineNum">     250 </span>                :            :           return q;
 <span class="lineNum">     251 </span>                :            :         }
 <span class="lineNum">     252 </span>                :            : 
 <span class="lineNum">     253 </span>                :            :       /* A3 &amp; A4.  (continued).  */
-<span class="lineNum">     254 </span>        [<span class="branchCov" title="Branch 0 was taken 105 times"> + </span><span class="branchCov" title="Branch 1 was taken 294 times"> + </span>]:<span class="lineCov">        399 :       if (q-&gt;balance)</span>
+<span class="lineNum">     254 </span>        [<span class="branchCov" title="Branch 0 was taken 294 times"> + </span><span class="branchCov" title="Branch 1 was taken 105 times"> + </span>]:<span class="lineCov">        399 :       if (q-&gt;balance)</span>
 <span class="lineNum">     255 </span>                :            :         {
 <span class="lineNum">     256 </span>                :<span class="lineCov">        105 :           t = p;</span>
-<span class="lineNum">     257 </span>                :<span class="lineCov">        105 :           s = q;</span>
+<span class="lineNum">     257 </span>                :<span class="lineCov">        390 :           s = q;</span>
 <span class="lineNum">     258 </span>                :            :         }
 <span class="lineNum">     259 </span>                :            : 
-<span class="lineNum">     260 </span>                :<span class="lineCov">        399 :       p = q;</span>
-<span class="lineNum">     261 </span>                :<span class="lineCov">        684 :     }</span>
+<span class="lineNum">     260 </span>                :            :       p = q;
+<span class="lineNum">     261 </span>                :            :     }
 <span class="lineNum">     262 </span>                :            : 
 <span class="lineNum">     263 </span>                :            :   /* NOTREACHED */
 <span class="lineNum">     264 </span>                :            : }
 <span class="lineNum">     265 </span>                :            : 
 <span class="lineNum">     266 </span>                :            : /* Record the fact that J precedes K.  */
-<a name="267"><span class="lineNum">     267 </span>                :            : </a>
+<span class="lineNum">     267 </span>                :            : 
 <span class="lineNum">     268 </span>                :            : static void
-<span class="lineNum">     269 </span>                :<span class="lineCov">        141 : record_relation (struct item *j, struct item *k)</span>
+<span class="lineNum">     269 </span>                :            : record_relation (struct item *j, struct item *k)
 <span class="lineNum">     270 </span>                :            : {
-<span class="lineNum">     271 </span>                :            :   struct successor *p;
+<a name="271"><span class="lineNum">     271 </span>                :            :   struct successor *p;</a>
 <span class="lineNum">     272 </span>                :            : 
-<span class="lineNum">     273 </span>        [<span class="branchCov" title="Branch 0 was taken 132 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">        141 :   if (!STREQ (j-&gt;str, k-&gt;str))</span>
+<span class="lineNum">     273 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 132 times"> + </span>]:<span class="lineCov">        141 :   if (!STREQ (j-&gt;str, k-&gt;str))</span>
 <span class="lineNum">     274 </span>                :            :     {
 <span class="lineNum">     275 </span>                :<span class="lineCov">        132 :       k-&gt;count++;</span>
 <span class="lineNum">     276 </span>                :<span class="lineCov">        132 :       p = xmalloc (sizeof *p);</span>
@@ -349,7 +349,7 @@
 <span class="lineNum">     278 </span>                :<span class="lineCov">        132 :       p-&gt;next = j-&gt;top;</span>
 <span class="lineNum">     279 </span>                :<span class="lineCov">        132 :       j-&gt;top = p;</span>
 <span class="lineNum">     280 </span>                :            :     }
-<span class="lineNum">     281 </span>                :<span class="lineCov">        141 : }</span>
+<span class="lineNum">     281 </span>                :            : }
 <a name="282"><span class="lineNum">     282 </span>                :            : </a>
 <span class="lineNum">     283 </span>                :            : static bool
 <span class="lineNum">     284 </span>                :<span class="lineCov">        168 : count_items (struct item *unused ATTRIBUTE_UNUSED)</span>
@@ -408,7 +408,7 @@
 <span class="lineNum">     337 </span>                :            :         {
 <span class="lineNum">     338 </span>                :<span class="lineCov">         27 :           struct successor **p = &amp;k-&gt;top;</span>
 <span class="lineNum">     339 </span>                :            : 
-<span class="lineNum">     340 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         33 :           while (*p)</span>
+<span class="lineNum">     340 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         57 :           while (*p)</span>
 <span class="lineNum">     341 </span>                :            :             {
 <span class="lineNum">     342 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         24 :               if ((*p)-&gt;suc == loop)</span>
 <span class="lineNum">     343 </span>                :            :                 {
@@ -447,7 +447,7 @@
 <span class="lineNum">     376 </span>                :            : 
 <span class="lineNum">     377 </span>                :            :                       /* Since we have found the loop, stop walking
 <span class="lineNum">     378 </span>                :            :                          the tree.  */
-<span class="lineNum">     379 </span>                :<span class="lineCov">          6 :                       return true;</span>
+<span class="lineNum">     379 </span>                :            :                       return true;
 <span class="lineNum">     380 </span>                :            :                     }
 <span class="lineNum">     381 </span>                :            :                   else
 <span class="lineNum">     382 </span>                :            :                     {
@@ -462,7 +462,7 @@
 <span class="lineNum">     391 </span>                :            :         }
 <span class="lineNum">     392 </span>                :            :     }
 <span class="lineNum">     393 </span>                :            : 
-<span class="lineNum">     394 </span>                :<span class="lineCov">         33 :   return false;</span>
+<span class="lineNum">     394 </span>                :            :   return false;
 <span class="lineNum">     395 </span>                :            : }
 <span class="lineNum">     396 </span>                :            : 
 <span class="lineNum">     397 </span>                :            : /* Recurse (sub)tree rooted at ROOT, calling ACTION for each node.
@@ -476,13 +476,13 @@
 <span class="lineNum">     405 </span>                :            :   else
 <span class="lineNum">     406 </span>                :            :     {
 <span class="lineNum">     407 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span>]:<span class="lineCov">        180 :       if (root-&gt;left != NULL)</span>
-<span class="lineNum">     408 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 144 times"> + </span>]:<span class="lineCov">        144 :         if (recurse_tree (root-&gt;left, action))</span>
-<span class="lineNum">     409 </span>                :<span class="lineNoCov">          0 :           return true;</span>
-<span class="lineNum">     410 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchCov" title="Branch 2 was taken 177 times"> + </span>]:<span class="lineCov">        180 :       if ((*action) (root))</span>
-<span class="lineNum">     411 </span>                :<span class="lineCov">          3 :         return true;</span>
+<span class="lineNum">     408 </span>        [<span class="branchCov" title="Branch 1 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        144 :         if (recurse_tree (root-&gt;left, action))</span>
+<span class="lineNum">     409 </span>                :            :           return true;
+<span class="lineNum">     410 </span>        [<span class="branchCov" title="Branch 1 was taken 177 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">        180 :       if ((*action) (root))</span>
+<span class="lineNum">     411 </span>                :            :         return true;
 <span class="lineNum">     412 </span>        [<span class="branchCov" title="Branch 0 was taken 171 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">        177 :       if (root-&gt;right != NULL)</span>
-<span class="lineNum">     413 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchCov" title="Branch 2 was taken 168 times"> + </span>]:<span class="lineCov">        171 :         if (recurse_tree (root-&gt;right, action))</span>
-<span class="lineNum">     414 </span>                :<span class="lineCov">          3 :           return true;</span>
+<span class="lineNum">     413 </span>        [<span class="branchCov" title="Branch 1 was taken 168 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">        171 :         if (recurse_tree (root-&gt;right, action))</span>
+<span class="lineNum">     414 </span>                :            :           return true;
 <span class="lineNum">     415 </span>                :            :     }
 <span class="lineNum">     416 </span>                :            : 
 <span class="lineNum">     417 </span>                :<span class="lineCov">        387 :   return false;</span>
@@ -499,7 +499,7 @@
 <span class="lineNum">     428 </span>                :<span class="lineCov">         72 : }</span>
 <span class="lineNum">     429 </span>                :            : 
 <span class="lineNum">     430 </span>                :            : /* Do a topological sort on FILE.   Return true if successful.  */
-<a name="431"><span class="lineNum">     431 </span>                :            : </a>
+<span class="lineNum">     431 </span>                :            : 
 <span class="lineNum">     432 </span>                :            : static bool
 <span class="lineNum">     433 </span>                :<span class="lineCov">         30 : tsort (const char *file)</span>
 <span class="lineNum">     434 </span>                :            : {
@@ -508,7 +508,7 @@
 <span class="lineNum">     437 </span>                :<span class="lineCov">         30 :   struct item *j = NULL;</span>
 <span class="lineNum">     438 </span>                :<span class="lineCov">         30 :   struct item *k = NULL;</span>
 <span class="lineNum">     439 </span>                :            :   token_buffer tokenbuffer;
-<span class="lineNum">     440 </span>                :<span class="lineCov">         30 :   bool is_stdin = STREQ (file, &quot;-&quot;);</span>
+<span class="lineNum">     440 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">         30 :   bool is_stdin = STREQ (file, &quot;-&quot;);</span>
 <span class="lineNum">     441 </span>                :            : 
 <span class="lineNum">     442 </span>                :            :   /* Intialize the head of the tree will hold the strings we're sorting.  */
 <span class="lineNum">     443 </span>                :<span class="lineCov">         30 :   root = new_item (NULL);</span>
@@ -518,27 +518,27 @@
 <span class="lineNum">     447 </span>                :            : 
 <span class="lineNum">     448 </span>                :<span class="lineCov">         30 :   fadvise (stdin, FADVISE_SEQUENTIAL);</span>
 <span class="lineNum">     449 </span>                :            : 
-<span class="lineNum">     450 </span>                :<span class="lineCov">         30 :   init_tokenbuffer (&amp;tokenbuffer);</span>
+<span class="lineNum">     450 </span>                :<span class="lineCov">        315 :   init_tokenbuffer (&amp;tokenbuffer);</span>
 <span class="lineNum">     451 </span>                :            : 
 <span class="lineNum">     452 </span>                :            :   while (1)
 <span class="lineNum">     453 </span>                :            :     {
 <span class="lineNum">     454 </span>                :            :       /* T2. Next Relation.  */
 <span class="lineNum">     455 </span>                :<span class="lineCov">        315 :       size_t len = readtoken (stdin, DELIM, sizeof (DELIM) - 1, &amp;tokenbuffer);</span>
-<span class="lineNum">     456 </span>        [<span class="branchCov" title="Branch 0 was taken 30 times"> + </span><span class="branchCov" title="Branch 1 was taken 285 times"> + </span>]:<span class="lineCov">        315 :       if (len == (size_t) -1)</span>
-<span class="lineNum">     457 </span>                :<span class="lineCov">         30 :         break;</span>
+<span class="lineNum">     456 </span>        [<span class="branchCov" title="Branch 0 was taken 285 times"> + </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>]:<span class="lineCov">        315 :       if (len == (size_t) -1)</span>
+<span class="lineNum">     457 </span>                :            :         break;
 <span class="lineNum">     458 </span>                :            : 
 <span class="lineNum">     459 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 285 times"> + </span>]:<span class="lineCov">        285 :       assert (len != 0);</span>
 <span class="lineNum">     460 </span>                :            : 
 <span class="lineNum">     461 </span>                :<span class="lineCov">        285 :       k = search_item (root, tokenbuffer.buffer);</span>
-<span class="lineNum">     462 </span>        [<span class="branchCov" title="Branch 0 was taken 141 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>]:<span class="lineCov">        285 :       if (j)</span>
+<span class="lineNum">     462 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchCov" title="Branch 1 was taken 141 times"> + </span>]:<span class="lineCov">        285 :       if (j)</span>
 <span class="lineNum">     463 </span>                :            :         {
 <span class="lineNum">     464 </span>                :            :           /* T3. Record the relation.  */
-<span class="lineNum">     465 </span>                :<span class="lineCov">        141 :           record_relation (j, k);</span>
-<span class="lineNum">     466 </span>                :<span class="lineCov">        141 :           k = NULL;</span>
+<span class="lineNum">     465 </span>                :            :           record_relation (j, k);
+<span class="lineNum">     466 </span>                :            :           k = NULL;
 <span class="lineNum">     467 </span>                :            :         }
 <span class="lineNum">     468 </span>                :            : 
-<span class="lineNum">     469 </span>                :<span class="lineCov">        285 :       j = k;</span>
-<span class="lineNum">     470 </span>                :<span class="lineCov">        285 :     }</span>
+<span class="lineNum">     469 </span>                :            :       j = k;
+<span class="lineNum">     470 </span>                :            :     }
 <span class="lineNum">     471 </span>                :            : 
 <span class="lineNum">     472 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>]:<span class="lineCov">         30 :   if (k != NULL)</span>
 <span class="lineNum">     473 </span>                :<span class="lineCov">          3 :     error (EXIT_FAILURE, 0, _(&quot;%s: input contains an odd number of tokens&quot;),</span>
@@ -547,7 +547,7 @@
 <span class="lineNum">     476 </span>                :            :   /* T1. Initialize (N &lt;- n).  */
 <span class="lineNum">     477 </span>                :<span class="lineCov">         27 :   walk_tree (root, count_items);</span>
 <span class="lineNum">     478 </span>                :            : 
-<span class="lineNum">     479 </span>        [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>]:<span class="lineCov">         60 :   while (n_strings &gt; 0)</span>
+<span class="lineNum">     479 </span>        [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 27 times"> + </span>]:<span class="lineCov">         87 :   while (n_strings &gt; 0)</span>
 <span class="lineNum">     480 </span>                :            :     {
 <span class="lineNum">     481 </span>                :            :       /* T4. Scan for zeros.  */
 <span class="lineNum">     482 </span>                :<span class="lineCov">         33 :       walk_tree (root, scan_zeros);</span>
@@ -593,7 +593,7 @@
 <span class="lineNum">     522 </span>                :            :           /* Print the loop and remove a relation to break it.  */
 <span class="lineNum">     523 </span>                :            :           do
 <span class="lineNum">     524 </span>                :<span class="lineCov">         12 :             walk_tree (root, detect_loop);</span>
-<span class="lineNum">     525 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         12 :           while (loop);</span>
+<span class="lineNum">     525 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         39 :           while (loop);</span>
 <span class="lineNum">     526 </span>                :            :         }
 <span class="lineNum">     527 </span>                :            :     }
 <span class="lineNum">     528 </span>                :            : 
@@ -630,7 +630,7 @@
 <span class="lineNum">     559 </span>                :            : 
 <span class="lineNum">     560 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         30 :   ok = tsort (optind == argc ? &quot;-&quot; : argv[optind]);</span>
 <span class="lineNum">     561 </span>                :            : 
-<span class="lineNum">     562 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         27 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
+<span class="lineNum">     562 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         27 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
 <span class="lineNum">     563 </span>                :            : }
 </pre>
       </td>

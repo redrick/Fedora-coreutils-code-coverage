@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">25</td>
-            <td class="headerCovTableEntry">26</td>
-            <td class="headerCovTableEntryHi">96.2 %</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -107,8 +107,8 @@
 <span class="lineNum">      36 </span>                :            : int
 <span class="lineNum">      37 </span>                :            : mbscasecmp (const char *s1, const char *s2)
 <span class="lineNum">      38 </span>                :            : {
-<span class="lineNum">      39 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 45 times"> + </span>]:<span class="lineCov">         45 :   if (s1 == s2)</span>
-<span class="lineNum">      40 </span>                :<span class="lineNoCov">          0 :     return 0;</span>
+<span class="lineNum">      39 </span>        [<span class="branchCov" title="Branch 0 was taken 45 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         45 :   if (s1 == s2)</span>
+<span class="lineNum">      40 </span>                :            :     return 0;
 <span class="lineNum">      41 </span>                :            : 
 <span class="lineNum">      42 </span>                :            :   /* Be careful not to look at the entire extent of s1 or s2 until needed.
 <span class="lineNum">      43 </span>                :            :      This is useful because when two strings differ, the difference is
@@ -118,38 +118,38 @@
 <span class="lineNum">      47 </span>                :            :       mbui_iterator_t iter1;
 <span class="lineNum">      48 </span>                :            :       mbui_iterator_t iter2;
 <span class="lineNum">      49 </span>                :            : 
-<span class="lineNum">      50 </span>                :<span class="lineCov">         30 :       mbui_init (iter1, s1);</span>
-<span class="lineNum">      51 </span>                :<span class="lineCov">         30 :       mbui_init (iter2, s2);</span>
+<span class="lineNum">      50 </span>                :<span class="lineCov">         60 :       mbui_init (iter1, s1);</span>
+<span class="lineNum">      51 </span>                :<span class="lineCov">         60 :       mbui_init (iter2, s2);</span>
 <span class="lineNum">      52 </span>                :            : 
-<span class="lineNum">      53 </span>[<span class="branchCov" title="Branch 1 was taken 204 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 183 times"> + </span><span class="branchCov" title="Branch 4 was taken 21 times"> + </span>]:<span class="lineCov">        204 :       while (mbui_avail (iter1) &amp;&amp; mbui_avail (iter2))</span>
+<span class="lineNum">      53 </span>[<span class="branchCov" title="Branch 1 was taken 204 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 21 times"> + </span><span class="branchCov" title="Branch 4 was taken 183 times"> + </span>]:<span class="lineCov">        204 :       while (mbui_avail (iter1) &amp;&amp; mbui_avail (iter2))</span>
 <span class="lineNum">         </span>[<span class="branchCov" title="Branch 5 was taken 183 times"> + </span><span class="branchCov" title="Branch 6 was taken 21 times"> + </span>][<span class="branchCov" title="Branch 8 was taken 183 times"> + </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 10 was taken 180 times"> + </span><span class="branchCov" title="Branch 11 was taken 3 times"> + </span>][<span class="branchCov" title="Branch 12 was taken 180 times"> + </span><span class="branchCov" title="Branch 13 was taken 3 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 10 was taken 3 times"> + </span><span class="branchCov" title="Branch 11 was taken 180 times"> + </span>][<span class="branchCov" title="Branch 12 was taken 180 times"> + </span><span class="branchCov" title="Branch 13 was taken 3 times"> + </span>]
 <span class="lineNum">      54 </span>                :            :         {
 <span class="lineNum">      55 </span>[<span class="branchCov" title="Branch 0 was taken 180 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 180 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        180 :           int cmp = mb_casecmp (mbui_cur (iter1), mbui_cur (iter2));</span>
 <span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>][<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
 <span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>][<span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>]
 <span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>]
 <span class="lineNum">      56 </span>                :            : 
-<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 174 times"> + </span>]:<span class="lineCov">        180 :           if (cmp != 0)</span>
-<span class="lineNum">      58 </span>                :<span class="lineCov">          6 :             return cmp;</span>
+<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 174 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">        180 :           if (cmp != 0)</span>
+<span class="lineNum">      58 </span>                :            :             return cmp;
 <span class="lineNum">      59 </span>                :            : 
 <span class="lineNum">      60 </span>                :<span class="lineCov">        174 :           mbui_advance (iter1);</span>
 <span class="lineNum">      61 </span>                :<span class="lineCov">        174 :           mbui_advance (iter2);</span>
 <span class="lineNum">      62 </span>                :            :         }
-<span class="lineNum">      63 </span>[<span class="branchCov" title="Branch 1 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 3 times"> + </span><span class="branchCov" title="Branch 4 was taken 21 times"> + </span>]:<span class="lineCov">         24 :       if (mbui_avail (iter1))</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 5 was taken 3 times"> + </span><span class="branchCov" title="Branch 6 was taken 21 times"> + </span>]
+<span class="lineNum">      63 </span>[<span class="branchCov" title="Branch 1 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 21 times"> + </span><span class="branchCov" title="Branch 4 was taken 3 times"> + </span>]:<span class="lineCov">         24 :       if (mbui_avail (iter1))</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 5 was taken 21 times"> + </span><span class="branchCov" title="Branch 6 was taken 3 times"> + </span>]
 <span class="lineNum">      64 </span>                :            :         /* s2 terminated before s1.  */
-<span class="lineNum">      65 </span>                :<span class="lineCov">          3 :         return 1;</span>
-<span class="lineNum">      66 </span>[<span class="branchCov" title="Branch 1 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 3 times"> + </span><span class="branchCov" title="Branch 4 was taken 18 times"> + </span>]:<span class="lineCov">         21 :       if (mbui_avail (iter2))</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 5 was taken 3 times"> + </span><span class="branchCov" title="Branch 6 was taken 18 times"> + </span>]
+<span class="lineNum">      65 </span>                :            :         return 1;
+<span class="lineNum">      66 </span>[<span class="branchCov" title="Branch 1 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 18 times"> + </span><span class="branchCov" title="Branch 4 was taken 3 times"> + </span>]:<span class="lineCov">         21 :       if (mbui_avail (iter2))</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 5 was taken 18 times"> + </span><span class="branchCov" title="Branch 6 was taken 3 times"> + </span>]
 <span class="lineNum">      67 </span>                :            :         /* s1 terminated before s2.  */
-<span class="lineNum">      68 </span>                :<span class="lineCov">          3 :         return -1;</span>
-<span class="lineNum">      69 </span>                :<span class="lineCov">         18 :       return 0;</span>
+<span class="lineNum">      68 </span>                :            :         return -1;
+<span class="lineNum">      69 </span>                :<span class="lineCov">         33 :       return 0;</span>
 <span class="lineNum">      70 </span>                :            :     }
 <span class="lineNum">      71 </span>                :            :   else
 <span class="lineNum">      72 </span>                :            :     {
-<span class="lineNum">      73 </span>                :<span class="lineCov">         15 :       const unsigned char *p1 = (const unsigned char *) s1;</span>
-<span class="lineNum">      74 </span>                :<span class="lineCov">         15 :       const unsigned char *p2 = (const unsigned char *) s2;</span>
+<span class="lineNum">      73 </span>                :            :       const unsigned char *p1 = (const unsigned char *) s1;
+<span class="lineNum">      74 </span>                :            :       const unsigned char *p2 = (const unsigned char *) s2;
 <span class="lineNum">      75 </span>                :            :       unsigned char c1, c2;
 <span class="lineNum">      76 </span>                :            : 
 <span class="lineNum">      77 </span>                :            :       do
@@ -157,8 +157,8 @@
 <span class="lineNum">      79 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 54 times"> + </span>]:<span class="lineCov">         54 :           c1 = TOLOWER (*p1);</span>
 <span class="lineNum">      80 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchCov" title="Branch 2 was taken 51 times"> + </span>]:<span class="lineCov">         54 :           c2 = TOLOWER (*p2);</span>
 <span class="lineNum">      81 </span>                :            : 
-<span class="lineNum">      82 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 45 times"> + </span>]:<span class="lineCov">         54 :           if (c1 == '\0')</span>
-<span class="lineNum">      83 </span>                :<span class="lineCov">          9 :             break;</span>
+<span class="lineNum">      82 </span>        [<span class="branchCov" title="Branch 0 was taken 45 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         54 :           if (c1 == '\0')</span>
+<span class="lineNum">      83 </span>                :            :             break;
 <span class="lineNum">      84 </span>                :            : 
 <span class="lineNum">      85 </span>                :<span class="lineCov">         45 :           ++p1;</span>
 <span class="lineNum">      86 </span>                :<span class="lineCov">         45 :           ++p2;</span>

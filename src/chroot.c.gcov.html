@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">53</td>
-            <td class="headerCovTableEntry">99</td>
-            <td class="headerCovTableEntryLo">53.5 %</td>
+            <td class="headerCovTableEntry">51</td>
+            <td class="headerCovTableEntry">97</td>
+            <td class="headerCovTableEntryLo">52.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -50,8 +50,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">25</td>
-            <td class="headerCovTableEntry">63</td>
-            <td class="headerCovTableEntryLo">39.7 %</td>
+            <td class="headerCovTableEntry">61</td>
+            <td class="headerCovTableEntryLo">41.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -175,7 +175,7 @@
 <span class="lineNum">     104 </span>                :<span class="lineNoCov">          0 :       gids[n_gids++] = value;</span>
 <span class="lineNum">     105 </span>                :            :     }
 <span class="lineNum">     106 </span>                :            : 
-<span class="lineNum">     107 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (ret == 0 &amp;&amp; n_gids == 0)</span>
+<span class="lineNum">     107 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (ret == 0 &amp;&amp; n_gids == 0)</span>
 <span class="lineNum">     108 </span>                :            :     {
 <span class="lineNum">     109 </span>                :<span class="lineNoCov">          0 :       error (0, 0, _(&quot;invalid group list %s&quot;), quote (groups));</span>
 <span class="lineNum">     110 </span>                :<span class="lineNoCov">          0 :       ret = -1;</span>
@@ -222,7 +222,7 @@
 <span class="lineNum">     151 </span>                :            : \n\
 <span class="lineNum">     152 </span>                :            : If no command is given, run ``${SHELL} -i'' (default: /bin/sh).\n\
 <span class="lineNum">     153 </span>                :            : &quot;), stdout);
-<span class="lineNum">     154 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">     154 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">     155 </span>                :            :     }
 <span class="lineNum">     156 </span>                :<span class="lineCov">         18 :   exit (status);</span>
 <span class="lineNum">     157 </span>                :            : }
@@ -240,7 +240,7 @@
 <span class="lineNum">     169 </span>                :<span class="lineCov">         45 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
 <span class="lineNum">     170 </span>                :<span class="lineCov">         45 :   textdomain (PACKAGE);</span>
 <span class="lineNum">     171 </span>                :            : 
-<span class="lineNum">     172 </span>                :<span class="lineCov">         45 :   initialize_exit_failure (EXIT_CANCELED);</span>
+<span class="lineNum">     172 </span>                :            :   initialize_exit_failure (EXIT_CANCELED);
 <span class="lineNum">     173 </span>                :<span class="lineCov">         45 :   atexit (close_stdout);</span>
 <span class="lineNum">     174 </span>                :            : 
 <span class="lineNum">     175 </span>        [<span class="branchCov" title="Branch 1 was taken 34 times"> + </span><span class="branchCov" title="Branch 2 was taken 12 times"> + </span>]:<span class="lineCov">         46 :   while ((c = getopt_long (argc, argv, &quot;+&quot;, long_opts, NULL)) != -1)</span>
@@ -261,7 +261,7 @@
 <span class="lineNum">     189 </span>                :<span class="lineCov">         18 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
 <span class="lineNum">     190 </span>                :            : 
 <span class="lineNum">     191 </span>                :            :         default:
-<span class="lineNum">     192 </span>                :<span class="lineCov">          6 :           usage (EXIT_CANCELED);</span>
+<span class="lineNum">     192 </span>                :<span class="lineCov">          7 :           usage (EXIT_CANCELED);</span>
 <span class="lineNum">     193 </span>                :            :         }
 <span class="lineNum">     194 </span>                :            :     }
 <span class="lineNum">     195 </span>                :            : 

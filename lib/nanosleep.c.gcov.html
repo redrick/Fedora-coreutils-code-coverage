@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">15</td>
             <td class="headerCovTableEntry">16</td>
-            <td class="headerCovTableEntry">17</td>
-            <td class="headerCovTableEntryHi">94.1 %</td>
+            <td class="headerCovTableEntryHi">93.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">6</td>
             <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntryMed">80.0 %</td>
+            <td class="headerCovTableEntryMed">75.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -124,7 +124,7 @@
 <span class="lineNum">      53 </span>                :            :      cygwin 1.5.x, which can't sleep more than 49.7 days (2^32 milliseconds).
 <span class="lineNum">      54 </span>                :            :      Solve this by breaking the sleep up into smaller chunks.  */
 <span class="lineNum">      55 </span>                :            : 
-<span class="lineNum">      56 </span>[<span class="branchCov" title="Branch 0 was taken 483 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchCov" title="Branch 3 was taken 480 times"> + </span>]:<span class="lineCov">        486 :   if (requested_delay-&gt;tv_nsec &lt; 0 || BILLION &lt;= requested_delay-&gt;tv_nsec)</span>
+<span class="lineNum">      56 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 482 times"> + </span>]:<span class="lineCov">        488 :   if (requested_delay-&gt;tv_nsec &lt; 0 || BILLION &lt;= requested_delay-&gt;tv_nsec)</span>
 <span class="lineNum">      57 </span>                :            :     {
 <span class="lineNum">      58 </span>                :<span class="lineCov">          6 :       errno = EINVAL;</span>
 <span class="lineNum">      59 </span>                :<span class="lineCov">          6 :       return -1;</span>
@@ -133,12 +133,12 @@
 <span class="lineNum">      62 </span>                :            :   {
 <span class="lineNum">      63 </span>                :            :     /* Verify that time_t is large enough.  */
 <span class="lineNum">      64 </span>                :            :     verify (TYPE_MAXIMUM (time_t) / 24 / 24 / 60 / 60);
-<span class="lineNum">      65 </span>                :<span class="lineCov">        480 :     const time_t limit = 24 * 24 * 60 * 60;</span>
-<span class="lineNum">      66 </span>                :<span class="lineCov">        480 :     time_t seconds = requested_delay-&gt;tv_sec;</span>
+<span class="lineNum">      65 </span>                :<span class="lineCov">        482 :     const time_t limit = 24 * 24 * 60 * 60;</span>
+<span class="lineNum">      66 </span>                :<span class="lineCov">        482 :     time_t seconds = requested_delay-&gt;tv_sec;</span>
 <span class="lineNum">      67 </span>                :            :     struct timespec intermediate;
-<span class="lineNum">      68 </span>                :<span class="lineCov">        480 :     intermediate.tv_nsec = requested_delay-&gt;tv_nsec;</span>
+<span class="lineNum">      68 </span>                :<span class="lineCov">        482 :     intermediate.tv_nsec = requested_delay-&gt;tv_nsec;</span>
 <span class="lineNum">      69 </span>                :            : 
-<span class="lineNum">      70 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 477 times"> + </span>]:<span class="lineCov">        480 :     while (limit &lt; seconds)</span>
+<span class="lineNum">      70 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 479 times"> + </span>]:<span class="lineCov">        482 :     while (limit &lt; seconds)</span>
 <span class="lineNum">      71 </span>                :            :       {
 <span class="lineNum">      72 </span>                :            :         int result;
 <span class="lineNum">      73 </span>                :<span class="lineCov">          3 :         intermediate.tv_sec = limit;</span>
@@ -148,12 +148,12 @@
 <span class="lineNum">      77 </span>                :            :           {
 <span class="lineNum">      78 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :             if (remaining_delay)</span>
 <span class="lineNum">      79 </span>                :<span class="lineCov">          3 :               remaining_delay-&gt;tv_sec += seconds;</span>
-<span class="lineNum">      80 </span>                :<span class="lineCov">          3 :             return result;</span>
+<span class="lineNum">      80 </span>                :            :             return result;
 <span class="lineNum">      81 </span>                :            :           }
 <span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 :         intermediate.tv_nsec = 0;</span>
 <span class="lineNum">      83 </span>                :            :       }
-<span class="lineNum">      84 </span>                :<span class="lineCov">        477 :     intermediate.tv_sec = seconds;</span>
-<span class="lineNum">      85 </span>                :<span class="lineCov">        486 :     return nanosleep (&amp;intermediate, remaining_delay);</span>
+<span class="lineNum">      84 </span>                :<span class="lineCov">        479 :     intermediate.tv_sec = seconds;</span>
+<span class="lineNum">      85 </span>                :<span class="lineCov">        488 :     return nanosleep (&amp;intermediate, remaining_delay);</span>
 <span class="lineNum">      86 </span>                :            :   }
 <span class="lineNum">      87 </span>                :            : }
 <span class="lineNum">      88 </span>                :            : 

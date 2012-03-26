@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">217</td>
-            <td class="headerCovTableEntry">253</td>
-            <td class="headerCovTableEntryMed">85.8 %</td>
+            <td class="headerCovTableEntry">209</td>
+            <td class="headerCovTableEntry">236</td>
+            <td class="headerCovTableEntryMed">88.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">36</td>
-            <td class="headerCovTableEntry">52</td>
-            <td class="headerCovTableEntryLo">69.2 %</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryLo">72.9 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -207,7 +207,7 @@
 <span class="lineNum">     136 </span>                :            : {
 <span class="lineNum">     137 </span>                :            :   /* Take yet unprocessed bytes into account.  */
 <span class="lineNum">     138 </span>                :<span class="lineCov">         42 :   size_t bytes = ctx-&gt;buflen;</span>
-<span class="lineNum">     139 </span>        [<span class="branchCov" title="Branch 0 was taken 36 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         42 :   size_t size = (bytes &lt; 112) ? 128 / 8 : 128 * 2 / 8;</span>
+<span class="lineNum">     139 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span>]:<span class="lineCov">         42 :   size_t size = (bytes &lt; 112) ? 128 / 8 : 128 * 2 / 8;</span>
 <span class="lineNum">     140 </span>                :            : 
 <span class="lineNum">     141 </span>                :            :   /* Now count remaining bytes.  */
 <span class="lineNum">     142 </span>                :<span class="lineCov">         42 :   ctx-&gt;total[0] = u64plus (ctx-&gt;total[0], u64lo (bytes));</span>
@@ -253,8 +253,8 @@
 <span class="lineNum">     182 </span>                :            :   size_t sum;
 <span class="lineNum">     183 </span>                :            : 
 <span class="lineNum">     184 </span>                :<span class="lineCov">         21 :   char *buffer = malloc (BLOCKSIZE + 72);</span>
-<span class="lineNum">     185 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         21 :   if (!buffer)</span>
-<span class="lineNum">     186 </span>                :<span class="lineNoCov">          0 :     return 1;</span>
+<span class="lineNum">     185 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :   if (!buffer)</span>
+<span class="lineNum">     186 </span>                :            :     return 1;
 <span class="lineNum">     187 </span>                :            : 
 <span class="lineNum">     188 </span>                :            :   /* Initialize the computation context.  */
 <span class="lineNum">     189 </span>                :<span class="lineCov">         21 :   sha512_init_ctx (&amp;ctx);</span>
@@ -266,37 +266,37 @@
 <span class="lineNum">     195 </span>                :            :          computation function processes the whole buffer so that with the
 <span class="lineNum">     196 </span>                :            :          next round of the loop another block can be read.  */
 <span class="lineNum">     197 </span>                :            :       size_t n;
-<span class="lineNum">     198 </span>                :<span class="lineCov">        111 :       sum = 0;</span>
+<span class="lineNum">     198 </span>                :            :       sum = 0;
 <span class="lineNum">     199 </span>                :            : 
 <span class="lineNum">     200 </span>                :            :       /* Read block.  Take care for partial reads.  */
 <span class="lineNum">     201 </span>                :            :       while (1)
 <span class="lineNum">     202 </span>                :            :         {
-<span class="lineNum">     203 </span>                :<span class="lineCov">        111 :           n = fread (buffer + sum, 1, BLOCKSIZE - sum, stream);</span>
+<span class="lineNum">     203 </span>                :<span class="lineCov">        222 :           n = fread (buffer + sum, 1, BLOCKSIZE - sum, stream);</span>
 <span class="lineNum">     204 </span>                :            : 
 <span class="lineNum">     205 </span>                :<span class="lineCov">        111 :           sum += n;</span>
 <span class="lineNum">     206 </span>                :            : 
-<span class="lineNum">     207 </span>        [<span class="branchCov" title="Branch 0 was taken 90 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">        111 :           if (sum == BLOCKSIZE)</span>
-<span class="lineNum">     208 </span>                :<span class="lineCov">         90 :             break;</span>
+<span class="lineNum">     207 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 90 times"> + </span>]:<span class="lineCov">        111 :           if (sum == BLOCKSIZE)</span>
+<span class="lineNum">     208 </span>                :            :             break;
 <span class="lineNum">     209 </span>                :            : 
 <span class="lineNum">     210 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         21 :           if (n == 0)</span>
 <span class="lineNum">     211 </span>                :            :             {
 <span class="lineNum">     212 </span>                :            :               /* Check for the error flag IFF N == 0, so that we don't
 <span class="lineNum">     213 </span>                :            :                  exit the loop after a partial read due to e.g., EAGAIN
 <span class="lineNum">     214 </span>                :            :                  or EWOULDBLOCK.  */
-<span class="lineNum">     215 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">          3 :               if (ferror (stream))</span>
+<span class="lineNum">     215 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :               if (ferror (stream))</span>
 <span class="lineNum">     216 </span>                :            :                 {
 <span class="lineNum">     217 </span>                :<span class="lineNoCov">          0 :                   free (buffer);</span>
 <span class="lineNum">     218 </span>                :<span class="lineNoCov">          0 :                   return 1;</span>
 <span class="lineNum">     219 </span>                :            :                 }
-<span class="lineNum">     220 </span>                :<span class="lineCov">          3 :               goto process_partial_block;</span>
+<span class="lineNum">     220 </span>                :            :               goto process_partial_block;
 <span class="lineNum">     221 </span>                :            :             }
 <span class="lineNum">     222 </span>                :            : 
 <span class="lineNum">     223 </span>                :            :           /* We've read at least one byte, so ignore errors.  But always
 <span class="lineNum">     224 </span>                :            :              check for EOF, since feof may be true even though N &gt; 0.
 <span class="lineNum">     225 </span>                :            :              Otherwise, we could end up calling fread after EOF.  */
-<span class="lineNum">     226 </span>        [<span class="branchCov" title="Branch 1 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         18 :           if (feof (stream))</span>
-<span class="lineNum">     227 </span>                :<span class="lineCov">         18 :             goto process_partial_block;</span>
-<span class="lineNum">     228 </span>                :<span class="lineNoCov">          0 :         }</span>
+<span class="lineNum">     226 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         18 :           if (feof (stream))</span>
+<span class="lineNum">     227 </span>                :            :             goto process_partial_block;
+<span class="lineNum">     228 </span>                :            :         }
 <span class="lineNum">     229 </span>                :            : 
 <span class="lineNum">     230 </span>                :            :       /* Process buffer with BLOCKSIZE bytes.  Note that
 <span class="lineNum">     231 </span>                :            :                         BLOCKSIZE % 128 == 0
@@ -324,8 +324,8 @@
 <span class="lineNum">     253 </span>                :            :   size_t sum;
 <span class="lineNum">     254 </span>                :            : 
 <span class="lineNum">     255 </span>                :<span class="lineCov">         21 :   char *buffer = malloc (BLOCKSIZE + 72);</span>
-<span class="lineNum">     256 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         21 :   if (!buffer)</span>
-<span class="lineNum">     257 </span>                :<span class="lineNoCov">          0 :     return 1;</span>
+<span class="lineNum">     256 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         21 :   if (!buffer)</span>
+<span class="lineNum">     257 </span>                :            :     return 1;
 <span class="lineNum">     258 </span>                :            : 
 <span class="lineNum">     259 </span>                :            :   /* Initialize the computation context.  */
 <span class="lineNum">     260 </span>                :<span class="lineCov">         21 :   sha384_init_ctx (&amp;ctx);</span>
@@ -337,37 +337,37 @@
 <span class="lineNum">     266 </span>                :            :          computation function processes the whole buffer so that with the
 <span class="lineNum">     267 </span>                :            :          next round of the loop another block can be read.  */
 <span class="lineNum">     268 </span>                :            :       size_t n;
-<span class="lineNum">     269 </span>                :<span class="lineCov">        111 :       sum = 0;</span>
+<span class="lineNum">     269 </span>                :            :       sum = 0;
 <span class="lineNum">     270 </span>                :            : 
 <span class="lineNum">     271 </span>                :            :       /* Read block.  Take care for partial reads.  */
 <span class="lineNum">     272 </span>                :            :       while (1)
 <span class="lineNum">     273 </span>                :            :         {
-<span class="lineNum">     274 </span>                :<span class="lineCov">        111 :           n = fread (buffer + sum, 1, BLOCKSIZE - sum, stream);</span>
+<span class="lineNum">     274 </span>                :<span class="lineCov">        222 :           n = fread (buffer + sum, 1, BLOCKSIZE - sum, stream);</span>
 <span class="lineNum">     275 </span>                :            : 
 <span class="lineNum">     276 </span>                :<span class="lineCov">        111 :           sum += n;</span>
 <span class="lineNum">     277 </span>                :            : 
-<span class="lineNum">     278 </span>        [<span class="branchCov" title="Branch 0 was taken 90 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">        111 :           if (sum == BLOCKSIZE)</span>
-<span class="lineNum">     279 </span>                :<span class="lineCov">         90 :             break;</span>
+<span class="lineNum">     278 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 90 times"> + </span>]:<span class="lineCov">        111 :           if (sum == BLOCKSIZE)</span>
+<span class="lineNum">     279 </span>                :            :             break;
 <span class="lineNum">     280 </span>                :            : 
 <span class="lineNum">     281 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         21 :           if (n == 0)</span>
 <span class="lineNum">     282 </span>                :            :             {
 <span class="lineNum">     283 </span>                :            :               /* Check for the error flag IFF N == 0, so that we don't
 <span class="lineNum">     284 </span>                :            :                  exit the loop after a partial read due to e.g., EAGAIN
 <span class="lineNum">     285 </span>                :            :                  or EWOULDBLOCK.  */
-<span class="lineNum">     286 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">          3 :               if (ferror (stream))</span>
+<span class="lineNum">     286 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :               if (ferror (stream))</span>
 <span class="lineNum">     287 </span>                :            :                 {
 <span class="lineNum">     288 </span>                :<span class="lineNoCov">          0 :                   free (buffer);</span>
 <span class="lineNum">     289 </span>                :<span class="lineNoCov">          0 :                   return 1;</span>
 <span class="lineNum">     290 </span>                :            :                 }
-<span class="lineNum">     291 </span>                :<span class="lineCov">          3 :               goto process_partial_block;</span>
+<span class="lineNum">     291 </span>                :            :               goto process_partial_block;
 <span class="lineNum">     292 </span>                :            :             }
 <span class="lineNum">     293 </span>                :            : 
 <span class="lineNum">     294 </span>                :            :           /* We've read at least one byte, so ignore errors.  But always
 <span class="lineNum">     295 </span>                :            :              check for EOF, since feof may be true even though N &gt; 0.
 <span class="lineNum">     296 </span>                :            :              Otherwise, we could end up calling fread after EOF.  */
-<span class="lineNum">     297 </span>        [<span class="branchCov" title="Branch 1 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         18 :           if (feof (stream))</span>
-<span class="lineNum">     298 </span>                :<span class="lineCov">         18 :             goto process_partial_block;</span>
-<span class="lineNum">     299 </span>                :<span class="lineNoCov">          0 :         }</span>
+<span class="lineNum">     297 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         18 :           if (feof (stream))</span>
+<span class="lineNum">     298 </span>                :            :             goto process_partial_block;
+<span class="lineNum">     299 </span>                :            :         }
 <span class="lineNum">     300 </span>                :            : 
 <span class="lineNum">     301 </span>                :            :       /* Process buffer with BLOCKSIZE bytes.  Note that
 <span class="lineNum">     302 </span>                :            :                         BLOCKSIZE % 128 == 0
@@ -454,12 +454,12 @@
 <span class="lineNum">     383 </span>                :            :     {
 <span class="lineNum">     384 </span>                :            : #if !_STRING_ARCH_unaligned
 <span class="lineNum">     385 </span>                :            : # define UNALIGNED_P(p) ((uintptr_t) (p) % alignof (u64) != 0)
-<span class="lineNum">     386 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          6 :       if (UNALIGNED_P (buffer))</span>
-<span class="lineNum">     387 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         while (len &gt; 128)</span>
+<span class="lineNum">     386 </span>                :            :       if (UNALIGNED_P (buffer))
+<span class="lineNum">     387 </span>                :            :         while (len &gt; 128)
 <span class="lineNum">     388 </span>                :            :           {
-<span class="lineNum">     389 </span>                :<span class="lineNoCov">          0 :             sha512_process_block (memcpy (ctx-&gt;buffer, buffer, 128), 128, ctx);</span>
-<span class="lineNum">     390 </span>                :<span class="lineNoCov">          0 :             buffer = (const char *) buffer + 128;</span>
-<span class="lineNum">     391 </span>                :<span class="lineNoCov">          0 :             len -= 128;</span>
+<span class="lineNum">     389 </span>                :            :             sha512_process_block (memcpy (ctx-&gt;buffer, buffer, 128), 128, ctx);
+<span class="lineNum">     390 </span>                :            :             buffer = (const char *) buffer + 128;
+<span class="lineNum">     391 </span>                :            :             len -= 128;
 <span class="lineNum">     392 </span>                :            :           }
 <span class="lineNum">     393 </span>                :            :       else
 <span class="lineNum">     394 </span>                :            : #endif
@@ -562,7 +562,7 @@
 <span class="lineNum">     491 </span>                :            :      number of bytes.  Do a double word increment.  */
 <span class="lineNum">     492 </span>                :<span class="lineCov">        228 :   ctx-&gt;total[0] = u64plus (ctx-&gt;total[0], u64lo (len));</span>
 <span class="lineNum">     493 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 228 times"> + </span>]:<span class="lineCov">        228 :   if (u64lt (ctx-&gt;total[0], u64lo (len)))</span>
-<span class="lineNum">     494 </span>                :<span class="lineNoCov">          0 :     ctx-&gt;total[1] = u64plus (ctx-&gt;total[1], u64lo (1));</span>
+<span class="lineNum">     494 </span>                :<span class="lineCov">        228 :     ctx-&gt;total[1] = u64plus (ctx-&gt;total[1], u64lo (1));</span>
 <span class="lineNum">     495 </span>                :            : 
 <span class="lineNum">     496 </span>                :            : #define S0(x) u64xor (u64rol(x, 63), u64xor (u64rol (x, 56), u64shr (x, 7)))
 <span class="lineNum">     497 </span>                :            : #define S1(x) u64xor (u64rol (x, 45), u64xor (u64rol (x, 3), u64shr (x, 6)))

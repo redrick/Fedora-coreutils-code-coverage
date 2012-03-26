@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -122,7 +122,7 @@
 <span class="lineNum">      50 </span>                :            :          current locale.  Don't assume ASCII; it might be EBCDIC.  */
 <span class="lineNum">      51 </span>                :<span class="lineCov">         21 :       char *upcased = xstrdup (operand);</span>
 <span class="lineNum">      52 </span>                :            :       char *p;
-<span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 87 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">        108 :       for (p = upcased; *p; p++)</span>
+<span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 1 was taken 87 times"> + </span><span class="branchCov" title="Branch 2 was taken 21 times"> + </span>]:<span class="lineCov">        108 :       for (p = upcased; *p; p++)</span>
 <span class="lineNum">      54 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 66 times"> + </span>]:<span class="lineCov">         87 :         if (strchr (&quot;abcdefghijklmnopqrstuvwxyz&quot;, *p))</span>
 <span class="lineNum">      55 </span>                :<span class="lineCov">         21 :           *p += 'A' - 'a';</span>
 <span class="lineNum">      56 </span>                :            : 

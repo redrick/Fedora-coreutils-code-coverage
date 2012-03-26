@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">55</td>
-            <td class="headerCovTableEntry">58</td>
-            <td class="headerCovTableEntryHi">94.8 %</td>
+            <td class="headerCovTableEntry">45</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryHi">93.8 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -229,7 +229,7 @@
 <span class="lineNum">     158 </span>        [<span class="branchCov" title="Branch 0 was taken 129 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">        138 :       pwd = (*u == '+' ? NULL : getpwnam (u));</span>
 <span class="lineNum">     159 </span>        [<span class="branchCov" title="Branch 0 was taken 109 times"> + </span><span class="branchCov" title="Branch 1 was taken 29 times"> + </span>]:<span class="lineCov">        138 :       if (pwd == NULL)</span>
 <span class="lineNum">     160 </span>                :            :         {
-<span class="lineNum">     161 </span>[<span class="branchCov" title="Branch 0 was taken 69 times"> + </span><span class="branchCov" title="Branch 1 was taken 40 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 18 times"> + </span><span class="branchCov" title="Branch 3 was taken 51 times"> + </span>]:<span class="lineCov">        109 :           bool use_login_group = (separator != NULL &amp;&amp; g == NULL);</span>
+<span class="lineNum">     161 </span>                :<span class="lineCov">        109 :           bool use_login_group = (separator != NULL &amp;&amp; g == NULL);</span>
 <span class="lineNum">     162 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 91 times"> + </span>]:<span class="lineCov">        109 :           if (use_login_group)</span>
 <span class="lineNum">     163 </span>                :            :             {
 <span class="lineNum">     164 </span>                :            :               /* If there is no group,
@@ -243,13 +243,13 @@
 <span class="lineNum">     172 </span>[<span class="branchCov" title="Branch 0 was taken 58 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 52 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         64 :                   &amp;&amp; tmp &lt;= MAXUID &amp;&amp; (uid_t) tmp != (uid_t) -1)</span>
 <span class="lineNum">     173 </span>                :<span class="lineCov">         52 :                 unum = tmp;</span>
 <span class="lineNum">     174 </span>                :            :               else
-<span class="lineNum">     175 </span>                :<span class="lineCov">        109 :                 error_msg = E_invalid_user;</span>
+<span class="lineNum">     175 </span>                :<span class="lineCov">         39 :                 error_msg = E_invalid_user;</span>
 <span class="lineNum">     176 </span>                :            :             }
 <span class="lineNum">     177 </span>                :            :         }
 <span class="lineNum">     178 </span>                :            :       else
 <span class="lineNum">     179 </span>                :            :         {
 <span class="lineNum">     180 </span>                :<span class="lineCov">         29 :           unum = pwd-&gt;pw_uid;</span>
-<span class="lineNum">     181 </span>[<span class="branchCov" title="Branch 0 was taken 17 times"> + </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchCov" title="Branch 3 was taken 8 times"> + </span>]:<span class="lineCov">         29 :           if (g == NULL &amp;&amp; separator != NULL)</span>
+<span class="lineNum">     181 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">         29 :           if (g == NULL &amp;&amp; separator != NULL)</span>
 <span class="lineNum">     182 </span>                :            :             {
 <span class="lineNum">     183 </span>                :            :               /* A separator was given, but a group was not specified,
 <span class="lineNum">     184 </span>                :            :                  so get the login group.  */
@@ -263,7 +263,7 @@
 <span class="lineNum">     192 </span>                :<span class="lineCov">        138 :       endpwent ();</span>
 <span class="lineNum">     193 </span>                :            :     }
 <span class="lineNum">     194 </span>                :            : 
-<span class="lineNum">     195 </span>[<span class="branchCov" title="Branch 0 was taken 108 times"> + </span><span class="branchCov" title="Branch 1 was taken 90 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 96 times"> + </span><span class="branchCov" title="Branch 3 was taken 12 times"> + </span>]:<span class="lineCov">        198 :   if (g != NULL &amp;&amp; error_msg == NULL)</span>
+<span class="lineNum">     195 </span>        [<span class="branchCov" title="Branch 0 was taken 96 times"> + </span><span class="branchCov" title="Branch 1 was taken 102 times"> + </span>]:<span class="lineCov">        198 :   if (g != NULL &amp;&amp; error_msg == NULL)</span>
 <span class="lineNum">     196 </span>                :            :     {
 <span class="lineNum">     197 </span>                :            :       /* Explicit group.  */
 <span class="lineNum">     198 </span>                :            :       /* If it starts with &quot;+&quot;, skip the look-up.  */
@@ -275,7 +275,7 @@
 <span class="lineNum">     204 </span>[<span class="branchCov" title="Branch 0 was taken 72 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 66 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         78 :               &amp;&amp; tmp &lt;= MAXGID &amp;&amp; (gid_t) tmp != (gid_t) -1)</span>
 <span class="lineNum">     205 </span>                :<span class="lineCov">         66 :             gnum = tmp;</span>
 <span class="lineNum">     206 </span>                :            :           else
-<span class="lineNum">     207 </span>                :<span class="lineCov">         78 :             error_msg = E_invalid_group;</span>
+<span class="lineNum">     207 </span>                :<span class="lineCov">         12 :             error_msg = E_invalid_group;</span>
 <span class="lineNum">     208 </span>                :            :         }
 <span class="lineNum">     209 </span>                :            :       else
 <span class="lineNum">     210 </span>                :<span class="lineCov">         18 :         gnum = grp-&gt;gr_gid;</span>
@@ -322,7 +322,7 @@
 <span class="lineNum">     251 </span>                :<span class="lineCov">        171 :   char const *error_msg =</span>
 <span class="lineNum">     252 </span>                :            :     parse_with_separator (spec, colon, uid, gid, username, groupname);
 <span class="lineNum">     253 </span>                :            : 
-<span class="lineNum">     254 </span>[<span class="branchCov" title="Branch 2 was taken 27 times"> + </span><span class="branchCov" title="Branch 3 was taken 27 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchCov" title="Branch 1 was taken 117 times"> + </span>]:<span class="lineCov">        171 :   if (!colon &amp;&amp; error_msg)</span>
+<span class="lineNum">     254 </span>        [<span class="branchCov" title="Branch 0 was taken 27 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>]:<span class="lineCov">        171 :   if (!colon &amp;&amp; error_msg)</span>
 <span class="lineNum">     255 </span>                :            :     {
 <span class="lineNum">     256 </span>                :            :       /* If there's no colon but there is a dot, and if looking up the
 <span class="lineNum">     257 </span>                :            :          whole spec failed (i.e., the spec is not an owner name that

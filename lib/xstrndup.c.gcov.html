@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -98,12 +98,12 @@
 <span class="lineNum">      27 </span>                :            :    In other words, return a copy of the initial segment of length N of
 <a name="28"><span class="lineNum">      28 </span>                :            :    STRING.  */</a>
 <span class="lineNum">      29 </span>                :            : char *
-<span class="lineNum">      30 </span>                :<span class="lineCov">       3264 : xstrndup (const char *string, size_t n)</span>
+<span class="lineNum">      30 </span>                :<span class="lineCov">       3267 : xstrndup (const char *string, size_t n)</span>
 <span class="lineNum">      31 </span>                :            : {
-<span class="lineNum">      32 </span>                :<span class="lineCov">       3264 :   char *s = strndup (string, n);</span>
-<span class="lineNum">      33 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3264 times"> + </span>]:<span class="lineCov">       3264 :   if (! s)</span>
+<span class="lineNum">      32 </span>                :<span class="lineCov">       3267 :   char *s = strndup (string, n);</span>
+<span class="lineNum">      33 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3267 times"> + </span>]:<span class="lineCov">       3267 :   if (! s)</span>
 <span class="lineNum">      34 </span>                :<span class="lineNoCov">          0 :     xalloc_die ();</span>
-<span class="lineNum">      35 </span>                :<span class="lineCov">       3264 :   return s;</span>
+<span class="lineNum">      35 </span>                :<span class="lineCov">       3267 :   return s;</span>
 <span class="lineNum">      36 </span>                :            : }
 </pre>
       </td>

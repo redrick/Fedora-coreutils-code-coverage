@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -123,13 +123,13 @@
 <span class="lineNum">      52 </span>                :            : #endif
 <a name="53"><span class="lineNum">      53 </span>                :            : </a>
 <span class="lineNum">      54 </span>                :            : char *
-<span class="lineNum">      55 </span>                :<span class="lineCov">       1044 : xstr_iconv (const char *src, const char *from_codeset, const char *to_codeset)</span>
+<span class="lineNum">      55 </span>                :<span class="lineCov">       1062 : xstr_iconv (const char *src, const char *from_codeset, const char *to_codeset)</span>
 <span class="lineNum">      56 </span>                :            : {
-<span class="lineNum">      57 </span>                :<span class="lineCov">       1044 :   char *result = str_iconv (src, from_codeset, to_codeset);</span>
+<span class="lineNum">      57 </span>                :<span class="lineCov">       1062 :   char *result = str_iconv (src, from_codeset, to_codeset);</span>
 <span class="lineNum">      58 </span>                :            : 
-<span class="lineNum">      59 </span>[<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 519 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 519 times"> + </span><span class="branchCov" title="Branch 1 was taken 525 times"> + </span>]:<span class="lineCov">       1044 :   if (result == NULL &amp;&amp; errno == ENOMEM)</span>
+<span class="lineNum">      59 </span>[<span class="branchNoCov" title="Branch 3 was not taken"> - </span><span class="branchCov" title="Branch 4 was taken 528 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 528 times"> + </span><span class="branchCov" title="Branch 1 was taken 534 times"> + </span>]:<span class="lineCov">       1062 :   if (result == NULL &amp;&amp; errno == ENOMEM)</span>
 <span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 :     xalloc_die ();</span>
-<span class="lineNum">      61 </span>                :<span class="lineCov">       1044 :   return result;</span>
+<span class="lineNum">      61 </span>                :<span class="lineCov">       1062 :   return result;</span>
 <span class="lineNum">      62 </span>                :            : }
 </pre>
       </td>

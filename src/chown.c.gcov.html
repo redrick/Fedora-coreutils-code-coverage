@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">78</td>
-            <td class="headerCovTableEntry">100</td>
-            <td class="headerCovTableEntryMed">78.0 %</td>
+            <td class="headerCovTableEntry">71</td>
+            <td class="headerCovTableEntry">93</td>
+            <td class="headerCovTableEntryMed">76.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -219,7 +219,7 @@
 <span class="lineNum">     148 </span>                :            :   %s -hR root /u    Change the owner of /u and subfiles to \&quot;root\&quot;.\n\
 <span class="lineNum">     149 </span>                :            : &quot;),
 <span class="lineNum">     150 </span>                :            :               program_name, program_name, program_name);
-<span class="lineNum">     151 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">     151 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">     152 </span>                :            :     }
 <span class="lineNum">     153 </span>                :<span class="lineCov">         12 :   exit (status);</span>
 <span class="lineNum">     154 </span>                :            : }
@@ -261,14 +261,14 @@
 <span class="lineNum">     190 </span>        [<span class="branchCov" title="Branch 1 was taken 85 times"> + </span><span class="branchCov" title="Branch 2 was taken 97 times"> + </span>]:<span class="lineCov">        182 :   while ((optc = getopt_long (argc, argv, &quot;HLPRcfhv&quot;, long_options, NULL))</span>
 <span class="lineNum">     191 </span>                :            :          != -1)
 <span class="lineNum">     192 </span>                :            :     {
-<span class="lineNum">     193 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span> :<span class="lineCov">         85 :       switch (optc)</span>
-<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchCov" title="Branch 6 was taken 7 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchCov" title="Branch 8 was taken 13 times"> + </span> 
-<span class="lineNum">         </span><span class="branchCov" title="Branch 9 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchCov" title="Branch 11 was taken 3 times"> + </span><span class="branchCov" title="Branch 12 was taken 2 times"> + </span><span class="branchCov" title="Branch 13 was taken 9 times"> + </span> 
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 14 was taken 27 times"> + </span><span class="branchCov" title="Branch 15 was taken 3 times"> + </span>]
+<span class="lineNum">     193 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchCov" title="Branch 3 was taken 3 times"> + </span> :<span class="lineCov">         85 :       switch (optc)</span>
+<span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 7 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 13 times"> + </span><span class="branchCov" title="Branch 8 was taken 8 times"> + </span> 
+<span class="lineNum">         </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span><span class="branchCov" title="Branch 10 was taken 3 times"> + </span><span class="branchCov" title="Branch 11 was taken 2 times"> + </span><span class="branchCov" title="Branch 12 was taken 9 times"> + </span><span class="branchCov" title="Branch 13 was taken 27 times"> + </span> 
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 14 was taken 3 times"> + </span><span class="branchCov" title="Branch 15 was taken 2 times"> + </span>]
 <span class="lineNum">     194 </span>                :            :         {
 <span class="lineNum">     195 </span>                :            :         case 'H': /* Traverse command-line symlinks-to-directories.  */
-<span class="lineNum">     196 </span>                :<span class="lineCov">          2 :           bit_flags = FTS_COMFOLLOW | FTS_PHYSICAL;</span>
-<span class="lineNum">     197 </span>                :<span class="lineCov">          2 :           break;</span>
+<span class="lineNum">     196 </span>                :            :           bit_flags = FTS_COMFOLLOW | FTS_PHYSICAL;
+<span class="lineNum">     197 </span>                :            :           break;
 <span class="lineNum">     198 </span>                :            : 
 <span class="lineNum">     199 </span>                :            :         case 'L': /* Traverse all symlinks-to-directories.  */
 <span class="lineNum">     200 </span>                :<span class="lineCov">          2 :           bit_flags = FTS_LOGICAL;</span>
@@ -307,7 +307,7 @@
 <span class="lineNum">     233 </span>                :            :                                              &amp;u_dummy, &amp;g_dummy);
 <span class="lineNum">     234 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 13 times"> + </span>]:<span class="lineCov">         13 :             if (e)</span>
 <span class="lineNum">     235 </span>                :<span class="lineNoCov">          0 :               error (EXIT_FAILURE, 0, &quot;%s: %s&quot;, e, quote (optarg));</span>
-<span class="lineNum">     236 </span>                :<span class="lineCov">         13 :             break;</span>
+<span class="lineNum">     236 </span>                :            :             break;
 <span class="lineNum">     237 </span>                :            :           }
 <span class="lineNum">     238 </span>                :            : 
 <span class="lineNum">     239 </span>                :            :         case 'R':
@@ -329,7 +329,7 @@
 <span class="lineNum">     255 </span>                :<span class="lineCov">          9 :         case_GETOPT_HELP_CHAR;</span>
 <span class="lineNum">     256 </span>                :<span class="lineCov">         27 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
 <span class="lineNum">     257 </span>                :            :         default:
-<span class="lineNum">     258 </span>                :<span class="lineCov">          3 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     258 </span>                :<span class="lineCov">         49 :           usage (EXIT_FAILURE);</span>
 <span class="lineNum">     259 </span>                :            :         }
 <span class="lineNum">     260 </span>                :            :     }
 <span class="lineNum">     261 </span>                :            : 
@@ -340,16 +340,16 @@
 <span class="lineNum">     266 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          4 :           if (dereference == 1)</span>
 <span class="lineNum">     267 </span>                :<span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0,</span>
 <span class="lineNum">     268 </span>                :<span class="lineNoCov">          0 :                    _(&quot;-R --dereference requires either -H or -L&quot;));</span>
-<span class="lineNum">     269 </span>                :<span class="lineCov">          4 :           dereference = 0;</span>
+<span class="lineNum">     269 </span>                :            :           dereference = 0;
 <span class="lineNum">     270 </span>                :            :         }
 <span class="lineNum">     271 </span>                :            :     }
 <span class="lineNum">     272 </span>                :            :   else
 <span class="lineNum">     273 </span>                :            :     {
-<span class="lineNum">     274 </span>                :<span class="lineCov">         89 :       bit_flags = FTS_PHYSICAL;</span>
+<span class="lineNum">     274 </span>                :            :       bit_flags = FTS_PHYSICAL;
 <span class="lineNum">     275 </span>                :            :     }
 <span class="lineNum">     276 </span>                :<span class="lineCov">         97 :   chopt.affect_symlink_referent = (dereference != 0);</span>
 <span class="lineNum">     277 </span>                :            : 
-<span class="lineNum">     278 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 97 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 97 times"> + </span>]:<span class="lineCov">         97 :   if (argc - optind &lt; (reference_file ? 1 : 2))</span>
+<span class="lineNum">     278 </span>[<span class="branchCov" title="Branch 0 was taken 97 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 97 times"> + </span>]:<span class="lineCov">         97 :   if (argc - optind &lt; (reference_file ? 1 : 2))</span>
 <span class="lineNum">     279 </span>                :            :     {
 <span class="lineNum">     280 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (argc &lt;= optind)</span>
 <span class="lineNum">     281 </span>                :<span class="lineNoCov">          0 :         error (0, 0, _(&quot;missing operand&quot;));</span>
@@ -361,7 +361,7 @@
 <span class="lineNum">     287 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 97 times"> + </span>]:<span class="lineCov">         97 :   if (reference_file)</span>
 <span class="lineNum">     288 </span>                :            :     {
 <span class="lineNum">     289 </span>                :            :       struct stat ref_stats;
-<span class="lineNum">     290 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (stat (reference_file, &amp;ref_stats))</span>
+<span class="lineNum">     290 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (stat (reference_file, &amp;ref_stats))</span>
 <span class="lineNum">     291 </span>                :<span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;failed to get attributes of %s&quot;),</span>
 <span class="lineNum">     292 </span>                :            :                quote (reference_file));
 <span class="lineNum">     293 </span>                :            : 
@@ -400,9 +400,9 @@
 <span class="lineNum">     326 </span>                :            :                     uid, gid,
 <span class="lineNum">     327 </span>                :            :                     required_uid, required_gid, &amp;chopt);
 <span class="lineNum">     328 </span>                :            : 
-<span class="lineNum">     329 </span>                :<span class="lineCov">         91 :   chopt_free (&amp;chopt);</span>
+<span class="lineNum">     329 </span>                :            :   chopt_free (&amp;chopt);
 <span class="lineNum">     330 </span>                :            : 
-<span class="lineNum">     331 </span>        [<span class="branchCov" title="Branch 0 was taken 80 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         91 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
+<span class="lineNum">     331 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 80 times"> + </span>]:<span class="lineCov">         91 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
 <span class="lineNum">     332 </span>                :            : }
 </pre>
       </td>

@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntryLo">46.7 %</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -50,8 +50,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntry">24</td>
-            <td class="headerCovTableEntryLo">20.8 %</td>
+            <td class="headerCovTableEntry">20</td>
+            <td class="headerCovTableEntryLo">25.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -134,12 +134,11 @@
 <span class="lineNum">      63 </span>                :            :     {
 <span class="lineNum">      64 </span>                :            :       acl_tag_t tag;
 <span class="lineNum">      65 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (acl_get_tag_type (ace, &amp;tag) &lt; 0)</span>
-<span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :         return -1;</span>
+<span class="lineNum">      66 </span>                :            :         return -1;
 <span class="lineNum">      67 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (!(tag == ACL_USER_OBJ || tag == ACL_GROUP_OBJ || tag == ACL_OTHER))</span>
-<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :         return 1;</span>
+<span class="lineNum">      68 </span>                :            :         return 1;
 <span class="lineNum">      69 </span>                :            :     }
-<span class="lineNum">      70 </span>                :<span class="lineNoCov">          0 :   return got_one;</span>
+<span class="lineNum">      70 </span>                :            :   return got_one;
 <span class="lineNum">      71 </span>                :            : 
 <span class="lineNum">      72 </span>                :            : #  else /* IRIX, Tru64 */
 <span class="lineNum">      73 </span>                :            : #   if HAVE_ACL_TO_SHORT_TEXT /* IRIX */
@@ -515,10 +514,10 @@
 <span class="lineNum">     443 </span>                :            :    through stat() or lstat().  */
 <a name="444"><span class="lineNum">     444 </span>                :            : </a>
 <span class="lineNum">     445 </span>                :            : int
-<span class="lineNum">     446 </span>                :<span class="lineCov">       4407 : file_has_acl (char const *name, struct stat const *sb)</span>
+<span class="lineNum">     446 </span>                :<span class="lineCov">       4422 : file_has_acl (char const *name, struct stat const *sb)</span>
 <span class="lineNum">     447 </span>                :            : {
 <span class="lineNum">     448 </span>                :            : #if USE_ACL
-<span class="lineNum">     449 </span>        [<span class="branchCov" title="Branch 0 was taken 4088 times"> + </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">       4407 :   if (! S_ISLNK (sb-&gt;st_mode))</span>
+<span class="lineNum">     449 </span>        [<span class="branchCov" title="Branch 0 was taken 4103 times"> + </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">       4422 :   if (! S_ISLNK (sb-&gt;st_mode))</span>
 <span class="lineNum">     450 </span>                :            :     {
 <span class="lineNum">     451 </span>                :            : # if HAVE_ACL_GET_FILE
 <span class="lineNum">     452 </span>                :            : 
@@ -531,7 +530,7 @@
 <span class="lineNum">     459 </span>                :            :           /* On Linux, acl_extended_file is an optimized function: It only
 <span class="lineNum">     460 </span>                :            :              makes two calls to getxattr(), one for ACL_TYPE_ACCESS, one for
 <span class="lineNum">     461 </span>                :            :              ACL_TYPE_DEFAULT.  */
-<span class="lineNum">     462 </span>                :<span class="lineCov">       4088 :           ret = acl_extended_file (name);</span>
+<span class="lineNum">     462 </span>                :<span class="lineCov">       4103 :           ret = acl_extended_file (name);</span>
 <span class="lineNum">     463 </span>                :            :         }
 <span class="lineNum">     464 </span>                :            :       else /* FreeBSD, MacOS X, IRIX, Tru64 */
 <span class="lineNum">     465 </span>                :            :         {
@@ -586,11 +585,10 @@
 <span class="lineNum">     514 </span>                :            :             ret = -1;
 <span class="lineNum">     515 </span>                :            : #  endif
 <span class="lineNum">     516 </span>                :            :         }
-<span class="lineNum">     517 </span>        [<span class="branchCov" title="Branch 0 was taken 27 times"> + </span><span class="branchCov" title="Branch 1 was taken 4061 times"> + </span>]:<span class="lineCov">       4088 :       if (ret &lt; 0)</span>
-<span class="lineNum">     518 </span>[<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 27 times"> + </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineCov">         27 :         return ACL_NOT_WELL_SUPPORTED (errno) ? 0 : -1;</span>
+<span class="lineNum">     517 </span>        [<span class="branchCov" title="Branch 0 was taken 27 times"> + </span><span class="branchCov" title="Branch 1 was taken 4076 times"> + </span>]:<span class="lineCov">       4103 :       if (ret &lt; 0)</span>
+<span class="lineNum">     518 </span>[<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 27 times"> + </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineCov">       4422 :         return ACL_NOT_WELL_SUPPORTED (errno) ? 0 : -1;</span>
 <span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>][<span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>]
-<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 13 was not executed"> # </span><span class="branchNoExec" title="Branch 14 was not executed"> # </span>]
-<span class="lineNum">     519 </span>                :<span class="lineCov">       4061 :       return ret;</span>
+<span class="lineNum">     519 </span>                :            :       return ret;
 <span class="lineNum">     520 </span>                :            : 
 <span class="lineNum">     521 </span>                :            : # elif HAVE_FACL &amp;&amp; defined GETACLCNT /* Solaris, Cygwin, not HP-UX */
 <span class="lineNum">     522 </span>                :            : 
@@ -909,7 +907,7 @@
 <span class="lineNum">     835 </span>                :            :     }
 <span class="lineNum">     836 </span>                :            : #endif
 <span class="lineNum">     837 </span>                :            : 
-<span class="lineNum">     838 </span>                :<span class="lineCov">       4407 :   return 0;</span>
+<span class="lineNum">     838 </span>                :            :   return 0;
 <span class="lineNum">     839 </span>                :            : }
 </pre>
       </td>

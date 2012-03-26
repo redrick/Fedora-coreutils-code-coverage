@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">44</td>
-            <td class="headerCovTableEntry">52</td>
-            <td class="headerCovTableEntryMed">84.6 %</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryMed">83.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -156,7 +156,7 @@
 <span class="lineNum">      85 </span>                :            : &quot;), stdout);
 <span class="lineNum">      86 </span>                :<span class="lineCov">          9 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
 <span class="lineNum">      87 </span>                :<span class="lineCov">          9 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
-<span class="lineNum">      88 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">      88 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">      89 </span>                :            :     }
 <span class="lineNum">      90 </span>                :<span class="lineCov">         12 :   exit (status);</span>
 <span class="lineNum">      91 </span>                :            : }
@@ -185,13 +185,13 @@
 <span class="lineNum">     114 </span>                :            : 
 <span class="lineNum">     115 </span>        [<span class="branchCov" title="Branch 1 was taken 566 times"> + </span><span class="branchCov" title="Branch 2 was taken 536 times"> + </span>]:<span class="lineCov">       1102 :   while ((optc = getopt_long (argc, argv, &quot;efmnqsv&quot;, longopts, NULL)) != -1)</span>
 <span class="lineNum">     116 </span>                :            :     {
-<span class="lineNum">     117 </span>  [<span class="branchCov" title="Branch 0 was taken 129 times"> + </span><span class="branchCov" title="Branch 1 was taken 206 times"> + </span><span class="branchCov" title="Branch 2 was taken 180 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        566 :       switch (optc)</span>
-<span class="lineNum">         </span>   <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 12 times"> + </span><span class="branchCov" title="Branch 6 was taken 9 times"> + </span><span class="branchCov" title="Branch 7 was taken 27 times"> + </span> 
-<span class="lineNum">         </span>            <span class="branchCov" title="Branch 8 was taken 3 times"> + </span>]
+<span class="lineNum">     117 </span>  [<span class="branchCov" title="Branch 0 was taken 206 times"> + </span><span class="branchCov" title="Branch 1 was taken 180 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        566 :       switch (optc)</span>
+<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 12 times"> + </span><span class="branchCov" title="Branch 5 was taken 9 times"> + </span><span class="branchCov" title="Branch 6 was taken 27 times"> + </span><span class="branchCov" title="Branch 7 was taken 3 times"> + </span> 
+<span class="lineNum">         </span>            <span class="branchCov" title="Branch 8 was taken 129 times"> + </span>]
 <span class="lineNum">     118 </span>                :            :         {
 <span class="lineNum">     119 </span>                :            :         case 'e':
-<span class="lineNum">     120 </span>                :<span class="lineCov">        129 :           can_mode = CAN_EXISTING;</span>
-<span class="lineNum">     121 </span>                :<span class="lineCov">        129 :           break;</span>
+<span class="lineNum">     120 </span>                :            :           can_mode = CAN_EXISTING;
+<span class="lineNum">     121 </span>                :            :           break;
 <span class="lineNum">     122 </span>                :            :         case 'f':
 <span class="lineNum">     123 </span>                :<span class="lineCov">        206 :           can_mode = CAN_ALL_BUT_LAST;</span>
 <span class="lineNum">     124 </span>                :<span class="lineCov">        206 :           break;</span>
@@ -211,7 +211,7 @@
 <span class="lineNum">     138 </span>                :<span class="lineCov">          9 :         case_GETOPT_HELP_CHAR;</span>
 <span class="lineNum">     139 </span>                :<span class="lineCov">         27 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
 <span class="lineNum">     140 </span>                :            :         default:
-<span class="lineNum">     141 </span>                :<span class="lineCov">          3 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     141 </span>                :<span class="lineCov">        530 :           usage (EXIT_FAILURE);</span>
 <span class="lineNum">     142 </span>                :            :         }
 <span class="lineNum">     143 </span>                :            :     }
 <span class="lineNum">     144 </span>                :            : 
@@ -234,15 +234,15 @@
 <span class="lineNum">     161 </span>        [<span class="branchCov" title="Branch 0 was taken 515 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">        536 :            : areadlink_with_size (fname, 63));</span>
 <span class="lineNum">     162 </span>        [<span class="branchCov" title="Branch 0 was taken 332 times"> + </span><span class="branchCov" title="Branch 1 was taken 204 times"> + </span>]:<span class="lineCov">        536 :   if (value)</span>
 <span class="lineNum">     163 </span>                :            :     {
-<span class="lineNum">     164 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 332 times"> + </span>]:<span class="lineCov">        332 :       printf (&quot;%s%s&quot;, value, (no_newline ? &quot;&quot; : &quot;\n&quot;));</span>
+<span class="lineNum">     164 </span>        [<span class="branchCov" title="Branch 0 was taken 332 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        332 :       printf (&quot;%s%s&quot;, value, (no_newline ? &quot;&quot; : &quot;\n&quot;));</span>
 <span class="lineNum">     165 </span>                :<span class="lineCov">        332 :       free (value);</span>
 <span class="lineNum">     166 </span>                :<span class="lineCov">        332 :       return EXIT_SUCCESS;</span>
 <span class="lineNum">     167 </span>                :            :     }
 <span class="lineNum">     168 </span>                :            : 
 <span class="lineNum">     169 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 198 times"> + </span>]:<span class="lineCov">        204 :   if (verbose)</span>
-<span class="lineNum">     170 </span>                :<span class="lineCov">          6 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, fname);</span>
+<span class="lineNum">     170 </span>                :<span class="lineCov">        536 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, fname);</span>
 <span class="lineNum">     171 </span>                :            : 
-<span class="lineNum">     172 </span>                :<span class="lineCov">        530 :   return EXIT_FAILURE;</span>
+<span class="lineNum">     172 </span>                :            :   return EXIT_FAILURE;
 <span class="lineNum">     173 </span>                :            : }
 </pre>
       </td>

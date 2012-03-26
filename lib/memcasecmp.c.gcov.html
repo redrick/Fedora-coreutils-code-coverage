@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">10</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -105,7 +105,7 @@
 <span class="lineNum">      34 </span>                :            :   size_t i;
 <span class="lineNum">      35 </span>                :<span class="lineCov">         60 :   char const *s1 = vs1;</span>
 <span class="lineNum">      36 </span>                :<span class="lineCov">         60 :   char const *s2 = vs2;</span>
-<span class="lineNum">      37 </span>        [<span class="branchCov" title="Branch 0 was taken 213 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">        222 :   for (i = 0; i &lt; n; i++)</span>
+<span class="lineNum">      37 </span>        [<span class="branchCov" title="Branch 0 was taken 213 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">        273 :   for (i = 0; i &lt; n; i++)</span>
 <span class="lineNum">      38 </span>                :            :     {
 <span class="lineNum">      39 </span>                :<span class="lineCov">        213 :       unsigned char u1 = s1[i];</span>
 <span class="lineNum">      40 </span>                :<span class="lineCov">        213 :       unsigned char u2 = s2[i];</span>
@@ -113,10 +113,10 @@
 <span class="lineNum">      42 </span>                :<span class="lineCov">        213 :       int U2 = toupper (u2);</span>
 <span class="lineNum">      43 </span>                :<span class="lineCov">        213 :       int diff = (UCHAR_MAX &lt;= INT_MAX ? U1 - U2</span>
 <span class="lineNum">      44 </span>                :            :                   : U1 &lt; U2 ? -1 : U2 &lt; U1);
-<span class="lineNum">      45 </span>        [<span class="branchCov" title="Branch 0 was taken 51 times"> + </span><span class="branchCov" title="Branch 1 was taken 162 times"> + </span>]:<span class="lineCov">        213 :       if (diff)</span>
-<span class="lineNum">      46 </span>                :<span class="lineCov">         51 :         return diff;</span>
+<span class="lineNum">      45 </span>        [<span class="branchCov" title="Branch 0 was taken 162 times"> + </span><span class="branchCov" title="Branch 1 was taken 51 times"> + </span>]:<span class="lineCov">        213 :       if (diff)</span>
+<span class="lineNum">      46 </span>                :            :         return diff;
 <span class="lineNum">      47 </span>                :            :     }
-<span class="lineNum">      48 </span>                :<span class="lineCov">         60 :   return 0;</span>
+<span class="lineNum">      48 </span>                :            :   return 0;
 <span class="lineNum">      49 </span>                :            : }
 </pre>
       </td>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntryMed">78.6 %</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryMed">83.3 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -195,14 +195,14 @@
 <span class="lineNum">     124 </span>                :<span class="lineCov">       2673 :   *p++ = '.';</span>
 <span class="lineNum">     125 </span>                :<span class="lineCov">       2673 :   *p++ = '*';</span>
 <span class="lineNum">     126 </span>                :<span class="lineCov">       2673 :   *p = 'L'; p += 2 &lt; LENGTH;</span>
-<span class="lineNum">     127 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2673 times"> + </span>]:<span class="lineCov">       2673 :   *p++ = flags &amp; FTOASTR_UPPER_E ? 'G' : 'g';</span>
+<span class="lineNum">     127 </span>        [<span class="branchCov" title="Branch 0 was taken 2673 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2673 :   *p++ = flags &amp; FTOASTR_UPPER_E ? 'G' : 'g';</span>
 <span class="lineNum">     128 </span>                :<span class="lineCov">       2673 :   *p = '\0';</span>
 <span class="lineNum">     129 </span>                :            : 
-<span class="lineNum">     130 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 2664 times"> + </span>]:<span class="lineCov">       2673 :   for (prec = abs_x &lt; FLOAT_MIN ? 1 : FLOAT_DIG; ; prec++)</span>
+<span class="lineNum">     130 </span>        [<span class="branchCov" title="Branch 0 was taken 2664 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">       2673 :   for (prec = abs_x &lt; FLOAT_MIN ? 1 : FLOAT_DIG; ; prec++)</span>
 <span class="lineNum">     131 </span>                :            :     {
-<span class="lineNum">     132 </span>                :<span class="lineCov">       6747 :       int n = snprintf (buf, bufsize, format, width, prec, x);</span>
-<span class="lineNum">     133 </span>        [<span class="branchCov" title="Branch 0 was taken 6747 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       6747 :       if (n &lt; 0</span>
-<span class="lineNum">     134 </span>        [<span class="branchCov" title="Branch 0 was taken 5859 times"> + </span><span class="branchCov" title="Branch 1 was taken 888 times"> + </span>]:<span class="lineCov">       6747 :           || FLOAT_PREC_BOUND &lt;= prec</span>
+<span class="lineNum">     132 </span>                :<span class="lineCov">       9921 :       int n = snprintf (buf, bufsize, format, width, prec, x);</span>
+<span class="lineNum">     133 </span>        [<span class="branchCov" title="Branch 0 was taken 5859 times"> + </span><span class="branchCov" title="Branch 1 was taken 888 times"> + </span>]:<span class="lineCov">       6747 :       if (n &lt; 0</span>
+<span class="lineNum">     134 </span>                :<span class="lineCov">       6747 :           || FLOAT_PREC_BOUND &lt;= prec</span>
 <span class="lineNum">     135 </span>[<span class="branchCov" title="Branch 0 was taken 5859 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 1785 times"> + </span><span class="branchCov" title="Branch 4 was taken 4074 times"> + </span>]:<span class="lineCov">       5859 :           || (n &lt; bufsize &amp;&amp; STRTOF (buf, NULL) == x))</span>
 <span class="lineNum">     136 </span>                :<span class="lineCov">       2673 :         return n;</span>
 <span class="lineNum">     137 </span>                :<span class="lineCov">       4074 :     }</span>

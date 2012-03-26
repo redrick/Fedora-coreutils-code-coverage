@@ -31,17 +31,17 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">230</td>
-            <td class="headerCovTableEntry">244</td>
-            <td class="headerCovTableEntryHi">94.3 %</td>
+            <td class="headerCovTableEntry">209</td>
+            <td class="headerCovTableEntry">222</td>
+            <td class="headerCovTableEntryHi">94.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">13</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">84</td>
-            <td class="headerCovTableEntry">107</td>
-            <td class="headerCovTableEntryMed">78.5 %</td>
+            <td class="headerCovTableEntry">80</td>
+            <td class="headerCovTableEntry">97</td>
+            <td class="headerCovTableEntryMed">82.5 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -181,7 +181,7 @@
 <span class="lineNum">     110 </span>                :            :   while (true)
 <span class="lineNum">     111 </span>                :            :     {
 <span class="lineNum">     112 </span>                :<span class="lineCov">        135 :       mpz_tdiv_qr_ui (q, r, t, 3);</span>
-<span class="lineNum">     113 </span>[<span class="branchCov" title="Branch 2 was taken 51 times"> + </span><span class="branchCov" title="Branch 3 was taken 84 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 135 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        135 :       if (mpz_cmp_ui (r, 0) != 0)</span>
+<span class="lineNum">     113 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 51 times"> + </span>]:<span class="lineCov">        135 :       if (mpz_cmp_ui (r, 0) != 0)</span>
 <span class="lineNum">     114 </span>                :            :         break;
 <span class="lineNum">     115 </span>                :<span class="lineCov">         51 :       mpz_set (t, q);</span>
 <span class="lineNum">     116 </span>                :<span class="lineCov">         51 :       emit_ul_factor (3);</span>
@@ -190,33 +190,33 @@
 <span class="lineNum">     119 </span>                :            :   while (true)
 <span class="lineNum">     120 </span>                :            :     {
 <span class="lineNum">     121 </span>                :<span class="lineCov">         90 :       mpz_tdiv_qr_ui (q, r, t, 5);</span>
-<span class="lineNum">     122 </span>[<span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchCov" title="Branch 3 was taken 84 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 90 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         90 :       if (mpz_cmp_ui (r, 0) != 0)</span>
+<span class="lineNum">     122 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         90 :       if (mpz_cmp_ui (r, 0) != 0)</span>
 <span class="lineNum">     123 </span>                :            :         break;
 <span class="lineNum">     124 </span>                :<span class="lineCov">          6 :       mpz_set (t, q);</span>
 <span class="lineNum">     125 </span>                :<span class="lineCov">          6 :       emit_ul_factor (5);</span>
 <span class="lineNum">     126 </span>                :<span class="lineCov">          6 :     }</span>
 <span class="lineNum">     127 </span>                :            : 
-<span class="lineNum">     128 </span>                :<span class="lineCov">         84 :   failures = 0;</span>
-<span class="lineNum">     129 </span>                :<span class="lineCov">         84 :   f = 7;</span>
-<span class="lineNum">     130 </span>                :<span class="lineCov">         84 :   ai = 0;</span>
+<span class="lineNum">     128 </span>                :            :   failures = 0;
+<span class="lineNum">     129 </span>                :            :   f = 7;
+<span class="lineNum">     130 </span>                :            :   ai = 0;
 <span class="lineNum">     131 </span>        [<span class="branchCov" title="Branch 1 was taken 70428 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">      70428 :   while (mpz_cmp_ui (t, 1) != 0)</span>
 <span class="lineNum">     132 </span>                :            :     {
 <span class="lineNum">     133 </span>                :<span class="lineCov">      70428 :       mpz_tdiv_qr_ui (q, r, t, f);</span>
-<span class="lineNum">     134 </span>[<span class="branchCov" title="Branch 2 was taken 70395 times"> + </span><span class="branchCov" title="Branch 3 was taken 33 times"> + </span>][<span class="branchCov" title="Branch 0 was taken 70428 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      70428 :       if (mpz_cmp_ui (r, 0) != 0)</span>
+<span class="lineNum">     134 </span>        [<span class="branchCov" title="Branch 0 was taken 70395 times"> + </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span>]:<span class="lineCov">      70428 :       if (mpz_cmp_ui (r, 0) != 0)</span>
 <span class="lineNum">     135 </span>                :            :         {
 <span class="lineNum">     136 </span>                :<span class="lineCov">      70395 :           f += addv[ai];</span>
-<span class="lineNum">     137 </span>        [<span class="branchCov" title="Branch 1 was taken 18 times"> + </span><span class="branchCov" title="Branch 2 was taken 70377 times"> + </span>]:<span class="lineCov">      70395 :           if (mpz_cmp_ui (q, f) &lt; 0)</span>
-<span class="lineNum">     138 </span>                :<span class="lineCov">         18 :             break;</span>
+<span class="lineNum">     137 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 70395 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 70377 times"> + </span><span class="branchCov" title="Branch 4 was taken 18 times"> + </span>]:<span class="lineCov">      70395 :           if (mpz_cmp_ui (q, f) &lt; 0)</span>
+<span class="lineNum">     138 </span>                :            :             break;
 <span class="lineNum">     139 </span>                :<span class="lineCov">      70377 :           ai = (ai + 1) &amp; 7;</span>
 <span class="lineNum">     140 </span>                :<span class="lineCov">      70377 :           failures++;</span>
-<span class="lineNum">     141 </span>        [<span class="branchCov" title="Branch 0 was taken 66 times"> + </span><span class="branchCov" title="Branch 1 was taken 70311 times"> + </span>]:<span class="lineCov">      70377 :           if (failures &gt; limit)</span>
-<span class="lineNum">     142 </span>                :<span class="lineCov">         66 :             break;</span>
+<span class="lineNum">     141 </span>        [<span class="branchCov" title="Branch 0 was taken 70311 times"> + </span><span class="branchCov" title="Branch 1 was taken 66 times"> + </span>]:<span class="lineCov">      70377 :           if (failures &gt; limit)</span>
+<span class="lineNum">     142 </span>                :            :             break;
 <span class="lineNum">     143 </span>                :            :         }
 <span class="lineNum">     144 </span>                :            :       else
 <span class="lineNum">     145 </span>                :            :         {
 <span class="lineNum">     146 </span>                :<span class="lineCov">         33 :           mpz_swap (t, q);</span>
 <span class="lineNum">     147 </span>                :<span class="lineCov">         33 :           emit_ul_factor (f);</span>
-<span class="lineNum">     148 </span>                :<span class="lineCov">         33 :           failures = 0;</span>
+<span class="lineNum">     148 </span>                :<span class="lineCov">      70344 :           failures = 0;</span>
 <span class="lineNum">     149 </span>                :            :         }
 <span class="lineNum">     150 </span>                :            :     }
 <span class="lineNum">     151 </span>                :            : 
@@ -259,18 +259,18 @@
 <span class="lineNum">     188 </span>                :            :         {
 <span class="lineNum">     189 </span>                :<span class="lineCov">        285 :           c = 0;</span>
 <span class="lineNum">     190 </span>                :<span class="lineCov">        285 :           mpz_gcd (g, P, n);</span>
-<span class="lineNum">     191 </span>        [<span class="branchCov" title="Branch 1 was taken 57 times"> + </span><span class="branchCov" title="Branch 2 was taken 228 times"> + </span>]:<span class="lineCov">        285 :           if (mpz_cmp_ui (g, 1) != 0)</span>
-<span class="lineNum">     192 </span>                :<span class="lineCov">         57 :             goto S4;</span>
+<span class="lineNum">     191 </span>        [<span class="branchCov" title="Branch 1 was taken 228 times"> + </span><span class="branchCov" title="Branch 2 was taken 57 times"> + </span>]:<span class="lineCov">        285 :           if (mpz_cmp_ui (g, 1) != 0)</span>
+<span class="lineNum">     192 </span>                :            :             goto S4;
 <span class="lineNum">     193 </span>                :<span class="lineCov">        228 :           mpz_set (y, x);</span>
 <span class="lineNum">     194 </span>                :            :         }
 <span class="lineNum">     195 </span>                :            : 
 <span class="lineNum">     196 </span>                :<span class="lineCov">       8343 :       k--;</span>
 <span class="lineNum">     197 </span>        [<span class="branchCov" title="Branch 0 was taken 7893 times"> + </span><span class="branchCov" title="Branch 1 was taken 450 times"> + </span>]:<span class="lineCov">       8343 :       if (k &gt; 0)</span>
-<span class="lineNum">     198 </span>                :<span class="lineCov">       7893 :         goto S2;</span>
+<span class="lineNum">     198 </span>                :            :         goto S2;
 <span class="lineNum">     199 </span>                :            : 
 <span class="lineNum">     200 </span>                :<span class="lineCov">        450 :       mpz_gcd (g, P, n);</span>
-<span class="lineNum">     201 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchCov" title="Branch 2 was taken 447 times"> + </span>]:<span class="lineCov">        450 :       if (mpz_cmp_ui (g, 1) != 0)</span>
-<span class="lineNum">     202 </span>                :<span class="lineCov">          3 :         goto S4;</span>
+<span class="lineNum">     201 </span>        [<span class="branchCov" title="Branch 1 was taken 447 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">        450 :       if (mpz_cmp_ui (g, 1) != 0)</span>
+<span class="lineNum">     202 </span>                :            :         goto S4;
 <span class="lineNum">     203 </span>                :            : 
 <span class="lineNum">     204 </span>                :<span class="lineCov">        447 :       mpz_set (x1, x);</span>
 <span class="lineNum">     205 </span>                :<span class="lineCov">        447 :       k = l;</span>
@@ -281,8 +281,8 @@
 <span class="lineNum">     210 </span>                :<span class="lineCov">      12324 :           mpz_mul (x, x, x); mpz_add (x, x, a); mpz_mod (x, x, n);</span>
 <span class="lineNum">     211 </span>                :            :         }
 <span class="lineNum">     212 </span>                :<span class="lineCov">        447 :       mpz_set (y, x);</span>
-<span class="lineNum">     213 </span>                :<span class="lineCov">        447 :       c = 0;</span>
-<span class="lineNum">     214 </span>                :<span class="lineCov">        447 :       goto S2;</span>
+<span class="lineNum">     213 </span>                :<span class="lineCov">        507 :       c = 0;</span>
+<span class="lineNum">     214 </span>                :<span class="lineCov">        507 :       goto S2;</span>
 <span class="lineNum">     215 </span>                :            : S4:
 <span class="lineNum">     216 </span>                :            :       do
 <span class="lineNum">     217 </span>                :            :         {
@@ -301,7 +301,7 @@
 <span class="lineNum">     230 </span>                :<span class="lineNoCov">          0 :               mpn_random (&amp;a_limb, (mp_size_t) 1);</span>
 <span class="lineNum">     231 </span>                :<span class="lineNoCov">          0 :               a_int = (int) a_limb;</span>
 <span class="lineNum">     232 </span>                :            :             }
-<span class="lineNum">     233 </span>[<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>][<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :           while (a_int == -2 || a_int == 0);</span>
+<span class="lineNum">     233 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :           while (a_int == -2 || a_int == 0);</span>
 <span class="lineNum">     234 </span>                :            : 
 <span class="lineNum">     235 </span>                :<span class="lineNoCov">          0 :           debug (&quot;[composite factor--restarting pollard-rho] &quot;);</span>
 <span class="lineNum">     236 </span>                :<span class="lineNoCov">          0 :           factor_using_pollard_rho (g, a_int);</span>
@@ -366,8 +366,8 @@
 <span class="lineNum">     295 </span>                :<span class="lineCov">         12 :   size_t n_factors = 0;</span>
 <span class="lineNum">     296 </span>                :<span class="lineCov">         12 :   unsigned char const *w = wheel_tab;</span>
 <span class="lineNum">     297 </span>                :            : 
-<span class="lineNum">     298 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         12 :   if (n &lt;= 1)</span>
-<span class="lineNum">     299 </span>                :<span class="lineCov">          3 :     return n_factors;</span>
+<span class="lineNum">     298 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         12 :   if (n &lt;= 1)</span>
+<span class="lineNum">     299 </span>                :            :     return n_factors;
 <span class="lineNum">     300 </span>                :            : 
 <span class="lineNum">     301 </span>                :            :   /* The exit condition in the following loop is correct because
 <span class="lineNum">     302 </span>                :            :      any time it is tested one of these 3 conditions holds:
@@ -377,7 +377,7 @@
 <span class="lineNum">     306 </span>                :            :      If (1) or (2) obviously the right thing happens.
 <span class="lineNum">     307 </span>                :            :      If (3), then since n is composite it is &gt;= d^2. */
 <span class="lineNum">     308 </span>                :            : 
-<span class="lineNum">     309 </span>                :<span class="lineCov">          9 :   d = 2;</span>
+<span class="lineNum">     309 </span>                :            :   d = 2;
 <span class="lineNum">     310 </span>                :            :   do
 <span class="lineNum">     311 </span>                :            :     {
 <span class="lineNum">     312 </span>                :<span class="lineCov">         15 :       q = n / d;</span>
@@ -394,7 +394,7 @@
 <span class="lineNum">     323 </span>                :            :     }
 <span class="lineNum">     324 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         15 :   while (d &lt;= q);</span>
 <span class="lineNum">     325 </span>                :            : 
-<span class="lineNum">     326 </span>[<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>][<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">          9 :   if (n != 1 || n0 == 1)</span>
+<span class="lineNum">     326 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          9 :   if (n != 1 || n0 == 1)</span>
 <span class="lineNum">     327 </span>                :            :     {
 <span class="lineNum">     328 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :       assert (n_factors &lt; max_n_factors);</span>
 <span class="lineNum">     329 </span>                :<span class="lineCov">          3 :       factors[n_factors++] = n;</span>
@@ -413,9 +413,9 @@
 <span class="lineNum">     342 </span>                :            :   char buf[INT_BUFSIZE_BOUND (uintmax_t)];
 <span class="lineNum">     343 </span>                :            : 
 <span class="lineNum">     344 </span>                :<span class="lineCov">         12 :   printf (&quot;%s:&quot;, umaxtostr (n, buf));</span>
-<span class="lineNum">     345 </span>        [<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span>]:<span class="lineCov">         27 :   for (i = 0; i &lt; n_factors; i++)</span>
+<span class="lineNum">     345 </span>        [<span class="branchCov" title="Branch 1 was taken 15 times"> + </span><span class="branchCov" title="Branch 2 was taken 12 times"> + </span>]:<span class="lineCov">         27 :   for (i = 0; i &lt; n_factors; i++)</span>
 <span class="lineNum">     346 </span>                :<span class="lineCov">         15 :     printf (&quot; %s&quot;, umaxtostr (factors[i], buf));</span>
-<span class="lineNum">     347 </span>                :<span class="lineCov">         12 :   putchar ('\n');</span>
+<span class="lineNum">     347 </span>                :            :   putchar ('\n');
 <span class="lineNum">     348 </span>                :<span class="lineCov">         12 : }</span>
 <span class="lineNum">     349 </span>                :            : 
 <a name="350"><span class="lineNum">     350 </span>                :            : #if HAVE_GMP</a>
@@ -434,43 +434,43 @@
 <span class="lineNum">     363 </span>                :            :   size_t i;
 <span class="lineNum">     364 </span>                :            : 
 <span class="lineNum">     365 </span>                :<span class="lineCov">         84 :   faclist = xcalloc (nfactors_found, sizeof *faclist);</span>
-<span class="lineNum">     366 </span>        [<span class="branchCov" title="Branch 0 was taken 327 times"> + </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">        411 :   for (i = 0; i &lt; nfactors_found; ++i)</span>
+<span class="lineNum">     366 </span>        [<span class="branchCov" title="Branch 1 was taken 327 times"> + </span><span class="branchCov" title="Branch 2 was taken 84 times"> + </span>]:<span class="lineCov">        411 :   for (i = 0; i &lt; nfactors_found; ++i)</span>
 <span class="lineNum">     367 </span>                :            :     {
 <span class="lineNum">     368 </span>                :<span class="lineCov">        327 :       faclist[i] = &amp;factor[i];</span>
 <span class="lineNum">     369 </span>                :            :     }
 <span class="lineNum">     370 </span>                :<span class="lineCov">         84 :   qsort (faclist, nfactors_found, sizeof *faclist, mpcompare);</span>
 <span class="lineNum">     371 </span>                :            : 
-<span class="lineNum">     372 </span>        [<span class="branchCov" title="Branch 0 was taken 327 times"> + </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">        411 :   for (i = 0; i &lt; nfactors_found; ++i)</span>
+<span class="lineNum">     372 </span>        [<span class="branchCov" title="Branch 1 was taken 327 times"> + </span><span class="branchCov" title="Branch 2 was taken 84 times"> + </span>]:<span class="lineCov">        411 :   for (i = 0; i &lt; nfactors_found; ++i)</span>
 <span class="lineNum">     373 </span>                :            :     {
 <span class="lineNum">     374 </span>                :<span class="lineCov">        327 :       fputc (' ', stdout);</span>
 <span class="lineNum">     375 </span>                :<span class="lineCov">        327 :       mpz_out_str (stdout, 10, *faclist[i]);</span>
 <span class="lineNum">     376 </span>                :            :     }
-<span class="lineNum">     377 </span>                :<span class="lineCov">         84 :   putchar ('\n');</span>
+<span class="lineNum">     377 </span>                :            :   putchar ('\n');
 <span class="lineNum">     378 </span>                :<span class="lineCov">         84 :   free (faclist);</span>
 <span class="lineNum">     379 </span>                :<span class="lineCov">         84 : }</span>
-<a name="380"><span class="lineNum">     380 </span>                :            : </a>
+<span class="lineNum">     380 </span>                :            : 
 <span class="lineNum">     381 </span>                :            : static void
-<span class="lineNum">     382 </span>                :<span class="lineCov">         84 : free_factors (void)</span>
+<span class="lineNum">     382 </span>                :            : free_factors (void)
 <span class="lineNum">     383 </span>                :            : {
-<span class="lineNum">     384 </span>                :            :   size_t i;
+<a name="384"><span class="lineNum">     384 </span>                :            :   size_t i;</a>
 <span class="lineNum">     385 </span>                :            : 
-<span class="lineNum">     386 </span>        [<span class="branchCov" title="Branch 0 was taken 327 times"> + </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">        411 :   for (i = 0; i &lt; nfactors_found; ++i)</span>
+<span class="lineNum">     386 </span>        [<span class="branchCov" title="Branch 1 was taken 327 times"> + </span><span class="branchCov" title="Branch 2 was taken 84 times"> + </span>]:<span class="lineCov">        411 :   for (i = 0; i &lt; nfactors_found; ++i)</span>
 <span class="lineNum">     387 </span>                :            :     {
 <span class="lineNum">     388 </span>                :<span class="lineCov">        327 :       mpz_clear (factor[i]);</span>
 <span class="lineNum">     389 </span>                :            :     }
 <span class="lineNum">     390 </span>                :            :   /* Don't actually free factor[] because in the case where we are
 <span class="lineNum">     391 </span>                :            :      reading numbers from stdin, we may be about to use it again.  */
 <span class="lineNum">     392 </span>                :<span class="lineCov">         84 :   nfactors_found = 0;</span>
-<span class="lineNum">     393 </span>                :<span class="lineCov">         84 : }</span>
+<span class="lineNum">     393 </span>                :            : }
 <span class="lineNum">     394 </span>                :            : 
-<a name="395"><span class="lineNum">     395 </span>                :            : /* Arbitrary-precision factoring */</a>
+<span class="lineNum">     395 </span>                :            : /* Arbitrary-precision factoring */
 <span class="lineNum">     396 </span>                :            : static void
 <span class="lineNum">     397 </span>                :<span class="lineCov">         84 : print_factors_multi (mpz_t t)</span>
 <span class="lineNum">     398 </span>                :            : {
 <span class="lineNum">     399 </span>                :<span class="lineCov">         84 :   mpz_out_str (stdout, 10, t);</span>
-<span class="lineNum">     400 </span>                :<span class="lineCov">         84 :   putchar (':');</span>
+<span class="lineNum">     400 </span>                :            :   putchar (':');
 <span class="lineNum">     401 </span>                :            : 
-<span class="lineNum">     402 </span>[<span class="branchCov" title="Branch 2 was taken 84 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         84 :   if (mpz_sgn (t) != 0)</span>
+<span class="lineNum">     402 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         84 :   if (mpz_sgn (t) != 0)</span>
 <span class="lineNum">     403 </span>                :            :     {
 <span class="lineNum">     404 </span>                :            :       /* Set the trial division limit according to the size of t.  */
 <span class="lineNum">     405 </span>                :<span class="lineCov">         84 :       size_t n_bits = mpz_sizeinbase (t, 2);</span>
@@ -491,7 +491,7 @@
 <span class="lineNum">     420 </span>                :            : 
 <span class="lineNum">     421 </span>                :<span class="lineCov">         84 :   mpz_clear (t);</span>
 <span class="lineNum">     422 </span>                :<span class="lineCov">         84 :   sort_and_print_factors ();</span>
-<span class="lineNum">     423 </span>                :<span class="lineCov">         84 :   free_factors ();</span>
+<span class="lineNum">     423 </span>                :            :   free_factors ();
 <span class="lineNum">     424 </span>                :<span class="lineCov">         84 : }</span>
 <span class="lineNum">     425 </span>                :            : #endif
 <span class="lineNum">     426 </span>                :            : 
@@ -521,7 +521,7 @@
 <span class="lineNum">     450 </span>                :<span class="lineCov">         84 :           print_factors_multi (t);</span>
 <span class="lineNum">     451 </span>                :<span class="lineCov">         84 :           return true;</span>
 <span class="lineNum">     452 </span>                :            :         }
-<span class="lineNum">     453 </span>                :<span class="lineNoCov">          0 :       err = LONGINT_INVALID;</span>
+<span class="lineNum">     453 </span>                :            :       err = LONGINT_INVALID;
 <span class="lineNum">     454 </span>                :            :     }
 <span class="lineNum">     455 </span>                :            : #endif
 <span class="lineNum">     456 </span>                :            : 
@@ -575,13 +575,13 @@
 <span class="lineNum">     504 </span>                :            : &quot;), stdout);
 <span class="lineNum">     505 </span>                :<span class="lineCov">          9 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
 <span class="lineNum">     506 </span>                :<span class="lineCov">          9 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
-<span class="lineNum">     507 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">     507 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">     508 </span>                :            :     }
 <span class="lineNum">     509 </span>                :<span class="lineCov">         15 :   exit (status);</span>
 <span class="lineNum">     510 </span>                :            : }
-<a name="511"><span class="lineNum">     511 </span>                :            : </a>
+<span class="lineNum">     511 </span>                :            : 
 <span class="lineNum">     512 </span>                :            : static bool
-<span class="lineNum">     513 </span>                :<span class="lineCov">          3 : do_stdin (void)</span>
+<a name="513"><span class="lineNum">     513 </span>                :            : do_stdin (void)</a>
 <span class="lineNum">     514 </span>                :            : {
 <span class="lineNum">     515 </span>                :<span class="lineCov">          3 :   bool ok = true;</span>
 <span class="lineNum">     516 </span>                :            :   token_buffer tokenbuffer;
@@ -592,15 +592,15 @@
 <span class="lineNum">     521 </span>                :            :     {
 <span class="lineNum">     522 </span>                :<span class="lineCov">          9 :       size_t token_length = readtoken (stdin, DELIM, sizeof (DELIM) - 1,</span>
 <span class="lineNum">     523 </span>                :            :                                        &amp;tokenbuffer);
-<span class="lineNum">     524 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          9 :       if (token_length == (size_t) -1)</span>
-<span class="lineNum">     525 </span>                :<span class="lineCov">          3 :         break;</span>
+<span class="lineNum">     524 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          9 :       if (token_length == (size_t) -1)</span>
+<span class="lineNum">     525 </span>                :            :         break;
 <span class="lineNum">     526 </span>                :<span class="lineCov">          6 :       ok &amp;= print_factors (tokenbuffer.buffer);</span>
-<span class="lineNum">     527 </span>                :<span class="lineCov">          6 :     }</span>
+<span class="lineNum">     527 </span>                :            :     }
 <span class="lineNum">     528 </span>                :<span class="lineCov">          3 :   free (tokenbuffer.buffer);</span>
 <span class="lineNum">     529 </span>                :            : 
-<span class="lineNum">     530 </span>                :<span class="lineCov">          3 :   return ok;</span>
+<span class="lineNum">     530 </span>                :            :   return ok;
 <span class="lineNum">     531 </span>                :            : }
-<a name="532"><span class="lineNum">     532 </span>                :            : </a>
+<span class="lineNum">     532 </span>                :            : 
 <span class="lineNum">     533 </span>                :            : int
 <span class="lineNum">     534 </span>                :<span class="lineCov">        123 : main (int argc, char **argv)</span>
 <span class="lineNum">     535 </span>                :            : {
@@ -645,7 +645,7 @@
 <span class="lineNum">     574 </span>                :            : #if HAVE_GMP
 <span class="lineNum">     575 </span>                :<span class="lineCov">         93 :   free (factor);</span>
 <span class="lineNum">     576 </span>                :            : #endif
-<span class="lineNum">     577 </span>        [<span class="branchCov" title="Branch 0 was taken 90 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         93 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
+<span class="lineNum">     577 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 90 times"> + </span>]:<span class="lineCov">         93 :   exit (ok ? EXIT_SUCCESS : EXIT_FAILURE);</span>
 <span class="lineNum">     578 </span>                :            : }
 </pre>
       </td>

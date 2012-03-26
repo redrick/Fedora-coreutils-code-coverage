@@ -31,13 +31,13 @@
             <td class="headerValue">coreutils</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">49</td>
-            <td class="headerCovTableEntry">54</td>
-            <td class="headerCovTableEntryHi">90.7 %</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntry">53</td>
+            <td class="headerCovTableEntryHi">90.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-03-14</td>
+            <td class="headerValue">2012-03-26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -107,11 +107,11 @@
 <span class="lineNum">      36 </span>                :            :   proper_name (&quot;David MacKenzie&quot;)
 <a name="37"><span class="lineNum">      37 </span>                :            : </a>
 <span class="lineNum">      38 </span>                :            : static int
-<span class="lineNum">      39 </span>                :<span class="lineCov">         12 : userid_compare (const void *v_a, const void *v_b)</span>
+<span class="lineNum">      39 </span>                :<span class="lineCov">          6 : userid_compare (const void *v_a, const void *v_b)</span>
 <span class="lineNum">      40 </span>                :            : {
-<span class="lineNum">      41 </span>                :<span class="lineCov">         12 :   char **a = (char **) v_a;</span>
-<span class="lineNum">      42 </span>                :<span class="lineCov">         12 :   char **b = (char **) v_b;</span>
-<span class="lineNum">      43 </span>                :<span class="lineCov">         12 :   return strcmp (*a, *b);</span>
+<span class="lineNum">      41 </span>                :<span class="lineCov">          6 :   char **a = (char **) v_a;</span>
+<span class="lineNum">      42 </span>                :<span class="lineCov">          6 :   char **b = (char **) v_b;</span>
+<span class="lineNum">      43 </span>                :<span class="lineCov">          6 :   return strcmp (*a, *b);</span>
 <span class="lineNum">      44 </span>                :            : }
 <a name="45"><span class="lineNum">      45 </span>                :            : </a>
 <span class="lineNum">      46 </span>                :            : static void
@@ -121,31 +121,31 @@
 <span class="lineNum">      50 </span>                :            :   size_t i;
 <span class="lineNum">      51 </span>                :<span class="lineCov">          3 :   size_t n_entries = 0;</span>
 <span class="lineNum">      52 </span>                :            : 
-<span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         21 :   while (n--)</span>
+<span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         24 :   while (n--)</span>
 <span class="lineNum">      54 </span>                :            :     {
-<span class="lineNum">      55 </span>[<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 12 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         18 :       if (IS_USER_PROCESS (this))</span>
+<span class="lineNum">      55 </span>[<span class="branchCov" title="Branch 0 was taken 21 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchCov" title="Branch 3 was taken 12 times"> + </span>]:<span class="lineCov">         21 :       if (IS_USER_PROCESS (this))</span>
 <span class="lineNum">      56 </span>                :            :         {
 <span class="lineNum">      57 </span>                :            :           char *trimmed_name;
 <span class="lineNum">      58 </span>                :            : 
-<span class="lineNum">      59 </span>                :<span class="lineCov">         12 :           trimmed_name = extract_trimmed_name (this);</span>
+<span class="lineNum">      59 </span>                :<span class="lineCov">          9 :           trimmed_name = extract_trimmed_name (this);</span>
 <span class="lineNum">      60 </span>                :            : 
-<span class="lineNum">      61 </span>                :<span class="lineCov">         12 :           u[n_entries] = trimmed_name;</span>
-<span class="lineNum">      62 </span>                :<span class="lineCov">         12 :           ++n_entries;</span>
+<span class="lineNum">      61 </span>                :<span class="lineCov">          9 :           u[n_entries] = trimmed_name;</span>
+<span class="lineNum">      62 </span>                :<span class="lineCov">          9 :           ++n_entries;</span>
 <span class="lineNum">      63 </span>                :            :         }
-<span class="lineNum">      64 </span>                :<span class="lineCov">         18 :       this++;</span>
+<span class="lineNum">      64 </span>                :<span class="lineCov">         21 :       this++;</span>
 <span class="lineNum">      65 </span>                :            :     }
 <span class="lineNum">      66 </span>                :            : 
 <span class="lineNum">      67 </span>                :<span class="lineCov">          3 :   qsort (u, n_entries, sizeof (u[0]), userid_compare);</span>
 <span class="lineNum">      68 </span>                :            : 
-<span class="lineNum">      69 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         15 :   for (i = 0; i &lt; n_entries; i++)</span>
+<span class="lineNum">      69 </span>        [<span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span>]:<span class="lineCov">         12 :   for (i = 0; i &lt; n_entries; i++)</span>
 <span class="lineNum">      70 </span>                :            :     {
-<span class="lineNum">      71 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         12 :       char c = (i &lt; n_entries - 1 ? ' ' : '\n');</span>
-<span class="lineNum">      72 </span>                :<span class="lineCov">         12 :       fputs (u[i], stdout);</span>
-<span class="lineNum">      73 </span>                :<span class="lineCov">         12 :       putchar (c);</span>
+<span class="lineNum">      71 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          9 :       char c = (i &lt; n_entries - 1 ? ' ' : '\n');</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">          9 :       fputs (u[i], stdout);</span>
+<span class="lineNum">      73 </span>                :<span class="lineCov">          9 :       putchar (c);</span>
 <span class="lineNum">      74 </span>                :            :     }
 <span class="lineNum">      75 </span>                :            : 
-<span class="lineNum">      76 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         15 :   for (i = 0; i &lt; n_entries; i++)</span>
-<span class="lineNum">      77 </span>                :<span class="lineCov">         12 :     free (u[i]);</span>
+<span class="lineNum">      76 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">         12 :   for (i = 0; i &lt; n_entries; i++)</span>
+<span class="lineNum">      77 </span>                :<span class="lineCov">          9 :     free (u[i]);</span>
 <span class="lineNum">      78 </span>                :<span class="lineCov">          3 :   free (u);</span>
 <span class="lineNum">      79 </span>                :<span class="lineCov">          3 : }</span>
 <span class="lineNum">      80 </span>                :            : 
@@ -183,7 +183,7 @@
 <span class="lineNum">     112 </span>                :            :               UTMP_FILE, WTMP_FILE);
 <span class="lineNum">     113 </span>                :<span class="lineCov">          9 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
 <span class="lineNum">     114 </span>                :<span class="lineCov">          9 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
-<span class="lineNum">     115 </span>                :<span class="lineCov">          9 :       emit_ancillary_info ();</span>
+<span class="lineNum">     115 </span>                :            :       emit_ancillary_info ();
 <span class="lineNum">     116 </span>                :            :     }
 <span class="lineNum">     117 </span>                :<span class="lineCov">         12 :   exit (status);</span>
 <span class="lineNum">     118 </span>                :            : }
