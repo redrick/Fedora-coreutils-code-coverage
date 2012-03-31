@@ -1,0 +1,162 @@
+== Fedora coreutils code coverage
+
+As a part of bachelors degree theses I am working with this coverage data and it was quiet an adventure to get them with no knowledge of this kind of stuff at all as me, so I am sharing with you not just the results of my adventure, but also I will tell you how to do all the stuff.
+
+Just to clear things up, this one is a distribution coverage from fedora linux distribution. Which includes application of patches on upstream coreutilities. The original coverage of upstream coreutils can be found here: https://github.com/redrick/GNU-coreutils-code-coverage 
+
+== Info
+
+So all the stuff I was doing i did on my Alienware m11x in combination with fedora (and here is something about my fedora):
+Linux redrick 3.3.0-4.fc16.x86_64 #1 SMP Tue Mar 20 18:05:40 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
+(I upgraded since the last time I did the upstream coverage :P)
+
+== Prerequisities
+
+we need to digg into README-prereq, because I did not have most of those utilities, with one small change as described in my other gist:
+  
+  https://gist.github.com/1273797
+
+I suppose you have done it successfully, so just those of you not familiar with git can look into HACKING one
+
+For me there were some things that were not in my system and were essential for tests to run, so just brief commands to install all those things:
+
+  sudo yum install valgrind valgrind-devel
+
+  sudo yum install python-inotify
+
+  sudo yum install perl-Expect expect expect-devel expectk perl-Test-Expect
+
+  sudo yum install strace
+
+OK and now when we have all this done, lets get the things we want out of it.
+
+(pretty the same things as the upstream ones...)
+
+== How to
+
+First thing for you is to get the coreutilities and the actual build for now is here :
+  
+  http://koji.fedoraproject.org/koji/buildinfo?buildID=305779
+
+watch out, because this time you need the source rpm, which simply means that you have to scroll down and get the one with *.src.rpm
+
+now you need the rpm-build package to get things moving ...
+
+  sudo yum install rpm-build
+
+then you need to create the directories for the rpmbuild to use, I found many instructions how to create those manually, but the simplest way would be to go to the home directory and just run the setuptree command just like this:
+
+  rpmbuild-setuptree
+
+it will create all directories for you in the home directory.
+Now you just need to unpack the source rpm and get into business, so first you open the *.src.rpm file with archive manager and extract the coreutils.spec file into directory ~/rpmbuild/SPECS/ then you put all those other files in the archive into ~/rpmbuild/SOURCES
+and you are ready to compile, run tests and so on...
+the main things you need now is to patch the sources and you sure can do it easily enough for everybody
+
+  rpmbuild -bp ~/rpmbuild/SPECS/coreutils.spec
+
+and now when you look into ~/rpmuild/BUILD/ there is the folder called coreutils-8.15 and thats the one we wanted there :P
+so just cd there...
+
+and here we are going to do the same things we did with the upstream ones except now it will be quiet longer process
+First we are going to export C and CPP flags for compilation...
+
+  export CFLAGS=" -fno-strict-aliasing -fpic -D_GNU_SOURCE=1 -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector -fprofile-arcs -ftest-coverage"
+
+  export CPPFLAGS="$CPPFLAGS -DUSE_PAM"
+
+and now as we are in directory with the source files we are going to properly configure it for ./configure with these:
+(I was told that the touch here is used to make sure timestamps are all right)
+
+  touch aclocal.m4 configure config.hin Makefile.in */Makefile.in
+  
+  aclocal -I m4
+  
+  autoconf --force
+  
+  automake --copy --add-missing
+
+now we can run configure like this:
+
+  ./configure --enable-largefile --enable-pam --enable-selinux --enable-install-program=su,hostname,arch --with-tty-group DEFAULT_POSIX2_VERSION=200112 alternative=199209
+
+and from now on it is the same as with the upstream coverage... so like this...
+
+  make
+
+to get out the most out of it I did these steps in this order (I am not really sure if it was reallly necesssary, but it worked)
+(beacause i want most tests to be run and those expensive/very expensive are disabled by default I had to do this)
+  
+  env RUN_EXPENSIVE_TESTS=yes RUN_VERY_EXPENSIVE_TESTS=yes make check
+
+now I am gathering data with lcov, to be able to generate some nice visualization of the coverage
+  
+  lcov -c -o coverage_src.info -d src -b src
+  lcov -c -o coverage_lib.info -d lib -b lib
+
+this time tests which want root privilegues were not run, therefore lets do it once more with root this time
+(this time without expensive tests, those were run without root just fine)
+  
+  sudo make check
+
+now I am gathering data with lcov, to be able to generate some nice visualization of the coverage
+  
+  lcov -c -o coverage_src.info -d src -b src
+  lcov -c -o coverage_lib.info -d lib -b lib
+
+and now generate the html output
+  
+  genhtml -t coreutils -o coverage *.info
+
+  cd coverage
+
+  google-chrome index.html
+
+And vuala there you have it nice and colorfull :)
+
+== Used software/utilities
+
+=== GNU coreutils
+
+The GNU Core Utilities are the basic file, shell and text manipulation utilities of the GNU operating system. These are the core utilities which are expected to exist on every operating system.
+
+Previously these utilities were offered as three individual sets of GNU utilities, Fileutils, Shellutils, and Textutils. Those three have been combined into a single set of utilities called Coreutils.
+
+  http://www.gnu.org/s/coreutils/
+
+=== GIT
+
+Git is a free & open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+Every Git clone is a full-fledged repository with complete history and full revision tracking capabilities, not dependent on network access or a central server. Branching and merging are fast and easy to do.
+
+Git is used for version control of files, much like tools such as Mercurial, Bazaar, Subversion, CVS, Perforce, and Team Foundation Server.
+
+  http://git-scm.com/
+
+=== LCOV
+
+LCOV is a graphical front-end for GCC's coverage testing tool gcov. It collects gcov data for multiple source files and creates HTML pages containing the source code annotated with coverage information. It also adds overview pages for easy navigation within the file structure. LCOV supports statement, function and branch coverage measurement.
+
+  http://ltp.sourceforge.net/coverage/lcov.php
+
+=== GENHTML
+
+Create an HTML view of coverage data found in tracefile. Note that tracefile may also be a list of filenames.
+
+  http://ltp.sourceforge.net/coverage/lcov/genhtml.1.php
+
+== Sources
+  
+* http://stackoverflow.com/questions/4844188/c-using-gcov-and-lcov-problem
+* http://stackoverflow.com/questions/4412709/how-do-i-tell-lcov-where-to-find-my-cpp-h-files
+* https://gist.github.com/1197309
+* http://ltp.cvs.sourceforge.net/viewvc/ltp/utils/?pathrev=HEAD
+* http://old.nabble.com/-Ltp-coverage--lcov-problem,-cannot-open-source-file-td29599757.html
+* http://www.linuxfromscratch.org/lfs/build-logs/6.5/078-coreutils
+
+== Thanks
+
+* Ondrej Vasik
+* Marek Grac
+* Uncle Google
